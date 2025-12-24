@@ -1,0 +1,81 @@
+# Identification des acteurs et flux de communication pour la gestion des commandes et facturation
+
+## Acteurs identifiés
+
+### Acteurs internes
+1. Service secrétariat
+2. Service de préparation des livraisons (ou service des livraisons)
+   - Responsable du service des livraisons
+   - Employé du service des livraisons
+3. Service comptable
+   - Employé du service comptable
+
+### Acteurs externes
+1. Client
+
+## Flux de communication entre les acteurs
+
+### Flux 1 : Client → Service secrétariat
+**Action** : Envoi des commandes par courrier
+**Justification** : "Les commandes des clients arrivent par courrier au service secrétariat, généralement le matin."
+
+### Flux 2 : Service secrétariat → Service de préparation des livraisons
+**Action** : Transmission des commandes
+**Justification** : "En début d'après-midi, les commandes sont transmises au service de préparation des livraisons."
+
+### Flux 3 : Service de préparation des livraisons (Responsable) → Client (cas stock insuffisant)
+**Action** : Envoi d'un courrier d'information sur l'absence d'un produit
+**Justification** : "...sinon il rédige un courrier au client pour l'avertir de l'absence d'un des produits et la commande est mise en attente."
+
+### Flux 4 : Service de préparation des livraisons (Responsable) → Service de préparation des livraisons (Employé)
+**Action** : Transmission du bon de préparation
+**Justification** : "Si les stocks sont suffisants, un bon de préparation est rédigé" puis "un employé du service des livraisons prépare la livraison à l'aide du bon de préparation"
+
+### Flux 5 : Service de préparation des livraisons (Employé) → Client
+**Action** : Envoi du colis avec un exemplaire du bon de livraison
+**Justification** : "...édite en double exemplaire le bon de livraison dont un exemplaire est adressé au client en même temps que le colis"
+
+### Flux 6 : Service de préparation des livraisons (Employé) → Service comptable
+**Action** : Transmission du deuxième exemplaire du bon de livraison
+**Justification** : "...le deuxième exemplaire étant transmis au service comptable."
+
+### Flux 7 : Service comptable → Client
+**Action** : Envoi d'un exemplaire de la facture
+**Justification** : "...édite la facture en double exemplaire : un exemplaire est adressé au client"
+
+## Processus complet et hiérarchique
+
+1. Le **Client** envoie une commande par courrier au **Service secrétariat**.
+
+2. Le **Service secrétariat** transmet les commandes au **Service de préparation des livraisons** en début d'après-midi.
+
+3. Le **Responsable du service des livraisons** vérifie l'identité du client et le stock pour les marchandises commandées.
+
+4. Si les stocks sont insuffisants :
+   - Le **Responsable du service des livraisons** rédige un courrier qu'il envoie au **Client** pour l'informer de l'absence d'un produit.
+   - La commande est mise en attente.
+
+5. Si les stocks sont suffisants :
+   - Le **Responsable du service des livraisons** rédige un bon de préparation pour l'**Employé du service des livraisons**.
+   
+   - L'**Employé du service des livraisons** :
+     a. Prépare la livraison à l'aide du bon de préparation.
+     b. Prélève et emballe les marchandises.
+     c. Saisit les bons de préparation.
+     d. Édite en double exemplaire le bon de livraison.
+     e. Envoie un exemplaire du bon de livraison au **Client** avec le colis.
+     f. Transmet le second exemplaire du bon de livraison au **Service comptable**.
+
+6. Un **Employé du service comptable** :
+   a. Saisit le numéro du bon de livraison reçu.
+   b. Vérifie les tarifs et les conditions de règlement.
+   c. Édite la facture en double exemplaire.
+   d. Envoie un exemplaire de la facture au **Client**.
+   e. Archive l'autre exemplaire en attente de comptabilisation.
+
+7. En fin de semaine, un **Employé du service comptable** :
+   a. Récupère l'ensemble des factures en attente de comptabilisation.
+   b. Saisit le numéro de facture et valide les données à l'écran pour chacune d'elles.
+   c. Met à jour le grand livre après la saisie.
+
+Ce processus montre clairement l'enchaînement des opérations entre les différents acteurs, depuis la réception de la commande jusqu'à la mise à jour du grand livre comptable.

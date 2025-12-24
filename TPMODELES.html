@@ -1,0 +1,2032 @@
+<!-- MCC-->
+<!-- jeanlouis21@-->
+<prompt>
+  Identifie premièrement les différents acteurs (interne/externe) ensuite établit chaque flux de communication qu'il y'a entre 2 acteurs , flux par flux , 1 à 1, suivant l'ordre de l'énoncé 
+
+Voici l'énoncé :
+
+### Étude de Cas : Gestion des Stocks dans la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est une petite structure familiale gérée exclusivement par le pharmacien titulaire, un professionnel expérimenté qui s'occupe de l'ensemble des opérations quotidiennes de manière manuelle, sans recours à des systèmes informatisés. Située dans un quartier résidentiel animé, elle propose une gamme variée de médicaments, de produits parapharmaceutiques et d'articles de soins de santé essentiels, comme des antidouleurs, des antibiotiques, des vitamines, des crèmes dermatologiques et des accessoires médicaux tels que des thermomètres ou des bandages. Le pharmacien, souvent appelé affectueusement "PAPA DIBAPHAR" par les habitués, gère seul les achats, les ventes, le contrôle des stocks, les interactions avec les clients et les fournisseurs, ainsi que les tâches administratives basiques. La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures du soir, avec une pause déjeuner de 13 heures à 14 heures, et reste fermée les dimanches et jours fériés, sauf en cas d'urgence où le pharmacien peut ouvrir exceptionnellement sur appel téléphonique.
+
+Les stocks sont maintenus dans un espace de rangement sécurisé à l'arrière de la pharmacie, organisé en étagères étiquetées par catégories de produits : médicaments sur ordonnance, produits en vente libre, articles périssables nécessitant une réfrigération (comme certains vaccins ou insulines), et produits non périssables. Chaque produit est identifié par un code simple que le pharmacien attribue manuellement, composé d'une lettre pour la catégorie (par exemple, "A" pour antidouleurs) suivie d'un numéro séquentiel (comme A001 pour le paracétamol). Pour chaque produit, il note dans un registre dédié les informations essentielles : le nom générique et commercial, le fournisseur d'origine, la date d'achat, la date d'expiration, le prix d'achat unitaire, le prix de vente unitaire, la quantité initiale reçue, et des remarques sur les conditions de stockage (comme "conserver au frais" ou "protéger de la lumière"). Ces registres sont des cahiers à pages numérotées, conservés dans un tiroir verrouillé pour éviter les erreurs ou les pertes.
+
+Le processus d'achat commence lorsque le pharmacien identifie un besoin de réapprovisionnement, généralement en consultant son registre de stocks le soir après la fermeture ou le matin avant l'ouverture. Il vérifie les niveaux de stock en comptant physiquement les unités restantes sur les étagères et compare avec les entrées notées. Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire. La commande inclut le nom du produit, la quantité désirée (souvent en boîtes ou en lots de 50 à 100 unités), et une demande de facture. Le fournisseur livre les produits directement à la pharmacie, généralement dans les 48 heures, accompagnés d'une facture détaillant le nom du produit, la quantité livrée, le prix unitaire, le montant total, et la date de livraison. Le pharmacien inspecte la livraison pour vérifier la conformité (quantité, état, dates d'expiration), signe la facture comme accusé de réception, et paie comptant ou par chèque sur place. Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue à la ligne correspondante du produit, notant la date de l'entrée, le numéro de la facture, et met à jour le stock total. Si un produit est endommagé ou non conforme, il le retourne immédiatement au fournisseur, qui émet un avoir, et le pharmacien note cette sortie comme une correction dans le registre sans impact sur les ventes.
+
+Les ventes constituent le cœur de l'activité et modifient directement les stocks. Un client entre librement dans la pharmacie pendant les heures d'ouverture, parcourt les étagères des produits en vente libre ou demande conseil au pharmacien pour des médicaments sur ordonnance. Pour une vente typique, le client présente une ordonnance médicale si nécessaire (émise par un médecin, avec des détails comme le nom du patient, le nom du médicament, la posologie et la durée du traitement), ou décrit simplement ses symptômes pour des produits en libre-service. Le pharmacien écoute les besoins, vérifie la disponibilité en consultant rapidement son registre ou en regardant les étagères, et conseille sur l'utilisation appropriée, les contre-indications et les alternatives si le produit exact n'est pas en stock. Une fois les produits sélectionnés, le pharmacien les sort des étagères, les place sur le comptoir et calcule manuellement le total en additionnant les prix unitaires, en appliquant éventuellement une petite remise pour les clients fidèles ou pour les achats en gros. Il informe le client du montant dû et accepte le paiement, principalement en espèces, bien qu'il tolère occasionnellement les paiements mobiles pour les habitués. Le pharmacien délivre les produits au client dans un sac, accompagnés d'un reçu manuel écrit à la main sur un bloc-notes carbone, indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé, et son tampon de pharmacie. Une fois le paiement effectué et le reçu remis, la vente est clôturée : le client quitte la pharmacie avec les produits emballés. Immédiatement après, le pharmacien met à jour son registre de stocks en soustrayant la quantité vendue de la ligne du produit concerné, notant la date de sortie, une référence au reçu (comme un numéro séquentiel), et le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs pour respecter la confidentialité). Pour les produits sur ordonnance, il conserve une copie de l'ordonnance dans un dossier séparé pour des fins de traçabilité réglementaire.
+
+Outre les approvisionnements et les ventes, le pharmacien gère les aspects liés à la conservation et à la surveillance des stocks. Tous les matins avant l'ouverture, il effectue un contrôle visuel rapide des étagères pour repérer les produits proches de l'expiration ; ceux qui expirent dans moins d'un mois sont mis de côté pour une vente prioritaire à prix réduit ou, si inutilisables, jetés selon les normes sanitaires, avec une note dans le registre pour ajuster les quantités. Il maintient également un inventaire mensuel complet, où il compte physiquement tous les produits et compare avec les entrées du registre pour détecter d'éventuelles erreurs ou pertes. Pour les médicaments réfrigérés, comme certains vaccins ou insulines, il utilise un petit réfrigérateur et vérifie quotidiennement la température pour éviter la détérioration. En cas de vol ou de perte, rare dans cette petite pharmacie, il note l'incident et ajuste le stock en conséquence.
+
+La pharmacie interagit également avec d'autres entités externes pour des raisons réglementaires qui impactent indirectement le stock. Par exemple, les inspecteurs sanitaires du ministère de la Santé visitent occasionnellement pour vérifier la conformité des stocks, des dates d'expiration et des conditions de stockage ; le pharmacien leur fournit accès à ses registres et ajuste ses pratiques si des recommandations sont faites, comme le retrait de lots rappelés par les fabricants. De plus, pour certains médicaments contrôlés, il doit rapporter mensuellement les quantités vendues aux autorités via des formulaires papier, ce qui nécessite de conserver des traces précises des transactions.
+
+En résumé, la gestion des stocks chez DIBAPHAR repose sur la diligence du pharmacien titulaire, qui équilibre manuellement les entrées et sorties pour assurer la disponibilité des produits essentiels tout en minimisant les pertes.
+
+**Travail à faire :** Construire les MCC, MCT, MOT (MOpt), MCD, MOD, MLD et MPD de l'énoncé ci-dessus.
+</prompt>
+<div>
+
+
+### 1. Identification des Acteurs
+
+Voici les entités qui interagissent dans le système.
+
+**Acteur Interne :**
+*   **Le Pharmacien (Pharmacie DIBAPHAR) :** Il représente le système interne. Il gère toutes les opérations (achats, ventes, stocks, administration).
+
+**Acteurs Externes :**
+*   **Le Fournisseur :** Grossistes pharmaceutiques ou représentants de laboratoires qui approvisionnent la pharmacie.
+*   **Le Client :** Personne qui achète des médicaments ou demande des conseils.
+*   **Le Ministère de la Santé (Inspecteurs) :** Autorité de régulation qui effectue des contrôles et reçoit des rapports.
+
+---
+
+### 2. Flux de communication (Flux par flux)
+
+Les flux sont listés dans l'ordre chronologique de leur apparition dans la description des processus (Achats -> Ventes -> Régulation).
+
+**Processus d'Approvisionnement (Achats) :**
+
+1.  **Pharmacien $\rightarrow$ Fournisseur :** Commande de produits (verbale ou écrite).
+    *   *Contexte :* Le pharmacien identifie un besoin de réapprovisionnement et contacte le fournisseur.
+2.  **Fournisseur $\rightarrow$ Pharmacien :** Livraison des produits + Facture.
+    *   *Contexte :* Le fournisseur livre la marchandise accompagnée de la facture détaillée.
+3.  **Pharmacien $\rightarrow$ Fournisseur :** Facture signée (Accusé de réception).
+    *   *Contexte :* Après vérification de la conformité, le pharmacien signe la facture.
+4.  **Pharmacien $\rightarrow$ Fournisseur :** Paiement (Espèces ou Chèque).
+    *   *Contexte :* Le pharmacien règle la facture sur place.
+5.  **Pharmacien $\rightarrow$ Fournisseur :** Retour produit non conforme (Flux conditionnel).
+    *   *Contexte :* Si un produit est endommagé ou non conforme lors de la livraison.
+6.  **Fournisseur $\rightarrow$ Pharmacien :** Avoir (Flux conditionnel).
+    *   *Contexte :* En réponse au retour de produit, le fournisseur émet un document d'avoir.
+
+**Processus de Vente :**
+
+7.  **Client $\rightarrow$ Pharmacien :** Demande de conseil / Description symptômes OU Présentation Ordonnance.
+    *   *Contexte :* Le client exprime son besoin ou donne l'ordonnance médicale au pharmacien.
+8.  **Pharmacien $\rightarrow$ Client :** Conseils / Informations sur l'utilisation.
+    *   *Contexte :* Le pharmacien conseille le client sur le produit sélectionné ou l'alternative.
+9.  **Pharmacien $\rightarrow$ Client :** Annonce du montant dû.
+    *   *Contexte :* Après avoir calculé le total manuellement, le pharmacien informe le client du prix.
+10. **Client $\rightarrow$ Pharmacien :** Paiement (Espèces ou Mobile).
+    *   *Contexte :* Le client règle la somme demandée.
+11. **Pharmacien $\rightarrow$ Client :** Remise des produits + Reçu manuel.
+    *   *Contexte :* Le pharmacien donne les médicaments et le reçu papier au client (clôture de la vente).
+
+**Processus Réglementaire (Ministère) :**
+
+12. **Ministère de la Santé $\rightarrow$ Pharmacien :** Demande de contrôle / Inspection.
+    *   *Contexte :* Les inspecteurs se présentent pour vérifier la conformité.
+13. **Pharmacien $\rightarrow$ Ministère de la Santé :** Accès aux registres / Informations stock.
+    *   *Contexte :* Le pharmacien présente ses cahiers et stocks aux inspecteurs.
+14. **Ministère de la Santé $\rightarrow$ Pharmacien :** Recommandations / Rappels de lots.
+    *   *Contexte :* Les inspecteurs donnent des directives ou signalent des produits à retirer.
+15. **Pharmacien $\rightarrow$ Ministère de la Santé :** Rapport mensuel (Médicaments contrôlés).
+    *   *Contexte :* Le pharmacien envoie les formulaires papier concernant les ventes de produits réglementés.
+</div>
+
+<!-- MCD -->
+<!-- d7ykht18xb@zudpck.com -->
+<prompt>
+  Identifie :
+Les entités, leurs propriétés/attributs, identifiant , relations, la cardinalité, les règles de gestion
+
+Réalise :
+le graphe de dépendances fonctionnelles et le dictionnaire des données 
+
+Pour le dictionnaire des données voici les éléments , on a :
+- Nom de la donnée 
+- Format 
+- longueur 
+- Type ( Élémentaire | Calculée)
+- Règle de calcul 
+- Règle de gestion 
+- Document
+
+Les identifiants des on les identifient dans le dictionnaire avec le symbole * au début.
+Nom de la donnée = attributs/propriétés/identifiant d'une entité 
+
+
+C'est pour un MCD 
+
+Faut toujours tout démontrer, des trucs comme la normalisation, la fusion,... Pour dire pourquoi on a cet aspect et non l'autre, pour s'expliquer sur le Pourquoi on a que 4 entités au lieu de 8, pour dire pourquoi on a ça ou ça au lieu de ça,... 
+
+Dans chaque entité faut toujours mettre ses propriétés complets même si elles ne sont pas tous cités 
+
+Pour :
+- chaque entité déclaré tu dois montré l'extrait de la partie de l'énoncé qui permet cela 
+- de même pours leurs propriétés, attributs 
+- de même pour les relations,
+- de même pour la cardinalité 
+
+NB: Concernant les relations faut utiliser des verbes à l'infinitif qui qui s'applique de façon bidirectionnelle ou dans tous les sens utilisant ce même verbe 
+Ça garantie la cohérence 
+
+Il faut que ça soit tellement cohérent suivant l'énoncé à tel que nul ni personne pourrait contredire ça 
+
+Tout doit avoir un extrait de l'énoncé mais sachant que ça peut toujours être explicite ou implicite 
+
+Les extraits nous aides à ne peut pas nous permet, il nous permet de nous localiser, d'avoir une meilleure compréhension 
+
+Tu peux réaliser un tableau pour les identifications des entités, propriétés/attributs, relations/cardinalités, règles de gestion, chacun avec une zone extrait de l'énoncé pour comprendre et tu peux ajouter d'autres éléments nécessaires 
+
+N'oublie pas : Dans chaque entité faut toujours mettre ses propriétés complets même si elles sont implicite ou explicite 
+
+Car on a besoin des propriétés, une entité ou une table ne doit pas seulement être créer pour avoir une seule propriété ou  champ
+
+Fait en sorte qu'en lisant le MCD ça nous donne presque les mêmes chemins que quand on avait lu l'énoncé 
+
+Tout ça c'était pour le MCD 
+Tu ferras le MOD (celui qui parle de responsabilité pour chaque poste : ajouter , modifier, supprimer, consulter,...etc) et le MLD en se basant sur le MCD qui a été construite
+
+Voici l'énoncé :
+
+
+  ### Étude de Cas : Gestion des Stocks dans la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est une petite structure familiale gérée exclusivement par M. Dibaphar, un pharmacien expérimenté qui s'occupe de l'ensemble des opérations quotidiennes de manière manuelle, sans recours à des systèmes informatisés. Située dans un quartier résidentiel animé, elle propose une gamme variée de médicaments, de produits parapharmaceutiques et d'articles de soins de santé essentiels, comme des antidouleurs, des antibiotiques, des vitamines, des crèmes dermatologiques et des accessoires médicaux tels que des thermomètres ou des bandages. M. Dibaphar, souvent appelé affectueusement "PAPA DIBAPHAR" par les habitués, gère seul les achats, les ventes, le contrôle des stocks, les interactions avec les clients et les fournisseurs, ainsi que les tâches administratives basiques. La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures du soir, avec une pause déjeuner de 13 heures à 14 heures, et reste fermée les dimanches et jours fériés, sauf en cas d'urgence où M. Dibaphar peut ouvrir exceptionnellement sur appel téléphonique.
+
+Les stocks sont maintenus dans un espace de rangement sécurisé à l'arrière de la pharmacie, organisé en étagères étiquetées par catégories de produits : médicaments sur ordonnance, produits en vente libre, articles périssables nécessitant une réfrigération (comme certains vaccins ou insulines), et produits non périssables. Chaque produit est identifié par un code simple que M. Dibaphar attribue manuellement, composé d'une lettre pour la catégorie (par exemple, "A" pour antidouleurs) suivie d'un numéro séquentiel (comme A001 pour le paracétamol). Pour chaque produit, il note dans un registre dédié les informations essentielles : le nom générique et commercial, le fournisseur d'origine, la date d'achat, la date d'expiration, le prix d'achat unitaire, le prix de vente unitaire, la quantité initiale reçue, et des remarques sur les conditions de stockage (comme "conserver au frais" ou "protéger de la lumière"). Ces registres sont des cahiers à pages numérotées, conservés dans un tiroir verrouillé pour éviter les erreurs ou les pertes.
+
+Le processus d'achat commence lorsque M. Dibaphar identifie un besoin de réapprovisionnement, généralement en consultant son registre de stocks le soir après la fermeture ou le matin avant l'ouverture. Il vérifie les niveaux de stock en comptant physiquement les unités restantes sur les étagères et compare avec les entrées notées. Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire. La commande inclut le nom du produit, la quantité désirée (souvent en boîtes ou en lots de 50 à 100 unités), et une demande de facture. Le fournisseur livre les produits directement à la pharmacie, généralement dans les 48 heures, accompagnés d'une facture détaillant le nom du produit, la quantité livrée, le prix unitaire, le montant total, et la date de livraison. M. Dibaphar inspecte la livraison pour vérifier la conformité (quantité, état, dates d'expiration), signe la facture comme accusé de réception, et paie comptant ou par chèque sur place. Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue à la ligne correspondante du produit, notant la date de l'entrée, le numéro de la facture, et met à jour le stock total. Si un produit est endommagé ou non conforme, il le retourne immédiatement au fournisseur, qui émet un avoir, et M. Dibaphar note cette sortie comme une correction dans le registre sans impact sur les ventes.
+
+Les ventes constituent le cœur de l'activité et modifient directement les stocks. Un client entre librement dans la pharmacie pendant les heures d'ouverture, parcourt les étagères des produits en vente libre ou demande conseil à M. Dibaphar pour des médicaments sur ordonnance. Pour une vente typique, le client présente une ordonnance médicale si nécessaire (émise par un médecin, avec des détails comme le nom du patient, le nom du médicament, la posologie et la durée du traitement), ou décrit simplement ses symptômes pour des produits en libre-service. M. Dibaphar écoute les besoins, vérifie la disponibilité en consultant rapidement son registre ou en regardant les étagères, et conseille sur l'utilisation appropriée, les contre-indications et les alternatives si le produit exact n'est pas en stock. Il sélectionne ensuite les articles demandés, les place sur le comptoir, et calcule le montant total en multipliant la quantité par le prix de vente unitaire, en ajoutant éventuellement une petite marge pour les services de conseil. Le client paie en espèces, par carte bancaire via un terminal portable, ou exceptionnellement par chèque pour les clients réguliers. M. Dibaphar délivre un reçu manuel écrit à la main sur un bloc-notes carbone, indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé, et son tampon de pharmacie. Une fois le paiement effectué et le reçu remis, la vente est clôturée : le client quitte la pharmacie avec les produits emballés. Immédiatement après, M. Dibaphar met à jour son registre de stocks en soustrayant la quantité vendue de la ligne du produit concerné, notant la date de sortie, une référence au reçu (comme un numéro séquentiel), et le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs pour respecter la confidentialité). Pour les produits sur ordonnance, il conserve une copie de l'ordonnance dans un dossier séparé pour des fins de traçabilité réglementaire.
+
+Les sorties de stock ne se limitent pas aux ventes ; M. Dibaphar gère également les pertes dues à l'expiration ou aux dommages. Tous les mois, il effectue un inventaire manuel en comptant physiquement tous les produits et en comparant avec le registre. Si un produit est expiré (par exemple, un lot d'antibiotiques dont la date d'expiration est dépassée), il le retire des étagères, le place dans une zone de déchets médicaux sécurisée, et note la sortie dans le registre comme une perte, avec la quantité, la date et la raison. Ces déchets sont ensuite collectés par un service spécialisé de ramassage des déchets pharmaceutiques, qui fournit un certificat de destruction que M. Dibaphar archive. De même, pour les retours de clients (rares, mais possibles pour des produits non ouverts en cas d'erreur), il inspecte l'article, rembourse si approprié, et réintègre la quantité au stock en notant l'entrée de retour dans le registre.
+
+Les interactions avec les fournisseurs ne se limitent pas aux achats ; ils fournissent occasionnellement des informations sur de nouveaux produits ou des rappels de lots défectueux via des courriers ou des visites. Dans ce cas, M. Dibaphar retire immédiatement les lots concernés du stock, les retourne au fournisseur pour un remboursement, et note la sortie comme un rappel dans le registre. Pour les clients, bien que la plupart des interactions soient directes et anonymes, les habitués peuvent passer des commandes par téléphone pour des produits spécifiques, que M. Dibaphar prépare à l'avance et met de côté, mais la vente n'est finalisée qu'à l'arrivée du client avec paiement et mise à jour du stock.
+
+Enfin, M. Dibaphar maintient un registre séparé pour les rapports mensuels, où il compile les totaux d'entrées (achats), de sorties (ventes, pertes, retours), et les stocks finaux pour évaluer la rentabilité et anticiper les besoins futurs. Ce registre inclut des calculs manuels simples, comme le chiffre d'affaires par produit ou les marges bénéficiaires, basés sur les prix d'achat et de vente. Toute la documentation est archivée chronologiquement dans des classeurs pour d'éventuels contrôles par les autorités sanitaires, qui visitent périodiquement la pharmacie pour vérifier la conformité des stocks et des enregistrements.
+
+Travail à faire : Construire les MCD, MOD, MLD de l’énoncé ci-dessus.
+</prompt>
+<div>
+  # ANALYSE COMPLÈTE - GESTION DES STOCKS PHARMACIE DIBAPHAR
+
+## PHASE 1 : IDENTIFICATION ET JUSTIFICATION
+
+### 1.1 TABLEAU D'IDENTIFICATION DES ENTITÉS
+
+| **ENTITÉ** | **EXTRAIT DE L'ÉNONCÉ (JUSTIFICATION)** | **PROPRIÉTÉS IDENTIFIÉES** | **JUSTIFICATION DES PROPRIÉTÉS** |
+|------------|----------------------------------------|---------------------------|----------------------------------|
+| **PRODUIT** | "Chaque produit est identifié par un code simple... composé d'une lettre pour la catégorie suivie d'un numéro séquentiel (comme A001 pour le paracétamol)" | *codeProduit, nomGenerique, nomCommercial, categorie, prixAchat, prixVente, conditionStockage, seuilRupture | - Code : "code simple que M. Dibaphar attribue manuellement"<br>- Noms : "le nom générique et commercial"<br>- Prix : "le prix d'achat unitaire, le prix de vente unitaire"<br>- Condition : "des remarques sur les conditions de stockage (comme 'conserver au frais')" |
+| **FOURNISSEUR** | "il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire" | *codeFournisseur, nomFournisseur, typeFournisseur, adresse, telephone, email | - Identité explicite : "un fournisseur, qui est typiquement un grossiste pharmaceutique local"<br>- Contact implicite : pour "passer une commande verbale ou écrite" nécessite des coordonnées |
+| **MOUVEMENT_STOCK** | "Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue... notant la date de l'entrée, le numéro de la facture" + "met à jour son registre de stocks en soustrayant la quantité vendue... notant la date de sortie" | *numeroMouvement, dateMouvement, typeMouvement, quantite, prixUnitaire, montantTotal, motif, numeroReference | - Numéro : identifiant unique implicite pour traçabilité<br>- Date : "notant la date de l'entrée" / "la date de sortie"<br>- Type : "entrée" vs "sortie" (achats, ventes, pertes, retours, rappels)<br>- Quantité : "la quantité reçue" / "la quantité vendue"<br>- Motif : "comme une perte, avec la quantité, la date et la raison" |
+| **VENTE** | "Le client paie... M. Dibaphar délivre un reçu manuel écrit à la main... indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé" | *numeroVente, dateVente, heureVente, montantTotal, modePaiement, nomClientApprox, typeVente, numeroOrdonnance | - Numéro : "une référence au reçu (comme un numéro séquentiel)"<br>- Date/Heure : "indiquant la date" + heures d'ouverture "8 heures... 20 heures"<br>- Montant : "le total payé"<br>- Paiement : "en espèces, par carte bancaire... ou exceptionnellement par chèque"<br>- Client : "le nom approximatif du client pour les ordonnances"<br>- Type : "sur ordonnance" vs "libre-service" |
+
+**ANALYSE DE NORMALISATION DES ENTITÉS :**
+
+**Pourquoi 4 entités et pas plus ?**
+
+1. **CLIENT supprimé** : L'énoncé indique "le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs)". Les clients ne sont pas identifiés de manière unique, les interactions sont "directes et anonymes" pour la plupart. Le nomClientApprox dans VENTE suffit.
+
+2. **COMMANDE_FOURNISSEUR fusionnée dans MOUVEMENT_STOCK** : Les "commandes verbales ou écrites" ne sont pas tracées formellement avant réception. L'énoncé dit "Le fournisseur livre... accompagnés d'une facture" - c'est la livraison (mouvement d'entrée) qui est enregistrée, pas la commande préalable.
+
+3. **LOT supprimé** : Bien que l'énoncé mentionne "des rappels de lots défectueux", il n'y a pas de gestion individuelle par lot. Le registre note seulement "la date d'expiration" et "la quantité initiale reçue" sans traçabilité par lot.
+
+4. **STOCK_ACTUEL supprimé comme entité** : Le stock actuel est une **donnée calculée** : "stock actuel = somme des entrées - somme des sorties" pour chaque produit. L'énoncé confirme : "le comptant physiquement tous les produits et en comparant avec le registre".
+
+### 1.2 TABLEAU DES RELATIONS ET CARDINALITÉS
+
+| **RELATION** | **ENTITÉS LIÉES** | **VERBE INFINITIF** | **EXTRAIT JUSTIFICATIF** | **CARDINALITÉ** | **JUSTIFICATION CARDINALITÉ** |
+|--------------|------------------|---------------------|-------------------------|-----------------|-------------------------------|
+| **FOURNIR** | FOURNISSEUR - PRODUIT | fournir | "Pour chaque produit, il note... le fournisseur d'origine" | (0,n) - (1,1) | - Un FOURNISSEUR peut fournir 0 à n PRODUIT (0 si nouveau fournisseur)<br>- Un PRODUIT est fourni par 1 seul FOURNISSEUR ("le fournisseur d'origine" - article défini singulier) |
+| **CONCERNER** | MOUVEMENT_STOCK - PRODUIT | concerner | "met à jour son registre de stocks... de la ligne du produit concerné" | (1,n) - (1,1) | - Un MOUVEMENT_STOCK concerne 1 seul PRODUIT (chaque ligne = 1 produit)<br>- Un PRODUIT peut être concerné par 1 à n MOUVEMENT_STOCK (au moins un achat initial) |
+| **EFFECTUER** | FOURNISSEUR - MOUVEMENT_STOCK | effectuer | "Le fournisseur livre les produits... accompagnés d'une facture" (pour entrées) | (0,n) - (0,1) | - Un FOURNISSEUR peut effectuer 0 à n MOUVEMENT_STOCK d'entrée<br>- Un MOUVEMENT_STOCK d'entrée est effectué par 0 ou 1 FOURNISSEUR (0 si mouvement de sortie, 1 si achat) |
+| **GENERER** | VENTE - MOUVEMENT_STOCK | générer | "Une fois le paiement effectué... Immédiatement après, M. Dibaphar met à jour son registre de stocks en soustrayant la quantité vendue" | (1,n) - (1,1) | - Une VENTE génère 1 à n MOUVEMENT_STOCK de sortie (plusieurs produits vendus ensemble)<br>- Un MOUVEMENT_STOCK de sortie-vente est généré par 1 seule VENTE |
+| **COMPOSER** | VENTE - PRODUIT | composer | "délivre un reçu... indiquant... les produits vendus, les quantités, les prix unitaires" | (1,n) - (0,n) | - Une VENTE est composée de 1 à n PRODUIT<br>- Un PRODUIT peut composer 0 à n VENTE<br>**RELATION PORTEUSE** : quantiteVendue, prixVenteUnitaire |
+
+**ANALYSE DE CARDINALITÉS CRITIQUES :**
+
+1. **FOURNIR (0,n) - (1,1)** : Pas (1,n) - (1,n) car un nouveau fournisseur peut être enregistré sans produit encore fourni. Un produit a UN SEUL fournisseur d'origine selon "le fournisseur d'origine".
+
+2. **COMPOSER avec attributs** : Cette relation est **porteuse** car "les quantités, les prix unitaires" varient selon la vente (le prix peut changer dans le temps).
+
+### 1.3 RÈGLES DE GESTION
+
+| **N°** | **RÈGLE** | **EXTRAIT JUSTIFICATIF** | **TYPE** |
+|--------|-----------|--------------------------|----------|
+| RG1 | Un produit est identifié uniquement par son code (lettre catégorie + numéro séquentiel) | "Chaque produit est identifié par un code simple... composé d'une lettre pour la catégorie suivie d'un numéro séquentiel" | Contrainte d'unicité |
+| RG2 | Le seuil de rupture déclenche un réapprovisionnement | "Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande" | Règle métier |
+| RG3 | Chaque mouvement de stock doit être daté et typé (entrée/sortie) | "notant la date de l'entrée" / "notant la date de sortie" | Contrainte d'intégrité |
+| RG4 | Les types de mouvements sont : ACHAT, VENTE, PERTE_EXPIRATION, PERTE_DOMMAGE, RETOUR_CLIENT, RETOUR_FOURNISSEUR, RAPPEL_LOT | "entrées (achats), de sorties (ventes, pertes, retours)" + "note la sortie comme une perte" + "rappels de lots défectueux" | Contrainte de domaine |
+| RG5 | Le stock actuel = somme des entrées - somme des sorties | "il effectue un inventaire manuel en comptant physiquement tous les produits et en comparant avec le registre" | Calcul |
+| RG6 | Une vente nécessite un mode de paiement parmi : ESPECES, CARTE_BANCAIRE, CHEQUE | "Le client paie en espèces, par carte bancaire... ou exceptionnellement par chèque" | Contrainte de domaine |
+| RG7 | Les ventes sur ordonnance nécessitent un numéro d'ordonnance et le nom approximatif du client | "Pour les produits sur ordonnance, il conserve une copie de l'ordonnance... notant... le nom approximatif du client" | Contrainte conditionnelle |
+| RG8 | Les produits expirés génèrent automatiquement un mouvement de sortie de type PERTE_EXPIRATION | "Si un produit est expiré... il le retire... et note la sortie dans le registre comme une perte" | Règle automatique |
+| RG9 | Le prix de vente doit être supérieur au prix d'achat (marge positive) | Implicite dans "évaluer la rentabilité... les marges bénéficiaires, basés sur les prix d'achat et de vente" | Contrainte métier |
+| RG10 | Les heures d'ouverture : Lundi-Samedi 8h-13h et 14h-20h, fermé dimanche sauf urgence | "La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures... avec une pause déjeuner de 13 heures à 14 heures" | Contrainte temporelle |
+
+## PHASE 2 : DICTIONNAIRE DES DONNÉES
+
+| **Nom de la donnée** | **Format** | **Longueur** | **Type** | **Règle de calcul** | **Règle de gestion** | **Document** |
+|----------------------|------------|--------------|----------|---------------------|---------------------|--------------|
+| ***codeProduit** | AN | 10 | Élémentaire | - | RG1 : Unique, format lettre+numéro (ex: A001) | Registre stocks, Facture |
+| nomGenerique | A | 100 | Élémentaire | - | Obligatoire | Registre stocks |
+| nomCommercial | A | 100 | Élémentaire | - | Facultatif | Registre stocks, Facture |
+| categorie | A | 50 | Élémentaire | - | Valeurs : ANTIDOULEUR, ANTIBIOTIQUE, VITAMINE, DERMATOLOGIQUE, ACCESSOIRE, AUTRE | Registre stocks |
+| prixAchat | N | 10,2 | Élémentaire | - | RG9 : > 0 | Facture fournisseur |
+| prixVente | N | 10,2 | Élémentaire | - | RG9 : > prixAchat | Reçu vente |
+| conditionStockage | A | 200 | Élémentaire | - | Exemples : "conserver au frais", "protéger de la lumière" | Registre stocks |
+| seuilRupture | N | 5 | Élémentaire | - | RG2 : Défaut = 10 unités | Registre stocks |
+| stockActuel | N | 8 | **Calculée** | **somme(quantité des MOUVEMENT_STOCK en entrée) - somme(quantité des MOUVEMENT_STOCK en sortie)** | RG5 : Recalculé à chaque mouvement | Inventaire mensuel |
+| ***codeFournisseur** | AN | 10 | Élémentaire | - | Unique | Registre fournisseurs |
+| nomFournisseur | A | 150 | Élémentaire | - | Obligatoire | Facture fournisseur |
+| typeFournisseur | A | 50 | Élémentaire | - | Valeurs : GROSSISTE, LABORATOIRE, AUTRE | Registre fournisseurs |
+| adresse | A | 250 | Élémentaire | - | Facultatif | Registre fournisseurs |
+| telephone | AN | 15 | Élémentaire | - | Obligatoire pour commandes verbales | Registre fournisseurs |
+| email | A | 100 | Élémentaire | - | Facultatif | Registre fournisseurs |
+| ***numeroMouvement** | AN | 15 | Élémentaire | - | RG3 : Unique, séquentiel | Registre stocks |
+| dateMouvement | D | 10 | Élémentaire | - | RG3 : Obligatoire, format JJ/MM/AAAA | Registre stocks |
+| typeMouvement | A | 30 | Élémentaire | - | RG4 : ACHAT, VENTE, PERTE_EXPIRATION, PERTE_DOMMAGE, RETOUR_CLIENT, RETOUR_FOURNISSEUR, RAPPEL_LOT | Registre stocks |
+| quantite | N | 8 | Élémentaire | - | > 0 | Registre stocks, Facture, Reçu |
+| prixUnitaire | N | 10,2 | Élémentaire | - | > 0 | Registre stocks |
+| montantTotal | N | 12,2 | **Calculée** | **quantite × prixUnitaire** | - | Facture, Reçu |
+| motif | A | 200 | Élémentaire | - | Obligatoire pour types PERTE_*, RETOUR_*, RAPPEL_LOT | Registre stocks |
+| numeroReference | AN | 20 | Élémentaire | - | N° facture pour ACHAT, N° reçu pour VENTE | Facture, Reçu |
+| ***numeroVente** | AN | 15 | Élémentaire | - | Unique, séquentiel | Reçu vente |
+| dateVente | D | 10 | Élémentaire | - | Obligatoire, format JJ/MM/AAAA | Reçu vente |
+| heureVente | H | 5 | Élémentaire | - | RG10 : Dans plages horaires autorisées | Reçu vente |
+| montantTotalVente | N | 12,2 | **Calculée** | **somme(quantiteVendue × prixVenteUnitaire) pour tous les produits de la vente** | - | Reçu vente |
+| modePaiement | A | 20 | Élémentaire | - | RG6 : ESPECES, CARTE_BANCAIRE, CHEQUE | Reçu vente |
+| nomClientApprox | A | 100 | Élémentaire | - | RG7 : Obligatoire si typeVente = ORDONNANCE | Reçu vente, Dossier ordonnances |
+| typeVente | A | 20 | Élémentaire | - | Valeurs : ORDONNANCE, LIBRE_SERVICE | Reçu vente |
+| numeroOrdonnance | AN | 30 | Élémentaire | - | RG7 : Obligatoire si typeVente = ORDONNANCE | Ordonnance médicale |
+| quantiteVendue | N | 5 | Élémentaire | - | > 0, attribut de la relation COMPOSER | Reçu vente |
+| prixVenteUnitaire | N | 10,2 | Élémentaire | - | > 0, attribut de la relation COMPOSER | Reçu vente |
+| chiffreAffaires | N | 15,2 | **Calculée** | **somme(montantTotalVente) sur une période** | - | Rapport mensuel |
+| margeBeneficiaire | N | 15,2 | **Calculée** | **chiffreAffaires - somme(prixAchat × quantite vendues)** | - | Rapport mensuel |
+
+**Légende Format :**
+- **A** : Alphabétique
+- **N** : Numérique (longueur = total,décimales)
+- **AN** : Alphanumérique
+- **D** : Date
+- **H** : Heure
+
+## PHASE 3 : GRAPHE DE DÉPENDANCES FONCTIONNELLES
+
+### 3.1 Dépendances Fonctionnelles Élémentaires
+
+**PRODUIT :**
+```
+codeProduit → nomGenerique
+codeProduit → nomCommercial
+codeProduit → categorie
+codeProduit → prixAchat
+codeProduit → prixVente
+codeProduit → conditionStockage
+codeProduit → seuilRupture
+codeProduit → codeFournisseur
+```
+
+**FOURNISSEUR :**
+```
+codeFournisseur → nomFournisseur
+codeFournisseur → typeFournisseur
+codeFournisseur → adresse
+codeFournisseur → telephone
+codeFournisseur → email
+```
+
+**MOUVEMENT_STOCK :**
+```
+numeroMouvement → dateMouvement
+numeroMouvement → typeMouvement
+numeroMouvement → quantite
+numeroMouvement → prixUnitaire
+numeroMouvement → montantTotal (calculé : quantite × prixUnitaire)
+numeroMouvement → motif
+numeroMouvement → numeroReference
+numeroMouvement → codeProduit
+numeroMouvement → codeFournisseur (si typeMouvement = ACHAT)
+numeroMouvement → numeroVente (si typeMouvement = VENTE)
+```
+
+**VENTE :**
+```
+numeroVente → dateVente
+numeroVente → heureVente
+numeroVente → montantTotalVente (calculé : somme lignes)
+numeroVente → modePaiement
+numeroVente → nomClientApprox
+numeroVente → typeVente
+numeroVente → numeroOrdonnance
+```
+
+**COMPOSER (relation) :**
+```
+numeroVente, codeProduit → quantiteVendue
+numeroVente, codeProduit → prixVenteUnitaire
+```
+
+### 3.2 Dépendances Fonctionnelles Transitives (à éliminer en 3FN)
+
+**Aucune dépendance transitive détectée** car :
+- Toutes les dépendances sont directes par rapport aux clés primaires
+- Les attributs calculés ne créent pas de redondance (recalculables)
+
+### 3.3 Normalisation - Forme Normale Atteinte
+
+**1ère Forme Normale (1FN) :** ✓
+- Tous les attributs sont atomiques
+- Pas de groupes répétitifs (relation COMPOSER pour les lignes de vente)
+
+**2ème Forme Normale (2FN) :** ✓
+- Toutes les dépendances fonctionnelles élémentaires dépendent de la totalité de la clé
+- Pour COMPOSER (clé composite), les attributs dépendent bien de (numeroVente, codeProduit)
+
+**3ème Forme Normale (3FN) :** ✓
+- Aucune dépendance transitive
+- Chaque attribut non-clé dépend uniquement de la clé primaire
+
+**Forme Normale de Boyce-Codd (BCNF) :** ✓
+- Toutes les dépendances fonctionnelles ont une clé candidate comme déterminant
+
+## PHASE 4 : MODÈLE CONCEPTUEL DE DONNÉES (MCD)
+
+### 4.1 Représentation Textuelle du MCD
+
+```
+┌─────────────────────────────┐
+│       FOURNISSEUR           │
+├─────────────────────────────┤
+│ *codeFournisseur            │
+│  nomFournisseur             │
+│  typeFournisseur            │
+│  adresse                    │
+│  telephone                  │
+│  email                      │
+└─────────────────────────────┘
+        │
+        │ (0,n) FOURNIR (1,1)
+        │
+        ▼
+┌─────────────────────────────┐         ┌─────────────────────────────┐
+│         PRODUIT             │         │      MOUVEMENT_STOCK        │
+├─────────────────────────────┤         ├─────────────────────────────┤
+│ *codeProduit                │◄───────►│ *numeroMouvement            │
+│  nomGenerique               │ (1,n)   │  dateMouvement              │
+│  nomCommercial              │ CONCERNER│  typeMouvement             │
+│  categorie                  │ (1,1)   │  quantite                   │
+│  prixAchat                  │         │  prixUnitaire               │
+│  prixVente                  │         │  montantTotal (calculé)     │
+│  conditionStockage          │         │  motif                      │
+│  seuilRupture               │         │  numeroReference            │
+│  stockActuel (calculé)      │         └─────────────────────────────┘
+└─────────────────────────────┘                  ▲
+        │                                        │
+        │ (0,n)                         (0,1)    │ (0,n)
+        │ COMPOSER                    EFFECTUER  │
+        │ (1,n)                                  │
+        │                                        │
+        │                              ┌─────────────────┐
+        │                              │  FOURNISSEUR    │
+        │                              │  (relation)     │
+        │                              └─────────────────┘
+        │
+        │ attributs: quantiteVendue, prixVenteUnitaire
+        │
+        ▼
+┌─────────────────────────────┐
+│          VENTE              │
+├─────────────────────────────┤
+│ *numeroVente                │
+│  dateVente                  │
+│  heureVente                 │
+│  montantTotalVente (calculé)│
+│  modePaiement               │
+│  nomClientApprox            │
+│  typeVente                  │
+│  numeroOrdonnance           │
+└─────────────────────────────┘
+        │
+        │ (1,n) GENERER (1,1)
+        │
+        ▼
+┌─────────────────────────────┐
+│    MOUVEMENT_STOCK          │
+│    (sortie vente)           │
+└─────────────────────────────┘
+```
+
+### 4.2 Schéma MCD Détaillé avec Cardinalités Complètes
+
+**ENTITÉS :**
+
+**E1 - PRODUIT** (*codeProduit*, nomGenerique, nomCommercial, categorie, prixAchat, prixVente, conditionStockage, seuilRupture, stockActuel)
+
+**E2 - FOURNISSEUR** (*codeFournisseur*, nomFournisseur, typeFournisseur, adresse, telephone, email)
+
+**E3 - MOUVEMENT_STOCK** (*numeroMouvement*, dateMouvement, typeMouvement, quantite, prixUnitaire, montantTotal, motif, numeroReference)
+
+**E4 - VENTE** (*numeroVente*, dateVente, heureVente, montantTotalVente, modePaiement, nomClientApprox, typeVente, numeroOrdonnance)
+
+**RELATIONS :**
+
+**R1 - FOURNIR**
+- FOURNISSEUR (0,n) ──FOURNIR── (1,1) PRODUIT
+- Lecture : Un fournisseur peut fournir 0 à plusieurs produits ; un produit est fourni par exactement un fournisseur
+
+**R2 - CONCERNER**
+- PRODUIT (1,n) ──CONCERNER── (1,1) MOUVEMENT_STOCK
+- Lecture : Un produit peut être concerné par 1 à plusieurs mouvements ; un mouvement concerne exactement un produit
+
+**R3 - EFFECTUER**
+- FOURNISSEUR (0,n) ──EFFECTUER── (0,1) MOUVEMENT_STOCK
+- Lecture : Un fournisseur peut effectuer 0 à plusieurs mouvements d'achat ; un mouvement d'achat est effectué par 0 ou 1 fournisseur (0 si sortie)
+
+**R4 - GENERER**
+- VENTE (1,n) ──GENERER── (1,1) MOUVEMENT_STOCK
+- Lecture : Une vente génère 1 à plusieurs mouvements de sortie ; un mouvement de sortie-vente est généré par exactement une vente
+
+**R5 - COMPOSER** (porteuse : quantiteVendue, prixVenteUnitaire)
+- VENTE (1,n) ──COMPOSER── (0,n) PRODUIT
+- Lecture : Une vente est composée de 1 à plusieurs produits ; un produit peut composer 0 à plusieurs ventes
+
+### 4.3 Justifications Complémentaires
+
+**Pourquoi MOUVEMENT_STOCK centralise-t-il tout ?**
+
+L'énoncé décrit un système de **traçabilité unique** : "il note dans un registre dédié" puis "Il enregistre ensuite l'entrée dans son registre de stocks" et "met à jour son registre de stocks". Ce registre unique enregistre TOUS les mouvements (entrées/sorties) de manière homogène. Créer des entités séparées (ACHAT, PERTE, etc.) violerait ce principe d'unification du registre et créerait de la redondance.
+
+**Pourquoi COMPOSER est une relation porteuse ?**
+
+L'énoncé dit "délivre un reçu... indiquant... les produits vendus, **les quantités**, **les prix unitaires**". Ces données varient **par association** (vente × produit) et ne dépendent ni uniquement de VENTE ni de PRODUIT :
+- Le prix de vente peut changer dans le temps (promotions, inflation)
+- La quantité est propre à chaque ligne de vente
+
+**Pourquoi stockActuel est calculé et non stocké ?**
+
+L'énoncé dit explicitement : "il effectue un inventaire manuel en **comptant physiquement** tous les produits et en **comparant avec le registre**". Le registre contient les mouvements, le stock est **dérivé** par calcul. Stocker le stock créerait une **redondance** et des risques d'incohérence (violation de la 3FN).
+
+## PHASE 5 : MODÈLE ORGANISATIONNEL DE DONNÉES (MOD)
+
+### 5.1 Postes et Responsabilités
+
+| **POSTE** | **ACTEUR** | **RESPONSABILITÉS** | **EXTRAIT JUSTIFICATIF** |
+|-----------|------------|---------------------|--------------------------|
+| **PHARMACIEN_GERANT** | M. Dibaphar | - Gestion complète de toutes les opérations<br>- Achats, ventes, inventaires<br>- Relation clients et fournisseurs | "gérée exclusivement par M. Dibaphar, un pharmacien expérimenté qui s'occupe de l'ensemble des opérations quotidiennes" |
+
+### 5.2 Matrice CRUD (Create, Read, Update, Delete) par Entité/Poste
+
+| **ENTITÉ/RELATION** | **PHARMACIEN_GERANT** | **JUSTIFICATION** |
+|---------------------|-----------------------|-------------------|
+| **PRODUIT** | **C** : Créer nouveau produit<br>**R** : Consulter catalogue, prix, stocks<br>**U** : Modifier prix, seuil, conditions<br>**D** : Supprimer produit obsolète | "Chaque produit est identifié par un code simple que M. Dibaphar attribue manuellement" = Création<br>"il note dans un registre dédié les informations essentielles" = Lecture/Modification |
+| **FOURNISSEUR** | **C** : Enregistrer nouveau fournisseur<br>**R** : Consulter coordonnées pour commande<br>**U** : Mettre à jour contacts<br>**D** : Supprimer fournisseur inactif | "il passe une commande verbale ou écrite auprès d'un fournisseur" nécessite l'enregistrement préalable |
+| **MOUVEMENT_STOCK** | **C** : Créer mouvement (achat, vente, perte)<br>**R** : Consulter historique, inventaire<br>**U** : Corriger erreur de saisie<br>**D** : Annuler mouvement erroné | "Il enregistre ensuite l'entrée" / "met à jour son registre" = Création systématique<br>"il effectue un inventaire... en comparant avec le registre" = Lecture |
+| **VENTE** | **C** : Créer vente après paiement<br>**R** : Consulter historique, chiffre d'affaires<br>**U** : Non autorisé (intégrité)<br>**D** : Annuler vente (remboursement) | "M. Dibaphar délivre un reçu" = Création de la vente<br>"compile les totaux" = Lecture pour rapports |
+| **FOURNIR** | **C** : Associer produit à fournisseur<br>**R** : Consulter origine produit<br>**U** : Changer fournisseur<br>**D** : Non (intégrité historique) | "il note... le fournisseur d'origine" = Création de la relation |
+| **COMPOSER** | **C** : Ajouter ligne de vente<br>**R** : Consulter détails vente<br>**U** : Non (vente finalisée)<br>**D** : Non (traçabilité) | "indiquant... les produits vendus, les quantités" = Création des lignes de composition |
+
+### 5.3 Règles Organisationnelles
+
+| **N°** | **RÈGLE ORGANISATIONNELLE** | **EXTRAIT JUSTIFICATIF** |
+|--------|-----------------------------|--------------------------|
+| RO1 | Seul M. Dibaphar peut créer, modifier ou supprimer des données | "gérée exclusivement par M. Dibaphar" |
+| RO2 | L'inventaire physique est effectué mensuellement, en dehors des heures d'ouverture | "Tous les mois, il effectue un inventaire manuel" + "le soir après la fermeture ou le matin avant l'ouverture" |
+| RO3 | Toute vente doit être immédiatement enregistrée après le paiement | "Une fois le paiement effectué... Immédiatement après, M. Dibaphar met à jour son registre" |
+| RO4 | Les produits expirés doivent être retirés lors de l'inventaire mensuel | "Tous les mois, il effectue un inventaire... Si un produit est expiré... il le retire" |
+| RO5 | Les documents (factures, reçus, ordonnances) doivent être archivés chronologiquement | "Toute la documentation est archivée chronologiquement dans des classeurs" |
+| RO6 | Les commandes fournisseurs sont passées lorsque le stock atteint le seuil de rupture | "Si un produit approche de la rupture... il passe une commande" |
+| RO7 | Les ventes sur ordonnance nécessitent l'archivage de l'ordonnance | "il conserve une copie de l'ordonnance dans un dossier séparé" |
+
+### 5.4 Procédures Opérationnelles Détaillées
+
+**PROCÉDURE 1 : Réapprovisionnement (ACHAT)**
+
+1. **Consultation des stocks** (Lecture PRODUIT)
+   - M. Dibaphar consulte le registre
+   - Compare stock actuel avec seuil de rupture
+
+2. **Identification des besoins** (Lecture PRODUIT, FOURNISSEUR)
+   - Liste des produits sous seuil
+   - Identification du fournisseur associé
+
+3. **Passation de commande** (hors système - verbal/écrit)
+   - Contact du fournisseur par téléphone ou courrier
+
+4. **Réception et vérification** (Lecture PRODUIT)
+   - Inspection de la livraison
+   - Vérification conformité (quantité, état, expiration)
+
+5. **Enregistrement de l'entrée** (Création MOUVEMENT_STOCK)
+   - Type = ACHAT
+   - Quantité, prix, date, numéro facture
+   - Association au produit et fournisseur
+
+6. **Mise à jour du stock** (Calcul automatique)
+   - stockActuel recalculé
+
+7. **Archivage** (hors système)
+   - Facture classée chronologiquement
+
+**PROCÉDURE 2 : Vente**
+
+1. **Accueil client** (hors système)
+   - Conseil, vérification ordonnance si nécessaire
+
+2. **Vérification disponibilité** (Lecture PRODUIT)
+   - Consultation du stock actuel
+
+3. **Sélection des produits** (Lecture PRODUIT)
+   - Identification des codes produits
+
+4. **Calcul du montant** (Lecture PRODUIT - prixVente)
+   - Total = somme(quantité × prix unitaire)
+
+5. **Encaissement** (hors système)
+   - Paiement par mode choisi
+
+6. **Création de la vente** (Création VENTE)
+   - Date, heure, montant, mode paiement, type
+
+7. **Création des lignes de vente** (Création COMPOSER)
+   - Pour chaque produit : quantité, prix unitaire
+
+8. **Génération des mouvements de sortie** (Création MOUVEMENT_STOCK)
+   - Type = VENTE
+   - Un mouvement par produit vendu
+   - Association à la vente
+
+9. **Émission du reçu** (hors système)
+   - Reçu manuscrit remis au client
+
+10. **Archivage ordonnance** (si applicable)
+    - Copie conservée dans dossier dédié
+
+**PROCÉDURE 3 : Inventaire et Gestion des Pertes**
+
+1. **Comptage physique** (hors système)
+   - Tous les produits comptés manuellement
+
+2. **Comparaison avec le registre** (Lecture MOUVEMENT_STOCK, calcul stockActuel)
+   - Identification des écarts
+
+3. **Vérification des dates d'expiration** (Lecture PRODUIT - implicite)
+   - Identification des produits expirés
+
+4. **Retrait des produits expirés** (hors système)
+   - Mise en zone de déchets
+
+5. **Enregistrement des pertes** (Création MOUVEMENT_STOCK)
+   - Type = PERTE_EXPIRATION ou PERTE_DOMMAGE
+   - Quantité, date, motif détaillé
+
+6. **Mise à jour des stocks** (Calcul automatique)
+   - stockActuel recalculé
+
+7. **Gestion des déchets** (hors système)
+   - Collecte par service spécialisé, archivage certificat
+
+## PHASE 6 : MODÈLE LOGIQUE DE DONNÉES (MLD)
+
+### 6.1 Règles de Transformation MCD → MLD
+
+**Règle 1 : Entité → Table**
+- Chaque entité devient une table
+- L'identifiant devient clé primaire (PK)
+- Les attributs deviennent des colonnes
+
+**Règle 2 : Relation (1,1) - (0,n) ou (1,n)**
+- La clé primaire du côté (1,1) migre comme clé étrangère (FK) dans l'entité du côté (0,n) ou (1,n)
+
+**Règle 3 : Relation (0,n) - (0,n) ou (1,n) - (0,n)**
+- Création d'une table d'association
+- Clé primaire composite = clés primaires des deux entités
+- Attributs de la relation deviennent colonnes
+
+**Règle 4 : Relation (0,1) - (0,n)**
+- Clé étrangère facultative du côté (0,n) vers le côté (0,1)
+
+### 6.2 Application des Règles
+
+**FOURNIR** : FOURNISSEUR (0,n) - (1,1) PRODUIT
+→ **Règle 2** : Migration de codeFournisseur dans PRODUIT
+
+**CONCERNER** : PRODUIT (1,n) - (1,1) MOUVEMENT_STOCK
+→ **Règle 2** : Migration de codeProduit dans MOUVEMENT_STOCK
+
+**EFFECTUER** : FOURNISSEUR (0,n) - (0,1) MOUVEMENT_STOCK
+→ **Règle 4** : Migration de codeFournisseur (nullable) dans MOUVEMENT_STOCK
+
+**GENERER** : VENTE (1,n) - (1,1) MOUVEMENT_STOCK (pour sorties ventes)
+→ **Règle 2** : Migration de numeroVente (nullable) dans MOUVEMENT_STOCK
+
+**COMPOSER** : VENTE (1,n) - (0,n) PRODUIT (relation porteuse)
+→ **Règle 3** : Création table LIGNE_VENTE (numeroVente, codeProduit, quantiteVendue, prixVenteUnitaire)
+
+### 6.3 Schéma MLD Complet
+
+```sql
+-- TABLE 1 : FOURNISSEUR
+FOURNISSEUR (
+    codeFournisseur VARCHAR(10) PRIMARY KEY,
+    nomFournisseur VARCHAR(150) NOT NULL,
+    typeFournisseur VARCHAR(50) CHECK (typeFournisseur IN ('GROSSISTE', 'LABORATOIRE', 'AUTRE')),
+    adresse VARCHAR(250),
+    telephone VARCHAR(15) NOT NULL,
+    email VARCHAR(100)
+);
+
+-- TABLE 2 : PRODUIT
+PRODUIT (
+    codeProduit VARCHAR(10) PRIMARY KEY,
+    nomGenerique VARCHAR(100) NOT NULL,
+    nomCommercial VARCHAR(100),
+    categorie VARCHAR(50) NOT NULL CHECK (categorie IN ('ANTIDOULEUR', 'ANTIBIOTIQUE', 'VITAMINE', 'DERMATOLOGIQUE', 'ACCESSOIRE', 'AUTRE')),
+    prixAchat DECIMAL(10,2) NOT NULL CHECK (prixAchat > 0),
+    prixVente DECIMAL(10,2) NOT NULL CHECK (prixVente > prixAchat), -- RG9
+    conditionStockage VARCHAR(200),
+    seuilRupture INT DEFAULT 10 CHECK (seuilRupture >= 0),
+    codeFournisseur VARCHAR(10) NOT NULL, -- Migration de FOURNIR
+    FOREIGN KEY (codeFournisseur) REFERENCES FOURNISSEUR(codeFournisseur)
+);
+
+-- TABLE 3 : VENTE
+VENTE (
+    numeroVente VARCHAR(15) PRIMARY KEY,
+    dateVente DATE NOT NULL,
+    heureVente TIME NOT NULL,
+    modePaiement VARCHAR(20) NOT NULL CHECK (modePaiement IN ('ESPECES', 'CARTE_BANCAIRE', 'CHEQUE')), -- RG6
+    nomClientApprox VARCHAR(100),
+    typeVente VARCHAR(20) NOT NULL CHECK (typeVente IN ('ORDONNANCE', 'LIBRE_SERVICE')),
+    numeroOrdonnance VARCHAR(30),
+    -- Contrainte RG7
+    CHECK (
+        (typeVente = 'ORDONNANCE' AND nomClientApprox IS NOT NULL AND numeroOrdonnance IS NOT NULL)
+        OR (typeVente = 'LIBRE_SERVICE')
+    )
+);
+
+-- TABLE 4 : MOUVEMENT_STOCK
+MOUVEMENT_STOCK (
+    numeroMouvement VARCHAR(15) PRIMARY KEY,
+    dateMouvement DATE NOT NULL,
+    typeMouvement VARCHAR(30) NOT NULL CHECK (typeMouvement IN ('ACHAT', 'VENTE', 'PERTE_EXPIRATION', 'PERTE_DOMMAGE', 'RETOUR_CLIENT', 'RETOUR_FOURNISSEUR', 'RAPPEL_LOT')), -- RG4
+    quantite INT NOT NULL CHECK (quantite > 0),
+    prixUnitaire DECIMAL(10,2) NOT NULL CHECK (prixUnitaire > 0),
+    motif VARCHAR(200),
+    numeroReference VARCHAR(20),
+    codeProduit VARCHAR(10) NOT NULL, -- Migration de CONCERNER
+    codeFournisseur VARCHAR(10), -- Migration de EFFECTUER (nullable car sorties n'ont pas de fournisseur)
+    numeroVente VARCHAR(15), -- Migration de GENERER (nullable car entrées n'ont pas de vente)
+    FOREIGN KEY (codeProduit) REFERENCES PRODUIT(codeProduit),
+    FOREIGN KEY (codeFournisseur) REFERENCES FOURNISSEUR(codeFournisseur),
+    FOREIGN KEY (numeroVente) REFERENCES VENTE(numeroVente),
+    -- Contraintes de cohérence
+    CHECK (
+        (typeMouvement = 'ACHAT' AND codeFournisseur IS NOT NULL AND numeroVente IS NULL)
+        OR (typeMouvement = 'VENTE' AND numeroVente IS NOT NULL AND codeFournisseur IS NULL)
+        OR (typeMouvement IN ('PERTE_EXPIRATION', 'PERTE_DOMMAGE', 'RETOUR_CLIENT', 'RETOUR_FOURNISSEUR', 'RAPPEL_LOT') AND motif IS NOT NULL)
+    )
+);
+
+-- TABLE 5 : LIGNE_VENTE (Table d'association de COMPOSER)
+LIGNE_VENTE (
+    numeroVente VARCHAR(15),
+    codeProduit VARCHAR(10),
+    quantiteVendue INT NOT NULL CHECK (quantiteVendue > 0),
+    prixVenteUnitaire DECIMAL(10,2) NOT NULL CHECK (prixVenteUnitaire > 0),
+    PRIMARY KEY (numeroVente, codeProduit),
+    FOREIGN KEY (numeroVente) REFERENCES VENTE(numeroVente) ON DELETE CASCADE,
+    FOREIGN KEY (codeProduit) REFERENCES PRODUIT(codeProduit)
+);
+```
+
+### 6.4 Contraintes d'Intégrité Supplémentaires
+
+```sql
+-- Vue pour calculer le stock actuel (RG5)
+CREATE VIEW V_STOCK_ACTUEL AS
+SELECT 
+    p.codeProduit,
+    p.nomGenerique,
+    COALESCE(SUM(CASE 
+        WHEN m.typeMouvement IN ('ACHAT', 'RETOUR_CLIENT') THEN m.quantite
+        WHEN m.typeMouvement IN ('VENTE', 'PERTE_EXPIRATION', 'PERTE_DOMMAGE', 'RETOUR_FOURNISSEUR', 'RAPPEL_LOT') THEN -m.quantite
+        ELSE 0
+    END), 0) AS stockActuel
+FROM PRODUIT p
+LEFT JOIN MOUVEMENT_STOCK m ON p.codeProduit = m.codeProduit
+GROUP BY p.codeProduit, p.nomGenerique;
+
+-- Vue pour calculer le montant total d'une vente (donnée calculée)
+CREATE VIEW V_MONTANT_VENTE AS
+SELECT 
+    lv.numeroVente,
+    SUM(lv.quantiteVendue * lv.prixVenteUnitaire) AS montantTotalVente
+FROM LIGNE_VENTE lv
+GROUP BY lv.numeroVente;
+
+-- Trigger pour créer automatiquement les mouvements de stock lors d'une vente
+CREATE TRIGGER TRG_VENTE_MOUVEMENT
+AFTER INSERT ON LIGNE_VENTE
+FOR EACH ROW
+BEGIN
+    INSERT INTO MOUVEMENT_STOCK (
+        numeroMouvement,
+        dateMouvement,
+        typeMouvement,
+        quantite,
+        prixUnitaire,
+        numeroReference,
+        codeProduit,
+        numeroVente
+    )
+    VALUES (
+        CONCAT('MV', NEW.numeroVente, '_', NEW.codeProduit), -- Génération numéro unique
+        (SELECT dateVente FROM VENTE WHERE numeroVente = NEW.numeroVente),
+        'VENTE',
+        NEW.quantiteVendue,
+        NEW.prixVenteUnitaire,
+        NEW.numeroVente,
+        NEW.codeProduit,
+        NEW.numeroVente
+    );
+END;
+
+-- Index pour performances
+CREATE INDEX idx_mouvement_produit ON MOUVEMENT_STOCK(codeProduit);
+CREATE INDEX idx_mouvement_date ON MOUVEMENT_STOCK(dateMouvement);
+CREATE INDEX idx_mouvement_type ON MOUVEMENT_STOCK(typeMouvement);
+CREATE INDEX idx_ligne_vente_produit ON LIGNE_VENTE(codeProduit);
+```
+
+### 6.5 Calcul du montantTotal dans MOUVEMENT_STOCK
+
+**Note importante** : Dans le MLD, `montantTotal` dans MOUVEMENT_STOCK peut être soit :
+
+1. **Calculé à la volée** (recommandé pour éviter redondance) :
+   ```sql
+   SELECT numeroMouvement, quantite, prixUnitaire, 
+          (quantite * prixUnitaire) AS montantTotal
+   FROM MOUVEMENT_STOCK;
+   ```
+
+2. **Stocké et calculé via trigger** (pour performances sur gros volumes) :
+   ```sql
+   ALTER TABLE MOUVEMENT_STOCK ADD montantTotal DECIMAL(12,2) GENERATED ALWAYS AS (quantite * prixUnitaire) STORED;
+   ```
+
+Pour maintenir la cohérence avec le dictionnaire (où montantTotal est "Calculée"), la première approche est privilégiée.
+
+---
+
+## SYNTHÈSE FINALE
+
+### Points Clés de la Modélisation
+
+1. **4 entités seulement** car :
+   - CLIENT : non identifié individuellement ("anonymes")
+   - COMMANDE_FOURNISSEUR : non tracée formellement
+   - LOT : pas de gestion par lot
+   - STOCK : donnée calculée, pas entité
+
+2. **MOUVEMENT_STOCK centralise** tous les flux (achats, ventes, pertes) pour refléter le "registre unique" de l'énoncé
+
+3. **Relations porteuses** : COMPOSER car les quantités et prix varient par vente
+
+4. **Données calculées** explicites : stockActuel, montantTotal, chiffre d'affaires
+
+5. **Normalisation BCNF** : aucune redondance, toutes dépendances fonctionnelles optimisées
+
+6. **MOD mono-utilisateur** : M. Dibaphar seul acteur, CRUD complet sur toutes les données
+
+7. **MLD avec contraintes CHECK** pour implémenter toutes les règles de gestion
+
+Cette modélisation est **cohérente, complète et justifiée à 100%** par l'énoncé, garantissant la traçabilité totale des stocks comme décrit par M. Dibaphar.
+</div>
+
+<!-- MCT -->
+<!-- Maximecrypto -->
+<div>
+  # Analyse des Processus - Pharmacie DIBAPHAR
+
+Je vais identifier les processus, opérations et événements selon la notation demandée.
+
+---
+
+## PROCESSUS 1 : APPROVISIONNEMENT (ACHATS)
+
+### Opération 1.1 : Identification du besoin de réapprovisionnement
+- **ED** : Début journée (matin/soir)
+- **EC** : Présence Pharmacien
+- **ER** : Besoin identifié
+
+### Opération 1.2 : Vérification physique des stocks
+- **EC** : Présence Pharmacien
+- **RE** : Stock suffisant | Stock insuffisant
+  - Si **Stock insuffisant** → **ER** : Décision de commander
+  - Si **Stock suffisant** → **ER** : Pas de commande
+
+### Opération 1.3 : Passation de commande
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **ER** : Commande envoyée
+
+### Opération 1.4 : Livraison des produits
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **ER** : Produits + Facture reçus
+
+### Opération 1.5 : Inspection de la livraison
+- **EC** : Présence Pharmacien
+- **RE** : Non conforme | Conforme
+  - Si **Non conforme** → **ER** : Produit retourné
+  - Si **Conforme** → **ER** : Livraison acceptée
+
+### Opération 1.6 : Signature de la facture
+- **EC** : Présence Pharmacien
+- **ER** : Facture signée
+
+### Opération 1.7 : Paiement fournisseur
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **ER** : Paiement effectué
+
+### Opération 1.8 : Enregistrement entrée stock
+- **EC** : Présence Pharmacien
+- **ER** : Stock mis à jour (registre)
+
+### Opération 1.6bis : Traitement retour produit (si non conforme)
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **ER** : Avoir reçu
+
+### Opération 1.7bis : Correction registre (si retour)
+- **EC** : Présence Pharmacien
+- **ER** : Correction enregistrée
+
+---
+
+## PROCESSUS 2 : VENTE
+
+### Opération 2.1 : Accueil client
+- **ED** : Arrivée client (pendant heures ouverture)
+- **EC** : Présence Client, Présence Pharmacien
+- **ER** : Client accueilli
+
+### Opération 2.2 : Expression du besoin
+- **EC** : Présence Client, Présence Pharmacien
+- **RE** : Ordonnance présentée | Demande conseil
+  - Si **Ordonnance présentée** → **ER** : Ordonnance reçue
+  - Si **Demande conseil** → **ER** : Symptômes décrits
+
+### Opération 2.3 : Vérification disponibilité
+- **EC** : Présence Pharmacien
+- **RE** : Produit disponible | Produit indisponible
+  - Si **Produit disponible** → **ER** : Produit identifié
+  - Si **Produit indisponible** → **ER** : Alternative proposée
+
+### Opération 2.4 : Conseil et sélection produits
+- **EC** : Présence Pharmacien, Présence Client
+- **ER** : Produits sélectionnés
+
+### Opération 2.5 : Calcul du montant
+- **EC** : Présence Pharmacien
+- **ER** : Montant calculé
+
+### Opération 2.6 : Annonce du prix
+- **EC** : Présence Pharmacien, Présence Client
+- **ER** : Prix communiqué
+
+### Opération 2.7 : Encaissement
+- **EC** : Présence Client, Présence Pharmacien
+- **ER** : Paiement reçu
+
+### Opération 2.8 : Remise des produits et reçu
+- **EC** : Présence Pharmacien, Présence Client
+- **ER** : Produits + Reçu remis
+
+### Opération 2.9 : Mise à jour stock
+- **EC** : Présence Pharmacien
+- **ER** : Stock mis à jour (sortie)
+
+### Opération 2.10 : Archivage ordonnance (si applicable)
+- **EC** : Présence Pharmacien
+- **ER** : Ordonnance archivée
+
+---
+
+## PROCESSUS 3 : SURVEILLANCE DES STOCKS
+
+### Opération 3.1 : Contrôle matinal
+- **ED** : Ouverture pharmacie (chaque matin)
+- **EC** : Présence Pharmacien
+- **ER** : Vérification visuelle effectuée
+
+### Opération 3.2 : Détection produits proches expiration
+- **EC** : Présence Pharmacien
+- **RE** : Expiration < 1 mois | Expiration > 1 mois
+  - Si **Expiration < 1 mois** → **ER** : Produit mis de côté
+  - Si **Expiration > 1 mois** → **ER** : Produit maintenu
+
+### Opération 3.3 : Traitement produits périmés
+- **EC** : Présence Pharmacien
+- **RE** : Vendable (prix réduit) | Non vendable
+  - Si **Vendable** → **ER** : Produit en vente prioritaire
+  - Si **Non vendable** → **ER** : Produit jeté
+
+### Opération 3.4 : Ajustement registre (si produit jeté)
+- **EC** : Présence Pharmacien
+- **ER** : Quantité ajustée
+
+### Opération 3.5 : Contrôle température réfrigérateur
+- **EC** : Présence Pharmacien
+- **RE** : Température correcte | Température incorrecte
+  - Si **Température correcte** → **ER** : Validation température
+  - Si **Température incorrecte** → **ER** : Alerte température
+
+### Opération 3.6 : Inventaire mensuel
+- **ED** : Fin de mois
+- **EC** : Présence Pharmacien
+- **ER** : Comptage physique effectué
+
+### Opération 3.7 : Comparaison avec registre
+- **EC** : Présence Pharmacien
+- **RE** : Concordance | Écart détecté
+  - Si **Concordance** → **ER** : Inventaire validé
+  - Si **Écart détecté** → **ER** : Enquête lancée
+
+### Opération 3.8 : Traitement perte/vol (si écart)
+- **EC** : Présence Pharmacien
+- **ER** : Incident noté + Stock ajusté
+
+---
+
+## PROCESSUS 4 : RÉGLEMENTATION ET CONTRÔLE
+
+### Opération 4.1 : Visite inspection
+- **ED** : Demande inspection (Ministère Santé)
+- **EC** : Présence Inspecteur, Présence Pharmacien
+- **ER** : Inspection démarrée
+
+### Opération 4.2 : Vérification conformité
+- **EC** : Présence Inspecteur, Présence Pharmacien
+- **ER** : Registres et stocks présentés
+
+### Opération 4.3 : Évaluation conformité
+- **EC** : Présence Inspecteur
+- **RE** : Conforme | Non conforme
+  - Si **Conforme** → **ER** : Validation inspection
+  - Si **Non conforme** → **ER** : Recommandations émises
+
+### Opération 4.4 : Application recommandations (si non conforme)
+- **EC** : Présence Pharmacien
+- **ER** : Ajustements effectués
+
+### Opération 4.5 : Traitement rappel de lots
+- **EC** : Présence Pharmacien, Présence Inspecteur
+- **ER** : Lots retirés + Stock ajusté
+
+### Opération 4.6 : Préparation rapport mensuel
+- **ED** : Fin de mois (médicaments contrôlés)
+- **EC** : Présence Pharmacien
+- **ER** : Rapport préparé
+
+### Opération 4.7 : Envoi rapport
+- **EC** : Présence Pharmacien
+- **ER** : Rapport envoyé (Ministère)
+
+---
+
+## PROCESSUS 5 : OUVERTURE EXCEPTIONNELLE
+
+### Opération 5.1 : Réception demande urgence
+- **ED** : Demande client (dimanche/férié/hors heures)
+- **EC** : Présence Client, Présence Pharmacien
+- **ER** : Urgence évaluée
+
+### Opération 5.2 : Décision d'ouverture
+- **EC** : Présence Pharmacien
+- **RE** : Urgence justifiée | Urgence non justifiée
+  - Si **Urgence justifiée** → **ER** : Ouverture exceptionnelle
+  - Si **Urgence non justifiée** → **ER** : Refus ouverture
+
+### Opération 5.3 : Vente exceptionnelle (si ouverture)
+- **EC** : Présence Pharmacien, Présence Client
+- **ER** : Transaction effectuée (comme processus vente)
+
+---
+
+**Remarques importantes :**
+
+1. Les **ED** n'apparaissent qu'au début de chaque processus principal
+2. Les **EC** indiquent toujours les acteurs présents (ressources humaines)
+3. Les **RE** sont utilisés pour les décisions binaires
+4. Les **ER** représentent les résultats concrets des opérations
+5. Certaines opérations sont conditionnelles et ne s'exécutent que selon le résultat du **RE** précédent
+</div>
+
+
+<!-- MCT -->
+<!-- jeanlouis01 -->
+<prompt>
+  Identifie les processus, les opérations, ...
+On utilise un style genre :
+ED : événement déclencheur 
+EC : événement(s) contributif(s) 
+ER: Événement résultat ou RE : Règle d'émission 
+
+voici  un exemple de ce que peut donner un ER , exemple pour une opération sur la livraison marchandise le ER peut être = marchandise livrée 
+Alors que un RE pour une opération de vérification de livraison peut être= Non conforme | Conforme 
+Dans non conforme on a comme résultat = marchandise retournée 
+Dans Conforme on a comme résultat = marchandise accepté 
+
+Pour les cas de EC on utilise juste la présence, exemple EC = présence comptable, 
+Et quand il y'a des flux de communication entre différents acteurs on peut avoir par exemple comme EC = - Présence comptable, - présence fournisseur 
+
+Les ED apparaissent uniquement dans les premières opérations des processus
+
+BREF :
+ED= L'évènement qui déclenche la première opération d'un processus 
+EC= les acteurs qui mènent cet opération, donc les acteurs présents dans cet opération (ressources humaines)
+ER= Le résultat de cette opération 
+RE= conditionnel, qui nous offre 2 issues, 2 ER dans une seule opération 
+
+Et Dans les opérations on a des sous-operations , ce sont des petites opérations qui font partie de l'opération 
+
+Voilà 
+
+Voici mon MCC :
+
+
+
+
+### 1. Identification des Acteurs
+
+Voici les entités qui interagissent dans le système.
+
+**Acteur Interne :**
+*   **Le Pharmacien (Pharmacie DIBAPHAR) :** Il représente le système interne. Il gère toutes les opérations (achats, ventes, stocks, administration).
+
+**Acteurs Externes :**
+*   **Le Fournisseur :** Grossistes pharmaceutiques ou représentants de laboratoires qui approvisionnent la pharmacie.
+*   **Le Client :** Personne qui achète des médicaments ou demande des conseils.
+*   **Le Ministère de la Santé (Inspecteurs) :** Autorité de régulation qui effectue des contrôles et reçoit des rapports.
+
+---
+
+### 2. Flux de communication (Flux par flux)
+
+Les flux sont listés dans l'ordre chronologique de leur apparition dans la description des processus (Achats -> Ventes -> Régulation).
+
+**Processus d'Approvisionnement (Achats) :**
+
+1.  **Pharmacien $\rightarrow$ Fournisseur :** Commande de produits (verbale ou écrite).
+    *   *Contexte :* Le pharmacien identifie un besoin de réapprovisionnement et contacte le fournisseur.
+2.  **Fournisseur $\rightarrow$ Pharmacien :** Livraison des produits + Facture.
+    *   *Contexte :* Le fournisseur livre la marchandise accompagnée de la facture détaillée.
+3.  **Pharmacien $\rightarrow$ Fournisseur :** Facture signée (Accusé de réception).
+    *   *Contexte :* Après vérification de la conformité, le pharmacien signe la facture.
+4.  **Pharmacien $\rightarrow$ Fournisseur :** Paiement (Espèces ou Chèque).
+    *   *Contexte :* Le pharmacien règle la facture sur place.
+5.  **Pharmacien $\rightarrow$ Fournisseur :** Retour produit non conforme (Flux conditionnel).
+    *   *Contexte :* Si un produit est endommagé ou non conforme lors de la livraison.
+6.  **Fournisseur $\rightarrow$ Pharmacien :** Avoir (Flux conditionnel).
+    *   *Contexte :* En réponse au retour de produit, le fournisseur émet un document d'avoir.
+
+**Processus de Vente :**
+
+7.  **Client $\rightarrow$ Pharmacien :** Demande de conseil / Description symptômes OU Présentation Ordonnance.
+    *   *Contexte :* Le client exprime son besoin ou donne l'ordonnance médicale au pharmacien.
+8.  **Pharmacien $\rightarrow$ Client :** Conseils / Informations sur l'utilisation.
+    *   *Contexte :* Le pharmacien conseille le client sur le produit sélectionné ou l'alternative.
+9.  **Pharmacien $\rightarrow$ Client :** Annonce du montant dû.
+    *   *Contexte :* Après avoir calculé le total manuellement, le pharmacien informe le client du prix.
+10. **Client $\rightarrow$ Pharmacien :** Paiement (Espèces ou Mobile).
+    *   *Contexte :* Le client règle la somme demandée.
+11. **Pharmacien $\rightarrow$ Client :** Remise des produits + Reçu manuel.
+    *   *Contexte :* Le pharmacien donne les médicaments et le reçu papier au client (clôture de la vente).
+
+**Processus Réglementaire (Ministère) :**
+
+12. **Ministère de la Santé $\rightarrow$ Pharmacien :** Demande de contrôle / Inspection.
+    *   *Contexte :* Les inspecteurs se présentent pour vérifier la conformité.
+13. **Pharmacien $\rightarrow$ Ministère de la Santé :** Accès aux registres / Informations stock.
+    *   *Contexte :* Le pharmacien présente ses cahiers et stocks aux inspecteurs.
+14. **Ministère de la Santé $\rightarrow$ Pharmacien :** Recommandations / Rappels de lots.
+    *   *Contexte :* Les inspecteurs donnent des directives ou signalent des produits à retirer.
+15. **Pharmacien $\rightarrow$ Ministère de la Santé :** Rapport mensuel (Médicaments contrôlés).
+    *   *Contexte :* Le pharmacien envoie les formulaires papier concernant les ventes de produits réglementés.
+
+
+
+Voici mon énoncé :
+
+
+
+### Étude de Cas : Gestion des Stocks dans la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est une petite structure familiale gérée exclusivement par le pharmacien titulaire, un professionnel expérimenté qui s'occupe de l'ensemble des opérations quotidiennes de manière manuelle, sans recours à des systèmes informatisés. Située dans un quartier résidentiel animé, elle propose une gamme variée de médicaments, de produits parapharmaceutiques et d'articles de soins de santé essentiels, comme des antidouleurs, des antibiotiques, des vitamines, des crèmes dermatologiques et des accessoires médicaux tels que des thermomètres ou des bandages. Le pharmacien, souvent appelé affectueusement "PAPA DIBAPHAR" par les habitués, gère seul les achats, les ventes, le contrôle des stocks, les relations avec la clientèle et les fournisseurs, ainsi que les tâches administratives basiques. La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures du soir, avec une pause déjeuner de 13 heures à 14 heures, et reste fermée les dimanches et jours fériés, **sauf en cas d'urgence, situations pour lesquelles il lui arrive d'ouvrir exceptionnellement pour dépanner.**
+
+Les stocks sont maintenus dans un espace de rangement sécurisé à l'arrière de la pharmacie, organisé en étagères étiquetées par catégories de produits : médicaments sur ordonnance, produits en vente libre, articles périssables nécessitant une réfrigération (comme certains vaccins ou insulines), et produits non périssables. Chaque produit est identifié par un code simple que le pharmacien attribue manuellement, composé d'une lettre pour la catégorie (par exemple, "A" pour antidouleurs) suivie d'un numéro séquentiel (comme A001 pour le paracétamol). Pour chaque produit, il note dans un registre dédié les informations essentielles : le nom générique et commercial, le fournisseur d'origine, la date d'achat, la date d'expiration, le prix d'achat unitaire, le prix de vente unitaire, la quantité initiale reçue, et des remarques sur les conditions de stockage (comme "conserver au frais" ou "protéger de la lumière"). Ces registres sont des cahiers à pages numérotées, conservés dans un tiroir verrouillé pour éviter les erreurs ou les pertes.
+
+**Concernant le réapprovisionnement**, tout commence lorsque le pharmacien identifie un besoin, généralement en consultant son registre de stocks le soir après la fermeture ou le matin avant l'ouverture. Il vérifie les niveaux de stock en comptant physiquement les unités restantes sur les étagères et compare avec les entrées notées. Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire. La commande inclut le nom du produit, la quantité désirée (souvent en boîtes ou en lots de 50 à 100 unités), et une demande de facture. Le fournisseur livre les produits directement à la pharmacie, généralement dans les 48 heures, accompagnés d'une facture détaillant le nom du produit, la quantité livrée, le prix unitaire, le montant total, et la date de livraison. Le pharmacien inspecte la livraison pour vérifier la conformité (quantité, état, dates d'expiration), signe la facture comme accusé de réception, et paie comptant ou par chèque sur place. Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue à la ligne correspondante du produit, notant la date de l'entrée, le numéro de la facture, et met à jour le stock total. Si un produit est endommagé ou non conforme, il le retourne immédiatement au fournisseur, qui émet un avoir, et le pharmacien note cette sortie comme une correction dans le registre sans impact sur les ventes.
+
+**L'activité de vente** constitue le cœur du métier et modifie directement les stocks. Un client entre librement dans la pharmacie pendant les heures d'ouverture, parcourt les étagères des produits en vente libre ou demande conseil au pharmacien pour des médicaments sur ordonnance. Pour une vente typique, le client présente une ordonnance médicale si nécessaire (émise par un médecin, avec des détails comme le nom du patient, le nom du médicament, la posologie et la durée du traitement), ou décrit simplement ses symptômes pour des produits en libre-service. Le pharmacien écoute les besoins, vérifie la disponibilité en consultant rapidement son registre ou en regardant les étagères, et conseille sur l'utilisation appropriée, les contre-indications et les alternatives si le produit exact n'est pas en stock. Une fois les produits sélectionnés, le pharmacien les sort des étagères, les place sur le comptoir et calcule manuellement le total en additionnant les prix unitaires, en appliquant éventuellement une petite remise pour les clients fidèles ou pour les achats en gros. Il informe le client du montant dû et accepte le paiement, principalement en espèces, bien qu'il tolère occasionnellement les paiements mobiles pour les habitués. Le pharmacien délivre les produits au client dans un sac, accompagnés d'un reçu manuel écrit à la main sur un bloc-notes carbone, indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé, et son tampon de pharmacie. Une fois le paiement effectué et le reçu remis, la transaction est terminée : le client quitte la pharmacie avec les produits emballés. Immédiatement après, le pharmacien met à jour son registre de stocks en soustrayant la quantité vendue de la ligne du produit concerné, notant la date de sortie, une référence au reçu (comme un numéro séquentiel), et le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs pour respecter la confidentialité). Pour les produits sur ordonnance, il conserve une copie de l'ordonnance dans un dossier séparé pour des fins de traçabilité réglementaire.
+
+Outre les approvisionnements et les ventes, le pharmacien gère les aspects liés à la conservation et à la surveillance des stocks. Tous les matins avant l'ouverture, il effectue un contrôle visuel rapide des étagères pour repérer les produits proches de l'expiration ; ceux qui expirent dans moins d'un mois sont mis de côté pour une vente prioritaire à prix réduit ou, si inutilisables, jetés selon les normes sanitaires, avec une note dans le registre pour ajuster les quantités. Il maintient également un inventaire mensuel complet, où il compte physiquement tous les produits et compare avec les entrées du registre pour détecter d'éventuelles erreurs ou pertes. Pour les médicaments réfrigérés, comme certains vaccins ou insulines, il utilise un petit réfrigérateur et vérifie quotidiennement la température pour éviter la détérioration. En cas de vol ou de perte, rare dans cette petite pharmacie, il note l'incident et ajuste le stock en conséquence.
+
+**Par ailleurs, la pharmacie doit rendre des comptes à divers organismes et autorités de santé** pour des raisons réglementaires qui impactent indirectement le stock. Par exemple, les inspecteurs sanitaires du ministère de la Santé visitent occasionnellement les lieux pour vérifier la conformité des stocks, des dates d'expiration et des conditions de stockage ; le pharmacien leur fournit accès à ses registres et ajuste ses pratiques si des recommandations sont faites, comme le retrait de lots rappelés par les fabricants. De plus, pour certains médicaments contrôlés, il doit rapporter mensuellement les quantités vendues aux autorités compétentes via des formulaires papier, ce qui nécessite de conserver des traces précises des transactions.
+
+En résumé, la gestion des stocks chez DIBAPHAR repose sur la diligence du pharmacien titulaire, qui équilibre manuellement les entrées et sorties pour assurer la disponibilité des produits essentiels tout en minimisant les pertes.
+
+**Travail à faire :** Construire les MCC, MCT, MOT (MOpt), MCD, MOD, MLD et MPD de l'énoncé ci-dessus.
+</prompt>
+<div>
+  # Analyse des Processus - Pharmacie DIBAPHAR
+
+## PROCESSUS 1 : APPROVISIONNEMENT
+
+### Opération 1.1 : Identification du besoin de réapprovisionnement
+- **ED** : Consultation registre stocks (soir/matin)
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Comptage physique des unités sur étagères
+  - Comparaison avec entrées notées dans registre
+  - Vérification seuil critique (< 10 unités pour produits populaires)
+- **ER** : Besoin identifié
+
+### Opération 1.2 : Passation de commande
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **Sous-opérations** :
+  - Rédaction commande (nom produit, quantité en boîtes/lots 50-100 unités)
+  - Demande de facture
+  - Transmission commande (verbale ou écrite)
+- **ER** : Commande transmise
+
+### Opération 1.3 : Réception livraison
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **Sous-opérations** :
+  - Livraison produits + facture (délai 48h)
+  - Réception physique marchandise
+- **ER** : Livraison réceptionnée
+
+### Opération 1.4 : Vérification conformité livraison
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Inspection quantité livrée
+  - Vérification état physique produits
+  - Contrôle dates d'expiration
+  - Vérification correspondance avec facture
+- **RE** : Non conforme | Conforme
+
+#### Branche Non conforme :
+**Opération 1.4a : Retour produit**
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **Sous-opérations** :
+  - Retour immédiat produit endommagé/non conforme
+  - Réception avoir du fournisseur
+  - Enregistrement sortie comme correction dans registre (sans impact ventes)
+- **ER** : Produit retourné et corrigé
+
+#### Branche Conforme :
+**Opération 1.4b : Acceptation livraison**
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Signature facture comme accusé réception
+- **ER** : Livraison acceptée
+
+### Opération 1.5 : Paiement fournisseur
+- **EC** : Présence Pharmacien, Présence Fournisseur
+- **Sous-opérations** :
+  - Paiement comptant ou chèque sur place
+- **ER** : Facture réglée
+
+### Opération 1.6 : Enregistrement entrée stock
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Ajout quantité reçue sur ligne produit correspondante
+  - Notation date entrée
+  - Notation numéro facture
+  - Mise à jour stock total
+  - Rangement produits sur étagères selon catégories
+- **ER** : Stock mis à jour
+
+---
+
+## PROCESSUS 2 : VENTE
+
+### Opération 2.1 : Accueil client
+- **ED** : Entrée client pendant heures ouverture (Lundi-Samedi 8h-20h sauf pause 13h-14h)
+- **EC** : Présence Client, Présence Pharmacien
+- **Sous-opérations** :
+  - Client parcourt étagères produits libre-service
+  - OU Client demande conseil au pharmacien
+- **ER** : Client accueilli
+
+### Opération 2.2 : Expression besoin client
+- **EC** : Présence Client, Présence Pharmacien
+- **RE** : Avec ordonnance | Sans ordonnance
+
+#### Branche Avec ordonnance :
+**Opération 2.2a : Présentation ordonnance**
+- **EC** : Présence Client, Présence Pharmacien
+- **Sous-opérations** :
+  - Client présente ordonnance médicale (nom patient, médicament, posologie, durée traitement)
+  - Pharmacien consulte ordonnance
+- **ER** : Ordonnance reçue
+
+#### Branche Sans ordonnance :
+**Opération 2.2b : Description symptômes**
+- **EC** : Présence Client, Présence Pharmacien
+- **Sous-opérations** :
+  - Client décrit symptômes
+  - Pharmacien écoute besoins
+- **ER** : Besoin exprimé
+
+### Opération 2.3 : Vérification disponibilité
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Consultation rapide registre
+  - OU Regard direct sur étagères
+- **RE** : Disponible | Non disponible
+
+#### Branche Non disponible :
+**Opération 2.3a : Proposition alternative**
+- **EC** : Présence Pharmacien, Présence Client
+- **Sous-opérations** :
+  - Conseil sur produit alternatif disponible
+  - Explication remplacement
+- **ER** : Alternative proposée
+- *(Retour à Opération 2.3)*
+
+#### Branche Disponible :
+**Opération 2.3b : Confirmation disponibilité**
+- **EC** : Présence Pharmacien
+- **ER** : Produit disponible confirmé
+
+### Opération 2.4 : Conseil pharmaceutique
+- **EC** : Présence Pharmacien, Présence Client
+- **Sous-opérations** :
+  - Conseil utilisation appropriée
+  - Information contre-indications
+  - Explication posologie
+- **ER** : Client conseillé
+
+### Opération 2.5 : Préparation produits
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Sortie produits des étagères
+  - Placement sur comptoir
+- **ER** : Produits préparés
+
+### Opération 2.6 : Calcul montant
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Addition manuelle prix unitaires
+  - Application éventuelle remise (clients fidèles ou achats gros)
+  - Annonce montant dû au client
+- **ER** : Montant calculé
+
+### Opération 2.7 : Encaissement
+- **EC** : Présence Client, Présence Pharmacien
+- **Sous-opérations** :
+  - Réception paiement (espèces ou mobile occasionnel pour habitués)
+- **ER** : Paiement reçu
+
+### Opération 2.8 : Remise produits et reçu
+- **EC** : Présence Pharmacien, Présence Client
+- **Sous-opérations** :
+  - Emballage produits dans sac
+  - Rédaction manuelle reçu sur bloc-notes carbone (date, produits, quantités, prix unitaires, total, tampon pharmacie)
+  - Remise sac et reçu au client
+- **ER** : Transaction terminée
+
+### Opération 2.9 : Conservation ordonnance (cas ordonnance uniquement)
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Conservation copie ordonnance dans dossier séparé
+  - Notation nom approximatif client (respect confidentialité)
+- **ER** : Ordonnance archivée
+
+### Opération 2.10 : Mise à jour stock après vente
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Soustraction quantité vendue de ligne produit
+  - Notation date sortie
+  - Notation référence reçu (numéro séquentiel)
+  - Notation nom approximatif client (pour ordonnances)
+- **ER** : Stock ajusté
+
+---
+
+## PROCESSUS 3 : SURVEILLANCE ET CONSERVATION STOCKS
+
+### Opération 3.1 : Contrôle quotidien matinal
+- **ED** : Ouverture quotidienne (avant 8h du matin)
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Contrôle visuel rapide étagères
+  - Repérage produits proches expiration (< 1 mois)
+  - Vérification température réfrigérateur (vaccins, insulines)
+- **ER** : Contrôle effectué
+
+### Opération 3.2 : Gestion produits proches expiration
+- **EC** : Présence Pharmacien
+- **RE** : Vendable à prix réduit | Non utilisable
+
+#### Branche Vendable à prix réduit :
+**Opération 3.2a : Mise en vente prioritaire**
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Mise de côté produits
+  - Application prix réduit
+- **ER** : Produit en vente prioritaire
+
+#### Branche Non utilisable :
+**Opération 3.2b : Destruction produit périmé**
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Destruction selon normes sanitaires
+  - Notation dans registre pour ajustement quantités
+- **ER** : Produit détruit et ajusté
+
+### Opération 3.3 : Inventaire mensuel complet
+- **ED** : Fin de mois
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Comptage physique exhaustif tous produits
+  - Comparaison avec entrées registre
+  - Détection erreurs ou pertes
+- **RE** : Écarts détectés | Pas d'écart
+
+#### Branche Écarts détectés :
+**Opération 3.3a : Correction inventaire**
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Notation incident (vol, perte, erreur)
+  - Ajustement stock dans registre
+- **ER** : Stock corrigé
+
+#### Branche Pas d'écart :
+**Opération 3.3b : Validation inventaire**
+- **EC** : Présence Pharmacien
+- **ER** : Inventaire validé
+
+---
+
+## PROCESSUS 4 : CONFORMITÉ RÉGLEMENTAIRE
+
+### Opération 4.1 : Visite inspection sanitaire
+- **ED** : Visite occasionnelle inspecteurs Ministère Santé
+- **EC** : Présence Inspecteurs, Présence Pharmacien
+- **Sous-opérations** :
+  - Demande contrôle par inspecteurs
+  - Accès aux registres fourni par pharmacien
+  - Vérification conformité stocks
+  - Vérification dates expiration
+  - Vérification conditions stockage
+- **ER** : Inspection effectuée
+
+### Opération 4.2 : Analyse résultat inspection
+- **EC** : Présence Inspecteurs
+- **RE** : Recommandations émises | Conforme
+
+#### Branche Recommandations émises :
+**Opération 4.2a : Mise en conformité**
+- **EC** : Présence Pharmacien, Présence Inspecteurs
+- **Sous-opérations** :
+  - Réception recommandations/rappels lots
+  - Ajustement pratiques
+  - Retrait lots rappelés si nécessaire
+  - Notation dans registre
+- **ER** : Mise en conformité effectuée
+
+#### Branche Conforme :
+**Opération 4.2b : Validation conformité**
+- **EC** : Présence Inspecteurs
+- **ER** : Conformité validée
+
+### Opération 4.3 : Rapport mensuel médicaments contrôlés
+- **ED** : Fin de mois
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Compilation quantités vendues médicaments contrôlés
+  - Rédaction formulaires papier
+  - Transmission rapport au Ministère Santé
+- **ER** : Rapport transmis
+
+---
+
+## PROCESSUS 5 : OUVERTURE EXCEPTIONNELLE URGENCE
+
+### Opération 5.1 : Réception demande urgence
+- **ED** : Demande urgence (dimanche/jour férié)
+- **EC** : Présence Client (en urgence), Présence Pharmacien
+- **Sous-opérations** :
+  - Contact client en urgence
+  - Évaluation urgence par pharmacien
+- **RE** : Urgence justifiée | Urgence non justifiée
+
+#### Branche Urgence non justifiée :
+**Opération 5.1a : Refus ouverture**
+- **EC** : Présence Pharmacien
+- **ER** : Ouverture refusée
+
+#### Branche Urgence justifiée :
+**Opération 5.1b : Ouverture exceptionnelle**
+- **EC** : Présence Pharmacien
+- **Sous-opérations** :
+  - Ouverture pharmacie exceptionnellement
+- **ER** : Pharmacie ouverte
+- *(Processus vente normal s'enclenche - Processus 2)*
+
+---
+
+## SYNTHÈSE DES PROCESSUS IDENTIFIÉS
+
+1. **Processus Approvisionnement** (10 opérations + branches)
+2. **Processus Vente** (10 opérations + branches)
+3. **Processus Surveillance et Conservation Stocks** (3 opérations + branches)
+4. **Processus Conformité Réglementaire** (3 opérations + branches)
+5. **Processus Ouverture Exceptionnelle Urgence** (1 opération + branches, puis renvoi vers Processus 2)
+</div>
+
+<!-- MCT -->
+<!-- jeanlouis01 -->
+<prompt>
+  Identifie les processus, les opérations, ...
+On utilise un style genre :
+ED : événement déclencheur 
+EC : événement(s) contributif(s) 
+RE : Règle d'émission
+ER: Événement résultat  
+
+voici  un exemple de ce que peut donner un ER , exemple pour une opération sur la livraison marchandise le ER peut être = marchandise livrée 
+Alors que un RE : 
+- peut être = "toujours" , lorsque l'émission est sans conditionnel 
+« Toujours » indique que la règle ne dépend d’aucun chemin conditionnel : elle s’applique dans tous les cas.
+
+- lorsqu'elle est conditionelle, elle se divise alors en 2 pour chaque cas , voici un exemple :
+pour une opération de vérification de livraison peut être : 
+RE1 = Non conforme | RE2 = Conforme 
+Dans non conforme on a comme ER1 = marchandise retournée 
+Dans Conforme on a comme ER2 = marchandise accepté 
+La règle d'émission c'est lorsqu'il y'a un conditionnel 
+
+Pour les cas de EC on utilise juste la présence, exemple EC = présence comptable, 
+Et quand il y'a des flux de communication entre différents acteurs on peut avoir par exemple comme EC = - Présence comptable, - présence fournisseur 
+
+Les ED apparaissent uniquement dans les premières opérations des processus
+
+BREF :
+ED= L'évènement qui déclenche la première opération d'un processus 
+EC= les acteurs qui mènent cet opération, donc les acteurs présents dans cet opération (ressources humaines)
+RE= L'opération se fait sans condition/ avec condition 
+ER= Le résultat de cette opération 
+
+Et Dans les opérations on a des sous-operations , ce sont des petites opérations qui font partie de l'opération 
+
+Voilà 
+
+Voici mon MCC :
+
+
+
+
+### 1. Identification des Acteurs
+
+Voici les entités qui interagissent dans le système.
+
+**Acteur Interne :**
+*   **Le Pharmacien (Pharmacie DIBAPHAR) :** Il représente le système interne. Il gère toutes les opérations (achats, ventes, stocks, administration).
+
+**Acteurs Externes :**
+*   **Le Fournisseur :** Grossistes pharmaceutiques ou représentants de laboratoires qui approvisionnent la pharmacie.
+*   **Le Client :** Personne qui achète des médicaments ou demande des conseils.
+*   **Le Ministère de la Santé (Inspecteurs) :** Autorité de régulation qui effectue des contrôles et reçoit des rapports.
+
+---
+
+### 2. Flux de communication (Flux par flux)
+
+Les flux sont listés dans l'ordre chronologique de leur apparition dans la description des processus (Achats -> Ventes -> Régulation).
+
+**Processus d'Approvisionnement (Achats) :**
+
+1.  **Pharmacien $\rightarrow$ Fournisseur :** Commande de produits (verbale ou écrite).
+    *   *Contexte :* Le pharmacien identifie un besoin de réapprovisionnement et contacte le fournisseur.
+2.  **Fournisseur $\rightarrow$ Pharmacien :** Livraison des produits + Facture.
+    *   *Contexte :* Le fournisseur livre la marchandise accompagnée de la facture détaillée.
+3.  **Pharmacien $\rightarrow$ Fournisseur :** Facture signée (Accusé de réception).
+    *   *Contexte :* Après vérification de la conformité, le pharmacien signe la facture.
+4.  **Pharmacien $\rightarrow$ Fournisseur :** Paiement (Espèces ou Chèque).
+    *   *Contexte :* Le pharmacien règle la facture sur place.
+5.  **Pharmacien $\rightarrow$ Fournisseur :** Retour produit non conforme (Flux conditionnel).
+    *   *Contexte :* Si un produit est endommagé ou non conforme lors de la livraison.
+6.  **Fournisseur $\rightarrow$ Pharmacien :** Avoir (Flux conditionnel).
+    *   *Contexte :* En réponse au retour de produit, le fournisseur émet un document d'avoir.
+
+**Processus de Vente :**
+
+7.  **Client $\rightarrow$ Pharmacien :** Demande de conseil / Description symptômes OU Présentation Ordonnance.
+    *   *Contexte :* Le client exprime son besoin ou donne l'ordonnance médicale au pharmacien.
+8.  **Pharmacien $\rightarrow$ Client :** Conseils / Informations sur l'utilisation.
+    *   *Contexte :* Le pharmacien conseille le client sur le produit sélectionné ou l'alternative.
+9.  **Pharmacien $\rightarrow$ Client :** Annonce du montant dû.
+    *   *Contexte :* Après avoir calculé le total manuellement, le pharmacien informe le client du prix.
+10. **Client $\rightarrow$ Pharmacien :** Paiement (Espèces ou Mobile).
+    *   *Contexte :* Le client règle la somme demandée.
+11. **Pharmacien $\rightarrow$ Client :** Remise des produits + Reçu manuel.
+    *   *Contexte :* Le pharmacien donne les médicaments et le reçu papier au client (clôture de la vente).
+
+**Processus Réglementaire (Ministère) :**
+
+12. **Ministère de la Santé $\rightarrow$ Pharmacien :** Demande de contrôle / Inspection.
+    *   *Contexte :* Les inspecteurs se présentent pour vérifier la conformité.
+13. **Pharmacien $\rightarrow$ Ministère de la Santé :** Accès aux registres / Informations stock.
+    *   *Contexte :* Le pharmacien présente ses cahiers et stocks aux inspecteurs.
+14. **Ministère de la Santé $\rightarrow$ Pharmacien :** Recommandations / Rappels de lots.
+    *   *Contexte :* Les inspecteurs donnent des directives ou signalent des produits à retirer.
+15. **Pharmacien $\rightarrow$ Ministère de la Santé :** Rapport mensuel (Médicaments contrôlés).
+    *   *Contexte :* Le pharmacien envoie les formulaires papier concernant les ventes de produits réglementés.
+
+
+
+Voici mon énoncé :
+
+
+
+### Étude de Cas : Gestion des Stocks dans la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est une petite structure familiale gérée exclusivement par le pharmacien titulaire, un professionnel expérimenté qui s'occupe de l'ensemble des opérations quotidiennes de manière manuelle, sans recours à des systèmes informatisés. Située dans un quartier résidentiel animé, elle propose une gamme variée de médicaments, de produits parapharmaceutiques et d'articles de soins de santé essentiels, comme des antidouleurs, des antibiotiques, des vitamines, des crèmes dermatologiques et des accessoires médicaux tels que des thermomètres ou des bandages. Le pharmacien, souvent appelé affectueusement "PAPA DIBAPHAR" par les habitués, gère seul les achats, les ventes, le contrôle des stocks, les relations avec la clientèle et les fournisseurs, ainsi que les tâches administratives basiques. La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures du soir, avec une pause déjeuner de 13 heures à 14 heures, et reste fermée les dimanches et jours fériés, **sauf en cas d'urgence, situations pour lesquelles il lui arrive d'ouvrir exceptionnellement pour dépanner.**
+
+Les stocks sont maintenus dans un espace de rangement sécurisé à l'arrière de la pharmacie, organisé en étagères étiquetées par catégories de produits : médicaments sur ordonnance, produits en vente libre, articles périssables nécessitant une réfrigération (comme certains vaccins ou insulines), et produits non périssables. Chaque produit est identifié par un code simple que le pharmacien attribue manuellement, composé d'une lettre pour la catégorie (par exemple, "A" pour antidouleurs) suivie d'un numéro séquentiel (comme A001 pour le paracétamol). Pour chaque produit, il note dans un registre dédié les informations essentielles : le nom générique et commercial, le fournisseur d'origine, la date d'achat, la date d'expiration, le prix d'achat unitaire, le prix de vente unitaire, la quantité initiale reçue, et des remarques sur les conditions de stockage (comme "conserver au frais" ou "protéger de la lumière"). Ces registres sont des cahiers à pages numérotées, conservés dans un tiroir verrouillé pour éviter les erreurs ou les pertes.
+
+**Concernant le réapprovisionnement**, tout commence lorsque le pharmacien identifie un besoin, généralement en consultant son registre de stocks le soir après la fermeture ou le matin avant l'ouverture. Il vérifie les niveaux de stock en comptant physiquement les unités restantes sur les étagères et compare avec les entrées notées. Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire. La commande inclut le nom du produit, la quantité désirée (souvent en boîtes ou en lots de 50 à 100 unités), et une demande de facture. Le fournisseur livre les produits directement à la pharmacie, généralement dans les 48 heures, accompagnés d'une facture détaillant le nom du produit, la quantité livrée, le prix unitaire, le montant total, et la date de livraison. Le pharmacien inspecte la livraison pour vérifier la conformité (quantité, état, dates d'expiration), signe la facture comme accusé de réception, et paie comptant ou par chèque sur place. Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue à la ligne correspondante du produit, notant la date de l'entrée, le numéro de la facture, et met à jour le stock total. Si un produit est endommagé ou non conforme, il le retourne immédiatement au fournisseur, qui émet un avoir, et le pharmacien note cette sortie comme une correction dans le registre sans impact sur les ventes.
+
+**L'activité de vente** constitue le cœur du métier et modifie directement les stocks. Un client entre librement dans la pharmacie pendant les heures d'ouverture, parcourt les étagères des produits en vente libre ou demande conseil au pharmacien pour des médicaments sur ordonnance. Pour une vente typique, le client présente une ordonnance médicale si nécessaire (émise par un médecin, avec des détails comme le nom du patient, le nom du médicament, la posologie et la durée du traitement), ou décrit simplement ses symptômes pour des produits en libre-service. Le pharmacien écoute les besoins, vérifie la disponibilité en consultant rapidement son registre ou en regardant les étagères, et conseille sur l'utilisation appropriée, les contre-indications et les alternatives si le produit exact n'est pas en stock. Une fois les produits sélectionnés, le pharmacien les sort des étagères, les place sur le comptoir et calcule manuellement le total en additionnant les prix unitaires, en appliquant éventuellement une petite remise pour les clients fidèles ou pour les achats en gros. Il informe le client du montant dû et accepte le paiement, principalement en espèces, bien qu'il tolère occasionnellement les paiements mobiles pour les habitués. Le pharmacien délivre les produits au client dans un sac, accompagnés d'un reçu manuel écrit à la main sur un bloc-notes carbone, indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé, et son tampon de pharmacie. Une fois le paiement effectué et le reçu remis, la transaction est terminée : le client quitte la pharmacie avec les produits emballés. Immédiatement après, le pharmacien met à jour son registre de stocks en soustrayant la quantité vendue de la ligne du produit concerné, notant la date de sortie, une référence au reçu (comme un numéro séquentiel), et le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs pour respecter la confidentialité). Pour les produits sur ordonnance, il conserve une copie de l'ordonnance dans un dossier séparé pour des fins de traçabilité réglementaire.
+
+Outre les approvisionnements et les ventes, le pharmacien gère les aspects liés à la conservation et à la surveillance des stocks. Tous les matins avant l'ouverture, il effectue un contrôle visuel rapide des étagères pour repérer les produits proches de l'expiration ; ceux qui expirent dans moins d'un mois sont mis de côté pour une vente prioritaire à prix réduit ou, si inutilisables, jetés selon les normes sanitaires, avec une note dans le registre pour ajuster les quantités. Il maintient également un inventaire mensuel complet, où il compte physiquement tous les produits et compare avec les entrées du registre pour détecter d'éventuelles erreurs ou pertes. Pour les médicaments réfrigérés, comme certains vaccins ou insulines, il utilise un petit réfrigérateur et vérifie quotidiennement la température pour éviter la détérioration. En cas de vol ou de perte, rare dans cette petite pharmacie, il note l'incident et ajuste le stock en conséquence.
+
+**Par ailleurs, la pharmacie doit rendre des comptes à divers organismes et autorités de santé** pour des raisons réglementaires qui impactent indirectement le stock. Par exemple, les inspecteurs sanitaires du ministère de la Santé visitent occasionnellement les lieux pour vérifier la conformité des stocks, des dates d'expiration et des conditions de stockage ; le pharmacien leur fournit accès à ses registres et ajuste ses pratiques si des recommandations sont faites, comme le retrait de lots rappelés par les fabricants. De plus, pour certains médicaments contrôlés, il doit rapporter mensuellement les quantités vendues aux autorités compétentes via des formulaires papier, ce qui nécessite de conserver des traces précises des transactions.
+
+En résumé, la gestion des stocks chez DIBAPHAR repose sur la diligence du pharmacien titulaire, qui équilibre manuellement les entrées et sorties pour assurer la disponibilité des produits essentiels tout en minimisant les pertes.
+
+**Travail à faire :** Construire les MCC, MCT, MOT (MOpt), MCD, MOD, MLD et MPD de l'énoncé ci-dessus.
+</prompt>
+<div>
+  # Analyse de l'énoncé - Pharmacie DIBAPHAR
+
+Je vais identifier les processus, opérations et sous-opérations selon le formalisme demandé.
+
+---
+
+## PROCESSUS 1 : APPROVISIONNEMENT
+
+### Opération 1.1 : Identification du besoin de réapprovisionnement
+
+**ED :** Besoin de vérification des stocks
+
+**EC :** 
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Consultation du registre de stocks
+2. Comptage physique des unités restantes
+3. Comparaison avec les entrées notées
+
+**RE :** Conditionnel
+
+**RE1 :** Stock suffisant (≥ seuil minimum)
+**ER1 :** Pas de commande nécessaire
+
+**RE2 :** Stock insuffisant (< seuil minimum)
+**ER2 :** Besoin de réapprovisionnement identifié
+
+---
+
+### Opération 1.2 : Passation de commande
+
+**EC :**
+- Présence Pharmacien
+- Présence Fournisseur
+
+**Sous-opérations :**
+1. Détermination des produits à commander
+2. Calcul des quantités (lots de 50 à 100 unités)
+3. Contact du fournisseur (verbal ou écrit)
+4. Transmission des informations (nom produit, quantité, demande facture)
+
+**RE :** Toujours
+
+**ER :** Commande passée
+
+---
+
+### Opération 1.3 : Réception et vérification de la livraison
+
+**EC :**
+- Présence Pharmacien
+- Présence Fournisseur
+
+**Sous-opérations :**
+1. Réception de la livraison avec facture
+2. Inspection visuelle des produits
+3. Vérification de la quantité livrée
+4. Contrôle de l'état des produits
+5. Vérification des dates d'expiration
+
+**RE :** Conditionnel
+
+**RE1 :** Livraison non conforme
+**ER1 :** Produit retourné + Demande d'avoir
+
+**RE2 :** Livraison conforme
+**ER2 :** Livraison acceptée
+
+---
+
+### Opération 1.4 : Validation et paiement
+
+**EC :**
+- Présence Pharmacien
+- Présence Fournisseur
+
+**Sous-opérations :**
+1. Signature de la facture (accusé de réception)
+2. Paiement (espèces ou chèque)
+
+**RE :** Toujours
+
+**ER :** Facture réglée
+
+---
+
+### Opération 1.5 : Enregistrement de l'entrée en stock
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Ouverture du registre de stocks
+2. Localisation de la ligne du produit
+3. Ajout de la quantité reçue au stock total
+4. Notation de la date d'entrée
+5. Inscription du numéro de facture
+6. Mise à jour du stock total
+7. Enregistrement des informations produit (nom, fournisseur, date achat, date expiration, prix achat, prix vente, quantité, conditions stockage)
+
+**RE :** Toujours
+
+**ER :** Stock mis à jour
+
+---
+
+### Opération 1.6 : Rangement physique des produits
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Transport vers l'espace de rangement sécurisé
+2. Identification de l'étagère appropriée (par catégorie)
+3. Placement des produits
+4. Vérification des produits nécessitant réfrigération
+5. Application des conditions de stockage
+
+**RE :** Toujours
+
+**ER :** Produits stockés
+
+---
+
+## PROCESSUS 2 : VENTE
+
+### Opération 2.1 : Accueil et identification du besoin client
+
+**ED :** Arrivée du client
+
+**EC :**
+- Présence Pharmacien
+- Présence Client
+
+**Sous-opérations :**
+1. Accueil du client
+2. Écoute de la demande
+
+**RE :** Conditionnel
+
+**RE1 :** Client avec ordonnance
+**ER1 :** Ordonnance présentée
+
+**RE2 :** Client sans ordonnance (conseil/libre-service)
+**ER2 :** Symptômes décrits / Demande exprimée
+
+---
+
+### Opération 2.2 : Conseil pharmaceutique
+
+**EC :**
+- Présence Pharmacien
+- Présence Client
+
+**Sous-opérations :**
+1. Analyse de l'ordonnance OU des symptômes
+2. Vérification de la disponibilité (consultation registre/étagères)
+3. Information sur l'utilisation appropriée
+4. Explication des contre-indications
+5. Proposition d'alternatives si produit indisponible
+
+**RE :** Conditionnel
+
+**RE1 :** Produit indisponible
+**ER1 :** Alternative proposée OU Vente annulée
+
+**RE2 :** Produit disponible
+**ER2 :** Produit sélectionné
+
+---
+
+### Opération 2.3 : Préparation des produits
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Sortie des produits des étagères
+2. Placement sur le comptoir
+3. Calcul manuel du total
+4. Application éventuelle de remise (clients fidèles/achats en gros)
+
+**RE :** Toujours
+
+**ER :** Montant calculé
+
+---
+
+### Opération 2.4 : Encaissement
+
+**EC :**
+- Présence Pharmacien
+- Présence Client
+
+**Sous-opérations :**
+1. Annonce du montant dû
+2. Réception du paiement (espèces/mobile)
+3. Rédaction du reçu manuel (date, produits, quantités, prix unitaires, total, tampon)
+4. Remise des produits dans un sac
+5. Remise du reçu
+
+**RE :** Toujours
+
+**ER :** Vente finalisée
+
+---
+
+### Opération 2.5 : Mise à jour du stock après vente
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Ouverture du registre de stocks
+2. Localisation de la ligne du produit
+3. Soustraction de la quantité vendue
+4. Notation de la date de sortie
+5. Inscription de la référence du reçu
+6. Notation approximative du nom du client (pour ordonnances)
+
+**RE :** Conditionnel
+
+**RE1 :** Vente avec ordonnance
+**ER1 :** Stock mis à jour + Ordonnance archivée
+
+**RE2 :** Vente sans ordonnance
+**ER2 :** Stock mis à jour
+
+---
+
+### Opération 2.6 : Archivage ordonnance (si applicable)
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Copie de l'ordonnance
+2. Classement dans dossier séparé
+
+**RE :** Toujours
+
+**ER :** Ordonnance archivée
+
+---
+
+## PROCESSUS 3 : CONTRÔLE QUOTIDIEN ET CONSERVATION
+
+### Opération 3.1 : Contrôle visuel matinal
+
+**ED :** Début de journée (avant ouverture)
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Inspection visuelle des étagères
+2. Identification des produits proches d'expiration (< 1 mois)
+3. Vérification température réfrigérateur (produits réfrigérés)
+
+**RE :** Conditionnel
+
+**RE1 :** Produits proches d'expiration détectés
+**ER1 :** Produits mis de côté pour vente prioritaire
+
+**RE2 :** Pas de produit proche d'expiration
+**ER2 :** Contrôle terminé
+
+---
+
+### Opération 3.2 : Traitement des produits proches d'expiration
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Mise de côté des produits
+2. Évaluation de l'état du produit
+
+**RE :** Conditionnel
+
+**RE1 :** Produit encore vendable
+**ER1 :** Vente à prix réduit priorisée
+
+**RE2 :** Produit inutilisable
+**ER2 :** Produit jeté + Note dans registre
+
+---
+
+### Opération 3.3 : Ajustement du stock (produits jetés)
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Notation dans le registre
+2. Soustraction de la quantité jetée
+3. Mention du motif (expiration)
+
+**RE :** Toujours
+
+**ER :** Stock ajusté
+
+---
+
+## PROCESSUS 4 : INVENTAIRE MENSUEL
+
+### Opération 4.1 : Comptage physique complet
+
+**ED :** Fin de mois
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Comptage physique de tous les produits
+2. Enregistrement des quantités comptées
+
+**RE :** Toujours
+
+**ER :** Inventaire physique réalisé
+
+---
+
+### Opération 4.2 : Comparaison et détection d'écarts
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Comparaison quantités physiques vs registre
+2. Identification des écarts
+
+**RE :** Conditionnel
+
+**RE1 :** Écarts détectés (erreurs/pertes/vol)
+**ER1 :** Écarts identifiés
+
+**RE2 :** Pas d'écart
+**ER2 :** Inventaire conforme
+
+---
+
+### Opération 4.3 : Régularisation des écarts
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Notation de l'incident (vol/perte)
+2. Ajustement du stock dans le registre
+3. Mise à jour des quantités
+
+**RE :** Toujours
+
+**ER :** Stock régularisé
+
+---
+
+## PROCESSUS 5 : CONTRÔLE RÉGLEMENTAIRE
+
+### Opération 5.1 : Inspection sanitaire
+
+**ED :** Visite des inspecteurs du Ministère
+
+**EC :**
+- Présence Pharmacien
+- Présence Inspecteurs
+
+**Sous-opérations :**
+1. Accueil des inspecteurs
+2. Présentation des registres
+3. Vérification des dates d'expiration
+4. Contrôle des conditions de stockage
+5. Vérification de la conformité
+
+**RE :** Conditionnel
+
+**RE1 :** Non-conformités détectées
+**ER1 :** Recommandations émises
+
+**RE2 :** Tout conforme
+**ER2 :** Inspection validée
+
+---
+
+### Opération 5.2 : Application des recommandations
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Analyse des recommandations
+2. Retrait de lots rappelés (si applicable)
+3. Ajustement des pratiques
+4. Mise à jour du stock
+
+**RE :** Toujours
+
+**ER :** Conformité rétablie
+
+---
+
+### Opération 5.3 : Rapport mensuel médicaments contrôlés
+
+**ED :** Fin de mois
+
+**EC :**
+- Présence Pharmacien
+
+**Sous-opérations :**
+1. Consultation du registre (médicaments contrôlés)
+2. Compilation des quantités vendues
+3. Remplissage du formulaire papier
+4. Envoi au Ministère
+
+**RE :** Toujours
+
+**ER :** Rapport transmis
+
+---
+
+## PROCESSUS 6 : GESTION DES CAS EXCEPTIONNELS
+
+### Opération 6.1 : Ouverture exceptionnelle (urgence)
+
+**ED :** Demande d'urgence (dimanche/férié)
+
+**EC :**
+- Présence Pharmacien
+- Présence Client
+
+**Sous-opérations :**
+1. Évaluation de l'urgence
+2. Décision d'ouverture
+
+**RE :** Conditionnel
+
+**RE1 :** Urgence validée
+**ER1 :** Ouverture exceptionnelle
+
+**RE2 :** Pas d'urgence réelle
+**ER2 :** Refus d'ouverture
+
+---
+
+### Opération 6.2 : Vente en urgence
+
+**EC :**
+- Présence Pharmacien
+- Présence Client
+
+**Sous-opérations :**
+1. Identification du besoin urgent
+2. Délivrance du produit
+3. Encaissement
+4. Mise à jour du registre
+
+**RE :** Toujours
+
+**ER :** Vente d'urgence réalisée
+
+---
+
+Voilà l'identification complète des processus, opérations et sous-opérations selon le formalisme demandé (ED, EC, RE, ER).
+</div>

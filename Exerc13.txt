@@ -1,0 +1,224 @@
+# Analyse du Système d'Information PHILTECH
+
+## 1. IDENTIFICATION DES ENTITÉS ET LEURS PROPRIÉTÉS
+
+### **PRODUIT** (Entité mère/générique)
+- **refProduit** (identifiant)
+- designation (libellé court)
+- descriptif (libellé long)
+- prixVenteCatalogueUnitaireHT
+
+### **PRODUIT_FABRIQUE** (Spécialisation de PRODUIT)
+- **refProduit** (identifiant hérité)
+- nbHeuresMoyenMO (nombre moyen d'heures de main d'œuvre)
+
+### **PRODUIT_APPROVISIONNE** (Spécialisation de PRODUIT)
+- **refProduit** (identifiant hérité)
+- prixAchatUnitaireMoyen
+
+### **FOURNISSEUR**
+- **idFournisseur** (identifiant)
+- raisonSociale
+- adresse
+- (autres attributs : téléphone, email, etc.)
+
+### **COMMANDE**
+- **numCommande** (identifiant)
+- dateCommande
+- #idFournisseur (clé étrangère)
+
+### **CATALOGUE_FOURNISSEUR** (Entité associative)
+Cette entité représente la capacité d'un fournisseur à livrer un produit approvisionné
+- **#refProduit** (clé étrangère - partie de la clé primaire)
+- **#idFournisseur** (clé étrangère - partie de la clé primaire)
+- refProduitFournisseur (référence propre au fournisseur)
+- prixCatalogueFournisseur
+
+### **LIGNE_COMMANDE** (Entité associative)
+- **#numCommande** (clé étrangère - partie de la clé primaire)
+- **#refProduit** (clé étrangère - partie de la clé primaire)
+- quantiteCommandee
+- dateLivraisonPrevue
+- prixAchatUnitaireNegocie
+
+---
+
+## 2. IDENTIFICATION DES RELATIONS
+
+### **R1 : PASSER**
+- Entre : FOURNISSEUR et COMMANDE
+- Type : Binaire, 1:N
+- Signification : Un fournisseur peut recevoir plusieurs commandes, une commande est passée à un seul fournisseur
+
+### **R2 : EST_CAPABLE_DE_LIVRER** (devient CATALOGUE_FOURNISSEUR)
+- Entre : FOURNISSEUR et PRODUIT_APPROVISIONNE
+- Type : Binaire, N:M
+- Signification : Un fournisseur peut livrer plusieurs produits approvisionnés, un produit approvisionné peut être livré par plusieurs fournisseurs
+- Propriétés portées : refProduitFournisseur, prixCatalogueFournisseur
+
+### **R3 : COMPOSER** (devient LIGNE_COMMANDE)
+- Entre : COMMANDE et PRODUIT_APPROVISIONNE
+- Type : Binaire, N:M
+- Signification : Une commande peut contenir plusieurs produits approvisionnés, un produit approvisionné peut apparaître dans plusieurs commandes
+- Propriétés portées : quantiteCommandee, dateLivraisonPrevue, prixAchatUnitaireNegocie
+
+### **R4 : SPECIALISATION**
+- Entre : PRODUIT et ses spécialisations (PRODUIT_FABRIQUE, PRODUIT_APPROVISIONNE)
+- Type : Héritage/Spécialisation
+- Contrainte : Totale et Exclusive (chaque produit est soit fabriqué, soit approvisionné)
+
+---
+
+## 3. RÈGLES DE GESTION
+
+**RG1** : Chaque produit est identifié par une référence unique propre à PHILTECH.
+
+**RG2** : Un produit est soit un produit fabriqué, soit un produit approvisionné (spécialisation exclusive et totale).
+
+**RG3** : Pour les produits fabriqués, on enregistre obligatoirement le nombre moyen d'heures de main d'œuvre nécessaire.
+
+**RG4** : Pour les produits approvisionnés, on enregistre un prix d'achat unitaire moyen.
+
+**RG5** : Un produit approvisionné peut être livré par plusieurs fournisseurs.
+
+**RG6** : Un fournisseur peut livrer plusieurs produits approvisionnés.
+
+**RG7** : Chaque fournisseur peut avoir sa propre référence pour un même produit approvisionné.
+
+**RG8** : Le prix catalogue d'un produit peut varier selon le fournisseur.
+
+**RG9** : Une commande est passée à un seul fournisseur à une date donnée.
+
+**RG10** : Une commande peut regrouper plusieurs lignes de commande (plusieurs produits).
+
+**RG11** : Chaque ligne de commande concerne un seul produit approvisionné dans une certaine quantité.
+
+**RG12** : Pour chaque ligne de commande, on précise la date de livraison prévue.
+
+**RG13** : Le prix d'achat unitaire négocié peut être différent du prix catalogue du fournisseur.
+
+**RG14** : Un même produit approvisionné peut apparaître dans plusieurs commandes.
+
+---
+
+## 4. CARDINALITÉS DÉTAILLÉES
+
+### **Relation PASSER (FOURNISSEUR - COMMANDE)**
+- **FOURNISSEUR (1,n) ---- PASSER ---- (1,1) COMMANDE**
+  - Un fournisseur peut recevoir **au minimum 1** commande et **au maximum n** commandes
+  - Une commande est passée à **exactement 1** fournisseur
+
+### **Relation EST_CAPABLE_DE_LIVRER (FOURNISSEUR - PRODUIT_APPROVISIONNE)**
+- **FOURNISSEUR (0,n) ---- EST_CAPABLE_DE_LIVRER ---- (1,n) PRODUIT_APPROVISIONNE**
+  - Un fournisseur peut livrer **de 0 à n** produits approvisionnés (0 si nouveau fournisseur référencé mais pas encore actif)
+  - Un produit approvisionné doit avoir **au minimum 1** fournisseur et **au maximum n** fournisseurs (pour éviter la dépendance)
+
+### **Relation COMPOSER (COMMANDE - PRODUIT_APPROVISIONNE)**
+- **COMMANDE (1,n) ---- COMPOSER ---- (0,n) PRODUIT_APPROVISIONNE**
+  - Une commande contient **au minimum 1** ligne et **au maximum n** lignes (regroupement)
+  - Un produit approvisionné peut apparaître dans **0 à n** commandes (0 si jamais commandé)
+
+### **Spécialisation PRODUIT**
+- **PRODUIT (1,1) ---- SPECIALISATION ---- (1,1) PRODUIT_FABRIQUE**
+- **PRODUIT (1,1) ---- SPECIALISATION ---- (1,1) PRODUIT_APPROVISIONNE**
+  - Contrainte : **Totale et Exclusive**
+  - Chaque produit est obligatoirement soit fabriqué, soit approvisionné (jamais les deux)
+
+---
+
+## 5. MODÈLE CONCEPTUEL DES DONNÉES (MCD)
+
+```
+┌─────────────────────────────────────────┐
+│            PRODUIT                      │
+├─────────────────────────────────────────┤
+│ # refProduit                           │
+│   designation                          │
+│   descriptif                           │
+│   prixVenteCatalogueUnitaireHT        │
+└─────────────────────────────────────────┘
+              │
+              │ Spécialisation (T,E)
+              │
+     ┌────────┴────────┐
+     │                 │
+     ▼                 ▼
+┌──────────────────┐  ┌──────────────────────────────┐
+│PRODUIT_FABRIQUE  │  │ PRODUIT_APPROVISIONNE        │
+├──────────────────┤  ├──────────────────────────────┤
+│# refProduit      │  │ # refProduit                 │
+│  nbHeuresMoyenMO │  │   prixAchatUnitaireMoyen     │
+└──────────────────┘  └──────────────────────────────┘
+                                    │
+                                    │ (1,n)
+                                    │
+                      ┌─────────────▼──────────────────┐
+                      │  EST_CAPABLE_DE_LIVRER         │
+                      │  (CATALOGUE_FOURNISSEUR)       │
+                      ├────────────────────────────────┤
+                      │  refProduitFournisseur         │
+                      │  prixCatalogueFournisseur      │
+                      └────────────────────────────────┘
+                                    │
+                                    │ (0,n)
+                                    │
+┌─────────────────────┐            │
+│   FOURNISSEUR       │────────────┘
+├─────────────────────┤
+│ # idFournisseur     │
+│   raisonSociale     │
+│   adresse           │
+└─────────────────────┘
+        │
+        │ (1,n)
+        │
+        │ PASSER
+        │
+        │ (1,1)
+        ▼
+┌─────────────────────┐
+│    COMMANDE         │
+├─────────────────────┤
+│ # numCommande       │
+│   dateCommande      │
+│   #idFournisseur    │
+└─────────────────────┘
+        │
+        │ (1,n)
+        │
+        │ COMPOSER
+        │
+        │ (0,n)
+        ▼
+┌──────────────────────────────────┐
+│  PRODUIT_APPROVISIONNE           │
+└──────────────────────────────────┘
+
+┌─────────────────────────────────────────┐
+│       LIGNE_COMMANDE                    │
+├─────────────────────────────────────────┤
+│ # numCommande                           │
+│ # refProduit                            │
+│   quantiteCommandee                     │
+│   dateLivraisonPrevue                   │
+│   prixAchatUnitaireNegocie             │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 6. JUSTIFICATIONS ET PRÉCISIONS
+
+**Choix de modélisation :**
+
+1. **Spécialisation PRODUIT** : J'ai opté pour une spécialisation totale et exclusive car chaque produit est nécessairement soit fabriqué, soit approvisionné, jamais les deux simultanément.
+
+2. **Entité CATALOGUE_FOURNISSEUR** : Cette entité associative est nécessaire car la relation entre FOURNISSEUR et PRODUIT_APPROVISIONNE porte des propriétés (référence fournisseur et prix catalogue).
+
+3. **Entité LIGNE_COMMANDE** : Elle matérialise la relation N:M entre COMMANDE et PRODUIT_APPROVISIONNE avec ses propriétés spécifiques (quantité, date livraison, prix négocié).
+
+4. **Cardinalité (1,n) pour produit approvisionné** : Un produit doit avoir au moins un fournisseur pour garantir l'approvisionnement et éviter la dépendance.
+
+5. **Prix négocié vs prix catalogue** : Le prix d'achat unitaire négocié dans LIGNE_COMMANDE peut différer du prix catalogue du fournisseur selon les négociations.
+
+Ce modèle est **normalisé, cohérent et complet** pour répondre aux besoins de gestion de PHILTECH. 

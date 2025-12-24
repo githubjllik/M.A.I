@@ -1,0 +1,399 @@
+# Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques
+
+## Introduction
+
+La gestion des stocks dans une pharmacie représente un enjeu crucial pour garantir la disponibilité des médicaments aux patients tout en optimisant les ressources financières. Une rupture de stock peut avoir des conséquences graves sur la santé des patients, tandis qu'un surstock immobilise des capitaux et augmente le risque de péremption des produits.
+
+Cette étude porte sur la pharmacie DIBAPHAR située à la 9ème Avenue Tshopo, une petite structure gérée par une seule personne qui doit actuellement assurer manuellement toutes les tâches liées à la gestion des stocks. L'objectif est d'analyser les processus existants et de proposer une solution informatique adaptée permettant d'automatiser la gestion des stocks avec un système d'alertes.
+
+Cette démarche s'inscrit dans la méthodologie MERISE et vise à établir une description textuelle détaillée qui servira de base pour la modélisation ultérieure (MCC, MCT, MOT).
+
+## Phase de collecte des données
+
+### Questionnaire d'enquête
+
+Pour recueillir les informations nécessaires à notre analyse, nous avons élaboré un questionnaire et mené des entretiens avec le gérant de la pharmacie. Voici les principales questions posées et les réponses obtenues :
+
+**Q1 : Comment gérez-vous actuellement vos stocks de médicaments ?**  
+R1 : "Je note manuellement dans un cahier tous les médicaments qui entrent et sortent. Je fais un inventaire physique une fois par mois pour vérifier les quantités restantes."
+
+**Q2 : Quels sont les principaux problèmes rencontrés avec votre système actuel ?**  
+R2 : "Il m'arrive souvent de me retrouver en rupture de stock pour des médicaments essentiels sans m'en rendre compte à temps. Je découvre parfois des médicaments périmés que j'ai oubliés dans le stock. Et puis, l'inventaire mensuel me prend une journée entière."
+
+**Q3 : Comment identifiez-vous le besoin de réapprovisionner un produit ?**  
+R3 : "Je me fie à mon expérience et à l'inventaire mensuel. Parfois, c'est quand un client demande un médicament et que je constate qu'il n'en reste plus ou presque plus que je passe commande."
+
+**Q4 : Comment gérez-vous les dates de péremption des médicaments ?**  
+R4 : "J'essaie de noter les dates de péremption dans mon cahier et de vérifier régulièrement, mais avec plus de 300 références, c'est difficile de tout suivre."
+
+**Q5 : Quelles informations conservez-vous pour chaque médicament ?**  
+R5 : "Le nom du produit, le prix d'achat, le prix de vente, la quantité en stock, et j'essaie de noter la date de péremption."
+
+**Q6 : Comment passez-vous vos commandes auprès des fournisseurs ?**  
+R6 : "J'appelle directement mon grossiste habituel ou je lui rends visite avec ma liste de produits à commander."
+
+**Q7 : Combien de fournisseurs différents avez-vous ?**  
+R7 : "Je travaille principalement avec 3 grossistes, mais il m'arrive de commander auprès d'autres fournisseurs pour des produits spécifiques."
+
+**Q8 : Quels sont les délais de livraison habituels ?**  
+R8 : "Entre 2 et 5 jours selon les fournisseurs et les produits."
+
+**Q9 : Comment déterminez-vous votre stock minimum pour chaque produit ?**  
+R9 : "Je n'ai pas vraiment de méthode précise, je me base sur mon expérience et la fréquence des ventes."
+
+**Q10 : Quelle est la fréquence des ruptures de stock actuellement ?**  
+R10 : "Pour les médicaments courants, environ 3 à 4 ruptures par mois. Pour les médicaments moins demandés, c'est plus fréquent."
+
+### Observations sur site
+
+En complément des entretiens, nous avons observé le fonctionnement quotidien de la pharmacie pendant 3 jours. Voici les principaux constats :
+
+1. Le gérant passe en moyenne 2 heures par jour à des tâches liées à la gestion des stocks (vérification, comptage, commandes)
+2. La vérification des dates de péremption est rarement effectuée, sauf lors de l'inventaire mensuel
+3. Les commandes sont souvent passées dans l'urgence après constatation d'une rupture
+4. Le gérant garde en tête les produits à forte rotation, mais a du mal à suivre les produits moins courants
+5. Certains médicaments sont surreprésentés en stock tandis que d'autres sont fréquemment en rupture
+6. Le processus de réception des commandes et leur vérification est chronophage
+7. Plusieurs erreurs d'enregistrement ont été relevées dans le cahier de stock
+
+## Description de l'existant
+
+### Organisation actuelle
+
+La pharmacie DIBAPHAR est une petite structure d'environ 30m² située sur la 9ème Avenue Tshopo. Elle est gérée par une seule personne qui assure toutes les fonctions : accueil des clients, délivrance des médicaments, gestion des stocks, commandes, réception des livraisons et comptabilité.
+
+La pharmacie propose environ 350 références de médicaments et produits parapharmaceutiques. Elle est ouverte 6 jours sur 7, de 8h à 20h.
+
+Le matériel disponible comprend :
+- Un comptoir avec une caisse manuelle
+- Des étagères pour le stockage des médicaments
+- Un petit bureau pour la gestion administrative
+- Un téléphone portable pour les communications avec les fournisseurs
+- Aucun équipement informatique
+
+### Processus de gestion des stocks
+
+Le processus actuel de gestion des stocks se déroule comme suit :
+
+1. **Enregistrement des mouvements** : Chaque vente est notée manuellement dans un cahier avec le nom du produit et la quantité vendue. Les entrées de stock sont également notées à la réception des commandes.
+
+2. **Suivi du stock** : Un inventaire physique complet est réalisé une fois par mois. Le gérant compte manuellement tous les produits et met à jour son cahier de stock.
+
+3. **Identification des besoins de réapprovisionnement** : Le gérant se base sur son expérience et sur les quantités notées dans son cahier pour déterminer les produits à commander. Il n'existe pas de seuil d'alerte formalisé.
+
+4. **Commande** : Les commandes sont passées par téléphone ou en personne auprès des grossistes. Le gérant prépare une liste manuscrite des produits à commander.
+
+5. **Réception et contrôle** : À la réception des commandes, le gérant vérifie manuellement la conformité avec son bon de commande et la facture du fournisseur. Il range ensuite les produits sur les étagères.
+
+6. **Gestion des péremptions** : Les dates de péremption sont notées dans un cahier séparé. Le gérant vérifie périodiquement les produits proches de leur date de péremption.
+
+### Circuit de l'information
+
+Les informations circulent comme suit :
+
+1. **Entrées de stock** :
+   - Bon de commande manuscrit → Fournisseur
+   - Livraison + Facture → Pharmacie
+   - Enregistrement manuel dans le cahier de stock
+
+2. **Sorties de stock** :
+   - Demande client → Vérification visuelle de la disponibilité
+   - Vente → Enregistrement manuel dans le cahier des ventes
+   - Mise à jour périodique du cahier de stock
+
+3. **Suivi des péremptions** :
+   - Enregistrement des dates à la réception → Cahier des péremptions
+   - Vérification périodique du cahier → Retrait des produits périmés
+
+4. **Réapprovisionnement** :
+   - Constat de stock faible ou épuisé → Inscription sur liste de commande
+   - Regroupement des besoins → Commande auprès du fournisseur
+
+## Analyse critique de l'existant
+
+### Forces du système actuel
+
+1. **Simplicité** : Le système manuel ne nécessite pas de compétences techniques particulières
+2. **Flexibilité** : Adaptation rapide aux situations imprévues
+3. **Coût réduit** : Pas d'investissement matériel ou logiciel
+
+### Faiblesses du système actuel
+
+1. **Manque de fiabilité** : Erreurs fréquentes d'enregistrement et de comptage
+2. **Réactivité insuffisante** : Détection tardive des ruptures de stock
+3. **Suivi difficile des dates de péremption** : Risque de délivrance de produits périmés
+4. **Temps consacré à la gestion** : Environ 25% du temps de travail dédié aux tâches de gestion des stocks
+5. **Absence de statistiques** : Impossibilité d'analyser les tendances de consommation pour optimiser les commandes
+6. **Absence d'alertes** : Aucun système d'alerte pour les stocks critiques ou les produits proches de la péremption
+7. **Difficultés de priorisation** : Pas de distinction entre produits essentiels et secondaires
+
+### Risques identifiés
+
+1. **Ruptures de stock** : Impact sur la santé des patients et perte de clientèle
+2. **Surstockage** : Immobilisation de capital et risque accru de péremption
+3. **Erreurs de délivrance** : Risques pour les patients en cas d'erreur d'identification ou de dosage
+4. **Perte d'information** : Risque de perte des cahiers contenant les données de stock
+5. **Fatigue du gérant** : Charge cognitive importante pour mémoriser les niveaux de stock
+
+## Recensement des besoins
+
+Suite à notre analyse et aux entretiens avec le gérant, nous avons identifié les besoins suivants :
+
+### Besoins fonctionnels
+
+1. **Gestion des produits** :
+   - Enregistrer les caractéristiques complètes de chaque produit (nom, forme, dosage, conditionnement, etc.)
+   - Catégoriser les produits (antibiotiques, antalgiques, etc.)
+   - Définir un niveau de criticité pour chaque produit
+
+2. **Gestion des stocks** :
+   - Enregistrer automatiquement les entrées et sorties de stock
+   - Calculer en temps réel le stock disponible
+   - Définir des seuils d'alerte personnalisables pour chaque produit
+   - Générer des alertes en cas de stock critique
+
+3. **Gestion des péremptions** :
+   - Enregistrer les dates de péremption de chaque lot
+   - Alerter sur les produits approchant de leur date de péremption
+   - Proposer une rotation optimale des stocks (FEFO - First Expired, First Out)
+
+4. **Gestion des fournisseurs** :
+   - Maintenir une base de données des fournisseurs
+   - Enregistrer les conditions commerciales et les délais de livraison
+   - Associer chaque produit à ses fournisseurs potentiels
+
+5. **Gestion des commandes** :
+   - Générer automatiquement des propositions de commandes
+   - Permettre l'ajustement manuel des quantités
+   - Suivre l'état des commandes en cours
+   - Faciliter la réception et le contrôle des livraisons
+
+6. **Statistiques et reporting** :
+   - Analyser les ventes par période et par catégorie de produits
+   - Identifier les produits à forte et faible rotation
+   - Générer des rapports de stock valorisés
+   - Suivre l'évolution des ruptures de stock
+
+### Besoins non-fonctionnels
+
+1. **Simplicité d'utilisation** : Interface intuitive adaptée à un utilisateur unique avec peu de temps disponible
+2. **Rapidité d'exécution** : Enregistrement des ventes en quelques secondes pour ne pas ralentir le service aux clients
+3. **Fiabilité** : Système stable avec sauvegarde automatique des données
+4. **Sécurité** : Protection des données sensibles (clients, fournisseurs, tarifs)
+5. **Évolutivité** : Possibilité d'ajouter de nouvelles fonctionnalités à l'avenir
+6. **Fonctionnement hors ligne** : Capacité à fonctionner même en cas de coupure internet
+7. **Maintenance limitée** : Système autonome nécessitant peu d'interventions techniques
+
+## Description du futur système d'information
+
+### Présentation générale
+
+Le futur système d'information de la pharmacie DIBAPHAR sera un logiciel de gestion de stock spécifiquement conçu pour les petites pharmacies. Il permettra la gestion complète du stock de médicaments et produits parapharmaceutiques, avec un focus particulier sur les alertes automatiques pour prévenir les ruptures et les péremptions.
+
+Le système sera installé sur un ordinateur unique dans la pharmacie, avec une interface tactile pour faciliter la saisie rapide des ventes et autres mouvements de stock.
+
+### Acteurs du système
+
+1. **Le gérant de la pharmacie** : Utilisateur principal du système, il aura accès à toutes les fonctionnalités
+2. **Les fournisseurs** : Acteurs externes qui recevront les commandes générées par le système
+3. **Les clients** : Bénéficiaires indirects du système, qui profiteront d'une meilleure disponibilité des produits
+
+### Processus du futur système
+
+#### 1. Processus d'approvisionnement
+
+Le processus d'approvisionnement se déroulera comme suit :
+
+1. **Détection automatique des besoins** : Le système contrôle en permanence les niveaux de stock. Lorsqu'un produit atteint son seuil d'alerte, une notification apparaît dans le tableau de bord.
+
+2. **Génération des commandes** : Quotidiennement, le système génère automatiquement une proposition de commande regroupant tous les produits sous le seuil d'alerte. Cette proposition est organisée par fournisseur préférentiel pour chaque produit.
+
+3. **Validation des commandes** : Le gérant examine la proposition, peut ajuster les quantités ou supprimer certains articles, puis valide la commande.
+
+4. **Transmission des commandes** : Le système prépare un bon de commande au format PDF que le gérant peut imprimer ou envoyer par email au fournisseur concerné.
+
+5. **Suivi des commandes en cours** : Les commandes passées sont enregistrées avec leur statut (en attente, partiellement livrée, complètement livrée).
+
+6. **Réception des commandes** : À l'arrivée d'une livraison, le gérant saisit les produits reçus, leurs quantités et leurs dates de péremption. Le système met à jour automatiquement les stocks et le statut de la commande.
+
+#### 2. Processus de gestion des ventes et sorties de stock
+
+1. **Enregistrement des ventes** : À chaque vente, le gérant sélectionne le produit sur l'interface tactile et indique la quantité vendue. Le stock est immédiatement mis à jour.
+
+2. **Alertes en temps réel** : Si la vente fait passer le produit sous son seuil critique, une alerte apparaît immédiatement.
+
+3. **Suggestion de produits alternatifs** : En cas de rupture, le système peut suggérer des produits alternatifs disponibles en stock.
+
+4. **Autres sorties de stock** : Le système permet d'enregistrer d'autres types de sorties (péremption, casse, vol) pour maintenir l'exactitude du stock.
+
+#### 3. Processus de gestion des péremptions
+
+1. **Suivi des dates** : À chaque entrée de stock, les dates de péremption sont enregistrées par lot.
+
+2. **Alertes préventives** : Le système génère des alertes pour les produits qui atteindront leur date de péremption dans les 3 mois.
+
+3. **Gestion FEFO** : Lors de la vente d'un produit, le système indique le lot à utiliser en priorité (le plus proche de sa date de péremption).
+
+4. **Inventaire des périmés** : Un rapport mensuel liste tous les produits périmés à retirer du stock.
+
+#### 4. Processus d'inventaire
+
+1. **Planification des inventaires** : Le système propose un planning d'inventaire tournant (quelques produits chaque jour plutôt qu'un inventaire complet mensuel).
+
+2. **Assistance à l'inventaire** : Des listes de comptage sont générées par le système, permettant au gérant de vérifier les stocks physiques.
+
+3. **Ajustement des écarts** : Le gérant saisit les quantités réellement constatées, et le système ajuste automatiquement le stock informatique.
+
+4. **Analyse des écarts** : Le système produit un rapport d'analyse des écarts pour identifier les produits problématiques.
+
+### Structure des données
+
+Le futur système de gestion des stocks de la pharmacie DIBAPHAR s'articulera autour des entités suivantes :
+
+1. **Produit**
+   - Identifiant unique
+   - Désignation commerciale
+   - Principe actif
+   - Forme galénique (comprimé, sirop, etc.)
+   - Dosage
+   - Conditionnement
+   - Prix d'achat
+   - Prix de vente
+   - Catégorie (antibiotique, antalgique, etc.)
+   - Niveau de criticité (1 à 3)
+   - Stock minimum
+   - Stock d'alerte
+   - Stock maximum
+   - Emplacement dans la pharmacie
+   - Fournisseur préférentiel
+
+2. **Stock**
+   - Identifiant produit
+   - Numéro de lot
+   - Date de péremption
+   - Quantité disponible
+   - Date dernière entrée
+   - Date dernière sortie
+
+3. **Fournisseur**
+   - Identifiant unique
+   - Nom
+   - Adresse
+   - Contact principal
+   - Téléphone
+   - Email
+   - Délai de livraison moyen
+   - Conditions de paiement
+   - Minimum de commande
+
+4. **Commande**
+   - Numéro de commande
+   - Date de commande
+   - Fournisseur
+   - Statut (en préparation, validée, en cours, livrée)
+   - Montant total
+   - Date de livraison prévue
+   - Date de livraison effective
+
+5. **Ligne de commande**
+   - Numéro de commande
+   - Produit
+   - Quantité commandée
+   - Quantité reçue
+   - Prix unitaire
+
+6. **Mouvement de stock**
+   - Identifiant unique
+   - Date et heure
+   - Type (entrée, vente, péremption, casse, etc.)
+   - Produit concerné
+   - Quantité
+   - Numéro de lot (pour les entrées)
+   - Date de péremption (pour les entrées)
+   - Référence (numéro de commande ou de vente)
+
+7. **Alerte**
+   - Identifiant unique
+   - Date et heure
+   - Type (rupture, péremption, etc.)
+   - Produit concerné
+   - Message
+   - Statut (nouvelle, vue, traitée)
+
+### Flux d'information
+
+Les principaux flux d'information dans le futur système seront :
+
+1. **Flux des ventes** :
+   - Interface de vente → Enregistrement du mouvement de stock → Mise à jour du stock → Vérification des seuils → Génération d'alertes si nécessaire
+
+2. **Flux des commandes** :
+   - Détection de seuil d'alerte atteint → Génération de proposition de commande → Validation par le gérant → Création de bon de commande → Transmission au fournisseur
+
+3. **Flux des réceptions** :
+   - Saisie des produits reçus → Enregistrement des mouvements d'entrée → Mise à jour des stocks → Mise à jour du statut de la commande
+
+4. **Flux des alertes** :
+   - Contrôle continu des niveaux de stock et dates de péremption → Génération d'alertes → Notification sur le tableau de bord → Traitement des alertes par le gérant
+
+5. **Flux des inventaires** :
+   - Planification → Génération des listes de comptage → Saisie des quantités réelles → Ajustement des stocks informatiques → Analyse des écarts
+
+### Interface utilisateur
+
+L'interface utilisateur sera conçue pour être simple et intuitive, avec les éléments suivants :
+
+1. **Tableau de bord principal** :
+   - Synthèse des alertes (ruptures imminentes, péremptions proches)
+   - Statistiques rapides (ventes du jour, produits les plus vendus)
+   - Accès rapide aux fonctions principales
+
+2. **Module de vente** :
+   - Recherche rapide de produits (par nom, code barre, etc.)
+   - Affichage des informations essentielles (stock disponible, prix)
+   - Enregistrement rapide des sorties
+
+3. **Module de gestion des stocks** :
+   - Vue complète de l'inventaire
+   - Filtres multiples (par catégorie, par fournisseur, par niveau de stock)
+   - Fonction d'ajustement manuel
+
+4. **Module de commandes** :
+   - Proposition automatique basée sur les seuils d'alerte
+   - Interface d'édition des commandes
+   - Suivi des commandes en cours
+
+5. **Module de réception** :
+   - Saisie facilitée des produits reçus
+   - Contrôle de conformité avec la commande
+   - Enregistrement des lots et dates de péremption
+
+6. **Module d'alerte** :
+   - Liste des alertes en cours
+   - Interface de traitement des alertes
+   - Historique des alertes résolues
+
+7. **Module de reporting** :
+   - Génération de rapports prédéfinis
+   - Analyses graphiques des ventes et des stocks
+   - Export des données au format Excel ou PDF
+
+## Conclusion et recommandations
+
+L'analyse du système de gestion des stocks de la pharmacie DIBAPHAR a mis en évidence plusieurs faiblesses du processus manuel actuel, notamment en termes de fiabilité, de réactivité et de suivi des péremptions. La mise en place d'un système informatisé avec alertes automatiques permettrait de résoudre ces problèmes et d'optimiser significativement la gestion des stocks.
+
+Pour assurer le succès de ce projet, nous recommandons :
+
+1. **Une mise en œuvre progressive** : Déployer le système par modules, en commençant par la gestion de base des stocks et des ventes, puis en ajoutant progressivement les fonctionnalités plus avancées.
+
+2. **Une formation approfondie** : Former le gérant à l'utilisation du logiciel, en insistant sur les gains de temps et d'efficacité à moyen terme.
+
+3. **Un accompagnement initial** : Prévoir une période d'accompagnement pour aider à la prise en main du système et à la résolution des problèmes initiaux.
+
+4. **Une phase de saisie initiale** : Planifier une phase de saisie complète du stock existant pour démarrer avec une base de données fiable.
+
+5. **Des sauvegardes régulières** : Mettre en place un système de sauvegarde automatique pour éviter toute perte de données.
+
+6. **Un plan d'évolution** : Prévoir dès maintenant les possibilités d'évolution future du système (gestion des clients fidèles, comptabilité intégrée, etc.).
+
+Cette étude a permis d'établir une description détaillée du système actuel et des besoins de la pharmacie DIBAPHAR. Elle servira de base solide pour la phase de modélisation (MCC, MCT, MOT) qui suivra, puis pour le développement du logiciel de gestion des stocks avec alertes automatiques.

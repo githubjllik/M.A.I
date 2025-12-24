@@ -1,0 +1,29 @@
+# Description textuelle de la gestion des stocks de la pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR souhaite informatiser sa gestion des stocks qui est actuellement gérée manuellement par un seul gérant. Voici la description du processus actuel et des flux de communication entre les différents acteurs:
+
+Le gérant de la pharmacie DIBAPHAR est responsable du suivi quotidien des stocks de médicaments et produits pharmaceutiques. Lorsque le niveau d'un produit atteint un seuil critique, le gérant doit manuellement préparer une demande de réapprovisionnement.
+
+Chaque matin, le gérant effectue un contrôle visuel des étagères et rayons pour identifier les produits en quantité insuffisante. Il consulte également son registre manuel où sont consignées les ventes de la veille. Sur la base de ces informations, il établit une liste des produits à commander.
+
+Pour chaque produit à réapprovisionner, le gérant contacte le fournisseur approprié par téléphone ou par email. Il existe plusieurs fournisseurs selon les catégories de produits (médicaments génériques, spécialités, produits parapharmaceutiques, etc.). Le gérant négocie les prix, les délais de livraison et vérifie la disponibilité des produits auprès de chaque fournisseur.
+
+Le fournisseur envoie ensuite un devis détaillé au gérant qui l'étudie et décide de confirmer ou non la commande. Si la commande est confirmée, le fournisseur prépare les produits et organise leur livraison. Il envoie également une facture proforma à la pharmacie.
+
+Lors de la réception des produits, le gérant vérifie la conformité de la livraison avec le bon de commande. Il contrôle la quantité, la qualité, les dates de péremption et l'état des produits reçus. En cas de non-conformité, il contacte immédiatement le fournisseur pour signaler le problème et demander une régularisation.
+
+Si la livraison est conforme, le gérant met à jour manuellement son registre de stock et place les produits sur les étagères ou dans la zone de stockage. Il transmet également la facture au comptable externe qui s'occupe de la comptabilité de la pharmacie.
+
+Le gérant communique régulièrement avec le comptable pour lui transmettre les factures d'achat, les relevés de vente et autres documents comptables. Le comptable établit les états financiers mensuels et annuels qu'il remet au gérant pour analyse.
+
+Les clients se présentent au comptoir de la pharmacie avec ou sans ordonnance. Le gérant vérifie la disponibilité des produits demandés. Si un produit n'est pas disponible, il propose au client soit une alternative équivalente, soit de commander le produit avec un délai de livraison. Dans ce dernier cas, il note la commande spéciale dans un cahier dédié et contacte le fournisseur pour une livraison urgente.
+
+En fin de journée, le gérant fait l'inventaire des ventes, met à jour son registre manuel et prépare la liste des produits à commander pour le lendemain. À la fin de chaque mois, il réalise un inventaire complet pour identifier les écarts entre le stock théorique et le stock réel, et pour détecter les produits périmés ou endommagés.
+
+Le gérant est également en relation avec les médecins locaux qui l'appellent parfois pour vérifier la disponibilité de certains médicaments avant de les prescrire à leurs patients. Il communique aussi avec l'Ordre des Pharmaciens et les autorités sanitaires pour se tenir informé des réglementations et alertes concernant certains médicaments.
+
+Périodiquement, les délégués médicaux des laboratoires pharmaceutiques visitent la pharmacie pour présenter de nouveaux produits. Le gérant évalue ces produits et décide de les inclure ou non dans son catalogue.
+
+En cas d'urgence sanitaire ou de besoin spécifique, le gérant peut contacter d'autres pharmacies du réseau local pour emprunter des médicaments ou diriger les clients vers ces établissements.
+
+Tous ces processus sont actuellement gérés manuellement, ce qui entraîne des risques d'erreur, une perte de temps considérable et des ruptures de stock fréquentes. L'informatisation de la gestion des stocks permettrait d'automatiser une grande partie de ces tâches et d'améliorer la qualité du service aux clients.

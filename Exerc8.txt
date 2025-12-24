@@ -1,0 +1,89 @@
+# Identification des acteurs et flux de communication pour la bibliothèque X
+
+## 1. Identification des acteurs
+
+### Acteurs internes :
+- Service achat des exemplaires
+- Service inscription des emprunteurs
+- Service enregistrement des prêts
+- Service retour des exemplaires
+
+### Acteurs externes :
+- Emprunteur
+- Éditeur
+
+## 2. Flux de communication entre les acteurs
+
+### Flux 1 : Service achat - Éditeur
+**Description** : Le service achat communique avec l'éditeur pour acquérir de nouveaux exemplaires ou renouveler des exemplaires usagés.
+
+**Justification** : "Le service achats est en relation commerciale avec l'éditeur."
+
+### Flux 2 : Service achat - Service enregistrement des prêts
+**Description** : Le service achat enregistre les nouvelles références d'ouvrages et les transmet au service d'enregistrement des prêts pour qu'ils puissent être mis à disposition.
+
+**Justification** : "Un service s'occupe de l'achat des exemplaires d'ouvrage [...] ce service enregistre les références communes à plusieurs exemplaires [...]" et "Les exemplaires sont repérés par un code barre (n° séquentiel unique) collé au dos de l'exemplaire)."
+
+### Flux 3 : Emprunteur - Service inscription
+**Description** : L'emprunteur s'inscrit auprès du service d'inscription qui lui délivre une carte avec code-barres.
+
+**Justification** : "Un service s'occupe de l'inscription des emprunteurs. Les emprunteurs sont identifiés par une carte comprenant un code barre (n° séquentiel unique)."
+
+### Flux 4 : Service inscription - Service enregistrement des prêts
+**Description** : Le service d'inscription transmet les informations des emprunteurs au service d'enregistrement des prêts.
+
+**Justification** : "Pour chaque emprunteur on mémorise son nom, prénom, adresse, email" et "Un service s'occupe de l'enregistrement des prêts d'exemplaires."
+
+### Flux 5 : Emprunteur - Service enregistrement des prêts
+**Description** : L'emprunteur sélectionne des exemplaires et se présente au service d'enregistrement des prêts pour emprunter.
+
+**Justification** : "L'emprunteur entre librement dans la bibliothèque, circule dans les rayons, consulte le catalogue des exemplaires s'il le souhaite. Il prend les exemplaires d'ouvrage disponibles puis passe au service d'enregistrement des prêts."
+
+### Flux 6 : Service enregistrement des prêts - Emprunteur
+**Description** : Le service d'enregistrement des prêts vérifie que l'emprunteur n'a pas déjà 3 exemplaires et lui prête les exemplaires demandés.
+
+**Justification** : "Un emprunteur peut emprunter au maximum 3 exemplaires" et "Pour chaque prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur et la date de retour au plus tard de cet exemplaire."
+
+### Flux 7 : Service enregistrement des prêts - Service retour
+**Description** : Le service d'enregistrement des prêts communique les informations des prêts au service retour pour suivre les échéances.
+
+**Justification** : "Un service s'occupe du retour des exemplaires et de leur placement en rayons" et "Lorsque la date de retour échoit, on relance l'emprunteur par email de préférence, par courrier si l'adresse email est inconnue."
+
+### Flux 8 : Emprunteur - Service retour
+**Description** : L'emprunteur restitue les exemplaires empruntés au service retour.
+
+**Justification** : "Un service s'occupe du retour des exemplaires et de leur placement en rayons."
+
+### Flux 9 : Service retour - Emprunteur
+**Description** : Le service retour relance l'emprunteur par email ou courrier en cas de retard, ou lui envoie un courrier pour réclamer le paiement en cas de perte.
+
+**Justification** : "Lorsque la date de retour échoit, on relance l'emprunteur par email de préférence, par courrier si l'adresse email est inconnue. Lorsque l'exemplaire retourné est réputé perdu, on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de remplacement."
+
+### Flux 10 : Service retour - Service enregistrement des prêts
+**Description** : Le service retour informe le service d'enregistrement des prêts du retour des exemplaires pour mettre à jour la base de données.
+
+**Justification** : "Lorsque l'exemplaire est retourné en bon état, on supprime l'enregistrement de cet emprunt."
+
+### Flux 11 : Service retour - Service achat
+**Description** : Le service retour informe le service achat des exemplaires perdus ou trop usagés nécessitant un remplacement.
+
+**Justification** : "Un service s'occupe de l'achat des exemplaires d'ouvrage soit pour renouvellement d'exemplaires usagés" et "Lorsque l'exemplaire retourné est réputé perdu, on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de remplacement."
+
+## Processus complet
+
+1. Le service achat communique avec l'éditeur pour acquérir des exemplaires
+2. Le service achat enregistre les références des ouvrages et les exemplaires
+3. L'emprunteur s'inscrit auprès du service d'inscription qui lui délivre une carte
+4. Le service d'inscription transmet les informations des emprunteurs au service d'enregistrement des prêts
+5. L'emprunteur sélectionne des exemplaires et se présente au service d'enregistrement
+6. Le service d'enregistrement vérifie la disponibilité, les limites, et enregistre le prêt
+7. Le service d'enregistrement des prêts communique les informations au service retour
+8. L'emprunteur restitue les exemplaires au service retour
+9. Le service retour vérifie l'état et met à jour les informations
+   - Si retard : le service retour relance l'emprunteur
+   - Si perte : le service retour envoie un courrier pour paiement
+   - Si exemplaire usagé : le service retour informe le service achat
+10. Le service retour informe le service d'enregistrement des prêts pour mettre à jour la base
+11. Si besoin de remplacement, le service achat reprend contact avec l'éditeur
+
+Ce processus est cyclique et les flux se répètent selon les besoins de la bibliothèque et des emprunteurs.

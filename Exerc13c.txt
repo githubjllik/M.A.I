@@ -1,0 +1,135 @@
+# Analyse de l'énoncé pour la modélisation de données de PHILTECH
+
+Je vais identifier les entités, propriétés, relations et cardinalités en extrayant les éléments explicites et implicites de l'énoncé.
+
+## Les entités
+
+### 1. PRODUIT
+**Extrait**: "L'entreprise PHILTECH fabrique et commercialise divers produits. Ils sont identifiés par une référence propre à l'entreprise PHILETECH et on enregistre une désignation (libellé court), un descriptif (libellé long) et un prix de vente catalogue unitaire hors taxes."
+
+### 2. PRODUIT_FABRIQUE (sous-type de PRODUIT)
+**Extrait**: "Les produits qu'elle fabrique pour lesquels on enregistre le nombre moyen d'heures de main d'œuvre nécessaire à leur fabrication"
+
+### 3. PRODUIT_APPROVISIONNE (sous-type de PRODUIT)
+**Extrait**: "Les produits dits « approvisionnés » parce qu'elle ne les fabrique pas : ils sont achetés à un ou plusieurs fournisseurs à un prix d'achat unitaire moyen."
+
+### 4. FOURNISSEUR
+**Extrait**: "Pour ne pas dépendre d'un fournisseur, enregistré par ses raisons sociales, adresse, etc."
+
+### 5. COMMANDE
+**Extrait**: "Lorsque l'entreprise PHILTECH passe une commande à une certaine date, à un fournisseur"
+
+### 6. LIGNE_COMMANDE
+**Extrait**: "elle essaie de grouper plusieurs lignes de commande : une par produit dans une certaine quantité avec sa date de livraison prévue"
+
+## Les propriétés/attributs
+
+### Pour PRODUIT:
+- **reference_philtech** (identifiant)
+- **designation** (libellé court)
+- **descriptif** (libellé long)
+- **prix_vente_HT**
+
+**Extrait**: "Ils sont identifiés par une référence propre à l'entreprise PHILETECH et on enregistre une désignation (libellé court), un descriptif (libellé long) et un prix de vente catalogue unitaire hors taxes."
+
+### Pour PRODUIT_FABRIQUE:
+- Hérite des attributs de PRODUIT
+- **nb_heures_main_oeuvre**
+
+**Extrait**: "Les produits qu'elle fabrique pour lesquels on enregistre le nombre moyen d'heures de main d'œuvre nécessaire à leur fabrication"
+
+### Pour PRODUIT_APPROVISIONNE:
+- Hérite des attributs de PRODUIT
+- **prix_achat_unitaire_moyen**
+
+**Extrait**: "Les produits dits « approvisionnés » parce qu'elle ne les fabrique pas : ils sont achetés à un ou plusieurs fournisseurs à un prix d'achat unitaire moyen."
+
+### Pour FOURNISSEUR:
+- **id_fournisseur** (identifiant implicite)
+- **raison_sociale**
+- **adresse**
+- (etc. implicite)
+
+**Extrait**: "Pour ne pas dépendre d'un fournisseur, enregistré par ses raisons sociales, adresse, etc."
+
+### Pour COMMANDE:
+- **id_commande** (identifiant implicite)
+- **date_commande**
+
+**Extrait**: "Lorsque l'entreprise PHILTECH passe une commande à une certaine date, à un fournisseur"
+
+### Pour LIGNE_COMMANDE:
+- **id_ligne** (identifiant implicite)
+- **quantite**
+- **date_livraison_prevue**
+- **prix_achat_negocie** (implicite)
+
+**Extrait**: "elle essaie de grouper plusieurs lignes de commande : une par produit dans une certaine quantité avec sa date de livraison prévue, pour réduire les frais de livraison de la commande et essayer de négocier un prix d'achat unitaire inférieur au prix catalogue du fournisseur."
+
+## Les relations
+
+### 1. FOURNIR (entre PRODUIT_APPROVISIONNE et FOURNISSEUR)
+**Extrait**: "Pour chaque produit approvisionné l'entreprise a établi une liste de fournisseurs capables de livrer ce produit."
+
+### 2. COMMANDER (entre COMMANDE et FOURNISSEUR)
+**Extrait**: "Lorsque l'entreprise PHILTECH passe une commande à une certaine date, à un fournisseur"
+
+### 3. CONTENIR (entre COMMANDE et LIGNE_COMMANDE)
+**Extrait**: "elle essaie de grouper plusieurs lignes de commande"
+
+### 4. CONCERNER (entre LIGNE_COMMANDE et PRODUIT_APPROVISIONNE)
+**Extrait**: "une [ligne] par produit dans une certaine quantité"
+
+## Les attributs des relations
+
+### Pour FOURNIR:
+- **reference_fournisseur** (référence du produit chez le fournisseur)
+- **prix_fournisseur** (prix catalogue du fournisseur)
+
+**Extrait**: "Bien entendu pour un même produit chaque fournisseur peut avoir sa propre référence et un prix différent."
+
+## Les cardinalités
+
+### Relation FOURNIR (PRODUIT_APPROVISIONNE - FOURNISSEUR):
+- Un PRODUIT_APPROVISIONNE peut être fourni par un ou plusieurs FOURNISSEUR: (1,N)
+- Un FOURNISSEUR peut fournir zéro, un ou plusieurs PRODUIT_APPROVISIONNE: (0,N)
+
+**Extrait**: "ils sont achetés à un ou plusieurs fournisseurs" et "pour chaque produit approvisionné l'entreprise a établi une liste de fournisseurs"
+
+### Relation COMMANDER (COMMANDE - FOURNISSEUR):
+- Une COMMANDE est passée à un seul FOURNISSEUR: (1,1)
+- Un FOURNISSEUR peut recevoir zéro, une ou plusieurs COMMANDE: (0,N)
+
+**Extrait**: "Lorsque l'entreprise PHILTECH passe une commande [...] à un fournisseur"
+
+### Relation CONTENIR (COMMANDE - LIGNE_COMMANDE):
+- Une COMMANDE contient une ou plusieurs LIGNE_COMMANDE: (1,N)
+- Une LIGNE_COMMANDE appartient à une seule COMMANDE: (1,1)
+
+**Extrait**: "elle essaie de grouper plusieurs lignes de commande"
+
+### Relation CONCERNER (LIGNE_COMMANDE - PRODUIT_APPROVISIONNE):
+- Une LIGNE_COMMANDE concerne un seul PRODUIT_APPROVISIONNE: (1,1)
+- Un PRODUIT_APPROVISIONNE peut être concerné par zéro, une ou plusieurs LIGNE_COMMANDE: (0,N)
+
+**Extrait**: "une [ligne] par produit dans une certaine quantité"
+
+## Règles de gestion
+
+1. Un produit est soit fabriqué soit approvisionné (relation d'héritage exclusif).
+   **Extrait implicite**: La description distingue clairement deux types de produits.
+
+2. Une commande est passée à un seul fournisseur.
+   **Extrait**: "Lorsque l'entreprise PHILTECH passe une commande [...] à un fournisseur"
+
+3. Une ligne de commande ne concerne qu'un seul produit.
+   **Extrait**: "une par produit dans une certaine quantité"
+
+4. Pour chaque produit approvisionné chez un fournisseur, il existe une référence spécifique et un prix.
+   **Extrait**: "pour un même produit chaque fournisseur peut avoir sa propre référence et un prix différent"
+
+5. L'entreprise peut négocier un prix d'achat inférieur au prix catalogue du fournisseur.
+   **Extrait**: "essayer de négocier un prix d'achat unitaire inférieur au prix catalogue du fournisseur"
+
+6. Pour être commandé chez un fournisseur, un produit doit figurer dans la liste des produits que ce fournisseur peut livrer.
+   **Extrait implicite**: La logique de l'approvisionnement implique cette contrainte.

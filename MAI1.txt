@@ -1,0 +1,29 @@
+# Description textuelle de la gestion des stocks de la pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR souhaite informatiser la gestion de ses stocks. Actuellement, cette pharmacie fonctionne avec un seul gérant qui supervise l'ensemble des opérations liées à la gestion des produits pharmaceutiques.
+
+Le processus de gestion des stocks se déroule comme suit :
+
+Chaque matin, le gérant de la pharmacie DIBAPHAR effectue un contrôle visuel rapide des rayons pour identifier les produits à faible stock. Il consulte ensuite son registre manuel pour vérifier les niveaux de stock théoriques. Pour les médicaments critiques ou à forte rotation, il effectue un inventaire physique plus précis.
+
+Lorsqu'un client se présente au comptoir, le gérant vérifie la disponibilité du médicament demandé. Si le produit est disponible, il le remet au client après vérification de l'ordonnance, encaisse le paiement et met à jour manuellement son registre de stock. Si le produit n'est pas disponible, il propose au client soit une alternative thérapeutique équivalente, soit de commander le produit, soit de s'adresser à une autre pharmacie.
+
+En fin de journée, le gérant analyse les ventes et établit une liste des produits à commander. Pour cela, il compare les stocks actuels aux seuils minimaux qu'il a définis pour chaque produit. Cette liste est complétée par les produits spécifiques demandés par les clients en cours de journée.
+
+Le gérant contacte ensuite ses différents fournisseurs (grossistes pharmaceutiques) par téléphone ou par fax pour passer les commandes. Certains fournisseurs privilégiés sont contactés selon un calendrier hebdomadaire fixe, tandis que d'autres sont sollicités en fonction des besoins spécifiques ou urgents.
+
+À la réception des livraisons, généralement le lendemain matin, le gérant vérifie la conformité des produits reçus avec le bon de livraison. Il contrôle les dates de péremption, l'état des emballages et la quantité livrée. Ensuite, il met à jour son registre de stock et range les produits dans les rayons ou dans la réserve selon l'espace disponible et la nature des produits.
+
+Pour les produits coûteux ou à faible rotation, le gérant communique régulièrement avec d'autres pharmacies du réseau local pour organiser des échanges de produits, évitant ainsi des stocks dormants ou des péremptions.
+
+Mensuellement, le gérant effectue un inventaire complet pour réconcilier les stocks théoriques et les stocks physiques. Il analyse les écarts (pertes, vols, erreurs de saisie) et ajuste son registre en conséquence.
+
+Pour les produits stupéfiants et autres médicaments à usage contrôlé, le gérant tient un registre spécial conformément à la réglementation. Il vérifie quotidiennement ces stocks sensibles.
+
+Trimestriellement, le gérant analyse les tendances de vente pour ajuster les seuils de commande en fonction des saisonnalités (médicaments contre la grippe en hiver, anti-allergiques au printemps, etc.).
+
+Lorsqu'un produit approche de sa date de péremption, le gérant le place en évidence pour favoriser sa vente, contacte le fournisseur pour un éventuel retour, ou prévoit sa destruction selon les procédures en vigueur si nécessaire.
+
+En cas d'urgence sanitaire ou de tension d'approvisionnement sur certains médicaments, le gérant est en communication avec les autorités sanitaires qui peuvent lui indiquer des procédures spéciales de gestion des stocks concernés.
+
+Ces différents flux d'information et de produits, actuellement gérés manuellement, pourraient être optimisés par l'informatisation du système de gestion des stocks, notamment avec la mise en place d'alertes automatiques pour les ruptures ou les approches de seuils critiques.

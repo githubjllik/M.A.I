@@ -1,0 +1,79 @@
+Identifie :
+Les entités, leurs propriétés/attributs, identifiant , relations, la cardinalité, les règles de gestion
+
+Réalise :
+le graphe de dépendances fonctionnelles et le dictionnaire des données 
+
+Pour le dictionnaire des données voici les éléments , on a :
+- Nom de la donnée 
+- Format 
+- longueur 
+- Type ( Élémentaire | Calculée)
+- Règle de calcul 
+- Règle de gestion 
+- Document
+
+Les identifiants des on les identifient dans le dictionnaire avec le symbole * au début.
+Nom de la donnée = attributs/propriétés/identifiant d'une entité 
+
+
+C'est pour un MCD 
+
+Faut toujours tout démontrer, des trucs comme la normalisation, la fusion,... Pour dire pourquoi on a cet aspect et non l'autre, pour s'expliquer sur le Pourquoi on a que 4 entités au lieu de 8, pour dire pourquoi on a ça ou ça au lieu de ça,... 
+
+Dans chaque entité faut toujours mettre ses propriétés complets même si elles ne sont pas tous cités 
+
+Pour :
+- chaque entité déclaré tu dois montré l'extrait de la partie de l'énoncé qui permet cela 
+- de même pours leurs propriétés, attributs 
+- de même pour les relations,
+- de même pour la cardinalité 
+
+NB: Concernant les relations faut utiliser des verbes à l'infinitif qui qui s'applique de façon bidirectionnelle ou dans tous les sens utilisant ce même verbe 
+Ça garantie la cohérence 
+
+Il faut que ça soit tellement cohérent suivant l'énoncé à tel que nul ni personne pourrait contredire ça 
+
+Tout doit avoir un extrait de l'énoncé mais sachant que ça peut toujours être explicite ou implicite 
+
+Les extraits nous aides à ne peut pas nous permet, il nous permet de nous localiser, d'avoir une meilleure compréhension 
+
+Tu peux réaliser un tableau pour les identifications des entités, propriétés/attributs, relations/cardinalités, règles de gestion, chacun avec une zone extrait de l'énoncé pour comprendre et tu peux ajouter d'autres éléments nécessaires 
+
+N'oublie pas : Dans chaque entité faut toujours mettre ses propriétés complets même si elles sont implicite ou explicite 
+
+Car on a besoin des propriétés, une entité ou une table ne doit pas seulement être créer pour avoir une seule propriété ou  champ
+
+Fait en sorte qu'en lisant le MCD ça nous donne presque les mêmes chemins que quand on avait lu l'énoncé 
+
+Tout ça c'était pour le MCD 
+Tu ferras le MOD (celui qui parle de responsabilité pour chaque poste : ajouter , modifier, supprimer, consulter,...etc) et le MLD en se basant sur le MCD qui a été construite
+
+Voici l'énoncé :
+
+
+Question 11) ETUDE DE CAS : Gestion des enfants désœuvrés dans un centre 
+d’hébergement 
+L’étude d’un système de gestion des enfants désœuvrés dans un centre 
+d’hébergement a donné les résultats suivants : les informations manipulées sont 
+reprises dans un dictionnaire de données présenté ci-dessous : 
+Nom enfant, postnom enfant, prénom enfant, sexe enfant, âge enfant, numéro site, 
+libellé commune, référence enfant, référence commune, libellé site, nombre 
+d’enfants du site, matricule encadreur, nom encadreur, postnom encadreur, sexe 
+encadreur, état civil encadreur, niveau d’étude, fonction, référence cotation, libellé 
+cotation, cote, activité, numéro chambre, désignation pavillon, désignation activité. 
+Le fonctionnement de ce système se résume à travers de la description suivante : 
+Les enfants sont logés dans les chambres ; les enfants sont affectés dans un site se 
+trouvant dans une commune. Les enfants sont encadrés par les encadreurs selon 
+les activités. Un encadreur réalise plusieurs activités. Une activité donne lieu à une 
+ou plusieurs cotations pour un ou plusieurs enfants à savoir plusieurs enfants sont 
+concernés par plusieurs activités. 
+De l’affiliation : un acteur social sollicite l’hébergement d’un enfant à travers d’un 
+document appelé demande d’hébergement qu’il adresse à la réception. Celui-ci 
+après son enregistrement, la transmet au Conseiller Social qui analyse la demande. 
+Deux solutions sont envisageables : en cas de refus, la note de refus et la demande 
+sont renvoyés auprès de l’acteur social. Par contre, l’ordre d’acception est transmis 
+au Comité de prise en charge des enfants deseouvrés qui obligatoirement établit 
+l’ordre d’hébergement et l’autre copie à l’acteur social. Ce service établit chaque 
+fois un rapport adressé au Comité de prise en charge des enfants. 
+Travail à faire : Construire les MCD,MOD, MLD

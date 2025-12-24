@@ -1,0 +1,26 @@
+# Description textuelle de la gestion des stocks de la pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR, une petite officine de quartier, gère actuellement son stock de médicaments et produits pharmaceutiques de façon manuelle. Le pharmacien propriétaire assume seul la responsabilité de l'ensemble des opérations liées à la gestion du stock.
+
+Lorsque les stocks d'un produit atteignent un seuil critique, le pharmacien établit une liste de commande. Il consulte alors son catalogue fournisseurs pour vérifier les prix et disponibilités avant de contacter les grossistes pharmaceutiques par téléphone ou email. Selon l'urgence, il passe commande auprès du grossiste principal ou d'un fournisseur alternatif. Le pharmacien précise les références des produits, les quantités désirées et le délai souhaité de livraison.
+
+À la réception des marchandises, le pharmacien vérifie la conformité de la livraison avec le bon de commande, contrôle les dates de péremption et l'état des produits. Il signe le bordereau de livraison remis par le transporteur. En cas d'anomalie (produit manquant, endommagé ou non conforme), il émet immédiatement une réserve auprès du livreur et contacte le fournisseur pour régularisation.
+
+Une fois la vérification terminée, le pharmacien met à jour manuellement sa fiche de stock en inscrivant les nouvelles entrées, puis range les produits dans les rayonnages de l'officine ou dans la réserve selon les règles de stockage applicables (température, sensibilité à la lumière, produits sensibles nécessitant un stockage sécurisé).
+
+Quand un client se présente avec une ordonnance ou pour acheter un médicament sans ordonnance, le pharmacien vérifie la disponibilité du produit dans son stock. S'il est disponible, il conseille le client sur la posologie et les précautions d'usage, puis remet le médicament après encaissement. Le pharmacien met alors à jour manuellement sa fiche de stock pour enregistrer la sortie du produit.
+
+Périodiquement, généralement une fois par mois, le pharmacien effectue un inventaire physique complet des stocks pour détecter les écarts entre le stock théorique et le stock réel. Il vérifie également les dates de péremption des produits pour identifier ceux qui approchent de leur date limite d'utilisation. Les produits périmés sont retirés du stock et placés dans un espace dédié en attendant leur collecte par un organisme spécialisé dans le traitement des déchets pharmaceutiques.
+
+Pour les médicaments soumis à une réglementation particulière (stupéfiants, psychotropes), le pharmacien tient un registre spécifique où il consigne méticuleusement chaque entrée et sortie.
+
+Le pharmacien entretient des relations régulières avec les délégués médicaux qui l'informent des nouveaux produits. Il échange également avec ses confrères du quartier pour des dépannages mutuels en cas de rupture d'un médicament urgent.
+
+À la fin de chaque mois, le pharmacien analyse les ventes réalisées pour identifier les tendances de consommation et ajuster ses commandes futures. Il communique aussi avec son comptable pour la gestion financière de son stock (valorisation du stock, marge brute, rotation).
+
+En période d'épidémie saisonnière, le pharmacien anticipe l'augmentation de la demande pour certains médicaments en constituant des stocks prévisionnels. De même, il adapte son offre selon les saisons (produits solaires en été, médicaments contre le rhume en hiver).
+
+Cette gestion manuelle présente de nombreuses limites : risques d'erreurs dans le suivi des stocks, difficultés à anticiper les ruptures, temps considérable consacré aux tâches administratives au détriment du conseil aux patients, et absence d'alertes automatiques pour les stocks critiques et les dates de péremption.
+
+
+« De même, il ajuste son offre en fonction des saisons, comme les médicaments contre le rhume et la toux durant la saison des pluies. »

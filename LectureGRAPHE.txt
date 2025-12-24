@@ -1,0 +1,149 @@
+Parfait 👍
+Je vais lire exactement ce graphe comme un texte, phrase par phrase, sans rien ajouter, uniquement ce que disent les flèches.
+
+
+---
+
+🔹 Lecture globale (une seule phrase fluide)
+
+> En connaissant un ouvrage (idOuvrage), on connaît son auteur, son titre, sa valeur de remplacement, son résumé et ses mots-clés.
+Ce même ouvrage permet aussi d’identifier un exemplaire (codeBarreExemplaire).
+En connaissant cet exemplaire, on connaît sa date d’acquisition, sa durée de vie estimée et son état, ainsi que l’emprunt auquel il est lié (idEmprunt).
+En connaissant cet emprunt, on connaît l’emprunteur (codeBarreEmprunteur) ainsi que les dates d’emprunt, de retour prévu, de retour effectif et le statut de l’emprunt.
+En connaissant l’emprunteur, on connaît son nom, son prénom, son adresse, son email, ainsi que le nombre d’emprunts actifs (calculé). »
+
+
+
+
+---
+
+🔹 Lecture détaillée flèche par flèche
+
+1️⃣
+
+idOuvrage → auteur, titre, valeurRemplacement, résumé, motsClés
+
+📖
+
+> « Un ouvrage est identifié de manière unique et cet identifiant permet de connaître toutes ses caractéristiques bibliographiques. »
+
+
+
+
+---
+
+2️⃣
+
+idOuvrage → codeBarreExemplaire
+
+📖
+
+> « En connaissant un ouvrage, on peut identifier un exemplaire de cet ouvrage. »
+
+
+
+(le graphe n’indique pas combien, seulement qu’un exemplaire est rattaché à un ouvrage)
+
+
+---
+
+3️⃣
+
+codeBarreExemplaire → dateAcquisition, dureeVieEstimee, etat
+
+📖
+
+> « Un exemplaire donné possède une date d’acquisition, une durée de vie estimée et un état. »
+
+
+
+
+---
+
+4️⃣
+
+codeBarreExemplaire → idEmprunt
+
+📖
+
+> « Un exemplaire permet d’identifier l’emprunt auquel il est associé. »
+
+
+
+
+---
+
+5️⃣
+
+idEmprunt → codeBarreEmprunteur
+
+📖
+
+> « Un emprunt est associé à un seul emprunteur. »
+
+
+
+
+---
+
+6️⃣
+
+idEmprunt → dateEmprunt, dateRetourPrevue, dateRetourEffectif, statut
+
+📖
+
+> « Chaque emprunt possède une date d’emprunt, une date de retour prévue, une date de retour effective et un statut. »
+
+
+
+
+---
+
+7️⃣
+
+codeBarreEmprunteur → nom, prenom, adresse, email, nbEmpruntsActifs
+
+📖
+
+> « Un emprunteur est identifié de façon unique et cet identifiant permet de connaître ses informations personnelles ainsi que son nombre d’emprunts actifs (valeur calculée). »
+
+
+
+
+---
+
+🔹 Lecture logique finale (chaîne complète)
+
+> Connaître un ouvrage permet de connaître ses informations, ses exemplaires, l’état de ces exemplaires, les emprunts associés, les dates et le statut de ces emprunts, ainsi que l’identité et les informations de l’emprunteur.
+
+
+
+
+---
+
+🔹 Point important (lecture correcte à l’examen)
+
+✔️ Le graphe dit ce qui est déductible
+❌ Il ne dit pas où c’est stocké
+❌ Il ne dit pas les cardinalités
+❌ Il ne dit pas les relations MCD
+
+
+---
+
+🧠 Phrase clé de validation (si le prof demande « explique »)
+
+> « Ce graphe montre que l’information circule des identifiants vers les attributs, et que certaines informations sont déductibles de façon transitive à partir d’un identifiant racine. »
+
+
+
+
+---
+
+Si tu veux, je peux :
+
+vérifier si ce graphe est parfaitement normalisé
+
+te dire où un prof pourrait dire “attention”
+
+transformer cette lecture en justification écrite d’examen prête à rendre

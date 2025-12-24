@@ -1,0 +1,1249 @@
+<!-- MCC -->
+<div>
+  Identifie tous les flux de communication entre acteurs dans cette énoncé :
+
+Q2) Gestion de stocks dans une entreprise commerciale 
+Une entreprise commerciale X gère le stock de ses produits manufacturés selon le 
+prince suivant : (Description textuelle)
+La rupture de stock occasionne l’élaboration de réquisition. La réquisition est élaborée 
+par le comptable en collaboration avec le magasinier. Le comptable envoie la 
+réquisition au gérant pour la vérification. Le gérant autorise le comptable d’élaborer le 
+bon de commande et envoyer au fournisseur. Le fournisseur reçoit le bon de 
+commande et vérifie avec le comptable. Il envoie la facture chez le comptable. Le 
+gérant autorise au comptable le paiement, qu’il vérifie avec la caisse. Le comptable paie 
+le fournisseur qui livre les marchandises au comptable qui à son tour, vérifie la livraison 
+avec le fournisseur. Le magasinier contrôle les articles et enregistre ; le magasin est 
+approvisionné. Le client arrive au magasin pour acheter les articles ; il passe à la 
+facturation pour les renseignements des articles qu’il désire. Le facturier vérifie auprès 
+de magasinier si les articles demandés sont disponibles. Il informe le client l’état des 
+articles en stock. Le client passe la commande auprès de facturier. Le facturier élabore 
+la facture et envoie à la caisse. Le client passe à la caisse pour payer la facture. Le 
+caissier vérifie le paiement avec le client. Le caissier envoie la facture à la livraison. Le 
+magasinier enregistre la facture et livre les articles au client. A la fin de la journée le 
+caissier fait l’inventaire journalier et dépose le rapport au comptable. Le comptable 
+vérifie le rapport qu’il envoie au gérant. Le magasinier donne l’information de stock au 
+gérant. Le gérant vérifie le rapport et le transmet à l’administrateur.
+</div>
+<div>
+  # Flux de communication entre acteurs dans l'énoncé
+
+Voici tous les flux de communication identifiés dans le processus de gestion de stocks de l'entreprise commerciale X :
+
+1. Comptable → Magasinier : Collaboration pour élaborer la réquisition
+2. Comptable → Gérant : Envoi de la réquisition pour vérification
+3. Gérant → Comptable : Autorisation d'élaborer le bon de commande
+4. Comptable → Fournisseur : Envoi du bon de commande
+5. Fournisseur → Comptable : Vérification du bon de commande
+6. Fournisseur → Comptable : Envoi de la facture
+7. Gérant → Comptable : Autorisation du paiement
+8. Comptable → Caisse : Vérification du paiement
+9. Comptable → Fournisseur : Paiement
+10. Fournisseur → Comptable : Livraison des marchandises
+11. Comptable → Fournisseur : Vérification de la livraison
+12. Magasinier → Magasin : Contrôle et enregistrement des articles
+13. Client → Facturier : Demande de renseignements sur les articles
+14. Facturier → Magasinier : Vérification de la disponibilité des articles
+15. Facturier → Client : Information sur l'état des stocks
+16. Client → Facturier : Passage de commande
+17. Facturier → Caisse : Envoi de la facture
+18. Client → Caissier : Paiement de la facture
+19. Caissier → Client : Vérification du paiement
+20. Caissier → Livraison : Envoi de la facture
+21. Magasinier → Client : Livraison des articles
+22. Caissier → Comptable : Dépôt du rapport d'inventaire journalier
+23. Comptable → Gérant : Envoi du rapport vérifié
+24. Magasinier → Gérant : Information sur l'état du stock
+25. Gérant → Administrateur : Transmission du rapport vérifié
+
+Ces flux représentent toutes les communications et échanges d'informations entre les différents acteurs du système de gestion de stocks décrit dans l'énoncé.
+</div>
+
+
+<!-- MCT -->
+<div>
+  Identifie les processus, les opérations, ...
+On utilise un style genre :
+ED : événement déclencheur 
+EC : événement(s) contributif(s) 
+ER: Événement résultat ou RE : Règle d'émission 
+
+voici  un exemple de ce que peut donner un ER , exemple pour une opération sur la livraison marchandise le ER peut être = marchandise livrée 
+Alors que un RE pour une opération de vérification de livraison peut être= Non conforme | Conforme 
+Dans non conforme on a comme résultat = marchandise retournée 
+Dans Conforme on a comme résultat = marchandise accepté 
+
+Pour les cas de EC on utilise juste la présence, exemple EC = présence comptable, 
+Et quand il y'a des flux de communication entre différents acteurs on peut avoir par exemple comme EC = - Présence comptable, - présence fournisseur 
+
+Voilà 
+
+Voici  l'énoncé 
+
+:
+
+Q2) Gestion de stocks dans une entreprise commerciale 
+Une entreprise commerciale X gère le stock de ses produits manufacturés selon le 
+prince suivant : (Description textuelle)
+La rupture de stock occasionne l’élaboration de réquisition. La réquisition est élaborée 
+par le comptable en collaboration avec le magasinier. Le comptable envoie la 
+réquisition au gérant pour la vérification. Le gérant autorise le comptable d’élaborer le 
+bon de commande et envoyer au fournisseur. Le fournisseur reçoit le bon de 
+commande et vérifie avec le comptable. Il envoie la facture chez le comptable. Le 
+gérant autorise au comptable le paiement, qu’il vérifie avec la caisse. Le comptable paie 
+le fournisseur qui livre les marchandises au comptable qui à son tour, vérifie la livraison 
+avec le fournisseur. Le magasinier contrôle les articles et enregistre ; le magasin est 
+approvisionné. Le client arrive au magasin pour acheter les articles ; il passe à la 
+facturation pour les renseignements des articles qu’il désire. Le facturier vérifie auprès 
+de magasinier si les articles demandés sont disponibles. Il informe le client l’état des 
+articles en stock. Le client passe la commande auprès de facturier. Le facturier élabore 
+la facture et envoie à la caisse. Le client passe à la caisse pour payer la facture. Le 
+caissier vérifie le paiement avec le client. Le caissier envoie la facture à la livraison. Le 
+magasinier enregistre la facture et livre les articles au client. A la fin de la journée le 
+caissier fait l’inventaire journalier et dépose le rapport au comptable. Le comptable 
+vérifie le rapport qu’il envoie au gérant. Le magasinier donne l’information de stock au 
+gérant. Le gérant vérifie le rapport et le transmet à l’administrateur.
+</div>
+<div>
+  # Analyse des processus de gestion de stocks
+
+## Processus 1: Approvisionnement du stock
+
+**ED1**: Rupture de stock
+
+**EC1**: Présence comptable, présence magasinier
+
+**OP1**: Élaboration de la réquisition
+- **ER1**: Réquisition élaborée
+
+**EC2**: Présence comptable, présence gérant
+
+**OP2**: Vérification de la réquisition
+- **RE2**: Approuvée | Rejetée
+  - Si Approuvée → **ER2**: Élaboration du bon de commande autorisée
+
+**EC3**: Présence comptable, présence fournisseur
+
+**OP3**: Élaboration et envoi du bon de commande
+- **ER3**: Bon de commande envoyé
+
+**EC4**: Présence comptable, présence fournisseur
+
+**OP4**: Vérification du bon de commande
+- **ER4**: Bon de commande vérifié
+
+**EC5**: Présence comptable, présence fournisseur
+
+**OP5**: Émission de la facture
+- **ER5**: Facture émise
+
+**EC6**: Présence comptable, présence gérant
+
+**OP6**: Autorisation de paiement
+- **RE6**: Autorisé | Non autorisé
+  - Si Autorisé → **ER6**: Paiement autorisé
+
+**EC7**: Présence comptable, présence caisse
+
+**OP7**: Vérification du paiement
+- **ER7**: Paiement vérifié
+
+**EC8**: Présence comptable, présence fournisseur
+
+**OP8**: Paiement du fournisseur
+- **ER8**: Fournisseur payé
+
+**EC9**: Présence comptable, présence fournisseur
+
+**OP9**: Livraison des marchandises
+- **ER9**: Marchandises livrées
+
+**EC10**: Présence comptable, présence fournisseur
+
+**OP10**: Vérification de la livraison
+- **RE10**: Conforme | Non conforme
+  - Si Conforme → **ER10**: Marchandises acceptées
+  - Si Non conforme → **ER10**: Marchandises retournées
+
+**EC11**: Présence magasinier
+
+**OP11**: Contrôle et enregistrement des articles
+- **ER11**: Articles enregistrés, magasin approvisionné
+
+## Processus 2: Vente des articles
+
+**ED2**: Arrivée du client
+
+**EC12**: Présence client, présence facturier
+
+**OP12**: Renseignement sur les articles désirés
+- **ER12**: Besoins du client identifiés
+
+**EC13**: Présence facturier, présence magasinier
+
+**OP13**: Vérification de la disponibilité
+- **RE13**: Disponible | Non disponible
+  - Si Disponible → **ER13**: Client informé de la disponibilité
+  - Si Non disponible → **ER13**: Client informé de la non-disponibilité
+
+**EC14**: Présence client, présence facturier
+
+**OP14**: Passation de commande
+- **ER14**: Commande passée
+
+**EC15**: Présence facturier
+
+**OP15**: Élaboration de la facture
+- **ER15**: Facture élaborée et envoyée à la caisse
+
+**EC16**: Présence client, présence caissier
+
+**OP16**: Paiement de la facture
+- **ER16**: Facture payée
+
+**EC17**: Présence caissier, présence client
+
+**OP17**: Vérification du paiement
+- **RE17**: Validé | Non validé
+  - Si Validé → **ER17**: Paiement validé
+
+**EC18**: Présence caissier
+
+**OP18**: Envoi de la facture à la livraison
+- **ER18**: Facture transmise pour livraison
+
+**EC19**: Présence magasinier, présence client
+
+**OP19**: Enregistrement et livraison des articles
+- **ER19**: Articles livrés au client
+
+## Processus 3: Reporting
+
+**ED3**: Fin de journée
+
+**EC20**: Présence caissier
+
+**OP20**: Inventaire journalier
+- **ER20**: Rapport d'inventaire déposé
+
+**EC21**: Présence comptable
+
+**OP21**: Vérification du rapport d'inventaire
+- **ER21**: Rapport vérifié et transmis au gérant
+
+**EC22**: Présence magasinier, présence gérant
+
+**OP22**: Information de stock
+- **ER22**: Information de stock transmise
+
+**EC23**: Présence gérant
+
+**OP23**: Vérification du rapport
+- **ER23**: Rapport vérifié et transmis à l'administrateur
+</div>
+
+<div>
+  Pour un sujet parlant de :
+« Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques »
+Cas de la pharmacie DIBAPHAR situé au 9ème Avenue Tshopo
+C'est une petite pharmacie du quartier qui est gérer par un monsieur qu'on appelle tous PAPA DIBAPHAR
+
+C'est pour le cours de méthodologie d'analyse informatique 1
+
+On doit :
+-> récolter des données afin de pouvoir effectuer des analyses 
+
+Voici quelques notions du cours :
+Objectif principal :
+Fournir aux étudiants les bases méthodologiques nécessaires à l'analyse, conception et à la réalisation des systèmes d'information d'entreprise par l'apprentissage de la méthode MERISE.
+
+Objectif spécifique :
+Être capable de créer un système d'information utilisant la démarche MERISE.
+
+Analyse= études détaillés 
+Démarche= processus 
+Démarche= étapes à suivre 
+
+L'efficacité et la validité d'une analyse informatique reposent sur la qualité de la COMMUNICATION entre les demandeurs de services (utilisateur) et fournisseurs de services (informaticien).
+
+Pourquoi le CAHIER DE CHARGE ?
+-> Pour mettre à l'abri les changements brusques de l'utilisateur 
+
+Le travail de l'analyse 
+Exemple d'un sujet :
+« Mettre en place un système de gestion de réservation de chambre »
+
+Comment faire ?
+Il s'agit d'un travail de conception 
+On peut se poser les questions :
+1. Quel est l'organisation actuelle ?
+
+2. Comment ça marche ? Comment ça fonctionne ?
+
+3. Qu'est-ce qui ne fonctionne pas et pourquoi ?
+
+4. Quels sont les informations manipulés ? Par qui ? Quand ? Comment ? Va-t-on les stockés ?
+
+5. Comment y accéder ?
+
+6. Quels traitements sont réalisés ? Quand ? Comment ? Par qui ?
+
+7. Quels programmes sont à écrire ?
+
+L'objectif du cours d'analyse informatique est de donner les méthodes de travail pour concevoir un système de gestion d'information cohérent, complet et fiable en répondant à toutes ses questions 
+
+Autres concepts :
+
+L'analyse consiste d'une part à comprendre et à modéliser les fonctionnements d'un domaine de gestion d'une organisation et d'autres part à concevoir une solution informatique adéquat.
+
+Analyse :
+-> on s'intéresse en général à un domaine d'activité de le l'entreprise : 
+- ventes 
+- production 
+- logistique 
+- finances
+- RH 
+
+-> On prend en compte les besoins des utilisateurs 
+
+-> on définit le problème à résoudre (fonctionnalités et qualités attendues) 
+
+Conception :
+CE N'EST PAS LA PRÉOCCUPATION POUR L'INSTANT 
+
+DÉMARCHE DE L'ANALYSE INFORMATIQUE (MÉTHODE DE CONCEPTION)
+
+la démarche comprend les étapes suivantes :
+
+1. Identifier le domaine de gestion d'une organisation à étudier : lieux, personnes, matériels, fonctions,...etc
+
+2. Comprendre et décrire le fonctionnement actuel du système dans le domaine étudié :
+Objectifs, données générées, traitements réalisés, poste de travail, circulation et stockage de l'information 
+
+3. Faire une analyse critique de l'existant (critiquer le système qui existe)
+
+4. Recenser les nouveaux besoins de gestion 
+
+5
+ 
+</div>
+
+<!-- TP -->
+<div>
+  Pour un sujet parlant de :
+« Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques »
+Cas de la pharmacie DIBAPHAR situé au 9ème Avenue Tshopo
+C'est une petite pharmacie du quartier qui est gérer par un monsieur qu'on appelle tous PAPA DIBAPHAR
+
+C'est pour le cours de méthodologie d'analyse informatique 1
+
+On doit :
+-> récolter des données afin de pouvoir effectuer des analyses 
+
+Voici quelques notions du cours :
+Objectif principal :
+Fournir aux étudiants les bases méthodologiques nécessaires à l'analyse, conception et à la réalisation des systèmes d'information d'entreprise par l'apprentissage de la méthode MERISE.
+
+Objectif spécifique :
+Être capable de créer un système d'information utilisant la démarche MERISE.
+
+Analyse= études détaillés 
+Démarche= processus 
+Démarche= étapes à suivre 
+
+L'efficacité et la validité d'une analyse informatique reposent sur la qualité de la COMMUNICATION entre les demandeurs de services (utilisateur) et fournisseurs de services (informaticien).
+
+Pourquoi le CAHIER DE CHARGE ?
+-> Pour mettre à l'abri les changements brusques de l'utilisateur 
+
+Le travail de l'analyse 
+Exemple d'un sujet :
+« Mettre en place un système de gestion de réservation de chambre »
+
+Comment faire ?
+Il s'agit d'un travail de conception 
+On peut se poser les questions :
+1. Quel est l'organisation actuelle ?
+
+2. Comment ça marche ? Comment ça fonctionne ?
+
+3. Qu'est-ce qui ne fonctionne pas et pourquoi ?
+
+4. Quels sont les informations manipulés ? Par qui ? Quand ? Comment ? Va-t-on les stockés ?
+
+5. Comment y accéder ?
+
+6. Quels traitements sont réalisés ? Quand ? Comment ? Par qui ?
+
+7. Quels programmes sont à écrire ?
+
+L'objectif du cours d'analyse informatique est de donner les méthodes de travail pour concevoir un système de gestion d'information cohérent, complet et fiable en répondant à toutes ses questions 
+
+Autres concepts :
+
+L'analyse consiste d'une part à comprendre et à modéliser les fonctionnements d'un domaine de gestion d'une organisation et d'autres part à concevoir une solution informatique adéquat.
+
+Analyse :
+-> on s'intéresse en général à un domaine d'activité de le l'entreprise : 
+- ventes 
+- production 
+- logistique 
+- finances
+- RH 
+
+-> On prend en compte les besoins des utilisateurs 
+
+-> on définit le problème à résoudre (fonctionnalités et qualités attendues) 
+
+Conception :
+CE N'EST PAS LA PRÉOCCUPATION POUR L'INSTANT 
+
+DÉMARCHE DE L'ANALYSE INFORMATIQUE (MÉTHODE DE CONCEPTION)
+
+la démarche comprend les étapes suivantes :
+
+1. Identifier le domaine de gestion d'une organisation à étudier : lieux, personnes, matériels, fonctions,...etc
+
+2. Comprendre et décrire le fonctionnement actuel du système dans le domaine étudié :
+Objectifs, données générées, traitements réalisés, poste de travail, circulation et stockage de l'information 
+
+3. Faire une analyse critique de l'existant (critiquer le système qui existe)
+
+4. Recenser les nouveaux besoins de gestion 
+
+5. Proposer une ou plusieurs solutions pour le fonctionnement du futur système d'information.
+
+6. Définir en détails le fonctionnement du futur système d'information 
+
+7. Suivre sa mise en œuvre 
+
+LA DÉMARCHE DE CONCEPTION 
+
+Tout projet nécessite une spécification rigoureuse du besoin informatique.
+
+1. Le cahier de charge décrit le POURQUOI de la situation qui occasionne le problème.
+
+2. La spécification du problème décrit le QUOI, c'est-à-dire les caractéristiques externes complètes de la solution à concevoir, qui devra fonctionner dans l'environnement précisé dans le cahier de charges.
+
+3. La conception décrit le COMMENT, la manière dont la solution présentée propose de résoudre le problème spécifié.
+
+Dans cette démarche, la modélisation est le processus qui permet de réaliser une représentation approchée et simplifiée de la réalité étudiée.
+
+LE SYSTÈME D'INFORMATION 
+
+Le SI représente l'ensemble des ressources (humaines, matérielles, logicielles) organisées pour :
+
+- collecter l'information : Enregistrer une information (support papier, informatique,...) avant son traitement.
+
+- Mémoriser l'information (Stockage) : Conserver, archiver (utilisation ultérieure ou obligation légale)
+
+- Traiter l'information : effectuer des opérations (Calcul, tri, classement, résumé,...)
+
+- Diffuser : transmettre à la bonne personne (éditer, imprimer, afficher,.... Une information après traitement)
+
+Recueil de l'information 
+
+- Sources externes ( Environnement du système) : 
+    * Flux en provenance des partenaires (clients, fournisseurs, administration,...etc)
+
+    * Être à l'écoute pour anticiper les changements et adapter son fonctionnement 
+
+- Sources internes 
+    * Flux générés par les acteurs du système ( Approvisionnements, production des salariés, comptabilité, ventes,...)
+   * Flux formalisés par des procédures 
+   * Flux informels (climat social, savoir faire,...)
+   * Difficile à recueillir et à exploiter mais grande importance 
+
+LE CYCLE DE VIE DU DÉVELOPPEMENT DES LOGICIELS 
+
+Le SDLC est un ensemble d'étapes de la réalisation d'un logiciel, commençant par l'énoncé des besoins (exigences) jusqu'au retrait du logiciel sur le marché informatique.
+
+Objectif principal : est de permettre la détection des erreurs au plutôt et de maîtriser la qualité du produit, les délais de sa réalisation et les coûts associés.
+
+ACTIVITÉS DU CYCLE DE VIE DU DÉVELOPPEMENT D'UN LOGICIEL 
+
+LA COMMUNICATION 
+
+C'est la première étape du cycle de vie de développement logiciel où l'utilisateur initie la demande du produit souhaité. 
+Ce dernier contact le service «provider» et essaie de négocier les termes du contrat.
+Il soumet alors sa demande à l'entreprise du fournisseur des services par écrit.
+
+LA COLLECTION DES EXIGENCES 
+
+À ce stade, l'équipe de développement discute avec certains partenaires des divers problèmes du domaine.
+
+Les exigences sont collectées en utilisant un nom donné des pratiques telles que :
+
+- Étude du système ou logiciel existant ou obsolète,
+- conduite des interviews auprès des utilisateurs,
+- Référencer aux différents bases de données,
+- Et la collection des réponses au moyen de questionnaires.
+
+ÉTUDE DU PRÉALABLE (étude de l'opportunité)
+
+Cette phase à comme objectif de répondre aux questions suivantes :
+
+- Pourquoi développer ce logiciel ?
+
+- Comment procéder pour faire le développement ?
+
+Quels moyens faut-il mettre en œuvre ?
+
+Parmi les tâches techniques, groupés sous le terme étude préalable, on peut citer :
+
+- Dresser un état de l'existant et faire une analyse de ses forces et faiblesses 
+
+- identifier les idées ou besoins de l'utilisateur 
+
+- formuler des solutions potentielles,
+
+- Planifier la transition entre l'ancien logiciel et le nouveau, s'il y a lieu
+
+- Affiner ou finaliser lekonctdes besoins de l'utilisateur 
+
+COMPÉTENCES DE L'ANALYSTE DES SYSTÈMES 
+
+compétences interpersonnelles :
+- compétences en communication 
+- compétences pédagogiques
+- compétences de compréhension 
+- vendre ses compétences 
+
+Compétences techniques :
+- créativité 
+- Résolution de Problème 
+- Gestion de projet 
+- Attitude des questions 
+
+
+Bon voilà !
+
+On doit récolter les données afin d'établir l'analyse 
+
+Pour constituer un description textuelle au final car on doit aussi modéliser, construire des modèles comme MCC, MCT, MOT
+
+Voici quelques exemples de description :
+""""Q1) Gestion des locations des vélos dans une agence X 
+Une agence de location de vélo veut informatiser la gestion des locations. 
+Lorsqu’un client se présente à l’accueil, il précise le type de vélo désiré ainsi que 
+la durée de location. L’accueil vérifie si, en fonction du stock disponible, a
+location est possible et donne la réponse au client. Si la location est possible, la 
+facture est éditée et est donnée au client. Celui-ci doit payer immédiatement. Le 
+paiement et la facture sont ensuite transmis au service comptable. L’acueil 
+transmet alors la demande du client au gestionnaire du parc. Ce dernier va préparer 
+le vélo demandé et le mettre à la disposition du client. 
+On vous demande de construire le diagramme de flux de l’énoncé ci-dessus. 
+
+Q2) Gestion de stocks dans une entreprise commerciale 
+Une entreprise commerciale X gère le stock de ses produits manufacturés selon le 
+prince suivant : (Description textuelle)
+La rupture de stock occasionne l’élaboration de réquisition. La réquisition est élaborée 
+par le comptable en collaboration avec le magasinier. Le comptable envoie la 
+réquisition au gérant pour la vérification. Le gérant autorise le comptable d’élaborer le 
+bon de commande et envoyer au fournisseur. Le fournisseur reçoit le bon de 
+commande et vérifie avec le comptable. Il envoie la facture chez le comptable. Le 
+gérant autorise au comptable le paiement, qu’il vérifie avec la caisse. Le comptable paie 
+le fournisseur qui livre les marchandises au comptable qui à son tour, vérifie la livraison 
+avec le fournisseur. Le magasinier contrôle les articles et enregistre ; le magasin est 
+approvisionné. Le client arrive au magasin pour acheter les articles ; il passe à la 
+facturation pour les renseignements des articles qu’il désire. Le facturier vérifie auprès 
+de magasinier si les articles demandés sont disponibles. Il informe le client l’état des 
+articles en stock. Le client passe la commande auprès de facturier. Le facturier élabore 
+la facture et envoie à la caisse. Le client passe à la caisse pour payer la facture. Le 
+caissier vérifie le paiement avec le client. Le caissier envoie la facture à la livraison. Le 
+magasinier enregistre la facture et livre les articles au client. A la fin de la journée le 
+caissier fait l’inventaire journalier et dépose le rapport au comptable. Le comptable 
+vérifie le rapport qu’il envoie au gérant. Le magasinier donne l’information de stock au 
+gérant. Le gérant vérifie le rapport et le transmet à l’administrateur. 
+Travail à faire : Construire les MCC, MCD, MCT, MOT,.
+
+Q3) Domaine d‘étude « Suivi des clients négligents » dans une entreprise 
+Commerciale X 
+La société Faille travaille avec plus de 150 clients en comptes. En début de mois, le 
+service "Comptabilité œ Finances" demande un état des clients négligents 
+(clients ayant plus de 5 jours de retard dans le paiement d'une facture) au 
+service "Comptabilité clients". Pour chacun de ces clients, une demande 
+d'information est transmise au service commercial par le biais de la messagerie 
+interne. Sur la base des informations recueillies, le service prend contact avec 
+les clients pour leur faire part du retard et obtenir une explication. Si la 
+situation financière du client ne lui apparaît pas trop critique, elle met en place de 
+nouvelles conditions de paiement. Dans le cas contraire elle transmet le dossier au 
+service contentieux qui démarrera une procédure judiciaire en recouvrement de 
+créance. 
+Travail à faire : Construire le Modèle Conceptuel des Traitements de l’énoncé cidessus 
+
+Q4) Domaine d‘étude « Remboursement de frais de déplacement » dans une 
+entreprise Commerciale X. 
+La procédure de gestion des frais de déplacement d‘une entreprise laisse 
+quelque peu à désirer, vous êtes chargé(e) de proposer des améliorations au 
+système existant. Voici la description de la procédure actuelle : Les commerciaux 
+en déplacement remplissent chaque mois un formulaire où ils notent les 
+conditions des déplacements effectués. Ils joignent tous les justificatifs (titres de 
+transport, factures d‘hôtel, de taxis, etc.) et remettent le document rempli au service 
+comptabilité. Le service comptabilité sollicite le chef du service commercial 
+afin qu‘il valide les renseignements fournis par ses collaborateurs. Une fois cette 
+validation obtenue, le service Comptabilité procède à la saisie des informations 
+notées sur le formulaire en calculant les montants dus à partir des justificatifs. 
+Un état est édité et transmis au commercial pour vérification et signature. Une 
+fois la vérification effectuée, les états sont transmis au service financier qui procède 
+au paiement. 
+Travail à faire : Construire les MCC, MCD, MCT, MOT, """"
+
+
+
+Voilà
+</div>
+<div>
+  J'ai un travail a réalisé 
+  Et voici le sujet que j'ai choisi de traiter :
+« Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques »
+Cas de la pharmacie DIBAPHAR situé au 9ème Avenue Tshopo
+C'est une petite pharmacie du quartier qui est gérer par un monsieur qu'on appelle tous PAPA DIBAPHAR (FAUT PAS PRÉCISER)
+C'est une simple petite pharmacie où il est le seul gérant, il gère tout seul. 
+
+C'est pour le cours de méthodologie d'analyse informatique 1
+
+On doit :
+-> récolter des données afin de pouvoir effectuer des analyses 
+
+Voici quelques notions du cours :
+""""
+Objectif principal :
+Fournir aux étudiants les bases méthodologiques nécessaires à l'analyse, conception et à la réalisation des systèmes d'information d'entreprise par l'apprentissage de la méthode MERISE.
+
+Objectif spécifique :
+Être capable de créer un système d'information utilisant la démarche MERISE.
+
+Analyse= études détaillés 
+Démarche= processus 
+Démarche= étapes à suivre 
+
+L'efficacité et la validité d'une analyse informatique reposent sur la qualité de la COMMUNICATION entre les demandeurs de services (utilisateur) et fournisseurs de services (informaticien).
+
+Pourquoi le CAHIER DE CHARGE ?
+-> Pour mettre à l'abri les changements brusques de l'utilisateur 
+
+Le travail de l'analyse 
+Exemple d'un sujet :
+« Mettre en place un système de gestion de réservation de chambre »
+
+Comment faire ?
+Il s'agit d'un travail de conception 
+On peut se poser les questions :
+1. Quel est l'organisation actuelle ?
+
+2. Comment ça marche ? Comment ça fonctionne ?
+
+3. Qu'est-ce qui ne fonctionne pas et pourquoi ?
+
+4. Quels sont les informations manipulés ? Par qui ? Quand ? Comment ? Va-t-on les stockés ?
+
+5. Comment y accéder ?
+
+6. Quels traitements sont réalisés ? Quand ? Comment ? Par qui ?
+
+7. Quels programmes sont à écrire ?
+
+L'objectif du cours d'analyse informatique est de donner les méthodes de travail pour concevoir un système de gestion d'information cohérent, complet et fiable en répondant à toutes ses questions 
+
+Autres concepts :
+
+L'analyse consiste d'une part à comprendre et à modéliser les fonctionnements d'un domaine de gestion d'une organisation et d'autres part à concevoir une solution informatique adéquat.
+
+Analyse :
+-> on s'intéresse en général à un domaine d'activité de le l'entreprise : 
+- ventes 
+- production 
+- logistique 
+- finances
+- RH 
+
+-> On prend en compte les besoins des utilisateurs 
+
+-> on définit le problème à résoudre (fonctionnalités et qualités attendues) 
+
+Conception :
+CE N'EST PAS LA PRÉOCCUPATION POUR L'INSTANT 
+
+DÉMARCHE DE L'ANALYSE INFORMATIQUE (MÉTHODE DE CONCEPTION)
+
+la démarche comprend les étapes suivantes :
+
+1. Identifier le domaine de gestion d'une organisation à étudier : lieux, personnes, matériels, fonctions,...etc
+
+2. Comprendre et décrire le fonctionnement actuel du système dans le domaine étudié :
+Objectifs, données générées, traitements réalisés, poste de travail, circulation et stockage de l'information 
+
+3. Faire une analyse critique de l'existant (critiquer le système qui existe)
+
+4. Recenser les nouveaux besoins de gestion 
+
+5. Proposer une ou plusieurs solutions pour le fonctionnement du futur système d'information.
+
+6. Définir en détails le fonctionnement du futur système d'information 
+
+7. Suivre sa mise en œuvre 
+
+LA DÉMARCHE DE CONCEPTION 
+
+Tout projet nécessite une spécification rigoureuse du besoin informatique.
+
+1. Le cahier de charge décrit le POURQUOI de la situation qui occasionne le problème.
+
+2. La spécification du problème décrit le QUOI, c'est-à-dire les caractéristiques externes complètes de la solution à concevoir, qui devra fonctionner dans l'environnement précisé dans le cahier de charges.
+
+3. La conception décrit le COMMENT, la manière dont la solution présentée propose de résoudre le problème spécifié.
+
+Dans cette démarche, la modélisation est le processus qui permet de réaliser une représentation approchée et simplifiée de la réalité étudiée.
+
+LE SYSTÈME D'INFORMATION 
+
+Le SI représente l'ensemble des ressources (humaines, matérielles, logicielles) organisées pour :
+
+- collecter l'information : Enregistrer une information (support papier, informatique,...) avant son traitement.
+
+- Mémoriser l'information (Stockage) : Conserver, archiver (utilisation ultérieure ou obligation légale)
+
+- Traiter l'information : effectuer des opérations (Calcul, tri, classement, résumé,...)
+
+- Diffuser : transmettre à la bonne personne (éditer, imprimer, afficher,.... Une information après traitement)
+
+Recueil de l'information 
+
+- Sources externes ( Environnement du système) : 
+    * Flux en provenance des partenaires (clients, fournisseurs, administration,...etc)
+
+    * Être à l'écoute pour anticiper les changements et adapter son fonctionnement 
+
+- Sources internes 
+    * Flux générés par les acteurs du système ( Approvisionnements, production des salariés, comptabilité, ventes,...)
+   * Flux formalisés par des procédures 
+   * Flux informels (climat social, savoir faire,...)
+   * Difficile à recueillir et à exploiter mais grande importance 
+
+LE CYCLE DE VIE DU DÉVELOPPEMENT DES LOGICIELS 
+
+Le SDLC est un ensemble d'étapes de la réalisation d'un logiciel, commençant par l'énoncé des besoins (exigences) jusqu'au retrait du logiciel sur le marché informatique.
+
+Objectif principal : est de permettre la détection des erreurs au plutôt et de maîtriser la qualité du produit, les délais de sa réalisation et les coûts associés.
+
+ACTIVITÉS DU CYCLE DE VIE DU DÉVELOPPEMENT D'UN LOGICIEL 
+
+LA COMMUNICATION 
+
+C'est la première étape du cycle de vie de développement logiciel où l'utilisateur initie la demande du produit souhaité. 
+Ce dernier contact le service «provider» et essaie de négocier les termes du contrat.
+Il soumet alors sa demande à l'entreprise du fournisseur des services par écrit.
+
+LA COLLECTION DES EXIGENCES 
+
+À ce stade, l'équipe de développement discute avec certains partenaires des divers problèmes du domaine.
+
+Les exigences sont collectées en utilisant un nom donné des pratiques telles que :
+
+- Étude du système ou logiciel existant ou obsolète,
+- conduite des interviews auprès des utilisateurs,
+- Référencer aux différents bases de données,
+- Et la collection des réponses au moyen de questionnaires.
+
+ÉTUDE DU PRÉALABLE (étude de l'opportunité)
+
+Cette phase à comme objectif de répondre aux questions suivantes :
+
+- Pourquoi développer ce logiciel ?
+
+- Comment procéder pour faire le développement ?
+
+Quels moyens faut-il mettre en œuvre ?
+
+Parmi les tâches techniques, groupés sous le terme étude préalable, on peut citer :
+
+- Dresser un état de l'existant et faire une analyse de ses forces et faiblesses 
+
+- identifier les idées ou besoins de l'utilisateur 
+
+- formuler des solutions potentielles,
+
+- Planifier la transition entre l'ancien logiciel et le nouveau, s'il y a lieu
+
+- Affiner ou finaliser lekonctdes besoins de l'utilisateur 
+
+COMPÉTENCES DE L'ANALYSTE DES SYSTÈMES 
+
+compétences interpersonnelles :
+- compétences en communication 
+- compétences pédagogiques
+- compétences de compréhension 
+- vendre ses compétences 
+
+Compétences techniques :
+- créativité 
+- Résolution de Problème 
+- Gestion de projet 
+- Attitude des questions 
+
+
+Bon voilà !
+
+On doit récolter les données afin d'établir l'analyse 
+
+Pour constituer un description textuelle au final car on doit aussi modéliser, construire des modèles comme MCC, MCT, MOT
+
+Voici quelques exemples de description :
+""""Q1) Gestion des locations des vélos dans une agence X 
+Une agence de location de vélo veut informatiser la gestion des locations. 
+Lorsqu’un client se présente à l’accueil, il précise le type de vélo désiré ainsi que 
+la durée de location. L’accueil vérifie si, en fonction du stock disponible, a
+location est possible et donne la réponse au client. Si la location est possible, la 
+facture est éditée et est donnée au client. Celui-ci doit payer immédiatement. Le 
+paiement et la facture sont ensuite transmis au service comptable. L’acueil 
+transmet alors la demande du client au gestionnaire du parc. Ce dernier va préparer 
+le vélo demandé et le mettre à la disposition du client. 
+On vous demande de construire le diagramme de flux de l’énoncé ci-dessus. 
+
+Q2) Gestion de stocks dans une entreprise commerciale 
+Une entreprise commerciale X gère le stock de ses produits manufacturés selon le 
+prince suivant : (Description textuelle)
+La rupture de stock occasionne l’élaboration de réquisition. La réquisition est élaborée 
+par le comptable en collaboration avec le magasinier. Le comptable envoie la 
+réquisition au gérant pour la vérification. Le gérant autorise le comptable d’élaborer le 
+bon de commande et envoyer au fournisseur. Le fournisseur reçoit le bon de 
+commande et vérifie avec le comptable. Il envoie la facture chez le comptable. Le 
+gérant autorise au comptable le paiement, qu’il vérifie avec la caisse. Le comptable paie 
+le fournisseur qui livre les marchandises au comptable qui à son tour, vérifie la livraison 
+avec le fournisseur. Le magasinier contrôle les articles et enregistre ; le magasin est 
+approvisionné. Le client arrive au magasin pour acheter les articles ; il passe à la 
+facturation pour les renseignements des articles qu’il désire. Le facturier vérifie auprès 
+de magasinier si les articles demandés sont disponibles. Il informe le client l’état des 
+articles en stock. Le client passe la commande auprès de facturier. Le facturier élabore 
+la facture et envoie à la caisse. Le client passe à la caisse pour payer la facture. Le 
+caissier vérifie le paiement avec le client. Le caissier envoie la facture à la livraison. Le 
+magasinier enregistre la facture et livre les articles au client. A la fin de la journée le 
+caissier fait l’inventaire journalier et dépose le rapport au comptable. Le comptable 
+vérifie le rapport qu’il envoie au gérant. Le magasinier donne l’information de stock au 
+gérant. Le gérant vérifie le rapport et le transmet à l’administrateur. 
+Travail à faire : Construire les MCC, MCD, MCT, MOT,.
+
+Q3) Domaine d‘étude « Suivi des clients négligents » dans une entreprise 
+Commerciale X 
+La société Faille travaille avec plus de 150 clients en comptes. En début de mois, le 
+service "Comptabilité œ Finances" demande un état des clients négligents 
+(clients ayant plus de 5 jours de retard dans le paiement d'une facture) au 
+service "Comptabilité clients". Pour chacun de ces clients, une demande 
+d'information est transmise au service commercial par le biais de la messagerie 
+interne. Sur la base des informations recueillies, le service prend contact avec 
+les clients pour leur faire part du retard et obtenir une explication. Si la 
+situation financière du client ne lui apparaît pas trop critique, elle met en place de 
+nouvelles conditions de paiement. Dans le cas contraire elle transmet le dossier au 
+service contentieux qui démarrera une procédure judiciaire en recouvrement de 
+créance. 
+Travail à faire : Construire le Modèle Conceptuel des Traitements de l’énoncé cidessus 
+
+Q4) Domaine d‘étude « Remboursement de frais de déplacement » dans une 
+entreprise Commerciale X. 
+La procédure de gestion des frais de déplacement d‘une entreprise laisse 
+quelque peu à désirer, vous êtes chargé(e) de proposer des améliorations au 
+système existant. Voici la description de la procédure actuelle : Les commerciaux 
+en déplacement remplissent chaque mois un formulaire où ils notent les 
+conditions des déplacements effectués. Ils joignent tous les justificatifs (titres de 
+transport, factures d‘hôtel, de taxis, etc.) et remettent le document rempli au service 
+comptabilité. Le service comptabilité sollicite le chef du service commercial 
+afin qu‘il valide les renseignements fournis par ses collaborateurs. Une fois cette 
+validation obtenue, le service Comptabilité procède à la saisie des informations 
+notées sur le formulaire en calculant les montants dus à partir des justificatifs. 
+Un état est édité et transmis au commercial pour vérification et signature. Une 
+fois la vérification effectuée, les états sont transmis au service financier qui procède 
+au paiement. 
+Travail à faire : Construire les MCC, MCD, MCT, MOT, """"
+
+""""
+
+Voilà
+
+
+NB: FAIS TOUT L'ANALYSE AVEC DES DONNÉES INVENTÉS OU IMAGINÉES, CAR C'EST AVANT TOUT POUR AVOIR UN APERÇU D'UNE VÉRITABLE ANALYSE 
+
+JE T'AI DÉJÀ FOURNIS QUELQUES NOTIONS VU EN COURS, MAINTENANT RÉALISE CE PROJET
+</div>
+
+<!-- RO -->
+<div>
+  Quels sont les règles d'organisation (RO) dans cet énoncé :
+
+# Description textuelle de la gestion des stocks de la pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR, une petite officine de quartier, est gérée par un seul pharmacien qui s'occupe de l'ensemble des activités de gestion. Le système de gestion des stocks actuel présente des faiblesses que le gérant souhaite résoudre par l'informatisation.
+
+Chaque matin, le pharmacien effectue un contrôle visuel rapide des étagères pour repérer les produits en quantité faible. Cette vérification est complétée par une consultation du registre manuel des stocks, où sont consignées toutes les entrées et sorties de médicaments. Lorsqu'il constate qu'un produit atteint un niveau critique, il le note sur une liste de commande provisoire.
+
+Deux fois par semaine, généralement le lundi et le jeudi, le pharmacien contacte ses différents fournisseurs pour passer des commandes. Pour les médicaments classiques, il appelle son grossiste principal et lui communique oralement sa liste de besoins. Pour les produits parapharmaceutiques, il contacte directement les laboratoires concernés. Les représentants des laboratoires visitent également la pharmacie une fois par mois pour présenter leurs nouveaux produits et prendre des commandes spécifiques.
+
+À la réception des livraisons, le pharmacien vérifie la conformité des produits reçus avec le bon de livraison. Il s'assure que les quantités correspondent à ce qui a été commandé et que les dates de péremption sont acceptables. Il met ensuite à jour manuellement son registre des stocks en indiquant les nouvelles entrées.
+
+Lors de la vente d'un médicament à un client, le pharmacien vérifie la disponibilité du produit, le délivre contre une ordonnance si nécessaire, et enregistre manuellement la sortie du produit dans son registre. Cette opération est souvent différée et réalisée en fin de journée, ce qui peut créer des écarts entre le stock réel et le stock enregistré.
+
+Une fois par trimestre, le pharmacien réalise un inventaire complet de la pharmacie. Ce processus prend une journée entière pendant laquelle la pharmacie est fermée. Il compare alors le stock physique avec les données de son registre et ajuste les écarts constatés.
+
+Le pharmacien est également en contact régulier avec des médecins du quartier qui peuvent l'appeler pour vérifier la disponibilité de certains médicaments avant de les prescrire à leurs patients. De même, certains patients chroniques contactent parfois la pharmacie par téléphone pour s'assurer que leur traitement habituel est disponible avant de se déplacer.
+
+Le pharmacien gère aussi les produits périmés ou détériorés, qui doivent être retirés du stock et traités selon des procédures spécifiques. Il les isole dans un espace dédié en attendant leur collecte par un organisme spécialisé.
+
+Pour les médicaments sous ordonnance, le pharmacien doit tenir un registre spécial, notamment pour les stupéfiants et autres produits réglementés, avec une vigilance particulière sur leurs mouvements et leurs stocks.
+
+Lorsqu'un produit est en rupture totale, le pharmacien tente de le commander en urgence auprès de son grossiste, qui peut livrer dans la journée pour certains produits essentiels. Si le produit n'est pas disponible, il oriente le client vers une pharmacie partenaire du réseau local après avoir vérifié par téléphone la disponibilité du produit.
+
+Enfin, le pharmacien doit respecter les directives des autorités sanitaires concernant les médicaments sous surveillance particulière ou faisant l'objet d'alertes sanitaires, ce qui peut l'amener à modifier rapidement son stock et à informer les patients concernés.
+</div>
+<div>
+  # Règles d'Organisation (RO) dans l'énoncé DIBAPHAR
+
+Voici les règles d'organisation identifiées dans la description de la gestion des stocks de la pharmacie DIBAPHAR :
+
+1. Le pharmacien effectue un contrôle visuel quotidien des étagères pour repérer les produits en quantité faible.
+
+2. Toutes les entrées et sorties de médicaments sont consignées dans un registre manuel des stocks.
+
+3. Les commandes sont passées deux fois par semaine (lundi et jeudi) auprès des fournisseurs.
+
+4. Les médicaments classiques sont commandés auprès du grossiste principal.
+
+5. Les produits parapharmaceutiques sont commandés directement auprès des laboratoires concernés.
+
+6. Les représentants des laboratoires visitent la pharmacie mensuellement pour présenter les nouveaux produits et prendre des commandes.
+
+7. À la réception des livraisons, le pharmacien vérifie la conformité avec le bon de livraison (quantités, dates de péremption).
+
+8. Le registre des stocks est mis à jour manuellement après chaque réception de commande.
+
+9. Lors d'une vente, le pharmacien vérifie la disponibilité du produit et l'enregistre dans son registre (souvent en fin de journée).
+
+10. Un inventaire complet est réalisé trimestriellement, nécessitant la fermeture de la pharmacie.
+
+11. Le pharmacien répond aux demandes des médecins concernant la disponibilité des médicaments.
+
+12. Les patients chroniques peuvent contacter la pharmacie pour vérifier la disponibilité de leur traitement.
+
+13. Les produits périmés ou détériorés sont isolés dans un espace dédié en attendant leur collecte.
+
+14. Un registre spécial est tenu pour les médicaments sous ordonnance, notamment les stupéfiants.
+
+15. En cas de rupture de stock, le pharmacien peut passer une commande urgente ou orienter le client vers une pharmacie partenaire.
+
+16. Le pharmacien doit se conformer aux directives des autorités sanitaires concernant les médicaments sous surveillance.
+</div>
+
+<!-- MCC MAJ -->
+<div>
+  Identifie d'abord les différents acteurs (interne, externe) et ensuite les différents flux de communication entre ces différents acteurs suivant l'énoncé, tu dois aussi démontrer grâce à quel partie de l'énoncé as-tu réaliser ce flux (le pourquoi ?), tout doit être clair, compréhensif et surtout soit attentif les processus doivent parfaitement bien être aligné (début - fin) tel acteur donne à tel acteur qui donne à tel acteur, tel acteur retourne à tel acteur pour retourner à tel autre acteur, bien successives, hiérarchique, ordonner, et aussi faut considérer les opérations qui sont explicite à l'énoncé des opérations entre différents acteurs qui devrait être mise pour correspondre à l'étape d'après, NB: Ne considère pas les opérations où l'acteur (interne/externe) réalise seul, voici l'énoncé :
+
+Q8) Gestion des Abonnés dans une bibliothèque X 
+On veut automatiser le fonctionnement d'une bibliothèque. La bibliothèque est 
+organisée de la façon suivante : 
+Un service s'occupe de l'achat des exemplaires d'ouvrage soit pour renouvellement 
+d'exemplaires usagés, soit pour acquisition de nouveaux exemplaires ; dans ce dernier 
+cas, ce service enregistre les références communes à plusieurs exemplaires, soit 
+l'auteur, le titre, la valeur de remplacement, le résumé ainsi que quelques mots clés. 
+Les exemplaires sont repérés par un code barre (n° séquentiel unique) collé au dos de 
+l'exemplaire). Tout exemplaire correspond à un ouvrage de référence. On veut 
+mémoriser la date d'acquisition de l'exemplaire et sa durée de vie estimée. 
+Un service s'occupe de l'inscription des emprunteurs. Les emprunteurs sont identifiés 
+par une carte comprenant un code barre (n° séquentiel unique). Pour chaque 
+emprunteur on mémorise son nom, prénom, adresse, email. 
+Un service s'occupe de l'enregistrement des prêts d'exemplaires. Les prêts sont 
+mémorisés afin de savoir à tout moment, quels sont les exemplaires sortis. Pour chaque 
+prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur et la date 
+de retour au plus tard de cet exemplaire. Cette date est calculée automatiquement par 
+date d'emprunt + 3 semaines. 
+Un emprunteur peut emprunter au maximum 3 exemplaires. 
+Un service s'occupe du retour des exemplaires et de leur placement en rayons. 
+Lorsque l'exemplaire est retourné en bon état, on supprime l'enregistrement de cet 
+emprunt. 
+Lorsque la date de retour échoit, on relance l'emprunteur par email de préférence, par 
+courrier si l'adresse email est inconnue. Lorsque l'exemplaire retourné est réputé perdu, 
+on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de 
+remplacement. 
+L'emprunteur entre librement dans la bibliothèque, circule dans les rayons, consulte le 
+catalogue des exemplaires s'il le souhaite. Il prend les exemplaires d'ouvrage 
+disponibles puis passe au service d'enregistrement des prêts. Le service achats est en 
+relation commerciale avec l'éditeur. 
+Travail à faire : Construire les MCC, MCD, MCT, MOT, MOD,
+</div>
+<div>
+  Identifie d'abord les différents acteurs (interne, externe) et ensuite les différents flux de communication entre ces différents acteurs suivant l'énoncé, tu dois aussi démontrer grâce à quel partie de l'énoncé as-tu réaliser ce flux (le pourquoi ?), tout doit être clair, compréhensif et surtout soit attentif les processus doivent parfaitement bien être aligné (début - fin) tel acteur donne à tel acteur qui donne à tel acteur, tel acteur retourne à tel acteur pour retourner à tel autre acteur, bien successives, hiérarchique, ordonner, et aussi faut considérer les opérations qui sont explicite ou implicite à l'énoncé des opérations entre différents acteurs qui devrait être mise pour correspondre à l'étape d'après, faut être logique, cohérente, réfléchir à tout, bien analyser avant d'agir, avant de répondre
+Note: L'énoncé n'est pas toujours parfait, détaillé, ...etc dans l'énoncé il peut y avoir des erreurs, des oublis, des incohérences,...
+Voilà pourquoi faut penser de façon dont se font les choses toujours tenant compte de l'énoncé sans chercher à trop s'éloigner 
+, NB: Ne considère pas les opérations où l'acteur (interne/externe) réalise seul, voici l'énoncé :
+
+Q9) Gestion des commandes dans une entreprise commerciale X 
+ L’organisation de gestion des commandes dans une entreprise commerciale X se 
+présente de la manière suivante : 
+RO1 : Les commandes des clients sont saisies au niveau des comptoirs d'accueils 
+régionaux et sont transmises chaque soir au siège central de la société. 
+RO2 : Tous les matins, le service magasin du siège traite les commandes reçues la veille 
+: il édite pour chaque commande des bons de réquisition. 
+RO3 : Ces bons sont transmis aux magasiniers qui sortent les articles des stocks, 
+pointent manuellement les bons, puis apportent les articles au service emballage, afin 
+qu'ils soient conditionnés le jour même. 
+RO4 : Dès le lendemain, le service emballage expédie les colis aux clients. 
+RO5 : En fin de semaine, le centre de traitement informatique du siège édite les factures 
+qui correspondent aux commandes de la semaine.
+</div>
+
+<!-- MCD -->
+<div>
+  Identifie :
+Les entités, leurs propriétés, attributs, relations, la cardinalité, les règles de gestion 
+
+Que ça soit explicite ou implicite à l'énoncé 
+
+Car tout doit parfaitement bien correspondre être cohérent 
+
+Car l'énoncé ne dit pas toujours tout et dansu un énoncé il peut y avoir des erreurs, des oublis, des incohérences, manques de détails,....
+
+Pour :
+- chaque entité déclaré tu dois montré l'extrait de la partie de l'énoncé qui permet cela 
+- de même pours leurs propriétés, attributs 
+- de même pour les relations,
+- de même pour la cardinalité 
+
+Tout doit avoir un extrait de l'énoncé mais sachant que ça peut toujours être explicite ou implicite 
+
+Les extraits nous aides à ne peut pas nous permet, il nous permet de nous localiser, d'avoir une meilleure compréhension 
+
+
+Voici l'énoncé :
+
+Question 13) 
+L’entreprise PHILTECH fabrique et commercialise divers produits. Ils sont identifiés 
+par une référence propre à l’entreprise PHILETECH et on enregistre une désignation 
+(libellé court), un descriptif (libellé long) et un prix de vente catalogue unitaire hors 
+taxes. Dans la base de données elle gère deux types de produits :
+● Les produits qu’elle fabrique pour lesquels on enregistre le nombre moyen 
+d’heures de main d’œuvre nécessaire à leur fabrication ; 
+● Les produits dits « approvisionnés » parce qu’elle ne les fabrique pas : ils sont 
+achetés à un ou plusieurs fournisseurs à un prix d’achat unitaire moyen.
+Pour ne pas dépendre d’un fournisseur, enregistré par ses raisons sociales, adresse, 
+etc., pour chaque produit approvisionné l’entreprise a établi une liste de 
+fournisseurs capables de livrer ce produit. Bien entendu pour un mêe produit 
+chaque fournisseur peut avoir sa propre référence et un prix dférent.
+Lorsque l’entreprise PHILTECH passe une commande à une certaine date, à un 
+fournisseur, elle essaie de grouper plusieurs lignes decommande : une par 
+produit dans une certaine quantité avec sa date de livraison prévue, pour réduire 
+les frais de livraison de la commande et essayer de négocier un prix d’achat unitaire 
+inférieur au prix catalogue du fournisseur. 
+Travil àfaire
+● Créer le Modèle Conceptuel des Données. 
+● Concevoir le Modèle Logique des Données.
+</div>
+<div>
+  Identifie :
+Les entités, leurs propriétés/attributs, identifiant , relations, la cardinalité, les règles de gestion
+
+C'est pour un MCD 
+
+Dans chaque entité faut toujours mettre ses propriétés complets même si elles ne sont pas tous cités 
+
+Pour :
+- chaque entité déclaré tu dois montré l'extrait de la partie de l'énoncé qui permet cela 
+- de même pours leurs propriétés, attributs 
+- de même pour les relations,
+- de même pour la cardinalité 
+
+NB: Concernant les relations faut utiliser des verbes à l'infinitif qui qui s'applique de façon bidirectionnelle ou dans tous les sens utilisant ce même verbe 
+Ça garantie la cohérence 
+
+Il faut que ça soit tellement cohérent suivant l'énoncé à tel que nul ni personne pourrait contredire ça 
+
+Tout doit avoir un extrait de l'énoncé mais sachant que ça peut toujours être explicite ou implicite 
+
+Les extraits nous aides à ne peut pas nous permet, il nous permet de nous localiser, d'avoir une meilleure compréhension 
+
+
+Fait en sorte qu'en lisant le MCD ça nous donne presque les mêmes chemins que quand on avait lu l'énoncé 
+
+Voici l'énoncé :
+
+Question 10) Un agriculteur, Monsieur Bousquet, fait de la vente directe de ses produits 
+ou animaux qu’il élève. Il vend des lapins, des poules, des dindes, des veaux, des 
+cochons. Selon la saison il vend aussi des légumes (choux, pommes de terre, carottes...) 
+et des fruits (fraises, poires, pommes...). Il ne fait que de la vente directe. Suite à votre 
+discussion, il ressort les informations suivantes : 
+À l’heure actuelle, les ventes sont inscrites sur trois cahiers distincts : 
+● Un pour les animaux. 
+● Un pour les fruits. 
+● Un pour les légumes. 
+Tout est vendu au kilo, les animaux sont pesés vivants avant d’être vendus. 
+Il souhaiterait un logiciel simple pour saisir les ventes journalières et pouvoir éditer un 
+récapitulatif mensuel par type de vente (animaux, légumes et fruits) et par produit 
+(poulets, lapins, poireaux, poires...) pour sa comptabilité.
+</div>
+<div>
+  Identifie :
+Les entités, leurs propriétés/attributs, identifiant , relations, la cardinalité, les règles de gestion
+
+Réalise :
+le graphe de dépendances fonctionnelles et le dictionnaire des données 
+
+C'est pour un MCD 
+
+Dans chaque entité faut toujours mettre ses propriétés complets même si elles ne sont pas tous cités 
+
+Pour :
+- chaque entité déclaré tu dois montré l'extrait de la partie de l'énoncé qui permet cela 
+- de même pours leurs propriétés, attributs 
+- de même pour les relations,
+- de même pour la cardinalité 
+
+NB: Concernant les relations faut utiliser des verbes à l'infinitif qui qui s'applique de façon bidirectionnelle ou dans tous les sens utilisant ce même verbe 
+Ça garantie la cohérence 
+
+Il faut que ça soit tellement cohérent suivant l'énoncé à tel que nul ni personne pourrait contredire ça 
+
+Tout doit avoir un extrait de l'énoncé mais sachant que ça peut toujours être explicite ou implicite 
+
+Les extraits nous aides à ne peut pas nous permet, il nous permet de nous localiser, d'avoir une meilleure compréhension 
+
+
+Fait en sorte qu'en lisant le MCD ça nous donne presque les mêmes chemins que quand on avait lu l'énoncé 
+
+Voici l'énoncé :
+
+Q8) Gestion des Abonnés dans une bibliothèque X 
+On veut automatiser le fonctionnement d'une bibliothèque. La bibliothèque est 
+organisée de la façon suivante : 
+Un service s'occupe de l'achat des exemplaires d'ouvrage soit pour renouvellement 
+d'exemplaires usagés, soit pour acquisition de nouveaux exemplaires ; dans ce dernier 
+cas, ce service enregistre les références communes à plusieurs exemplaires, soit 
+l'auteur, le titre, la valeur de remplacement, le résumé ainsi que quelques mots clés. 
+Les exemplaires sont repérés par un code barre (n° séquentiel unique) collé au dos de 
+l'exemplaire). Tout exemplaire correspond à un ouvrage de référence. On veut 
+mémoriser la date d'acquisition de l'exemplaire et sa durée de vie estimée. 
+Un service s'occupe de l'inscription des emprunteurs. Les emprunteurs sont identifiés 
+par une carte comprenant un code barre (n° séquentiel unique). Pour chaque 
+emprunteur on mémorise son nom, prénom, adresse, email. 
+Un service s'occupe de l'enregistrement des prêts d'exemplaires. Les prêts sont 
+mémorisés afin de savoir à tout moment, quels sont les exemplaires sortis. Pour chaque 
+prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur et la date 
+de retour au plus tard de cet exemplaire. Cette date est calculée automatiquement par 
+date d'emprunt + 3 semaines. 
+Un emprunteur peut emprunter au maximum 3 exemplaires. 
+Un service s'occupe du retour des exemplaires et de leur placement en rayons. 
+Lorsque l'exemplaire est retourné en bon état, on supprime l'enregistrement de cet 
+emprunt. 
+Lorsque la date de retour échoit, on relance l'emprunteur par email de préférence, par 
+courrier si l'adresse email est inconnue. Lorsque l'exemplaire retourné est réputé perdu, 
+on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de 
+remplacement. 
+L'emprunteur entre librement dans la bibliothèque, circule dans les rayons, consulte le 
+catalogue des exemplaires s'il le souhaite. Il prend les exemplaires d'ouvrage 
+disponibles puis passe au service d'enregistrement des prêts. Le service achats est en 
+relation commerciale avec l'éditeur. 
+Travail à faire : Construire les MCC, MCD, MCT, MOT, MOD
+</div>
+<div>
+  Identifie :
+Les entités, leurs propriétés/attributs, identifiant , relations, la cardinalité, les règles de gestion
+
+Réalise :
+le graphe de dépendances fonctionnelles et le dictionnaire des données 
+
+Pour le dictionnaire des données voici les éléments , on a :
+- Nom de la donnée 
+- Format 
+- longueur 
+- Type ( Élémentaire | Calculée)
+- Règle de calcul 
+- Règle de gestion 
+- Document
+
+Les identifiants des on les identifient dans le dictionnaire avec le symbole * au début.
+Nom de la donnée = attributs/propriétés/identifiant d'une entité 
+
+
+C'est pour un MCD 
+
+Faut toujours tout démontrer, des trucs comme la normalisation, la fusion,... Pour dire pourquoi on a cet aspect et non l'autre, pour s'expliquer sur le Pourquoi on a que 4 entités au lieu de 8, pour dire pourquoi on a ça ou ça au lieu de ça,... 
+
+Dans chaque entité faut toujours mettre ses propriétés complets même si elles ne sont pas tous cités 
+
+Pour :
+- chaque entité déclaré tu dois montré l'extrait de la partie de l'énoncé qui permet cela 
+- de même pours leurs propriétés, attributs 
+- de même pour les relations,
+- de même pour la cardinalité 
+
+NB: Concernant les relations faut utiliser des verbes à l'infinitif qui qui s'applique de façon bidirectionnelle ou dans tous les sens utilisant ce même verbe 
+Ça garantie la cohérence 
+
+Il faut que ça soit tellement cohérent suivant l'énoncé à tel que nul ni personne pourrait contredire ça 
+
+Tout doit avoir un extrait de l'énoncé mais sachant que ça peut toujours être explicite ou implicite 
+
+Les extraits nous aides à ne peut pas nous permet, il nous permet de nous localiser, d'avoir une meilleure compréhension 
+
+Tu peux réaliser un tableau pour les identifications des entités, propriétés/attributs, relations/cardinalités, règles de gestion, chacun avec une zone extrait de l'énoncé pour comprendre et tu peux ajouter d'autres éléments nécessaires 
+
+N'oublie pas : Dans chaque entité faut toujours mettre ses propriétés complets même si elles ne sont pas tous cités
+
+Fait en sorte qu'en lisant le MCD ça nous donne presque les mêmes chemins que quand on avait lu l'énoncé 
+
+Voici l'énoncé :
+
+Q8) Gestion des Abonnés dans une bibliothèque X 
+On veut automatiser le fonctionnement d'une bibliothèque. La bibliothèque est 
+organisée de la façon suivante : 
+Un service s'occupe de l'achat des exemplaires d'ouvrage soit pour renouvellement 
+d'exemplaires usagés, soit pour acquisition de nouveaux exemplaires ; dans ce dernier 
+cas, ce service enregistre les références communes à plusieurs exemplaires, soit 
+l'auteur, le titre, la valeur de remplacement, le résumé ainsi que quelques mots clés. 
+Les exemplaires sont repérés par un code barre (n° séquentiel unique) collé au dos de 
+l'exemplaire). Tout exemplaire correspond à un ouvrage de référence. On veut 
+mémoriser la date d'acquisition de l'exemplaire et sa durée de vie estimée. 
+Un service s'occupe de l'inscription des emprunteurs. Les emprunteurs sont identifiés 
+par une carte comprenant un code barre (n° séquentiel unique). Pour chaque 
+emprunteur on mémorise son nom, prénom, adresse, email. 
+Un service s'occupe de l'enregistrement des prêts d'exemplaires. Les prêts sont 
+mémorisés afin de savoir à tout moment, quels sont les exemplaires sortis. Pour chaque 
+prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur et la date 
+de retour au plus tard de cet exemplaire. Cette date est calculée automatiquement par 
+date d'emprunt + 3 semaines. 
+Un emprunteur peut emprunter au maximum 3 exemplaires. 
+Un service s'occupe du retour des exemplaires et de leur placement en rayons. 
+Lorsque l'exemplaire est retourné en bon état, on supprime l'enregistrement de cet 
+emprunt. 
+Lorsque la date de retour échoit, on relance l'emprunteur par email de préférence, par 
+courrier si l'adresse email est inconnue. Lorsque l'exemplaire retourné est réputé perdu, 
+on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de 
+remplacement. 
+L'emprunteur entre librement dans la bibliothèque, circule dans les rayons, consulte le 
+catalogue des exemplaires s'il le souhaite. Il prend les exemplaires d'ouvrage 
+disponibles puis passe au service d'enregistrement des prêts. Le service achats est en 
+relation commerciale avec l'éditeur. 
+Travail à faire : Construire les MCC, MCD, MCT, MOT, MOD
+</div>
+
+On doit tout d'abord réaliser une enquête :
+Car la Communication est la base d'une bonne analyse 
+Elle ne doit pas être uniquement à l'oral, Elle doit être écrit 
+Comme le prof le précise,
+Pour mettre à l'abri les changements brusque de l'utilisateur 
+
+On doit avoir des éléments comme questionnaires de recherches ou fiches de recherches, on doit tout d'abord collecter les données qui doivent être fiables, cohérentes, précis, détaillés, 
+fournir une longue description textuelle détaillée sur le domaine d'études ou cahier de charges,....
+Faires des études (études de l'existant, critiquer l'existant, récolter des informations provenants des sources internes et des sources externes,...)
+Faire des démarches, suivre des étapes, fait des choses dans l'ordre en partant par l'identification du domaine de gestion, de l'organisation, de l'activité, 
+Élabore un questionnaire d'enquêtes, Poses des bonnes questions, des questions pertinentes, réponds étant qu'utilisateur, Pourquoi développer ce logiciel, identifier les besoins de l'utilisateur, faire des études du préalable, l'étude des opportunités, Quoi faire pendant ce temps...
+Il faut créer de la communication, des échanges, afin d'avoir des données écrites...
+Tout doit être écrit
+Résumer, phaser, ...etc..
+
+enquêter, analyser, étudier, identifier, critiquer, parler, communiquer, decriver, élaborer,...etc
+
+NB: L'Objectif est de concevoir une description textuelle sur le domaine d'études 
+Mais Pour cela il faudrait montrer d'où proviennent les sources d'informations de la réalisation de cette description.
+Faisons comme si on a déjà nos réponses à nos questions.
+
+IL NE FAUT PAS CONSTRUIRE LES MODÈLES, MAIS FAIRE EN SORTE QUE LA DESCRIPTION CORRESPOND À LA MODÉLISATION MCC, MCT, MOT, car ce sont ceux là qu'on a vu pour l'instant 
+
+NB: ICI ON NE DÉVELOPPE RIEN, IL N'Y A PAS DE LOGICIEL CONÇU ou À CONCEVOIR , ON MÈNE JUSTE UNE ÉTUDE SUR LE DOMAINE, C'EST COMME LA PRATIQUE DE CE QU'ON NOUS A APPRIS, DE CE QU'ON A VU EN THÉORIE, ET QUE L'ON DOIT EXPÉRIMENTER SUR TERRAIN
+
+NB: Faut surtout bien disposer le travail en commençant par une introduction

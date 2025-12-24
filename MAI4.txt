@@ -1,0 +1,25 @@
+# Description textuelle de la gestion des stocks de la pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR, une petite officine de quartier, est gérée par un seul pharmacien qui s'occupe de l'ensemble des activités de gestion. Le système de gestion des stocks actuel présente des faiblesses que le gérant souhaite résoudre par l'informatisation.
+
+Chaque matin, le pharmacien effectue un contrôle visuel rapide des étagères pour repérer les produits en quantité faible. Cette vérification est complétée par une consultation du registre manuel des stocks, où sont consignées toutes les entrées et sorties de médicaments. Lorsqu'il constate qu'un produit atteint un niveau critique, il le note sur une liste de commande provisoire.
+
+Deux fois par semaine, généralement le lundi et le jeudi, le pharmacien contacte ses différents fournisseurs pour passer des commandes. Pour les médicaments classiques, il appelle son grossiste principal et lui communique oralement sa liste de besoins. Pour les produits parapharmaceutiques, il contacte directement les laboratoires concernés. Les représentants des laboratoires visitent également la pharmacie une fois par mois pour présenter leurs nouveaux produits et prendre des commandes spécifiques.
+
+À la réception des livraisons, le pharmacien vérifie la conformité des produits reçus avec le bon de livraison. Il s'assure que les quantités correspondent à ce qui a été commandé et que les dates de péremption sont acceptables. Il met ensuite à jour manuellement son registre des stocks en indiquant les nouvelles entrées.
+
+Lors de la vente d'un médicament à un client, le pharmacien vérifie la disponibilité du produit, le délivre contre une ordonnance si nécessaire, et enregistre manuellement la sortie du produit dans son registre. Cette opération est souvent différée et réalisée en fin de journée, ce qui peut créer des écarts entre le stock réel et le stock enregistré.
+
+Une fois par trimestre, le pharmacien réalise un inventaire complet de la pharmacie. Ce processus prend une journée entière pendant laquelle la pharmacie est fermée. Il compare alors le stock physique avec les données de son registre et ajuste les écarts constatés.
+
+Le pharmacien est également en contact régulier avec des médecins du quartier qui peuvent l'appeler pour vérifier la disponibilité de certains médicaments avant de les prescrire à leurs patients. De même, certains patients chroniques contactent parfois la pharmacie par téléphone pour s'assurer que leur traitement habituel est disponible avant de se déplacer.
+
+Le pharmacien gère aussi les produits périmés ou détériorés, qui doivent être retirés du stock et traités selon des procédures spécifiques. Il les isole dans un espace dédié en attendant leur collecte par un organisme spécialisé.
+
+Pour les médicaments sous ordonnance, le pharmacien doit tenir un registre spécial, notamment pour les stupéfiants et autres produits réglementés, avec une vigilance particulière sur leurs mouvements et leurs stocks.
+
+Lorsqu'un produit est en rupture totale, le pharmacien tente de le commander en urgence auprès de son grossiste, qui peut livrer dans la journée pour certains produits essentiels. Si le produit n'est pas disponible, il oriente le client vers une pharmacie partenaire du réseau local après avoir vérifié par téléphone la disponibilité du produit.
+
+Le pharmacien doit également anticiper les variations saisonnières de la demande (médicaments contre la grippe en hiver, antiallergiques au printemps, produits solaires en été) en augmentant préventivement ses stocks pour ces périodes.
+
+Enfin, le pharmacien doit respecter les directives des autorités sanitaires concernant les médicaments sous surveillance particulière ou faisant l'objet d'alertes sanitaires, ce qui peut l'amener à modifier rapidement son stock et à informer les patients concernés.

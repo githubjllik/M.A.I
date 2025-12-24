@@ -1,0 +1,35 @@
+# Règles d'Organisation (RO) dans l'énoncé DIBAPHAR
+
+Voici les règles d'organisation identifiées dans la description de la gestion des stocks de la pharmacie DIBAPHAR :
+
+1. Le pharmacien effectue un contrôle visuel quotidien des étagères pour repérer les produits en quantité faible.
+
+2. Toutes les entrées et sorties de médicaments sont consignées dans un registre manuel des stocks.
+
+3. Les commandes sont passées deux fois par semaine (lundi et jeudi) auprès des fournisseurs.
+
+4. Les médicaments classiques sont commandés auprès du grossiste principal.
+
+5. Les produits parapharmaceutiques sont commandés directement auprès des laboratoires concernés.
+
+6. Les représentants des laboratoires visitent la pharmacie mensuellement pour présenter les nouveaux produits et prendre des commandes.
+
+7. À la réception des livraisons, le pharmacien vérifie la conformité avec le bon de livraison (quantités, dates de péremption).
+
+8. Le registre des stocks est mis à jour manuellement après chaque réception de commande.
+
+9. Lors d'une vente, le pharmacien vérifie la disponibilité du produit et l'enregistre dans son registre (souvent en fin de journée).
+
+10. Un inventaire complet est réalisé trimestriellement, nécessitant la fermeture de la pharmacie.
+
+11. Le pharmacien répond aux demandes des médecins concernant la disponibilité des médicaments.
+
+12. Les patients chroniques peuvent contacter la pharmacie pour vérifier la disponibilité de leur traitement.
+
+13. Les produits périmés ou détériorés sont isolés dans un espace dédié en attendant leur collecte.
+
+14. Un registre spécial est tenu pour les médicaments sous ordonnance, notamment les stupéfiants.
+
+15. En cas de rupture de stock, le pharmacien peut passer une commande urgente ou orienter le client vers une pharmacie partenaire.
+
+16. Le pharmacien doit se conformer aux directives des autorités sanitaires concernant les médicaments sous surveillance.

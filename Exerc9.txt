@@ -1,0 +1,55 @@
+# Analyse des acteurs et flux de communication pour la gestion des commandes de l'entreprise X
+
+## Identification des acteurs
+
+### Acteurs internes
+- Comptoirs d'accueils régionaux
+- Service magasin du siège
+- Magasiniers
+- Service emballage
+- Centre de traitement informatique du siège
+
+### Acteurs externes
+- Clients
+
+## Flux de communication entre les acteurs
+
+### Flux 1 : Client → Comptoir d'accueil régional → Siège central
+**Justification** : "Les commandes des clients sont saisies au niveau des comptoirs d'accueils régionaux et sont transmises chaque soir au siège central de la société." (RO1)
+- Le client passe une commande au comptoir d'accueil régional
+- Le comptoir d'accueil régional transmet cette commande au siège central en fin de journée
+
+### Flux 2 : Siège central → Service magasin du siège
+**Justification** : "Tous les matins, le service magasin du siège traite les commandes reçues la veille : il édite pour chaque commande des bons de réquisition." (RO2)
+- Le siège central transmet les commandes reçues la veille au service magasin
+- Le service magasin traite ces commandes en éditant des bons de réquisition
+
+### Flux 3 : Service magasin → Magasiniers → Service emballage
+**Justification** : "Ces bons sont transmis aux magasiniers qui sortent les articles des stocks, pointent manuellement les bons, puis apportent les articles au service emballage, afin qu'ils soient conditionnés le jour même." (RO3)
+- Le service magasin transmet les bons de réquisition aux magasiniers
+- Les magasiniers, après avoir préparé les articles, les apportent avec les bons pointés au service emballage
+
+### Flux 4 : Service emballage → Client
+**Justification** : "Dès le lendemain, le service emballage expédie les colis aux clients." (RO4)
+- Le service emballage, après conditionnement, expédie directement les colis aux clients
+
+### Flux 5 : Service emballage → Centre de traitement informatique
+**Justification implicite** : Pour que le centre de traitement informatique puisse éditer les factures correspondant aux commandes expédiées, il doit recevoir l'information que les commandes ont été traitées et expédiées.
+
+### Flux 6 : Centre de traitement informatique → Client
+**Justification** : "En fin de semaine, le centre de traitement informatique du siège édite les factures qui correspondent aux commandes de la semaine." (RO5)
+- Le centre de traitement informatique édite et envoie les factures aux clients
+
+## Séquence chronologique complète des flux
+
+1. Le client passe une commande auprès du comptoir d'accueil régional (Jour J)
+2. Le comptoir d'accueil régional transmet la commande au siège central (Soir du jour J)
+3. Le service magasin du siège reçoit et traite la commande, édite les bons de réquisition (Matin du jour J+1)
+4. Le service magasin transmet les bons de réquisition aux magasiniers (Jour J+1)
+5. Les magasiniers préparent les articles, pointent les bons et apportent le tout au service emballage (Jour J+1)
+6. Le service emballage conditionne les articles (Jour J+1)
+7. Le service emballage expédie les colis aux clients (Jour J+2)
+8. Le service emballage transmet l'information des commandes expédiées au centre de traitement informatique (implicite)
+9. Le centre de traitement informatique édite et envoie les factures aux clients (Fin de semaine)
+
+Cette analyse respecte l'enchaînement chronologique et hiérarchique des opérations selon l'énoncé, en mettant en évidence la succession logique des étapes et les flux d'information entre les différents acteurs.

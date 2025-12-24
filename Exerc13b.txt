@@ -1,0 +1,109 @@
+# Analyse pour le modèle conceptuel des données de l'entreprise PHILTECH
+
+## 1. Identification des entités et leurs propriétés
+
+### Entité PRODUIT
+- **ref_produit** (identifiant)
+- designation (libellé court)
+- descriptif (libellé long)
+- prix_vente_ht (prix catalogue unitaire hors taxes)
+- type_produit (fabriqué ou approvisionné)
+
+### Entité PRODUIT_FABRIQUE (sous-type de PRODUIT)
+- **ref_produit** (hérité de PRODUIT)
+- nb_heures_mo (nombre moyen d'heures de main d'œuvre)
+
+### Entité PRODUIT_APPROVISIONNE (sous-type de PRODUIT)
+- **ref_produit** (hérité de PRODUIT)
+- prix_achat_unitaire_moyen
+
+### Entité FOURNISSEUR
+- **id_fournisseur** (identifiant)
+- raison_sociale
+- adresse
+- autres_coordonnees (téléphone, email, etc.)
+
+### Entité COMMANDE
+- **num_commande** (identifiant)
+- date_commande
+- id_fournisseur (clé étrangère)
+
+### Entité LIGNE_COMMANDE
+- **num_commande** (clé étrangère, partie de l'identifiant)
+- **ref_produit** (clé étrangère, partie de l'identifiant)
+- quantite
+- prix_achat_negocie (prix négocié, potentiellement inférieur au prix catalogue)
+- date_livraison_prevue
+
+## 2. Identification des relations
+
+### Relation FABRIQUE (spécialisation/généralisation)
+- Entre PRODUIT et PRODUIT_FABRIQUE
+- Cardinalité: 1,1 (côté PRODUIT_FABRIQUE) et 0,1 (côté PRODUIT)
+
+### Relation APPROVISIONNE (spécialisation/généralisation)
+- Entre PRODUIT et PRODUIT_APPROVISIONNE
+- Cardinalité: 1,1 (côté PRODUIT_APPROVISIONNE) et 0,1 (côté PRODUIT)
+
+### Relation PEUT_FOURNIR
+- Entre FOURNISSEUR et PRODUIT_APPROVISIONNE
+- Cardinalité: 1,N (côté FOURNISSEUR) et 1,N (côté PRODUIT_APPROVISIONNE)
+- Attributs de la relation:
+  - ref_fournisseur (référence du produit chez le fournisseur)
+  - prix_fournisseur (prix catalogue du fournisseur)
+
+### Relation PASSE
+- Entre COMMANDE et FOURNISSEUR
+- Cardinalité: 0,N (côté COMMANDE) et 1,1 (côté FOURNISSEUR)
+
+### Relation CONTIENT
+- Entre COMMANDE et LIGNE_COMMANDE
+- Cardinalité: 1,1 (côté LIGNE_COMMANDE) et 1,N (côté COMMANDE)
+
+### Relation CONCERNE
+- Entre LIGNE_COMMANDE et PRODUIT_APPROVISIONNE
+- Cardinalité: 1,1 (côté LIGNE_COMMANDE) et 0,N (côté PRODUIT_APPROVISIONNE)
+
+## 3. Règles de gestion
+
+1. Un PRODUIT est soit fabriqué, soit approvisionné, jamais les deux à la fois.
+
+2. Un PRODUIT_APPROVISIONNE doit être fourni par au moins un FOURNISSEUR.
+
+3. Un FOURNISSEUR peut fournir zéro ou plusieurs PRODUIT_APPROVISIONNE.
+
+4. Pour chaque association entre un FOURNISSEUR et un PRODUIT_APPROVISIONNE, on enregistre la référence spécifique du fournisseur et son prix catalogue.
+
+5. Une COMMANDE est toujours passée à un et un seul FOURNISSEUR.
+
+6. Une COMMANDE contient au moins une LIGNE_COMMANDE.
+
+7. Une LIGNE_COMMANDE concerne un seul PRODUIT_APPROVISIONNE dans une quantité déterminée.
+
+8. Le prix d'achat négocié dans la LIGNE_COMMANDE peut être inférieur au prix catalogue du FOURNISSEUR.
+
+9. Chaque LIGNE_COMMANDE a sa propre date de livraison prévue.
+
+10. Le prix_achat_unitaire_moyen d'un PRODUIT_APPROVISIONNE est calculé à partir des différents prix négociés dans les LIGNES_COMMANDE précédentes.
+
+## 4. Cardinalités détaillées
+
+- PRODUIT -> PRODUIT_FABRIQUE : (0,1) Un produit peut être un produit fabriqué ou non
+- PRODUIT_FABRIQUE -> PRODUIT : (1,1) Un produit fabriqué est toujours un produit
+
+- PRODUIT -> PRODUIT_APPROVISIONNE : (0,1) Un produit peut être un produit approvisionné ou non
+- PRODUIT_APPROVISIONNE -> PRODUIT : (1,1) Un produit approvisionné est toujours un produit
+
+- FOURNISSEUR -> PEUT_FOURNIR : (0,N) Un fournisseur peut fournir zéro à plusieurs produits approvisionnés
+- PRODUIT_APPROVISIONNE -> PEUT_FOURNIR : (1,N) Un produit approvisionné doit être fourni par au moins un fournisseur
+
+- FOURNISSEUR -> PASSE : (0,N) Un fournisseur peut recevoir zéro à plusieurs commandes
+- COMMANDE -> PASSE : (1,1) Une commande est passée auprès d'un et un seul fournisseur
+
+- COMMANDE -> CONTIENT : (1,N) Une commande contient au moins une ligne de commande
+- LIGNE_COMMANDE -> CONTIENT : (1,1) Une ligne de commande appartient à une et une seule commande
+
+- PRODUIT_APPROVISIONNE -> CONCERNE : (0,N) Un produit approvisionné peut figurer dans zéro à plusieurs lignes de commande
+- LIGNE_COMMANDE -> CONCERNE : (1,1) Une ligne de commande concerne un et un seul produit approvisionné
+
+Ce modèle conceptuel des données reflète la structure et les règles de gestion de l'entreprise PHILTECH pour la fabrication et la commercialisation de ses produits, avec une gestion distincte des produits fabriqués et approvisionnés, ainsi que des commandes passées auprès des fournisseurs.

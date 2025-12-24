@@ -1,0 +1,233 @@
+Voici exactement ce que tu demandes :
+1️⃣ Identifier les acteurs (internes/externe)
+2️⃣ Lister les flux de communication successifs entre eux, sans ajouter d'opérations personnelles,
+3️⃣ Justifier chaque flux avec l’extrait de l’énoncé (le pourquoi),
+4️⃣ Respecter l’ordre logique du processus (début → fin),
+5️⃣ Ne pas considérer les opérations faites seul par un acteur, uniquement ceux où deux acteurs échangent.
+
+
+---
+
+✅ 1. IDENTIFICATION DES ACTEURS
+
+Acteurs internes (ceux appartenant à l’entreprise X)
+
+1. Siège social
+
+
+2. Entrepôts (3 entrepôts)
+
+
+3. Magasins
+
+Hypermarchés
+
+Supermarchés
+
+Supérettes
+
+
+
+
+Acteurs externes (hors entreprise X)
+
+4. Centrale d’achat
+
+
+5. Fournisseurs
+
+
+
+
+---
+
+✅ 2. FLUX DE COMMUNICATION ENTRE LES ACTEURS
+
+Avec justification textuelle + ordre logique du processus.
+
+
+---
+
+🔵 PHASE 1 — Préparation de la collection
+
+Flux 1 – Centrale d’achat → Siège social
+
+Information envoyée : Catalogue de la collection
+Pourquoi ?
+➡️ « La détermination des commandes est réalisée à partir du catalogue établi par la centrale d’achat »
+Donc, la centrale transmet ce catalogue au siège.
+
+
+---
+
+Flux 2 – Siège social → Magasins
+
+Information envoyée : Catalogue + directives pour la collection
+Pourquoi ?
+➡️ Le siège reçoit le catalogue et doit le transmettre aux magasins pour qu’ils déterminent leurs besoins.
+(Implication logique, car ce sont les magasins qui utilisent le catalogue pour commander.)
+
+
+---
+
+Flux 3 – Magasins → Siège social
+
+Information envoyée : Besoins de commande basés sur l’historique des ventes
+Pourquoi ?
+➡️ « La détermination des commandes est réalisée… à partir de l’historique des ventes de chaque magasin »
+Les magasins envoient donc ces données au siège.
+
+
+---
+
+Flux 4 – Siège social → Fournisseurs
+
+Information envoyée : Commandes de collection
+Pourquoi ?
+➡️ Le siège centralise les besoins et passe commande aux fournisseurs.
+
+
+---
+
+
+---
+
+🔵 PHASE 2 — Livraison de la collection
+
+Flux 5 – Fournisseurs → Magasins
+
+Information envoyée : Livraison directe des marchandises
+Pourquoi ?
+➡️ « Les fournisseurs livrent la marchandise dans les magasins … en fonction de la demande. »
+
+
+---
+
+Flux 6 – Fournisseurs → Entrepôts
+
+Information envoyée : Livraison directe des marchandises
+Pourquoi ?
+➡️ « … ou dans les entrepôts, en fonction de la demande. »
+
+
+---
+
+
+---
+
+🔵 PHASE 3 — Vente + réassortiments
+
+Flux 7 – Magasins → Fournisseurs
+
+Information envoyée : Demandes de réassortiment
+Pourquoi ?
+➡️ « Les magasins peuvent déclencher des commandes de réassortiment auprès des fournisseurs »
+
+
+---
+
+Flux 8 – Magasins → Entrepôts
+
+Information envoyée : Demande de réapprovisionnement
+Pourquoi ?
+➡️ « Ils (les magasins) peuvent aussi demander un réapprovisionnement à partir des stocks des entrepôts »
+
+
+---
+
+Flux 9 – Entrepôts → Magasins
+
+Information envoyée : Envoi / livraison des stocks
+Pourquoi ?
+➡️ Réponse logique du flux précédent : les entrepôts expédient les produits demandés par les magasins.
+
+
+---
+
+
+---
+
+🔵 PHASE 4 — Fin de période : Soldes
+
+Flux 10 – Siège social → Magasins
+
+Information envoyée : Décision de lancer les soldes
+Pourquoi ?
+➡️ « Une campagne de soldes peut être déclenchée en fin de période. »
+La décision vient du siège → appliquée par les magasins.
+
+
+---
+
+
+---
+
+🔵 PHASE 5 — Fin de collection
+
+Après inventaire des magasins :
+
+Flux 11 – Magasins → Fournisseurs
+
+Information envoyée : Retour d’invendus
+Pourquoi ?
+➡️ « Les invendus… sont retournés aux fournisseurs »
+
+
+---
+
+Flux 12 – Magasins → Entrepôts
+
+Information envoyée : Envoi d’invendus pour stockage
+Pourquoi ?
+➡️ « … ou mis en entrepôts pour être intégrés à la collection de l'année prochaine. »
+
+
+---
+
+Flux 13 – Entrepôts → Siège social
+
+Information envoyée : Rapport des invendus stockés
+Pourquoi ?
+➡️ Logique administrative : Siège doit planifier la collection de l’année suivante basé sur ce stock.
+(C’est cohérent avec la gestion centralisée.)
+
+
+---
+
+
+---
+
+🎯 RÉCAPITULATIF GLOBALEMENT ALIGNÉ (Début → Fin)
+
+Étape	Acteur → Acteur	Contenu échangé	Justification de l’énoncé
+
+1	Centrale d’achat → Siège	Catalogue	« catalogue établi par la centrale »
+2	Siège → Magasins	Catalogue + directives	Magasins doivent l’utiliser
+3	Magasins → Siège	Historique ventes	« détermination… historique ventes »
+4	Siège → Fournisseurs	Commandes	Siège centralise et commande
+5	Fournisseurs → Magasins	Livraisons	« livrent… dans les magasins »
+6	Fournisseurs → Entrepôts	Livraisons	« … ou dans les entrepôts »
+7	Magasins → Fournisseurs	Réassort	« commandes de réassortiment »
+8	Magasins → Entrepôts	Demande réappro	« réapprovisionnement… entrepôts »
+9	Entrepôts → Magasins	Livraison stocks	Réponse logique à la demande
+10	Siège → Magasins	Décision soldes	« campagne de soldes »
+11	Magasins → Fournisseurs	Retour invendus	« retournés aux fournisseurs »
+12	Magasins → Entrepôts	Envoi invendus	« mis en entrepôts »
+13	Entrepôts → Siège	Rapport invendus	Logique de gestion centrale
+
+
+
+---
+
+Si tu veux, je peux maintenant construire :
+
+MCC (Modèle conceptuel de communication)
+
+MCD (Modèle conceptuel de données)
+
+MCT (Modèle conceptuel des traitements)
+
+MOT / MOD
+
+
+👉 Dis-moi lequel tu veux en premier.

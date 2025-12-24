@@ -1,0 +1,226 @@
+Parfait.
+Voici la liste complète, propre, ordonnée, hiérarchique et 100 % conforme à l’énoncé, avec tous les flux entre acteurs internes/externe, y compris le flux ajouté : candidat → service de sélection.
+
+Chaque flux est justifié par la phrase de l'énoncé (le pourquoi).
+
+
+---
+
+✅ ACTEURS
+
+Acteur externe
+
+Candidat
+
+
+Acteurs internes
+
+Secrétariat
+
+Service de sélection
+
+
+
+---
+
+✅ CHAÎNE COMPLÈTE DES FLUX (du début à la fin)
+
+Je présente tout dans l’ordre chronologique, sans sauter d’étape, et avec justification.
+
+
+---
+
+🔵 ÉTAPE 1 – DEMANDE D’INSCRIPTION
+
+Flux 1 : Candidat → Secrétariat
+
+Action : Envoi de la demande d’inscription
+Pourquoi (énoncé) :
+➡️ « Un candidat demande son inscription à une formation. »
+
+
+---
+
+🔵 ÉTAPE 2 – ATTRIBUTION DU N° DE STAGIAIRE + CONVOCATION
+
+Flux 2 : Secrétariat → Candidat
+
+Action : Envoi du n° de stagiaire
+Pourquoi :
+➡️ « Le secrétariat […] répond en envoyant un n° de stagiaire au candidat. »
+
+Flux 3 : Secrétariat → Candidat
+
+Action : Envoi de la convocation aux épreuves
+Pourquoi :
+➡️ « Le candidat reçoit aussi une convocation pour des épreuves de sélection. »
+
+
+---
+
+🔵 ÉTAPE 3 – PRÉPARATION AUX ÉPREUVES
+
+Flux 4 : Secrétariat → Service de sélection
+
+Action : Transmission de la liste des candidats convoqués
+Pourquoi :
+➡️ Implicite mais obligatoire, car :
+« A l’issue des épreuves de sélection, gérées par le service de sélection… »
+→ Le service doit recevoir la liste pour gérer les épreuves.
+
+
+---
+
+🔵 ÉTAPE 4 – PASSAGE DES ÉPREUVES (flux ajouté)
+
+Flux 5 : Candidat → Service de sélection
+
+Action : Le candidat se présente aux épreuves de sélection
+Pourquoi :
+➡️ « Le candidat reçoit […] une convocation pour des épreuves de sélection. »
+➡️ « A l’issue des épreuves de sélection… »
+→ Un candidat ne peut subir des épreuves sans se présenter devant le service responsable.
+
+
+---
+
+🔵 ÉTAPE 5 – RETOUR DES RÉSULTATS
+
+Flux 6 : Service de sélection → Secrétariat
+
+Action : Envoi des notes pour chaque candidat
+Pourquoi :
+➡️ « A l’issue des épreuves de sélection […] si la note est inférieure… si la note est supérieure… »
+→ Le secrétariat doit connaître la note pour décider.
+
+
+---
+
+🔵 ÉTAPE 6 – DÉCISION : REFUS / ACCEPTATION / LISTE D’ATTENTE
+
+Cas 1 : Note < 10 → refus
+
+Flux 7 : Secrétariat → Candidat
+
+Action : Lettre de refus
+Pourquoi :
+➡️ « Si la note est inférieure à 10, […] le candidat reçoit une lettre de refus. »
+
+
+---
+
+Cas 2 : Note > 10 + place disponible → acceptation
+
+Flux 8 : Secrétariat → Candidat
+
+Action : Lettre d’acceptation
+Pourquoi :
+➡️ « Si la note […] est supérieure à 10 et qu’il reste de la place […] il reçoit une lettre d’acceptation. »
+
+
+---
+
+Cas 3 : Note > 10 + stage complet → liste d’attente
+
+Flux 9 : Secrétariat → Candidat
+
+Action : Courrier d’information (candidat mis en attente)
+Pourquoi :
+➡️ « Si la note […] est supérieure à 10, mais que le stage est complet […] il reçoit un courrier l’informant de la situation. »
+
+
+---
+
+🔵 ÉTAPE 7 – DÉSISTEMENT AVANT LE STAGE
+
+Flux 10 : Candidat → Secrétariat
+
+Action : Envoi du courrier de désistement
+Pourquoi :
+➡️ « Le candidat peut […] renoncer à suivre la formation. Quand le secrétariat reçoit un courrier de désistement… »
+
+
+---
+
+🔵 ÉTAPE 8 – GESTION DES DÉSISTEMENTS
+
+Cas : Un candidat accepté abandonne
+
+Flux 11 : Secrétariat → Candidat (1er en liste d’attente)
+
+Action : Lettre d’acceptation pour remplacer un désisté
+Pourquoi :
+➡️ « En cas de désistement d’un candidat reçu, le premier candidat de la liste d’attente est déclaré reçu. Il reçoit une lettre d’acceptation. »
+
+
+---
+
+🔵 ÉTAPE 9 – DÉBUT DU STAGE : CAS DES CANDIDATS RESTÉS EN ATTENTE
+
+Flux 12 : Secrétariat → Candidat en liste d’attente
+
+Action : Avis de rejet définitif
+Pourquoi :
+➡️ « Au début du stage, les reçus en attente sont avisés de leur rejet définitif… »
+
+Flux 13 : Candidat → Secrétariat
+
+Action : Demande d'inscription pour un stage ultérieur
+Pourquoi :
+➡️ « … mais ils ont la possibilité […] en demandant leur inscription à un stage ultérieur. »
+
+
+---
+
+🟩 RÉCAP COMPLET (13 flux, parfaitement alignés)
+
+1. Candidat → Secrétariat : demande d'inscription
+
+
+2. Secrétariat → Candidat : n° de stagiaire
+
+
+3. Secrétariat → Candidat : convocation
+
+
+4. Secrétariat → Service sélection : liste des candidats
+
+
+5. Candidat → Service sélection : passage des épreuves
+
+
+6. Service sélection → Secrétariat : note
+
+
+7. Secrétariat → Candidat : refus
+
+
+8. Secrétariat → Candidat : acceptation
+
+
+9. Secrétariat → Candidat : mise en attente
+
+
+10. Candidat → Secrétariat : désistement
+
+
+11. Secrétariat → Candidat (liste attente) : nouvelle acceptation
+
+
+12. Secrétariat → Candidat (liste attente) : rejet définitif
+
+
+13. Candidat → Secrétariat : demande pour un stage ultérieur
+
+
+
+
+---
+
+Si tu veux, je peux maintenant :
+👉 Construire le MCC
+👉 Construire le MCT (processus graphique)
+👉 Construire le MCD, MOT, MOD
+
+Dis-moi simplement :
+« Fais-moi le MCC » ou « Fais-moi tout ».

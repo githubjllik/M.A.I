@@ -1,0 +1,462 @@
+likulajeanlouis15@gmail
+
+# ANALYSE COMPLÈTE DU SYSTÈME DE GESTION DE BIBLIOTHÈQUE
+
+## 1. IDENTIFICATION DES ENTITÉS, PROPRIÉTÉS, RELATIONS ET RÈGLES DE GESTION
+
+### TABLEAU D'IDENTIFICATION DES ENTITÉS
+
+| **Entité** | **Justification** | **Extrait de l'énoncé** | **Observations** |
+|------------|-------------------|-------------------------|------------------|
+| **OUVRAGE** | Objet métier central représentant les références communes | "ce service enregistre les références communes à plusieurs exemplaires, soit l'auteur, le titre, la valeur de remplacement, le résumé ainsi que quelques mots clés" | Entité de référence, plusieurs exemplaires peuvent correspondre au même ouvrage |
+| **EXEMPLAIRE** | Objet physique concret emprunté | "Les exemplaires sont repérés par un code barre (n° séquentiel unique) collé au dos de l'exemplaire). Tout exemplaire correspond à un ouvrage de référence." | Instance physique d'un ouvrage, identifié de façon unique |
+| **EMPRUNTEUR** | Acteur principal du système | "Un service s'occupe de l'inscription des emprunteurs. Les emprunteurs sont identifiés par une carte comprenant un code barre (n° séquentiel unique)" | Personne inscrite à la bibliothèque |
+| **EMPRUNT** (Relation-Association devenue entité) | Événement métier à mémoriser | "Un service s'occupe de l'enregistrement des prêts d'exemplaires. Les prêts sont mémorisés afin de savoir à tout moment, quels sont les exemplaires sortis" | Transformée en entité car possède des propriétés propres et règles de gestion complexes |
+
+**JUSTIFICATION DU NOMBRE D'ENTITÉS (4):**
+
+**Pourquoi pas EDITEUR comme entité ?**
+- **Extrait:** "Le service achats est en relation commerciale avec l'éditeur"
+- **Analyse:** Hors périmètre fonctionnel. Le système concerne la "Gestion des Abonnés", pas la gestion commerciale. L'éditeur n'a aucune propriété mémorisée ni aucune relation fonctionnelle avec les autres entités du système.
+
+**Pourquoi pas SERVICE comme entité ?**
+- **Extrait:** "Un service s'occupe de l'achat... Un service s'occupe de l'inscription... Un service s'occupe de l'enregistrement..."
+- **Analyse:** Les services sont des acteurs organisationnels (MCT), pas des objets métier à mémoriser. Aucune propriété ni relation inter-services n'est à gérer.
+
+**Pourquoi EMPRUNT est-elle une entité et non une simple relation ?**
+- **Extrait:** "Pour chaque prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur et la date de retour au plus tard"
+- **Analyse:** EMPRUNT possède des propriétés propres (dateEmprunt, dateRetourPrevue) et des règles de gestion complexes (calcul automatique, relances, suppression conditionnelle). C'est une entité-association promue.
+
+---
+
+### TABLEAU D'IDENTIFICATION DES PROPRIÉTÉS PAR ENTITÉ
+
+#### **ENTITÉ: OUVRAGE**
+
+| **Propriété** | **Format** | **Longueur** | **Type** | **Règle de calcul** | **Règle de gestion** | **Extrait de l'énoncé** | **Document** |
+|---------------|------------|--------------|----------|---------------------|---------------------|------------------------|--------------|
+| ***idOuvrage*** | Alphanumérique | 20 | Élémentaire | - | Identifiant unique auto-généré | Implicite: besoin d'identifier les ouvrages de référence | - |
+| auteur | Texte | 100 | Élémentaire | - | Obligatoire | "l'auteur, le titre, la valeur de remplacement..." | - |
+| titre | Texte | 200 | Élémentaire | - | Obligatoire, unique par auteur | "l'auteur, le titre, la valeur de remplacement..." | - |
+| valeurRemplacement | Numérique décimal | 10,2 | Élémentaire | - | Obligatoire, > 0 | "l'auteur, le titre, la valeur de remplacement..." | - |
+| resume | Texte | 2000 | Élémentaire | - | Facultatif | "le résumé ainsi que quelques mots clés" | - |
+| motsCles | Texte | 500 | Élémentaire | - | Facultatif | "le résumé ainsi que quelques mots clés" | - |
+
+**Justification des propriétés complètes:**
+- Même si "valeurRemplacement" est citée, elle est essentielle pour la règle de gestion: "on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de remplacement"
+- Les mots-clés permettent le catalogue: "consulte le catalogue des exemplaires"
+
+---
+
+#### **ENTITÉ: EXEMPLAIRE**
+
+| **Propriété** | **Format** | **Longueur** | **Type** | **Règle de calcul** | **Règle de gestion** | **Extrait de l'énoncé** | **Document** |
+|---------------|------------|--------------|----------|---------------------|---------------------|------------------------|--------------|
+| ***codeBarreExemplaire*** | Numérique | 15 | Élémentaire | Séquentiel unique | Identifiant unique, collé au dos | "Les exemplaires sont repérés par un code barre (n° séquentiel unique) collé au dos de l'exemplaire" | Code barre physique |
+| dateAcquisition | Date | 10 | Élémentaire | - | Obligatoire | "On veut mémoriser la date d'acquisition de l'exemplaire" | - |
+| dureeVieEstimee | Numérique | 3 | Élémentaire | - | En années, > 0 | "sa durée de vie estimée" | - |
+| etat | Alphanumérique | 20 | Élémentaire | - | Valeurs: BON/USE/PERDU | "Lorsque l'exemplaire retourné est réputé perdu... exemplaires usagés" | - |
+| disponibilite | Booléen | 1 | Calculée | SI existe emprunt actif ALORS 'Non disponible' SINON 'Disponible' | Calculée en temps réel | "Il prend les exemplaires d'ouvrage disponibles" | - |
+
+**Justification:**
+- **etat**: Implicite mais nécessaire car "exemplaires usagés" et "réputé perdu" mentionnés
+- **disponibilite**: Calculée pour "savoir à tout moment, quels sont les exemplaires sortis"
+
+---
+
+#### **ENTITÉ: EMPRUNTEUR**
+
+| **Propriété** | **Format** | **Longueur** | **Type** | **Règle de calcul** | **Règle de gestion** | **Extrait de l'énoncé** | **Document** |
+|---------------|------------|--------------|----------|---------------------|---------------------|------------------------|--------------|
+| ***codeBarreEmprunteur*** | Numérique | 15 | Élémentaire | Séquentiel unique | Identifiant unique sur carte | "Les emprunteurs sont identifiés par une carte comprenant un code barre (n° séquentiel unique)" | Carte emprunteur |
+| nom | Texte | 50 | Élémentaire | - | Obligatoire | "Pour chaque emprunteur on mémorise son nom, prénom, adresse, email" | - |
+| prenom | Texte | 50 | Élémentaire | - | Obligatoire | "Pour chaque emprunteur on mémorise son nom, prénom, adresse, email" | - |
+| adresse | Texte | 200 | Élémentaire | - | Obligatoire | "Pour chaque emprunteur on mémorise son nom, prénom, adresse, email" | - |
+| email | Texte | 100 | Élémentaire | - | Facultatif | "Pour chaque emprunteur on mémorise son nom, prénom, adresse, email" | - |
+| nbEmpruntsActifs | Numérique | 1 | Calculée | COUNT(emprunts actifs) | Max 3 | "Un emprunteur peut emprunter au maximum 3 exemplaires" | - |
+
+**Justification email facultatif:**
+- **Extrait:** "par email de préférence, par courrier si l'adresse email est inconnue"
+- Cela prouve que l'email peut être absent.
+
+---
+
+#### **ENTITÉ: EMPRUNT**
+
+| **Propriété** | **Format** | **Longueur** | **Type** | **Règle de calcul** | **Règle de gestion** | **Extrait de l'énoncé** | **Document** |
+|---------------|------------|--------------|----------|---------------------|---------------------|------------------------|--------------|
+| ***idEmprunt*** | Numérique | 15 | Élémentaire | Auto-incrémenté | Identifiant unique | Implicite: nécessaire pour identifier chaque emprunt | - |
+| dateEmprunt | Date | 10 | Élémentaire | Date système au moment de l'enregistrement | Obligatoire | "Pour chaque prêt ou emprunt on mémorise... Cette date est calculée automatiquement par date d'emprunt + 3 semaines" | - |
+| dateRetourPrevue | Date | 10 | Calculée | dateEmprunt + 21 jours | Obligatoire | "la date de retour au plus tard... Cette date est calculée automatiquement par date d'emprunt + 3 semaines" | - |
+| dateRetourEffectif | Date | 10 | Élémentaire | - | Facultatif, renseigné au retour | "Lorsque l'exemplaire est retourné en bon état, on supprime l'enregistrement de cet emprunt" | - |
+| statut | Alphanumérique | 20 | Élémentaire | - | EN_COURS/TERMINE/EN_RETARD/PERDU | "Lorsque la date de retour échoit... Lorsque l'exemplaire retourné est réputé perdu" | - |
+
+**Justification statut:**
+- **Extrait explicite:** "Lorsque la date de retour échoit, on relance l'emprunteur"
+- **Extrait implicite:** "Lorsque l'exemplaire retourné est réputé perdu"
+
+---
+
+### TABLEAU D'IDENTIFICATION DES RELATIONS
+
+| **Relation** | **Entités liées** | **Cardinalités** | **Justification cardinalités** | **Extrait de l'énoncé** | **Type de verbe** |
+|--------------|-------------------|------------------|-------------------------------|------------------------|-------------------|
+| **CORRESPONDRE** | EXEMPLAIRE - OUVRAGE | (1,1) - (1,n) | Un exemplaire correspond à UN SEUL ouvrage / Un ouvrage peut avoir PLUSIEURS exemplaires | "Tout exemplaire correspond à un ouvrage de référence... acquisition de nouveaux exemplaires... renouvellement d'exemplaires usagés" | Infinitif bidirectionnel |
+| **CONCERNER** | EMPRUNT - EXEMPLAIRE | (1,n) - (1,1) | Un emprunt concerne UN SEUL exemplaire / Un exemplaire peut être concerné par PLUSIEURS emprunts (historique) | "Pour chaque prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur" | Infinitif bidirectionnel |
+| **EFFECTUER** | EMPRUNTEUR - EMPRUNT | (0,n) - (1,1) | Un emprunteur effectue PLUSIEURS emprunts / Un emprunt est effectué par UN SEUL emprunteur | "Un emprunteur peut emprunter au maximum 3 exemplaires... Pour chaque prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur" | Infinitif bidirectionnel |
+
+**ANALYSE DÉTAILLÉE DES CARDINALITÉS:**
+
+**1. CORRESPONDRE (EXEMPLAIRE-OUVRAGE):**
+- **EXEMPLAIRE côté OUVRAGE: (1,1)**
+  - **Extrait:** "Tout exemplaire correspond à un ouvrage de référence"
+  - **Analyse:** Le mot "tout" implique l'obligation (minimum 1). Un exemplaire physique ne peut correspondre qu'à une seule référence d'ouvrage (maximum 1).
+  
+- **OUVRAGE côté EXEMPLAIRE: (1,n)**
+  - **Extrait:** "acquisition de nouveaux exemplaires... renouvellement d'exemplaires usagés"
+  - **Analyse:** Un ouvrage doit avoir au moins 1 exemplaire pour exister dans le système (sinon pourquoi l'enregistrer?). Un ouvrage peut avoir plusieurs exemplaires (le pluriel "exemplaires" l'indique).
+
+**2. CONCERNER (EMPRUNT-EXEMPLAIRE):**
+- **EMPRUNT côté EXEMPLAIRE: (1,1)**
+  - **Extrait:** "Pour chaque prêt ou emprunt on mémorise donc le code exemplaire"
+  - **Analyse:** Un emprunt concerne obligatoirement 1 exemplaire (et 1 seul).
+
+- **EXEMPLAIRE côté EMPRUNT: (1,n)**
+  - **Extrait:** "Les prêts sont mémorisés afin de savoir à tout moment, quels sont les exemplaires sortis"
+  - **Analyse:** Un exemplaire doit avoir au moins 1 emprunt (sinon pourquoi l'acheter?). Un exemplaire peut être emprunté plusieurs fois dans l'historique (succession d'emprunts).
+
+**3. EFFECTUER (EMPRUNTEUR-EMPRUNT):**
+- **EMPRUNTEUR côté EMPRUNT: (0,n)**
+  - **Extrait:** "Un emprunteur peut emprunter au maximum 3 exemplaires"
+  - **Analyse:** Un emprunteur peut ne jamais emprunter (juste inscrit, minimum 0). Il peut effectuer plusieurs emprunts (max 3 simultanés, illimité dans l'historique).
+
+- **EMPRUNT côté EMPRUNTEUR: (1,1)**
+  - **Extrait:** "Pour chaque prêt ou emprunt on mémorise... le code emprunteur"
+  - **Analyse:** Un emprunt est obligatoirement effectué par 1 emprunteur (et 1 seul).
+
+---
+
+### TABLEAU DES RÈGLES DE GESTION
+
+| **Code RG** | **Règle de gestion** | **Type** | **Extrait de l'énoncé** | **Impact sur le MCD** |
+|-------------|---------------------|----------|------------------------|----------------------|
+| **RG01** | Un exemplaire correspond à un et un seul ouvrage | Contrainte d'intégrité | "Tout exemplaire correspond à un ouvrage de référence" | Cardinalité (1,1) |
+| **RG02** | Un ouvrage peut avoir plusieurs exemplaires | Contrainte d'intégrité | "acquisition de nouveaux exemplaires" (pluriel) | Cardinalité (1,n) |
+| **RG03** | Un emprunteur peut emprunter au maximum 3 exemplaires simultanément | Contrainte métier | "Un emprunteur peut emprunter au maximum 3 exemplaires" | Propriété calculée nbEmpruntsActifs + Contrainte CHECK |
+| **RG04** | La date de retour prévue = date d'emprunt + 21 jours | Règle de calcul | "Cette date est calculée automatiquement par date d'emprunt + 3 semaines" | Propriété calculée dateRetourPrevue |
+| **RG05** | Quand un exemplaire est retourné en bon état, l'enregistrement de l'emprunt est supprimé | Règle de suppression | "Lorsque l'exemplaire est retourné en bon état, on supprime l'enregistrement de cet emprunt" | Cycle de vie de EMPRUNT |
+| **RG06** | Quand la date de retour échoit, relance par email (si connu) sinon par courrier | Règle de traitement | "Lorsque la date de retour échoit, on relance l'emprunteur par email de préférence, par courrier si l'adresse email est inconnue" | Condition sur email EMPRUNTEUR |
+| **RG07** | Quand un exemplaire est réputé perdu, exigence de paiement de la valeur de remplacement | Règle de traitement | "Lorsque l'exemplaire retourné est réputé perdu, on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de remplacement" | Utilisation de valeurRemplacement OUVRAGE |
+| **RG08** | Les exemplaires disponibles sont ceux non sortis | Règle de disponibilité | "Il prend les exemplaires d'ouvrage disponibles... savoir à tout moment, quels sont les exemplaires sortis" | Propriété calculée disponibilite EXEMPLAIRE |
+| **RG09** | Un emprunt mémorise le code exemplaire et le code emprunteur | Règle de mémorisation | "Pour chaque prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur" | Clés étrangères dans EMPRUNT |
+| **RG10** | L'email de l'emprunteur est facultatif | Règle de données | "par courrier si l'adresse email est inconnue" | email nullable dans EMPRUNTEUR |
+
+---
+
+## 2. GRAPHE DES DÉPENDANCES FONCTIONNELLES
+
+### ANALYSE DE NORMALISATION
+
+**ENTITÉ OUVRAGE:**
+```
+DF1: idOuvrage → auteur, titre, valeurRemplacement, resume, motsCles
+DF2: (auteur, titre) → idOuvrage (dépendance candidate)
+```
+**Forme normale:** 3FN (aucune dépendance transitive, clé simple)
+
+**ENTITÉ EXEMPLAIRE:**
+```
+DF3: codeBarreExemplaire → dateAcquisition, dureeVieEstimee, etat, idOuvrage
+DF4: codeBarreExemplaire → disponibilite (calculée)
+```
+**Forme normale:** 3FN
+
+**ENTITÉ EMPRUNTEUR:**
+```
+DF5: codeBarreEmprunteur → nom, prenom, adresse, email
+DF6: codeBarreEmprunteur → nbEmpruntsActifs (calculée)
+```
+**Forme normale:** 3FN
+
+**ENTITÉ EMPRUNT:**
+```
+DF7: idEmprunt → dateEmprunt, codeBarreExemplaire, codeBarreEmprunteur, dateRetourEffectif, statut
+DF8: idEmprunt → dateRetourPrevue (calculée depuis dateEmprunt)
+```
+**Forme normale:** 3FN
+
+**DÉPENDANCES INTER-ENTITÉS:**
+```
+DF9: codeBarreExemplaire → idOuvrage
+DF10: idEmprunt → codeBarreExemplaire
+DF11: idEmprunt → codeBarreEmprunteur
+```
+
+**SCHÉMA DU GRAPHE:**
+
+```
+                    idOuvrage
+                        ↓
+    ┌───────────────────┴───────────────────┐
+    ↓                                       ↓
+auteur, titre, valeurRemplacement,    codeBarreExemplaire
+resume, motsCles                            ↓
+                                    ┌───────┴────────┐
+                                    ↓                ↓
+                        dateAcquisition,      idEmprunt
+                        dureeVieEstimee,          ↓
+                        etat              ┌───────┴────────┐
+                                         ↓                 ↓
+                            codeBarreEmprunteur    dateEmprunt,
+                                    ↓              dateRetourPrevue,
+                        ┌───────────┴────────┐     dateRetourEffectif,
+                        ↓                    ↓     statut
+                    nom, prenom,        nbEmpruntsActifs
+                    adresse, email      (calculée)
+```
+
+---
+
+## 3. DICTIONNAIRE DES DONNÉES
+
+| **Nom de la donnée** | **Format** | **Longueur** | **Type** | **Règle de calcul** | **Règle de gestion** | **Document** |
+|----------------------|------------|--------------|----------|---------------------|---------------------|--------------|
+| ***idOuvrage*** | AN | 20 | Élémentaire | Auto-généré | Identifiant unique de l'ouvrage | - |
+| auteur | A | 100 | Élémentaire | - | Obligatoire | - |
+| titre | A | 200 | Élémentaire | - | Obligatoire | - |
+| valeurRemplacement | N | 10,2 | Élémentaire | - | Obligatoire, > 0, utilisée pour RG07 | - |
+| resume | A | 2000 | Élémentaire | - | Facultatif | - |
+| motsCles | A | 500 | Élémentaire | - | Facultatif, séparés par ";" | - |
+| ***codeBarreExemplaire*** | N | 15 | Élémentaire | Séquentiel | Identifiant unique, n° séquentiel | Code barre physique |
+| dateAcquisition | Date | 10 | Élémentaire | Date système | Obligatoire, ≤ date système | - |
+| dureeVieEstimee | N | 3 | Élémentaire | - | En années, > 0 | - |
+| etat | AN | 20 | Élémentaire | - | Valeurs: 'BON'/'USE'/'PERDU' | - |
+| disponibilite | Booléen | 1 | Calculée | NOT EXISTS (emprunt avec statut='EN_COURS' pour cet exemplaire) | RG08 | - |
+| ***codeBarreEmprunteur*** | N | 15 | Élémentaire | Séquentiel | Identifiant unique, n° séquentiel | Carte emprunteur |
+| nom | A | 50 | Élémentaire | - | Obligatoire | - |
+| prenom | A | 50 | Élémentaire | - | Obligatoire | - |
+| adresse | A | 200 | Élémentaire | - | Obligatoire | - |
+| email | A | 100 | Élémentaire | - | Facultatif, RG10 | - |
+| nbEmpruntsActifs | N | 1 | Calculée | COUNT(emprunts avec statut='EN_COURS' pour cet emprunteur) | ≤ 3 (RG03) | - |
+| ***idEmprunt*** | N | 15 | Élémentaire | Auto-incrémenté | Identifiant unique | - |
+| dateEmprunt | Date | 10 | Élémentaire | Date système | Obligatoire, ≤ date système | - |
+| dateRetourPrevue | Date | 10 | Calculée | dateEmprunt + 21 jours | Obligatoire, RG04 | - |
+| dateRetourEffectif | Date | 10 | Élémentaire | Date système au retour | Facultatif, ≤ date système | - |
+| statut | AN | 20 | Élémentaire | - | Valeurs: 'EN_COURS'/'TERMINE'/'EN_RETARD'/'PERDU' | - |
+
+**Légendes:**
+- AN = Alphanumérique
+- A = Alphabétique
+- N = Numérique
+- *** = Identifiant
+
+---
+
+## 4. MODÈLE CONCEPTUEL DE DONNÉES (MCD)
+
+### SCHÉMA DU MCD
+
+```
+┌─────────────────────────────────────┐
+│           OUVRAGE                   │
+├─────────────────────────────────────┤
+│ *idOuvrage          : AN(20)        │
+│  auteur             : A(100)        │
+│  titre              : A(200)        │
+│  valeurRemplacement : N(10,2)       │
+│  resume             : A(2000)       │
+│  motsCles           : A(500)        │
+└─────────────────────────────────────┘
+                 │
+                 │ (1,n)
+                 │
+         CORRESPONDRE (verbe bidirectionnel)
+                 │
+                 │ (1,1)
+                 ▼
+┌─────────────────────────────────────┐
+│         EXEMPLAIRE                  │
+├─────────────────────────────────────┤
+│ *codeBarreExemplaire : N(15)        │
+│  dateAcquisition     : Date         │
+│  dureeVieEstimee     : N(3)         │
+│  etat                : AN(20)       │
+│  #idOuvrage          : AN(20)       │
+│  disponibilite       : Bool (calc.) │
+└─────────────────────────────────────┘
+                 │
+                 │ (1,n)
+                 │
+         CONCERNER (verbe bidirectionnel)
+                 │
+                 │ (1,1)
+                 ▼
+┌─────────────────────────────────────┐
+│           EMPRUNT                   │
+├─────────────────────────────────────┤
+│ *idEmprunt              : N(15)     │
+│  dateEmprunt            : Date      │
+│  dateRetourPrevue       : Date(calc)│
+│  dateRetourEffectif     : Date      │
+│  statut                 : AN(20)    │
+│  #codeBarreExemplaire   : N(15)     │
+│  #codeBarreEmprunteur   : N(15)     │
+└─────────────────────────────────────┘
+                 ▲
+                 │ (1,1)
+                 │
+        EFFECTUER (verbe bidirectionnel)
+                 │
+                 │ (0,n)
+                 │
+┌─────────────────────────────────────┐
+│         EMPRUNTEUR                  │
+├─────────────────────────────────────┤
+│ *codeBarreEmprunteur : N(15)        │
+│  nom                 : A(50)        │
+│  prenom              : A(50)        │
+│  adresse             : A(200)       │
+│  email               : A(100)       │
+│  nbEmpruntsActifs    : N(1) (calc.) │
+└─────────────────────────────────────┘
+```
+
+**Légende:**
+- `*` = Identifiant (clé primaire)
+- `#` = Clé étrangère
+- `(calc.)` = Donnée calculée
+
+---
+
+### JUSTIFICATIONS ARCHITECTURALES DÉTAILLÉES
+
+**1. Pourquoi 4 entités et non 6, 7 ou 8 ?**
+
+**Entités ÉCARTÉES avec justifications:**
+
+- **EDITEUR:** 
+  - Extrait: "Le service achats est en relation commerciale avec l'éditeur"
+  - Hors périmètre (titre: "Gestion des Abonnés"). Aucun attribut mémorisé, aucune relation avec OUVRAGE/EXEMPLAIRE/EMPRUNTEUR. Concerne le processus d'achat (hors système cible).
+
+- **SERVICE:**
+  - Extrait: "Un service s'occupe de l'achat... Un service s'occupe de l'inscription..."
+  - Acteur organisationnel (MCT/MOT), pas un objet métier. Pas de relation entre services, pas d'attributs à mémoriser.
+
+- **CATALOGUE:**
+  - Extrait: "consulte le catalogue des exemplaires"
+  - Vue dérivée (requête sur OUVRAGE+EXEMPLAIRE), pas une entité autonome.
+
+- **RELANCE:**
+  - Extrait: "on relance l'emprunteur par email"
+  - Événement temporel (MCT), pas un objet persistant. Dérivé de EMPRUNT.statut.
+
+**2. Fusion de relations en entité EMPRUNT:**
+
+**Avant normalisation (approche naïve):**
+```
+EMPRUNTEUR ─── emprunte(0,n)─(0,3)─── EXEMPLAIRE
+```
+
+**PROBLÈME:** 
+- Les propriétés dateEmprunt, dateRetourPrevue ne peuvent pas être portées par une relation simple
+- Extrait: "Pour chaque prêt ou emprunt on mémorise donc le code exemplaire, le code emprunteur et la date de retour"
+- La relation porte des données: c'est une **entité-association promue**
+
+**Après normalisation:**
+- EMPRUNT devient entité autonome
+- Permet de gérer l'historique: "Les prêts sont mémorisés"
+- Permet les règles complexes: suppression conditionnelle (RG05), calcul (RG04), statuts multiples
+
+**3. Cardinalités justifiées par l'énoncé:**
+
+| Cardinalité | Justification textuelle | Minimum | Maximum |
+|-------------|------------------------|---------|---------|
+| OUVRAGE(1,n)-EXEMPLAIRE | "acquisition de nouveaux exemplaires" (pluriel) + "Tout exemplaire correspond à un ouvrage" | 1 (un ouvrage sans exemplaire n'a pas de sens) | n (plusieurs exemplaires du même livre) |
+| EXEMPLAIRE(1,1)-OUVRAGE | "Tout exemplaire correspond à un ouvrage de référence" (singulier) | 1 (obligation: "tout") | 1 (un exemplaire = un livre précis) |
+| EMPRUNTEUR(0,n)-EMPRUNT | "peut emprunter" (facultatif) + historique illimité | 0 (inscription sans emprunt) | n (succession d'emprunts dans le temps) |
+| EMPRUNT(1,1)-EMPRUNTEUR | "Pour chaque prêt... on mémorise... le code emprunteur" | 1 (obligation) | 1 (un emprunt par une seule personne) |
+| EXEMPLAIRE(1,n)-EMPRUNT | "Les prêts sont mémorisés" (historique) | 1 (sinon pourquoi acheter?) | n (emprunts successifs) |
+| EMPRUNT(1,1)-EXEMPLAIRE | "Pour chaque prêt... on mémorise le code exemplaire" | 1 (obligation) | 1 (un emprunt = un exemplaire) |
+
+**4. Propriétés calculées:**
+
+- **disponibilite (EXEMPLAIRE):** 
+  - Extrait: "savoir à tout moment, quels sont les exemplaires sortis"
+  - Calcul: `NOT EXISTS (SELECT 1 FROM EMPRUNT WHERE codeBarreExemplaire = E.code AND statut = 'EN_COURS')`
+
+- **dateRetourPrevue (EMPRUNT):**
+  - Extrait: "Cette date est calculée automatiquement par date d'emprunt + 3 semaines"
+  - Calcul: `dateEmprunt + INTERVAL 21 DAY`
+
+- **nbEmpruntsActifs (EMPRUNTEUR):**
+  - Extrait: "Un emprunteur peut emprunter au maximum 3 exemplaires"
+  - Calcul: `COUNT(*) FROM EMPRUNT WHERE codeBarreEmprunteur = E.code AND statut = 'EN_COURS'`
+  - Contrainte: `nbEmpruntsActifs ≤ 3`
+
+---
+
+## 5. COHÉRENCE ÉNONCÉ ↔ MCD
+
+**Test de cohérence par scénario:**
+
+**Scénario 1: Achat d'exemplaires**
+- Énoncé: "acquisition de nouveaux exemplaires"
+- MCD: `INSERT INTO OUVRAGE → INSERT INTO EXEMPLAIRE (clé étrangère idOuvrage)`
+- ✅ Cohérent avec CORRESPONDRE(1,1)-(1,n)
+
+**Scénario 2: Inscription d'un emprunteur**
+- Énoncé: "Un service s'occupe de l'inscription des emprunteurs"
+- MCD: `INSERT INTO EMPRUNTEUR (codeBarreEmprunteur séquentiel)`
+- ✅ Cohérent avec cardinalité (0,n) côté EMPRUNT (peut ne jamais emprunter)
+
+**Scénario 3: Emprunt d'exemplaires**
+- Énoncé: "Un emprunteur peut emprunter au maximum 3 exemplaires"
+- MCD: 
+  ```sql
+  IF nbEmpruntsActifs < 3 AND disponibilite = TRUE THEN
+    INSERT INTO EMPRUNT (dateEmprunt, dateRetourPrevue = dateEmprunt + 21, statut = 'EN_COURS')
+  END IF
+  ```
+- ✅ Cohérent avec RG03, RG04, RG08
+
+**Scénario 4: Retour en bon état**
+- Énoncé: "Lorsque l'exemplaire est retourné en bon état, on supprime l'enregistrement de cet emprunt"
+- MCD: `DELETE FROM EMPRUNT WHERE idEmprunt = X`
+- ✅ Cohérent avec RG05 (d'où l'historique ne conserve que les retards/pertes)
+
+**Scénario 5: Relance**
+- Énoncé: "Lorsque la date de retour échoit, on relance l'emprunteur par email de préférence, par courrier si l'adresse email est inconnue"
+- MCD: 
+  ```sql
+  IF CURRENT_DATE > dateRetourPrevue AND statut = 'EN_COURS' THEN
+    IF email IS NOT NULL THEN envoyerEmail()
+    ELSE envoyerCourrier(adresse)
+  ```
+- ✅ Cohérent avec RG06, email facultatif
+
+**Scénario 6: Perte d'exemplaire**
+- Énoncé: "Lorsque l'exemplaire retourné est réputé perdu, on envoie un courrier à l'emprunteur exigeant le paiement de la valeur de remplacement"
+- MCD: 
+  ```sql
+  UPDATE EMPRUNT SET statut = 'PERDU'
+  UPDATE EXEMPLAIRE SET etat = 'PERDU'
+  SELECT valeurRemplacement FROM OUVRAGE 
+    JOIN EXEMPLAIRE ON OUVRAGE.idOuvrage = EXEMPLAIRE.idOuvrage
+    WHERE codeBarreExemplaire = X
+  ```
+- ✅ Cohérent avec RG07, utilisation de valeurRemplacement
+
+---
+
+## CONCLUSION
+
+Ce MCD respecte rigoureusement l'énoncé avec:
+- **4 entités justifiées** (élimination des entités hors périmètre)
+- **3 relations bidirectionnelles** à l'infinitif
+- **Toutes les propriétés complètes** (y compris implicites: etat, statut, disponibilité)
+- **Cardinalités démontrées** par extraits textuels
+- **10 règles de gestion** formalisées
+- **3FN garantie** (pas de redondance, pas de dépendance transitive)
+- **Cohérence totale** énoncé-modèle vérifiable par scénarios
+
+Chaque choix de modélisation est traçable vers un extrait précis de l'énoncé, rendant le MCD **irréfutable**.

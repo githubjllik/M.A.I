@@ -1,0 +1,1191 @@
+<!-- jea'louis14-->
+<div>
+  Identifie :
+Les entités, leurs propriétés/attributs, identifiant , relations, la cardinalité, les règles de gestion
+
+Réalise :
+le graphe de dépendances fonctionnelles et le dictionnaire des données 
+
+Pour le dictionnaire des données voici les éléments , on a :
+- Nom de la donnée 
+- Format 
+- longueur 
+- Type ( Élémentaire | Calculée)
+- Règle de calcul 
+- Règle de gestion 
+- Document
+
+Les identifiants des on les identifient dans le dictionnaire avec le symbole * au début.
+Nom de la donnée = attributs/propriétés/identifiant d'une entité 
+
+
+C'est pour un MCD 
+
+Faut toujours tout démontrer, des trucs comme la normalisation, la fusion,... Pour dire pourquoi on a cet aspect et non l'autre, pour s'expliquer sur le Pourquoi on a que 4 entités au lieu de 8, pour dire pourquoi on a ça ou ça au lieu de ça,... 
+
+Dans chaque entité faut toujours mettre ses propriétés complets même si elles ne sont pas tous cités 
+
+Pour :
+- chaque entité déclaré tu dois montré l'extrait de la partie de l'énoncé qui permet cela 
+- de même pours leurs propriétés, attributs 
+- de même pour les relations,
+- de même pour la cardinalité 
+
+NB: Concernant les relations faut utiliser des verbes à l'infinitif qui qui s'applique de façon bidirectionnelle ou dans tous les sens utilisant ce même verbe 
+Ça garantie la cohérence 
+
+Il faut que ça soit tellement cohérent suivant l'énoncé à tel que nul ni personne pourrait contredire ça 
+
+Tout doit avoir un extrait de l'énoncé mais sachant que ça peut toujours être explicite ou implicite 
+
+Les extraits nous aides à ne peut pas nous permet, il nous permet de nous localiser, d'avoir une meilleure compréhension 
+
+Tu peux réaliser un tableau pour les identifications des entités, propriétés/attributs, relations/cardinalités, règles de gestion, chacun avec une zone extrait de l'énoncé pour comprendre et tu peux ajouter d'autres éléments nécessaires 
+
+N'oublie pas : Dans chaque entité faut toujours mettre ses propriétés complets même si elles sont implicite ou explicite 
+
+Car on a besoin des propriétés, une entité ou une table ne doit pas seulement être créer pour avoir une seule propriété ou  champ
+
+Fait en sorte qu'en lisant le MCD ça nous donne presque les mêmes chemins que quand on avait lu l'énoncé 
+
+Tout ça c'était pour le MCD 
+Tu ferras le MOD (celui qui parle de responsabilité pour chaque poste : ajouter , modifier, supprimer, consulter,...etc) et le MLD en se basant sur le MCD qui a été construite
+
+Voici l'énoncé :
+
+
+Question 11) ETUDE DE CAS : Gestion des enfants désœuvrés dans un centre 
+d’hébergement 
+L’étude d’un système de gestion des enfants désœuvrés dans un centre 
+d’hébergement a donné les résultats suivants : les informations manipulées sont 
+reprises dans un dictionnaire de données présenté ci-dessous : 
+Nom enfant, postnom enfant, prénom enfant, sexe enfant, âge enfant, numéro site, 
+libellé commune, référence enfant, référence commune, libellé site, nombre 
+d’enfants du site, matricule encadreur, nom encadreur, postnom encadreur, sexe 
+encadreur, état civil encadreur, niveau d’étude, fonction, référence cotation, libellé 
+cotation, cote, activité, numéro chambre, désignation pavillon, désignation activité. 
+Le fonctionnement de ce système se résume à travers de la description suivante : 
+Les enfants sont logés dans les chambres ; les enfants sont affectés dans un site se 
+trouvant dans une commune. Les enfants sont encadrés par les encadreurs selon 
+les activités. Un encadreur réalise plusieurs activités. Une activité donne lieu à une 
+ou plusieurs cotations pour un ou plusieurs enfants à savoir plusieurs enfants sont 
+concernés par plusieurs activités. 
+De l’affiliation : un acteur social sollicite l’hébergement d’un enfant à travers d’un 
+document appelé demande d’hébergement qu’il adresse à la réception. Celui-ci 
+après son enregistrement, la transmet au Conseiller Social qui analyse la demande. 
+Deux solutions sont envisageables : en cas de refus, la note de refus et la demande 
+sont renvoyés auprès de l’acteur social. Par contre, l’ordre d’acception est transmis 
+au Comité de prise en charge des enfants deseouvrés qui obligatoirement établit 
+l’ordre d’hébergement et l’autre copie à l’acteur social. Ce service établit chaque 
+fois un rapport adressé au Comité de prise en charge des enfants. 
+Travail à faire : Construire les MCD,MOD, MLD
+</div>
+<div>
+  # ANALYSE COMPLÈTE DU SYSTÈME DE GESTION DES ENFANTS DÉSŒUVRÉS
+
+## I. IDENTIFICATION DES ENTITÉS, PROPRIÉTÉS, RELATIONS ET RÈGLES DE GESTION
+
+### TABLEAU D'IDENTIFICATION DES ENTITÉS
+
+| **Entité** | **Justification/Extrait de l'énoncé** | **Explication** |
+|------------|---------------------------------------|-----------------|
+| **ENFANT** | "les enfants sont logés", "référence enfant, nom enfant, postnom enfant, prénom enfant, sexe enfant, âge enfant" | Entité principale du système représentant les bénéficiaires |
+| **SITE** | "les enfants sont affectés dans un site", "numéro site, libellé site, nombre d'enfants du site" | Lieu d'affectation des enfants |
+| **COMMUNE** | "un site se trouvant dans une commune", "référence commune, libellé commune" | Localisation géographique administrative |
+| **ENCADREUR** | "Les enfants sont encadrés par les encadreurs", "matricule encadreur, nom encadreur, postnom encadreur, sexe encadreur, état civil encadreur, niveau d'étude, fonction" | Personnel d'encadrement |
+| **ACTIVITE** | "Un encadreur réalise plusieurs activités", "désignation activité, activité" | Programme d'encadrement |
+| **CHAMBRE** | "Les enfants sont logés dans les chambres", "numéro chambre" | Unité de logement |
+| **PAVILLON** | "désignation pavillon" (implicite : regroupement de chambres) | Structure d'hébergement |
+| **COTATION** | "Une activité donne lieu à une ou plusieurs cotations", "référence cotation, libellé cotation, cote" | Évaluation des enfants |
+| **ACTEUR_SOCIAL** | "un acteur social sollicite l'hébergement" | Demandeur externe |
+| **DEMANDE_HEBERGEMENT** | "à travers d'un document appelé demande d'hébergement" | Document de demande |
+
+### NORMALISATION ET FUSION DES ENTITÉS
+
+**Analyse de normalisation :**
+
+1. **COTATION initialement séparée** : L'extrait "Une activité donne lieu à une ou plusieurs cotations pour un ou plusieurs enfants" indique une relation ternaire. Cependant, "référence cotation, libellé cotation, cote" dans le dictionnaire suggère que COTATION est une entité avec ses propres attributs. La cote est attribuée à un couple (ENFANT, ACTIVITE), donc COTATION devient une **association avec attributs**.
+
+2. **PAVILLON et CHAMBRE** : "Les enfants sont logés dans les chambres" + "désignation pavillon" suggère une hiérarchie. Un PAVILLON contient plusieurs CHAMBRES (relation de composition).
+
+3. **Fusion ACTEUR_SOCIAL et DEMANDE_HEBERGEMENT** : Pas de fusion car ce sont deux concepts distincts - l'acteur persiste au-delà de la demande.
+
+**Résultat après normalisation : 7 entités principales + 3 entités du processus = 10 entités**
+
+### TABLEAU DÉTAILLÉ DES ENTITÉS ET LEURS PROPRIÉTÉS
+
+| **Entité** | **Propriétés/Attributs** | **Extrait de l'énoncé** | **Type** |
+|------------|--------------------------|-------------------------|----------|
+| **ENFANT** | *référence_enfant<br>nom_enfant<br>postnom_enfant<br>prénom_enfant<br>sexe_enfant<br>âge_enfant<br>date_admission (implicite)<br>statut (implicite) | "référence enfant, nom enfant, postnom enfant, prénom enfant, sexe enfant, âge enfant" + propriétés implicites de gestion | Identifiant + attributs |
+| **SITE** | *numéro_site<br>libellé_site<br>nombre_enfants_site<br>capacité_max (implicite)<br>adresse (implicite) | "numéro site, libellé site, nombre d'enfants du site" | Identifiant + attributs |
+| **COMMUNE** | *référence_commune<br>libellé_commune<br>province (implicite)<br>territoire (implicite) | "référence commune, libellé commune" | Identifiant + attributs |
+| **ENCADREUR** | *matricule_encadreur<br>nom_encadreur<br>postnom_encadreur<br>prénom_encadreur (implicite)<br>sexe_encadreur<br>état_civil_encadreur<br>niveau_étude<br>fonction<br>date_engagement (implicite)<br>téléphone (implicite) | "matricule encadreur, nom encadreur, postnom encadreur, sexe encadreur, état civil encadreur, niveau d'étude, fonction" | Identifiant + attributs |
+| **ACTIVITE** | *code_activité (implicite)<br>désignation_activité<br>type_activité (implicite)<br>description (implicite)<br>durée (implicite) | "désignation activité, activité" | Identifiant + attributs |
+| **CHAMBRE** | *numéro_chambre<br>capacité (implicite)<br>type (implicite)<br>état (implicite) | "numéro chambre" | Identifiant + attributs |
+| **PAVILLON** | *code_pavillon (implicite)<br>désignation_pavillon<br>capacité_totale (implicite)<br>nombre_chambres (implicite) | "désignation pavillon" | Identifiant + attributs |
+| **ACTEUR_SOCIAL** | *code_acteur_social (implicite)<br>nom_acteur<br>postnom_acteur (implicite)<br>prénom_acteur (implicite)<br>organisme (implicite)<br>téléphone (implicite)<br>adresse (implicite) | "un acteur social sollicite l'hébergement" | Identifiant + attributs |
+| **DEMANDE_HEBERGEMENT** | *numéro_demande (implicite)<br>date_demande (implicite)<br>motif (implicite)<br>statut_demande (implicite)<br>date_traitement (implicite) | "document appelé demande d'hébergement" | Identifiant + attributs |
+| **RAPPORT** | *numéro_rapport (implicite)<br>date_rapport (implicite)<br>contenu (implicite)<br>période_concernée (implicite) | "Ce service établit chaque fois un rapport" | Identifiant + attributs |
+
+### TABLEAU DES RELATIONS ET CARDINALITÉS
+
+| **Relation** | **Entités concernées** | **Cardinalités** | **Extrait de l'énoncé** | **Justification** | **Verbe bidirectionnel** |
+|--------------|------------------------|------------------|-------------------------|-------------------|--------------------------|
+| **LOGER** | ENFANT - CHAMBRE | (0,n) - (0,n) | "Les enfants sont logés dans les chambres" | Plusieurs enfants peuvent loger dans une chambre, un enfant peut changer de chambre | LOGER |
+| **AFFECTER** | ENFANT - SITE | (1,1) - (0,n) | "les enfants sont affectés dans un site" | Un enfant est affecté à un seul site à la fois, un site accueille plusieurs enfants | AFFECTER |
+| **LOCALISER** | SITE - COMMUNE | (1,1) - (0,n) | "un site se trouvant dans une commune" | Un site est dans une commune, une commune peut avoir plusieurs sites | LOCALISER |
+| **ENCADRER** | ENCADREUR - ENFANT | (1,n) - (1,n) | "Les enfants sont encadrés par les encadreurs" | Un encadreur encadre plusieurs enfants, un enfant est encadré par plusieurs encadreurs | ENCADRER |
+| **REALISER** | ENCADREUR - ACTIVITE | (1,n) - (1,n) | "Un encadreur réalise plusieurs activités" | Un encadreur réalise plusieurs activités, une activité est réalisée par plusieurs encadreurs | REALISER |
+| **PARTICIPER** (avec attribut cote) | ENFANT - ACTIVITE | (0,n) - (0,n) | "plusieurs enfants sont concernés par plusieurs activités" + "Une activité donne lieu à une ou plusieurs cotations pour un ou plusieurs enfants" | Association ternaire devenue binaire avec attributs de cotation | PARTICIPER |
+| **CONTENIR** | PAVILLON - CHAMBRE | (1,1) - (1,n) | "désignation pavillon" + "numéro chambre" (relation implicite de composition) | Une chambre appartient à un pavillon, un pavillon contient plusieurs chambres | CONTENIR |
+| **SOLLICITER** | ACTEUR_SOCIAL - DEMANDE_HEBERGEMENT | (1,1) - (1,n) | "un acteur social sollicite l'hébergement d'un enfant à travers d'un document appelé demande d'hébergement" | Un acteur peut faire plusieurs demandes, une demande émane d'un acteur | SOLLICITER |
+| **CONCERNER** | DEMANDE_HEBERGEMENT - ENFANT | (1,1) - (0,1) | "sollicite l'hébergement d'un enfant" | Une demande concerne un enfant, un enfant peut être l'objet d'une demande | CONCERNER |
+| **GENERER** | DEMANDE_HEBERGEMENT - RAPPORT | (1,n) - (0,1) | "Ce service établit chaque fois un rapport" (implicite : suite aux demandes traitées) | Une demande peut générer un rapport, un rapport concerne plusieurs demandes | GENERER |
+
+### RÈGLES DE GESTION IDENTIFIÉES
+
+| **N°** | **Règle de gestion** | **Extrait de l'énoncé** | **Type** |
+|--------|----------------------|-------------------------|----------|
+| **RG1** | Un enfant est identifié de manière unique par sa référence | "référence enfant" | Contrainte d'intégrité |
+| **RG2** | Un enfant doit être affecté à un et un seul site | "les enfants sont affectés dans un site" | Cardinalité (1,1) |
+| **RG3** | Un site se trouve dans une et une seule commune | "un site se trouvant dans une commune" | Cardinalité (1,1) |
+| **RG4** | Un encadreur peut réaliser plusieurs activités | "Un encadreur réalise plusieurs activités" | Cardinalité (1,n) |
+| **RG5** | Une activité donne lieu à une ou plusieurs cotations pour un ou plusieurs enfants | "Une activité donne lieu à une ou plusieurs cotations pour un ou plusieurs enfants" | Relation n-m avec attributs |
+| **RG6** | Plusieurs enfants peuvent participer à plusieurs activités | "plusieurs enfants sont concernés par plusieurs activités" | Cardinalité (0,n)-(0,n) |
+| **RG7** | Le nombre d'enfants d'un site est calculé automatiquement | "nombre d'enfants du site" | Donnée calculée |
+| **RG8** | Une demande d'hébergement peut être acceptée ou refusée | "en cas de refus, la note de refus" + "l'ordre d'acception" | Règle métier |
+| **RG9** | Toute demande acceptée génère un ordre d'hébergement | "établit l'ordre d'hébergement" | Règle métier |
+| **RG10** | Un rapport doit être établi périodiquement | "Ce service établit chaque fois un rapport" | Règle métier |
+
+## II. DICTIONNAIRE DES DONNÉES
+
+| **Nom de la donnée** | **Format** | **Longueur** | **Type** | **Règle de calcul** | **Règle de gestion** | **Document** |
+|----------------------|------------|--------------|----------|---------------------|----------------------|--------------|
+| *référence_enfant | AN | 15 | Élémentaire | - | RG1: Identifiant unique | Fiche enfant |
+| nom_enfant | A | 50 | Élémentaire | - | Obligatoire | Fiche enfant |
+| postnom_enfant | A | 50 | Élémentaire | - | Obligatoire | Fiche enfant |
+| prénom_enfant | A | 50 | Élémentaire | - | Facultatif | Fiche enfant |
+| sexe_enfant | A | 1 | Élémentaire | - | M ou F | Fiche enfant |
+| âge_enfant | N | 2 | Élémentaire | - | Entre 0 et 18 ans | Fiche enfant |
+| date_admission | Date | 10 | Élémentaire | - | Date du jour par défaut | Ordre d'hébergement |
+| statut_enfant | A | 20 | Élémentaire | - | Actif/Sorti/Transféré | Fiche enfant |
+| *numéro_site | AN | 10 | Élémentaire | - | Identifiant unique | Fiche site |
+| libellé_site | A | 100 | Élémentaire | - | Obligatoire | Fiche site |
+| nombre_enfants_site | N | 4 | Calculée | COUNT(enfants par site) | RG7 | Rapport site |
+| capacité_max_site | N | 4 | Élémentaire | - | > 0 | Fiche site |
+| adresse_site | A | 200 | Élémentaire | - | Facultatif | Fiche site |
+| *référence_commune | AN | 10 | Élémentaire | - | Identifiant unique | Référentiel géographique |
+| libellé_commune | A | 100 | Élémentaire | - | Obligatoire | Référentiel géographique |
+| province | A | 50 | Élémentaire | - | Facultatif | Référentiel géographique |
+| territoire | A | 50 | Élémentaire | - | Facultatif | Référentiel géographique |
+| *matricule_encadreur | AN | 15 | Élémentaire | - | Identifiant unique | Fiche personnel |
+| nom_encadreur | A | 50 | Élémentaire | - | Obligatoire | Fiche personnel |
+| postnom_encadreur | A | 50 | Élémentaire | - | Obligatoire | Fiche personnel |
+| prénom_encadreur | A | 50 | Élémentaire | - | Facultatif | Fiche personnel |
+| sexe_encadreur | A | 1 | Élémentaire | - | M ou F | Fiche personnel |
+| état_civil_encadreur | A | 20 | Élémentaire | - | Célibataire/Marié/Divorcé/Veuf | Fiche personnel |
+| niveau_étude | A | 50 | Élémentaire | - | Diplôme obtenu | Fiche personnel |
+| fonction | A | 50 | Élémentaire | - | Fonction occupée | Fiche personnel |
+| date_engagement | Date | 10 | Élémentaire | - | Date d'embauche | Fiche personnel |
+| téléphone_encadreur | AN | 15 | Élémentaire | - | Format téléphonique | Fiche personnel |
+| *code_activité | AN | 10 | Élémentaire | - | Identifiant unique | Fiche activité |
+| désignation_activité | A | 100 | Élémentaire | - | Obligatoire | Fiche activité |
+| type_activité | A | 50 | Élémentaire | - | Éducative/Sportive/Culturelle/Professionnelle | Fiche activité |
+| description_activité | A | 500 | Élémentaire | - | Facultatif | Fiche activité |
+| durée_activité | N | 3 | Élémentaire | - | En heures | Fiche activité |
+| *numéro_chambre | AN | 10 | Élémentaire | - | Identifiant unique | Registre chambres |
+| capacité_chambre | N | 2 | Élémentaire | - | Nombre de lits | Registre chambres |
+| type_chambre | A | 30 | Élémentaire | - | Individuelle/Double/Dortoir | Registre chambres |
+| état_chambre | A | 20 | Élémentaire | - | Disponible/Occupée/En réparation | Registre chambres |
+| *code_pavillon | AN | 10 | Élémentaire | - | Identifiant unique | Plan infrastructure |
+| désignation_pavillon | A | 100 | Élémentaire | - | Obligatoire | Plan infrastructure |
+| capacité_totale_pavillon | N | 4 | Calculée | SUM(capacité_chambres) | Somme des capacités | Plan infrastructure |
+| nombre_chambres_pavillon | N | 3 | Calculée | COUNT(chambres) | Nombre de chambres | Plan infrastructure |
+| *référence_cotation | AN | 15 | Élémentaire | - | Identifiant unique | Bulletin cotation |
+| libellé_cotation | A | 100 | Élémentaire | - | Description évaluation | Bulletin cotation |
+| cote | N | 5,2 | Élémentaire | - | Entre 0 et 20 | Bulletin cotation |
+| date_cotation | Date | 10 | Élémentaire | - | Date évaluation | Bulletin cotation |
+| *code_acteur_social | AN | 10 | Élémentaire | - | Identifiant unique | Registre acteurs |
+| nom_acteur_social | A | 50 | Élémentaire | - | Obligatoire | Registre acteurs |
+| postnom_acteur_social | A | 50 | Élémentaire | - | Facultatif | Registre acteurs |
+| prénom_acteur_social | A | 50 | Élémentaire | - | Facultatif | Registre acteurs |
+| organisme_acteur | A | 100 | Élémentaire | - | Facultatif | Registre acteurs |
+| téléphone_acteur | AN | 15 | Élémentaire | - | Format téléphonique | Registre acteurs |
+| adresse_acteur | A | 200 | Élémentaire | - | Facultatif | Registre acteurs |
+| *numéro_demande | AN | 15 | Élémentaire | - | Identifiant unique | Demande hébergement |
+| date_demande | Date | 10 | Élémentaire | - | Date de dépôt | Demande hébergement |
+| motif_demande | A | 500 | Élémentaire | - | Raison hébergement | Demande hébergement |
+| statut_demande | A | 20 | Élémentaire | - | En cours/Acceptée/Refusée | Demande hébergement |
+| date_traitement | Date | 10 | Élémentaire | - | Date analyse | Note refus/Ordre acception |
+| *numéro_rapport | AN | 15 | Élémentaire | - | Identifiant unique | Rapport |
+| date_rapport | Date | 10 | Élémentaire | - | Date établissement | Rapport |
+| contenu_rapport | A | 2000 | Élémentaire | - | Contenu synthèse | Rapport |
+| période_concernée | A | 50 | Élémentaire | - | Période rapportée | Rapport |
+
+**Légende :**
+- AN = Alphanumérique
+- A = Alphabétique
+- N = Numérique
+- Date = Format date (JJ/MM/AAAA)
+- \* = Identifiant
+
+## III. GRAPHE DES DÉPENDANCES FONCTIONNELLES
+
+### Dépendances Fonctionnelles par Entité
+
+**ENFANT :**
+```
+référence_enfant → nom_enfant, postnom_enfant, prénom_enfant, sexe_enfant, âge_enfant, date_admission, statut_enfant
+```
+
+**SITE :**
+```
+numéro_site → libellé_site, capacité_max_site, adresse_site, référence_commune
+numéro_site →→ nombre_enfants_site (DF calculée)
+```
+
+**COMMUNE :**
+```
+référence_commune → libellé_commune, province, territoire
+```
+
+**ENCADREUR :**
+```
+matricule_encadreur → nom_encadreur, postnom_encadreur, prénom_encadreur, sexe_encadreur, 
+                      état_civil_encadreur, niveau_étude, fonction, date_engagement, téléphone_encadreur
+```
+
+**ACTIVITE :**
+```
+code_activité → désignation_activité, type_activité, description_activité, durée_activité
+```
+
+**CHAMBRE :**
+```
+numéro_chambre → capacité_chambre, type_chambre, état_chambre, code_pavillon
+```
+
+**PAVILLON :**
+```
+code_pavillon → désignation_pavillon
+code_pavillon →→ capacité_totale_pavillon, nombre_chambres_pavillon (DF calculées)
+```
+
+**ACTEUR_SOCIAL :**
+```
+code_acteur_social → nom_acteur_social, postnom_acteur_social, prénom_acteur_social, 
+                     organisme_acteur, téléphone_acteur, adresse_acteur
+```
+
+**DEMANDE_HEBERGEMENT :**
+```
+numéro_demande → date_demande, motif_demande, statut_demande, date_traitement, 
+                 code_acteur_social, référence_enfant
+```
+
+**RAPPORT :**
+```
+numéro_rapport → date_rapport, contenu_rapport, période_concernée
+```
+
+### Dépendances Fonctionnelles des Associations
+
+**PARTICIPER (ENFANT-ACTIVITE) :**
+```
+(référence_enfant, code_activité) → référence_cotation, libellé_cotation, cote, date_cotation
+```
+
+**LOGER (ENFANT-CHAMBRE) :**
+```
+(référence_enfant, numéro_chambre) → date_début_logement, date_fin_logement
+```
+
+**REALISER (ENCADREUR-ACTIVITE) :**
+```
+(matricule_encadreur, code_activité) → date_début_réalisation, date_fin_réalisation
+```
+
+**ENCADRER (ENCADREUR-ENFANT) :**
+```
+(matricule_encadreur, référence_enfant) → date_début_encadrement, date_fin_encadrement
+```
+
+### Graphe de Dépendances Fonctionnelles Globales
+
+```
+NIVEAU 0 (Identifiants primaires) :
+├── référence_enfant*
+├── numéro_site*
+├── référence_commune*
+├── matricule_encadreur*
+├── code_activité*
+├── numéro_chambre*
+├── code_pavillon*
+├── code_acteur_social*
+├── numéro_demande*
+└── numéro_rapport*
+
+NIVEAU 1 (Dépendances directes) :
+├── référence_enfant → {nom, postnom, prénom, sexe, âge, date_admission, statut, numéro_site}
+├── numéro_site → {libellé_site, capacité_max, adresse, référence_commune}
+├── référence_commune → {libellé_commune, province, territoire}
+├── matricule_encadreur → {nom, postnom, prénom, sexe, état_civil, niveau_étude, fonction, date_engagement, téléphone}
+├── code_activité → {désignation, type, description, durée}
+├── numéro_chambre → {capacité, type, état, code_pavillon}
+├── code_pavillon → {désignation}
+├── code_acteur_social → {nom, postnom, prénom, organisme, téléphone, adresse}
+├── numéro_demande → {date_demande, motif, statut, date_traitement, code_acteur_social, référence_enfant}
+└── numéro_rapport → {date_rapport, contenu, période}
+
+NIVEAU 2 (Dépendances transitives) :
+├── référence_enfant → numéro_site → référence_commune → {libellé_commune, province, territoire}
+└── numéro_chambre → code_pavillon → {désignation_pavillon}
+
+NIVEAU 3 (Dépendances calculées) :
+├── numéro_site →→ nombre_enfants_site = COUNT(ENFANT WHERE numéro_site = X)
+└── code_pavillon →→ capacité_totale = SUM(capacité_chambre WHERE code_pavillon = X)
+                  →→ nombre_chambres = COUNT(CHAMBRE WHERE code_pavillon = X)
+
+ASSOCIATIONS (Identifiants composés) :
+├── (référence_enfant, code_activité) → {référence_cotation, libellé_cotation, cote, date_cotation}
+├── (référence_enfant, numéro_chambre) → {date_début_logement, date_fin_logement}
+├── (matricule_encadreur, code_activité) → {date_début_réalisation, date_fin_réalisation}
+└── (matricule_encadreur, référence_enfant) → {date_début_encadrement, date_fin_encadrement}
+```
+
+## IV. MODÈLE CONCEPTUEL DE DONNÉES (MCD)
+
+### Justifications des choix de modélisation
+
+**1. Pourquoi 10 entités et non 5 ou 15 ?**
+
+- **ENFANT** : Entité obligatoire - "référence enfant" dans le dictionnaire + "Les enfants sont logés"
+- **SITE** : Entité distincte - "numéro site" + "affectés dans un site" (pas fusionnable avec COMMUNE car relation 1-n)
+- **COMMUNE** : Entité séparée - "référence commune" + réutilisable pour d'autres sites
+- **ENCADREUR** : Entité obligatoire - "matricule encadreur" + rôle actif dans l'encadrement
+- **ACTIVITE** : Entité distincte - existence propre indépendante des enfants et encadreurs
+- **CHAMBRE** : Entité séparée de PAVILLON - "numéro chambre" = identifiant propre + relation hiérarchique
+- **PAVILLON** : Entité distincte - "désignation pavillon" + composition de chambres
+- **ACTEUR_SOCIAL** : Entité persistante - peut faire plusieurs demandes
+- **DEMANDE_HEBERGEMENT** : Entité documentaire - cycle de vie propre (en cours/acceptée/refusée)
+- **RAPPORT** : Entité justifiée - "établit chaque fois un rapport" = production récurrente
+
+**2. Normalisation appliquée :**
+
+- **1NF** : Tous les attributs sont atomiques (pas de groupes répétitifs)
+- **2NF** : Toutes les dépendances fonctionnelles partent de la clé complète
+- **3NF** : Pas de dépendances transitives (sauf calculées identifiées)
+  - Exemple : nombre_enfants_site est calculé, pas stocké normalement
+  - référence_commune dans SITE crée une DF transitive vers les attributs de COMMUNE (NORMALISATION RESPECTÉE par clé étrangère)
+
+**3. Choix des cardinalités :**
+
+| **Relation** | **Cardinalité choisie** | **Justification détaillée** |
+|--------------|-------------------------|------------------------------|
+| ENFANT-SITE | (1,1)-(0,n) | "les enfants sont affectés dans un site" = obligation (1,1) pour ENFANT. Un site peut ne pas avoir d'enfants temporairement (0,n) |
+| SITE-COMMUNE | (1,1)-(0,n) | "un site se trouvant dans une commune" = un site = une commune obligatoirement (1,1). Une commune peut avoir 0 ou n sites (0,n) |
+| ENFANT-CHAMBRE | (0,n)-(0,n) | "Les enfants sont logés dans les chambres" mais pas précisé si obligatoire immédiatement. Historique possible = (0,n)-(0,n) |
+| CHAMBRE-PAVILLON | (1,1)-(1,n) | Hiérarchie stricte : une chambre dans un pavillon obligatoirement (1,1). Un pavillon a au minimum une chambre (1,n) |
+| ENFANT-ACTIVITE | (0,n)-(0,n) | "plusieurs enfants sont concernés par plusieurs activités" = (0,n)-(0,n). 0 car un nouvel enfant peut ne pas encore participer |
+| ENCADREUR-ACTIVITE | (1,n)-(1,n) | "Un encadreur réalise plusieurs activités" = minimum 1 (1,n). Une activité nécessite au moins 1 encadreur (1,n) |
+| ENCADREUR-ENFANT | (1,n)-(1,n) | "Les enfants sont encadrés par les encadreurs" = obligation mutuelle. Chaque enfant a au moins 1 encadreur, chaque encadreur a au moins 1 enfant |
+
+### Schéma MCD textuel
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      MODÈLE CONCEPTUEL DE DONNÉES (MCD)                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────┐                    ┌──────────────────┐
+│     COMMUNE      │                    │   ACTEUR_SOCIAL  │
+├──────────────────┤                    ├──────────────────┤
+│*référence_commune│                    │*code_acteur      │
+│ libellé_commune  │                    │ nom_acteur       │
+│ province         │                    │ postnom_acteur   │
+│ territoire       │                    │ prénom_acteur    │
+└──────────────────┘                    │ organisme        │
+        │                               │ téléphone        │
+        │ (0,n)                         │ adresse          │
+        │                               └──────────────────┘
+        │ LOCALISER                              │
+        │                                        │ (1,n)
+        │ (1,1)                                  │
+┌──────────────────┐                             │ SOLLICITER
+│      SITE        │                             │
+├──────────────────┤                             │ (1,1)
+│*numéro_site      │                     ┌──────────────────────┐
+│ libellé_site     │                     │ DEMANDE_HEBERGEMENT  │
+│ nombre_enfants   │ (calculé)           ├──────────────────────┤
+│ capacité_max     │                     │*numéro_demande       │
+│ adresse          │                     │ date_demande         │
+└──────────────────┘                     │ motif                │
+        │                                │ statut_demande       │
+        │ (0,n)                          │ date_traitement      │
+        │                                └──────────────────────┘
+        │ AFFECTER                                │
+        │                                         │ (0,1)
+        │ (1,1)                                   │
+┌──────────────────┐                              │ CONCERNER
+│     ENFANT       │                              │
+├──────────────────┤                              │ (1,1)
+│*référence_enfant │◄─────────────────────────────┘
+│ nom_enfant       │
+│ postnom_enfant   │
+│ prénom_enfant    │
+│ sexe_enfant      │
+│ âge_enfant       │
+│ date_admission   │
+│ statut           │
+└──────────────────┘
+        │     │
+        │     │ (0,n)
+        │     │
+        │     │ LOGER (date_début, date_fin)
+        │     │
+        │     │ (0,n)
+        │   ┌──────────────────┐
+        │   │     CHAMBRE      │
+        │   ├──────────────────┤
+        │   │*numéro_chambre   │
+        │   │ capacité         │
+        │   │ type             │
+        │   │ état             │
+        │   └──────────────────┘
+        │            │
+        │            │ (1,1)
+        │            │
+        │            │ CONTENIR
+        │            │
+        │            │ (1,n)
+        │      ┌──────────────────┐
+        │      │    PAVILLON      │
+        │      ├──────────────────┤
+        │      │*code_pavillon    │
+        │      │ désignation      │
+        │      │ capacité_totale  │ (calculé)
+        │      │ nombre_chambres  │ (calculé)
+        │      └──────────────────┘
+        │
+        │ (0,n)
+        │
+        │ PARTICIPER (référence_cotation, libellé_cotation, cote, date_cotation)
+        │
+        │ (0,n)
+        │
+   ┌────────────────┐
+   │   ACTIVITE     │
+   ├────────────────┤
+   │*code_activité  │
+   │ désignation    │
+   │ type           │
+   │ description    │
+   │ durée          │
+   └────────────────┘
+        │
+        │ (1,n)
+        │
+        │ REALISER (date_début, date_fin)
+        │
+        │ (1,n)
+        │
+┌────────────────────┐
+│    ENCADREUR       │
+├────────────────────┤
+│*matricule_encadreur│
+│ nom_encadreur      │
+│ postnom_encadreur  │
+│ prénom_encadreur   │
+│ sexe_encadreur     │
+│ état_civil         │
+│ niveau_étude       │
+│ fonction           │
+│ date_engagement    │
+│ téléphone          │
+└────────────────────┘
+        │
+        │ (1,n)
+        │
+        │ ENCADRER (date_début, date_fin)
+        │
+        └──────────────┐
+                       │
+                       │ (1,n)
+                       │
+                       └───► ENFANT (référence ci-dessus)
+
+
+PROCESSUS D'HÉBERGEMENT :
+
+┌──────────────────────┐
+│ DEMANDE_HEBERGEMENT  │
+├──────────────────────┤
+│*numéro_demande       │
+│ date_demande         │
+│ motif                │
+│ statut_demande       │ ──► En cours / Acceptée / Refusée
+│ date_traitement      │
+└──────────────────────┘
+        │
+        │ (1,n)
+        │
+        │ GENERER
+        │
+        │ (0,1)
+        │
+┌──────────────────┐
+│     RAPPORT      │
+├──────────────────┤
+│*numéro_rapport   │
+│ date_rapport     │
+│ contenu          │
+│ période_concernée│
+└──────────────────┘
+```
+
+### Validation du MCD selon l'énoncé
+
+**Vérification chemin ENFANT → COMMUNE :**
+- Énoncé : "les enfants sont affectés dans un site se trouvant dans une commune"
+- MCD : ENFANT --AFFECTER--> SITE --LOCALISER--> COMMUNE ✓
+
+**Vérification chemin ENCADREMENT :**
+- Énoncé : "Les enfants sont encadrés par les encadreurs selon les activités"
+- MCD : ENFANT --ENCADRER--> ENCADREUR --REALISER--> ACTIVITE ✓
+- ET : ENFANT --PARTICIPER--> ACTIVITE ✓
+
+**Vérification chemin COTATION :**
+- Énoncé : "Une activité donne lieu à une ou plusieurs cotations pour un ou plusieurs enfants"
+- MCD : Association PARTICIPER(ENFANT, ACTIVITE) avec attributs (référence_cotation, libellé_cotation, cote) ✓
+
+**Vérification processus DEMANDE :**
+- Énoncé : "un acteur social sollicite l'hébergement d'un enfant à travers d'un document appelé demande d'hébergement"
+- MCD : ACTEUR_SOCIAL --SOLLICITER--> DEMANDE_HEBERGEMENT --CONCERNER--> ENFANT ✓
+
+**Vérification RAPPORT :**
+- Énoncé : "Ce service établit chaque fois un rapport"
+- MCD : DEMANDE_HEBERGEMENT --GENERER--> RAPPORT ✓
+
+## V. MODÈLE ORGANISATIONNEL DE DONNÉES (MOD)
+
+Le MOD définit les responsabilités de chaque acteur sur les données.
+
+### Identification des acteurs et leurs responsabilités
+
+| **Acteur/Poste** | **Entité/Données** | **Ajouter** | **Modifier** | **Supprimer** | **Consulter** | **Justification** |
+|------------------|-------------------|-------------|--------------|---------------|---------------|-------------------|
+| **Réceptionniste** | DEMANDE_HEBERGEMENT | ✓ | ✓ | ✗ | ✓ | "après son enregistrement, la transmet" - rôle d'enregistrement initial |
+| **Réceptionniste** | ACTEUR_SOCIAL | ✓ | ✓ | ✗ | ✓ | Enregistre les coordonnées de l'acteur social |
+| **Conseiller Social** | DEMANDE_HEBERGEMENT | ✗ | ✓ | ✗ | ✓ | "analyse la demande" - modifie le statut (acceptée/refusée) |
+| **Conseiller Social** | ENFANT | ✗ | ✗ | ✗ | ✓ | Consultation pour analyse |
+| **Comité Prise en Charge** | DEMANDE_HEBERGEMENT | ✗ | ✓ | ✗ | ✓ | "établit l'ordre d'hébergement" - validation finale |
+| **Comité Prise en Charge** | ENFANT | ✓ | ✓ | ✗ | ✓ | Création de la fiche enfant suite à acceptation |
+| **Comité Prise en Charge** | RAPPORT | ✗ | ✗ | ✗ | ✓ | Reçoit les rapports pour suivi |
+| **Service Hébergement** | ENFANT | ✗ | ✓ | ✗ | ✓ | Gère les affectations |
+| **Service Hébergement** | SITE | ✓ | ✓ | ✗ | ✓ | Gestion des sites |
+| **Service Hébergement** | CHAMBRE | ✓ | ✓ | ✓ | ✓ | Gestion complète des chambres |
+| **Service Hébergement** | PAVILLON | ✓ | ✓ | ✓ | ✓ | Gestion infrastructure |
+| **Service Hébergement** | LOGER (association) | ✓ | ✓ | ✗ | ✓ | Affecte enfants aux chambres |
+| **Service Hébergement** | RAPPORT | ✓ | ✗ | ✗ | ✓ | "Ce service établit chaque fois un rapport" |
+| **Responsable Encadrement** | ENCADREUR | ✓ | ✓ | ✗ | ✓ | Gestion du personnel |
+| **Responsable Encadrement** | ACTIVITE | ✓ | ✓ | ✓ | ✓ | Gestion des programmes |
+| **Responsable Encadrement** | REALISER (association) | ✓ | ✓ | ✓ | ✓ | Affecte encadreurs aux activités |
+| **Responsable Encadrement** | ENCADRER (association) | ✓ | ✓ | ✓ | ✓ | Affecte encadreurs aux enfants |
+| **Encadreur** | PARTICIPER (association) | ✓ | ✓ | ✗ | ✓ | Inscrit enfants aux activités |
+| **Encadreur** | PARTICIPER.cote | ✗ | ✓ | ✗ | ✓ | "Une activité donne lieu à une ou plusieurs cotations" - saisit les notes |
+| **Encadreur** | ENFANT | ✗ | ✗ | ✗ | ✓ | Consultation des fiches |
+| **Encadreur** | ACTIVITE | ✗ | ✗ | ✗ | ✓ | Consultation programme |
+| **Administrateur Système** | Toutes entités | ✓ | ✓ | ✓ | ✓ | Gestion technique complète |
+| **Directeur** | Toutes entités | ✗ | ✗ | ✗ | ✓ | Consultation globale |
+| **Service Administratif** | COMMUNE | ✓ | ✓ | ✗ | ✓ | Gestion référentiel géographique |
+
+### Matrice de responsabilité CRUD détaillée
+
+```
+┌─────────────────────────┬────────────────────────────────────────────────────────────┐
+│                         │           A C T E U R S   /   P O S T E S                │
+│   ENTITÉS/DONNÉES       ├──────┬──────┬────────┬────────┬─────────┬──────┬────────┤
+│                         │Récep.│Cons. │Comité  │Service │Resp.    │Encad.│Admin.  │
+│                         │      │Social│Prise   │Héberg. │Encadr.  │      │Système │
+│                         │      │      │Charge  │        │         │      │        │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ ACTEUR_SOCIAL           │ CRUD │  R   │   R    │   R    │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ DEMANDE_HEBERGEMENT     │ CRU  │ RU   │  RU    │   R    │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ ENFANT                  │  R   │  R   │  CRU   │  RU    │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ SITE                    │  R   │  R   │   R    │ CRUD   │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ COMMUNE                 │  R   │  R   │   R    │   R    │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ CHAMBRE                 │  R   │  R   │   R    │ CRUD   │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ PAVILLON                │  R   │  R   │   R    │ CRUD   │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ ENCADREUR               │  R   │  R   │   R    │   R    │  CRUD   │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ ACTIVITE                │  R   │  R   │   R    │   R    │  CRUD   │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ LOGER (assoc.)          │  R   │  R   │   R    │  CRU   │    R    │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ PARTICIPER (assoc.)     │  R   │  R   │   R    │   R    │    R    │ CRU  │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ PARTICIPER.cote         │  R   │  R   │   R    │   R    │    R    │  U   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ REALISER (assoc.)       │  R   │  R   │   R    │   R    │  CRUD   │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ ENCADRER (assoc.)       │  R   │  R   │   R    │   R    │  CRUD   │  R   │  CRUD  │
+├─────────────────────────┼──────┼──────┼────────┼────────┼─────────┼──────┼────────┤
+│ RAPPORT                 │  R   │  R   │   R    │  CR    │    R    │  R   │  CRUD  │
+└─────────────────────────┴──────┴──────┴────────┴────────┴─────────┴──────┴────────┘
+
+Légende : C = Create (Ajouter), R = Read (Consulter), U = Update (Modifier), D = Delete (Supprimer)
+```
+
+### Workflow organisationnel du processus d'hébergement
+
+```
+PHASE 1 : RÉCEPTION
+┌─────────────────────┐
+│  ACTEUR SOCIAL      │
+└──────────┬──────────┘
+           │ Dépose demande
+           ▼
+┌─────────────────────────────────────┐
+│  RÉCEPTIONNISTE                     │
+│  Actions :                          │
+│  - CREATE DEMANDE_HEBERGEMENT       │
+│  - CREATE/UPDATE ACTEUR_SOCIAL      │
+│  - Statut = "En cours"              │
+└──────────┬──────────────────────────┘
+           │ Transmet
+           ▼
+PHASE 2 : ANALYSE
+┌─────────────────────────────────────┐
+│  CONSEILLER SOCIAL                  │
+│  Actions :                          │
+│  - READ DEMANDE_HEBERGEMENT         │
+│  - READ ENFANT (dossier)            │
+│  - UPDATE DEMANDE.statut            │
+│    • "Refusée" → Note refus         │
+│    • "Acceptée" → Ordre acception   │
+└──────────┬──────────────────────────┘
+           │
+           ├─── Refusée ──► Retour Acteur Social
+           │
+           └─── Acceptée
+                    │
+                    ▼
+PHASE 3 : VALIDATION
+┌─────────────────────────────────────┐
+│  COMITÉ PRISE EN CHARGE             │
+│  Actions :                          │
+│  - READ DEMANDE_HEBERGEMENT         │
+│  - CREATE ENFANT (fiche complète)   │
+│  - UPDATE DEMANDE (ordre hébergement│
+│  - READ RAPPORT                     │
+└──────────┬──────────────────────────┘
+           │ Ordre établi
+           ▼
+PHASE 4 : AFFECTATION
+┌─────────────────────────────────────┐
+│  SERVICE HÉBERGEMENT                │
+│  Actions :                          │
+│  - UPDATE ENFANT.numéro_site        │
+│  - CREATE LOGER (enfant-chambre)    │
+│  - UPDATE SITE.nombre_enfants       │
+│  - CREATE RAPPORT périodique        │
+└─────────────────────────────────────┘
+           │
+           ▼
+PHASE 5 : ENCADREMENT
+┌─────────────────────────────────────┐
+│  RESPONSABLE ENCADREMENT            │
+│  Actions :                          │
+│  - CREATE ENCADRER (encadreur-enfant│
+│  - CREATE REALISER (encadr.-activité│
+└──────────┬──────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────────┐
+│  ENCADREUR                          │
+│  Actions :                          │
+│  - CREATE PARTICIPER (enfant-activité│
+│  - UPDATE PARTICIPER.cote           │
+│  - READ ENFANT, ACTIVITE            │
+└─────────────────────────────────────┘
+```
+
+### Règles de sécurité et contrôle d'accès
+
+| **Règle** | **Description** | **Justification métier** |
+|-----------|-----------------|--------------------------|
+| **RS1** | Seul le Conseiller Social peut modifier le statut d'une demande | "Conseiller Social qui analyse la demande" - responsabilité d'analyse |
+| **RS2** | Seul le Comité peut créer une fiche ENFANT | "Comité de prise en charge [...] établit l'ordre d'hébergement" - validation finale |
+| **RS3** | Les encadreurs ne peuvent modifier que les cotes, pas les données enfants | Séparation des responsabilités pédagogiques/administratives |
+| **RS4** | Les suppressions physiques sont réservées à l'Administrateur Système | Intégrité historique des données |
+| **RS5** | Le Service Hébergement génère automatiquement les rapports | "Ce service établit chaque fois un rapport" - obligation de traçabilité |
+| **RS6** | Traçabilité obligatoire de toutes les modifications de statut | Audit trail pour conformité réglementaire |
+
+## VI. MODÈLE LOGIQUE DE DONNÉES (MLD)
+
+Le MLD est dérivé du MCD en appliquant les règles de passage.
+
+### Règles de transformation MCD → MLD appliquées
+
+**Règle 1 : Entité → Table**
+- Chaque entité devient une table
+- L'identifiant devient la clé primaire (PK)
+
+**Règle 2 : Association 1-n**
+- La clé primaire du côté "1" devient clé étrangère (FK) du côté "n"
+- Exemples : 
+  - AFFECTER (ENFANT-SITE) : FK numéro_site dans ENFANT
+  - LOCALISER (SITE-COMMUNE) : FK référence_commune dans SITE
+  - CONTENIR (PAVILLON-CHAMBRE) : FK code_pavillon dans CHAMBRE
+
+**Règle 3 : Association n-m**
+- Création d'une table d'association avec une clé primaire composée des deux FK
+- Exemples :
+  - LOGER → Table LOGER (référence_enfant, numéro_chambre, date_début, date_fin)
+  - PARTICIPER → Table PARTICIPER (référence_enfant, code_activité, référence_cotation, cote, date_cotation)
+  - REALISER → Table REALISER (matricule_encadreur, code_activité, date_début, date_fin)
+  - ENCADRER → Table ENCADRER (matricule_encadreur, référence_enfant, date_début, date_fin)
+
+**Règle 4 : Attributs de relations**
+- Les attributs des associations deviennent des colonnes dans la table d'association
+
+### Schéma MLD complet
+
+```sql
+-- ============================================================================
+-- MODÈLE LOGIQUE DE DONNÉES (MLD)
+-- Système de gestion des enfants désœuvrés
+-- ============================================================================
+
+-- TABLE 1 : COMMUNE (Référentiel géographique)
+COMMUNE (
+    *référence_commune : VARCHAR(10),     -- PK
+    libellé_commune : VARCHAR(100) NOT NULL,
+    province : VARCHAR(50),
+    territoire : VARCHAR(50),
+    
+    CONSTRAINT pk_commune PRIMARY KEY (référence_commune),
+    CONSTRAINT uk_libelle_commune UNIQUE (libellé_commune)
+);
+
+-- TABLE 2 : SITE (Lieux d'affectation)
+SITE (
+    *numéro_site : VARCHAR(10),           -- PK
+    libellé_site : VARCHAR(100) NOT NULL,
+    capacité_max : INTEGER CHECK (capacité_max > 0),
+    adresse : VARCHAR(200),
+    #référence_commune : VARCHAR(10) NOT NULL,  -- FK vers COMMUNE
+    
+    CONSTRAINT pk_site PRIMARY KEY (numéro_site),
+    CONSTRAINT fk_site_commune FOREIGN KEY (référence_commune) 
+        REFERENCES COMMUNE(référence_commune)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+);
+
+-- TABLE 3 : PAVILLON (Infrastructure hébergement)
+PAVILLON (
+    *code_pavillon : VARCHAR(10),         -- PK
+    désignation_pavillon : VARCHAR(100) NOT NULL,
+    
+    CONSTRAINT pk_pavillon PRIMARY KEY (code_pavillon)
+);
+
+-- TABLE 4 : CHAMBRE (Unités de logement)
+CHAMBRE (
+    *numéro_chambre : VARCHAR(10),        -- PK
+    capacité : INTEGER CHECK (capacité > 0),
+    type : VARCHAR(30) CHECK (type IN ('Individuelle', 'Double', 'Dortoir')),
+    état : VARCHAR(20) DEFAULT 'Disponible' 
+        CHECK (état IN ('Disponible', 'Occupée', 'En réparation')),
+    #code_pavillon : VARCHAR(10) NOT NULL,     -- FK vers PAVILLON
+    
+    CONSTRAINT pk_chambre PRIMARY KEY (numéro_chambre),
+    CONSTRAINT fk_chambre_pavillon FOREIGN KEY (code_pavillon)
+        REFERENCES PAVILLON(code_pavillon)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+);
+
+-- TABLE 5 : ENFANT (Bénéficiaires du centre)
+ENFANT (
+    *référence_enfant : VARCHAR(15),      -- PK
+    nom_enfant : VARCHAR(50) NOT NULL,
+    postnom_enfant : VARCHAR(50) NOT NULL,
+    prénom_enfant : VARCHAR(50),
+    sexe_enfant : CHAR(1) CHECK (sexe_enfant IN ('M', 'F')),
+    âge_enfant : INTEGER CHECK (âge_enfant BETWEEN 0 AND 18),
+    date_admission : DATE DEFAULT CURRENT_DATE,
+    statut : VARCHAR(20) DEFAULT 'Actif' 
+        CHECK (statut IN ('Actif', 'Sorti', 'Transféré')),
+    #numéro_site : VARCHAR(10) NOT NULL,       -- FK vers SITE (AFFECTER 1-1)
+    
+    CONSTRAINT pk_enfant PRIMARY KEY (référence_enfant),
+    CONSTRAINT fk_enfant_site FOREIGN KEY (numéro_site)
+        REFERENCES SITE(numéro_site)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+);
+
+-- TABLE 6 : ENCADREUR (Personnel d'encadrement)
+ENCADREUR (
+    *matricule_encadreur : VARCHAR(15),   -- PK
+    nom_encadreur : VARCHAR(50) NOT NULL,
+    postnom_encadreur : VARCHAR(50) NOT NULL,
+    prénom_encadreur : VARCHAR(50),
+    sexe_encadreur : CHAR(1) CHECK (sexe_encadreur IN ('M', 'F')),
+    état_civil : VARCHAR(20) 
+        CHECK (état_civil IN ('Célibataire', 'Marié', 'Divorcé', 'Veuf')),
+    niveau_étude : VARCHAR(50),
+    fonction : VARCHAR(50),
+    date_engagement : DATE,
+    téléphone : VARCHAR(15),
+    
+    CONSTRAINT pk_encadreur PRIMARY KEY (matricule_encadreur)
+);
+
+-- TABLE 7 : ACTIVITE (Programmes d'activités)
+ACTIVITE (
+    *code_activité : VARCHAR(10),         -- PK
+    désignation_activité : VARCHAR(100) NOT NULL,
+    type_activité : VARCHAR(50) 
+        CHECK (type_activité IN ('Éducative', 'Sportive', 'Culturelle', 'Professionnelle')),
+    description : VARCHAR(500),
+    durée : INTEGER,  -- en heures
+    
+    CONSTRAINT pk_activite PRIMARY KEY (code_activité)
+);
+
+-- TABLE 8 : ACTEUR_SOCIAL (Demandeurs externes)
+ACTEUR_SOCIAL (
+    *code_acteur_social : VARCHAR(10),    -- PK
+    nom_acteur : VARCHAR(50) NOT NULL,
+    postnom_acteur : VARCHAR(50),
+    prénom_acteur : VARCHAR(50),
+    organisme : VARCHAR(100),
+    téléphone : VARCHAR(15),
+    adresse : VARCHAR(200),
+    
+    CONSTRAINT pk_acteur_social PRIMARY KEY (code_acteur_social)
+);
+
+-- TABLE 9 : DEMANDE_HEBERGEMENT (Documents de demande)
+DEMANDE_HEBERGEMENT (
+    *numéro_demande : VARCHAR(15),        -- PK
+    date_demande : DATE DEFAULT CURRENT_DATE NOT NULL,
+    motif : VARCHAR(500),
+    statut_demande : VARCHAR(20) DEFAULT 'En cours'
+        CHECK (statut_demande IN ('En cours', 'Acceptée', 'Refusée')),
+    date_traitement : DATE,
+    #code_acteur_social : VARCHAR(10) NOT NULL,  -- FK vers ACTEUR_SOCIAL (SOLLICITER 1-1)
+    #référence_enfant : VARCHAR(15),             -- FK vers ENFANT (CONCERNER 1-1, nullable avant création enfant)
+    
+    CONSTRAINT pk_demande PRIMARY KEY (numéro_demande),
+    CONSTRAINT fk_demande_acteur FOREIGN KEY (code_acteur_social)
+        REFERENCES ACTEUR_SOCIAL(code_acteur_social)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    CONSTRAINT fk_demande_enfant FOREIGN KEY (référence_enfant)
+        REFERENCES ENFANT(référence_enfant)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT ck_date_traitement CHECK (date_traitement >= date_demande)
+);
+
+-- TABLE 10 : RAPPORT (Rapports périodiques)
+RAPPORT (
+    *numéro_rapport : VARCHAR(15),        -- PK
+    date_rapport : DATE DEFAULT CURRENT_DATE NOT NULL,
+    contenu : VARCHAR(2000),
+    période_concernée : VARCHAR(50),
+    
+    CONSTRAINT pk_rapport PRIMARY KEY (numéro_rapport)
+);
+
+-- ============================================================================
+-- TABLES D'ASSOCIATION (Relations n-m)
+-- ============================================================================
+
+-- TABLE 11 : LOGER (Association ENFANT-CHAMBRE)
+LOGER (
+    *#référence_enfant : VARCHAR(15),     -- PK, FK vers ENFANT
+    *#numéro_chambre : VARCHAR(10),       -- PK, FK vers CHAMBRE
+    *date_début_logement : DATE,          -- PK (pour historique)
+    date_fin_logement : DATE,
+    
+    CONSTRAINT pk_loger PRIMARY KEY (référence_enfant, numéro_chambre, date_début_logement),
+    CONSTRAINT fk_loger_enfant FOREIGN KEY (référence_enfant)
+        REFERENCES ENFANT(référence_enfant)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_loger_chambre FOREIGN KEY (numéro_chambre)
+        REFERENCES CHAMBRE(numéro_chambre)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    CONSTRAINT ck_dates_logement CHECK (date_fin_logement IS NULL OR date_fin_logement >= date_début_logement)
+);
+
+-- TABLE 12 : PARTICIPER (Association ENFANT-ACTIVITE avec cotations)
+PARTICIPER (
+    *#référence_enfant : VARCHAR(15),     -- PK, FK vers ENFANT
+    *#code_activité : VARCHAR(10),        -- PK, FK vers ACTIVITE
+    référence_cotation : VARCHAR(15),     -- Référence unique de la cotation
+    libellé_cotation : VARCHAR(100),
+    cote : DECIMAL(5,2) CHECK (cote BETWEEN 0 AND 20),
+    date_cotation : DATE,
+    
+    CONSTRAINT pk_participer PRIMARY KEY (référence_enfant, code_activité),
+    CONSTRAINT fk_participer_enfant FOREIGN KEY (référence_enfant)
+        REFERENCES ENFANT(référence_enfant)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_participer_activite FOREIGN KEY (code_activité)
+        REFERENCES ACTIVITE(code_activité)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+-- TABLE 13 : REALISER (Association ENCADREUR-ACTIVITE)
+REALISER (
+    *#matricule_encadreur : VARCHAR(15),  -- PK, FK vers ENCADREUR
+    *#code_activité : VARCHAR(10),        -- PK, FK vers ACTIVITE
+    *date_début_réalisation : DATE,       -- PK (pour historique)
+    date_fin_réalisation : DATE,
+    
+    CONSTRAINT pk_realiser PRIMARY KEY (matricule_encadreur, code_activité, date_début_réalisation),
+    CONSTRAINT fk_realiser_encadreur FOREIGN KEY (matricule_encadreur)
+        REFERENCES ENCADREUR(matricule_encadreur)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_realiser_activite FOREIGN KEY (code_activité)
+        REFERENCES ACTIVITE(code_activité)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT ck_dates_realisation CHECK (date_fin_réalisation IS NULL OR date_fin_réalisation >= date_début_réalisation)
+);
+
+-- TABLE 14 : ENCADRER (Association ENCADREUR-ENFANT)
+ENCADRER (
+    *#matricule_encadreur : VARCHAR(15),  -- PK, FK vers ENCADREUR
+    *#référence_enfant : VARCHAR(15),     -- PK, FK vers ENFANT
+    *date_début_encadrement : DATE,       -- PK (pour historique)
+    date_fin_encadrement : DATE,
+    
+    CONSTRAINT pk_encadrer PRIMARY KEY (matricule_encadreur, référence_enfant, date_début_encadrement),
+    CONSTRAINT fk_encadrer_encadreur FOREIGN KEY (matricule_encadreur)
+        REFERENCES ENCADREUR(matricule_encadreur)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_encadrer_enfant FOREIGN KEY (référence_enfant)
+        REFERENCES ENFANT(référence_enfant)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT ck_dates_encadrement CHECK (date_fin_encadrement IS NULL OR date_fin_encadrement >= date_début_encadrement)
+);
+
+-- TABLE 15 : GENERER (Association DEMANDE_HEBERGEMENT-RAPPORT)
+GENERER (
+    *#numéro_demande : VARCHAR(15),       -- PK, FK vers DEMANDE_HEBERGEMENT
+    *#numéro_rapport : VARCHAR(15),       -- PK, FK vers RAPPORT
+    
+    CONSTRAINT pk_generer PRIMARY KEY (numéro_demande, numéro_rapport),
+    CONSTRAINT fk_generer_demande FOREIGN KEY (numéro_demande)
+        REFERENCES DEMANDE_HEBERGEMENT(numéro_demande)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_generer_rapport FOREIGN KEY (numéro_rapport)
+        REFERENCES RAPPORT(numéro_rapport)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+-- ============================================================================
+-- VUES MÉTIER (Données calculées)
+-- ============================================================================
+
+-- VUE 1 : Nombre d'enfants par site
+CREATE VIEW V_NOMBRE_ENFANTS_SITE AS
+SELECT 
+    s.numéro_site,
+    s.libellé_site,
+    COUNT(e.référence_enfant) AS nombre_enfants,
+    s.capacité_max,
+    (s.capacité_max - COUNT(e.référence_enfant)) AS places_disponibles
+FROM SITE s
+LEFT JOIN ENFANT e ON s.numéro_site = e.numéro_site AND e.statut = 'Actif'
+GROUP BY s.numéro_site, s.libellé_site, s.capacité_max;
+
+-- VUE 2 : Capacité totale par pavillon
+CREATE VIEW V_CAPACITE_PAVILLON AS
+SELECT 
+    p.code_pavillon,
+    p.désignation_pavillon,
+    COUNT(c.numéro_chambre) AS nombre_chambres,
+    SUM(c.capacité) AS capacité_totale,
+    SUM(CASE WHEN c.état = 'Disponible' THEN c.capacité ELSE 0 END) AS capacité_disponible
+FROM PAVILLON p
+LEFT JOIN CHAMBRE c ON p.code_pavillon = c.code_pavillon
+GROUP BY p.code_pavillon, p.désignation_pavillon;
+
+-- VUE 3 : Tableau de bord encadrement
+CREATE VIEW V_TABLEAU_ENCADREMENT AS
+SELECT 
+    enc.matricule_encadreur,
+    enc.nom_encadreur,
+    enc.postnom_encadreur,
+    COUNT(DISTINCT e.référence_enfant) AS nombre_enfants_encadrés,
+    COUNT(DISTINCT r.code_activité) AS nombre_activités_réalisées
+FROM ENCADREUR enc
+LEFT JOIN ENCADRER e ON enc.matricule_encadreur = e.matricule_encadreur 
+    AND e.date_fin_encadrement IS NULL
+LEFT JOIN REALISER r ON enc.matricule_encadreur = r.matricule_encadreur
+    AND r.date_fin_réalisation IS NULL
+GROUP BY enc.matricule_encadreur, enc.nom_encadreur, enc.postnom_encadreur;
+
+-- ============================================================================
+-- INDEX POUR OPTIMISATION DES PERFORMANCES
+-- ============================================================================
+
+-- Index sur les clés étrangères
+CREATE INDEX idx_enfant_site ON ENFANT(numéro_site);
+CREATE INDEX idx_site_commune ON SITE(référence_commune);
+CREATE INDEX idx_chambre_pavillon ON CHAMBRE(code_pavillon);
+CREATE INDEX idx_demande_acteur ON DEMANDE_HEBERGEMENT(code_acteur_social);
+CREATE INDEX idx_demande_enfant ON DEMANDE_HEBERGEMENT(référence_enfant);
+
+-- Index sur les critères de recherche fréquents
+CREATE INDEX idx_enfant_statut ON ENFANT(statut);
+CREATE INDEX idx_demande_statut ON DEMANDE_HEBERGEMENT(statut_demande);
+CREATE INDEX idx_chambre_etat ON CHAMBRE(état);
+CREATE INDEX idx_loger_dates ON LOGER(date_début_logement, date_fin_logement);
+
+-- Index composites pour jointures complexes
+CREATE INDEX idx_participer_enfant_activite ON PARTICIPER(référence_enfant, code_activité);
+CREATE INDEX idx_encadrer_encadreur_enfant ON ENCADRER(matricule_encadreur, référence_enfant);
+```
+
+### Contraintes d'intégrité détaillées
+
+| **Type** | **Contrainte** | **Table** | **Justification** |
+|----------|----------------|-----------|-------------------|
+| **Entité** | PK référence_enfant | ENFANT | RG1: Identifiant unique obligatoire |
+| **Référentielle** | FK numéro_site | ENFANT | RG2: Affectation obligatoire à un site |
+| **Référentielle** | FK référence_commune | SITE | RG3: Localisation obligatoire |
+| **Domaine** | CHECK sexe IN ('M','F') | ENFANT, ENCADREUR | Valeurs limitées |
+| **Domaine** | CHECK âge BETWEEN 0 AND 18 | ENFANT | Population cible |
+| **Domaine** | CHECK cote BETWEEN 0 AND 20 | PARTICIPER | Barème notation |
+| **Domaine** | CHECK statut_demande IN (...) | DEMANDE_HEBERGEMENT | RG8: États possibles |
+| **Sémantique** | CHECK date_fin >= date_début | LOGER, REALISER, ENCADRER | Cohérence temporelle |
+| **Fonctionnelle** | UNIQUE libellé_commune | COMMUNE | Pas de doublons géographiques |
+| **Trigger** | Calcul nombre_enfants_site | VUE | RG7: Donnée calculée automatique |
+
+### Schéma relationnel textuel
+
+```
+COMMUNE (*référence_commune, libellé_commune, province, territoire)
+
+SITE (*numéro_site, libellé_site, capacité_max, adresse, #référence_commune)
+  #référence_commune → COMMUNE.référence_commune
+
+PAVILLON (*code_pavillon, désignation_pavillon)
+
+CHAMBRE (*numéro_chambre, capacité, type, état, #code_pavillon)
+  #code_pavillon → PAVILLON.code_pavillon
+
+ENFANT (*référence_enfant, nom_enfant, postnom_enfant, prénom_enfant, 
+        sexe_enfant, âge_enfant, date_admission, statut, #numéro_site)
+  #numéro_site → SITE.numéro_site
+
+ENCADREUR (*matricule_encadreur, nom_encadreur, postnom_encadreur, 
+           prénom_encadreur, sexe_encadreur, état_civil, niveau_étude, 
+           fonction, date_engagement, téléphone)
+
+ACTIVITE (*code_activité, désignation_activité, type_activité, 
+          description, durée)
+
+ACTEUR_SOCIAL (*code_acteur_social, nom_acteur, postnom_acteur, 
+               prénom_acteur, organisme, téléphone, adresse)
+
+DEMANDE_HEBERGEMENT (*numéro_demande, date_demande, motif, statut_demande, 
+                     date_traitement, #code_acteur_social, #référence_enfant)
+  #code_acteur_social → ACTEUR_SOCIAL.code_acteur_social
+  #référence_enfant → ENFANT.référence_enfant
+
+RAPPORT (*numéro_rapport, date_rapport, contenu, période_concernée)
+
+LOGER (*#référence_enfant, *#numéro_chambre, *date_début_logement, 
+       date_fin_logement)
+  #référence_enfant → ENFANT.référence_enfant
+  #numéro_chambre → CHAMBRE.numéro_chambre
+
+PARTICIPER (*#référence_enfant, *#code_activité, référence_cotation, 
+            libellé_cotation, cote, date_cotation)
+  #référence_enfant → ENFANT.référence_enfant
+  #code_activité → ACTIVITE.code_activité
+
+REALISER (*#matricule_encadreur, *#code_activité, *date_début_réalisation, 
+          date_fin_réalisation)
+  #matricule_encadreur → ENCADREUR.matricule_encadreur
+  #code_activité → ACTIVITE.code_activité
+
+ENCADRER (*#matricule_encadreur, *#référence_enfant, *date_début_encadrement, 
+          date_fin_encadrement)
+  #matricule_encadreur → ENCADREUR.matricule_encadreur
+  #référence_enfant → ENFANT.référence_enfant
+
+GENERER (*#numéro_demande, *#numéro_rapport)
+  #numéro_demande → DEMANDE_HEBERGEMENT.numéro_demande
+  #numéro_rapport → RAPPORT.numéro_rapport
+```
+
+### Cardinalités dans le MLD
+
+| **Relation** | **Table principale** | **Clé étrangère** | **Cardinalité d'origine** | **Implémentation** |
+|--------------|----------------------|-------------------|---------------------------|-------------------|
+| AFFECTER | ENFANT | #numéro_site | (1,1)-(0,n) | FK NOT NULL dans ENFANT |
+| LOCALISER | SITE | #référence_commune | (1,1)-(0,n) | FK NOT NULL dans SITE |
+| CONTENIR | CHAMBRE | #code_pavillon | (1,1)-(1,n) | FK NOT NULL dans CHAMBRE |
+| SOLLICITER | DEMANDE_HEBERGEMENT | #code_acteur_social | (1,1)-(1,n) | FK NOT NULL dans DEMANDE |
+| CONCERNER | DEMANDE_HEBERGEMENT | #référence_enfant | (1,1)-(0,1) | FK NULL dans DEMANDE |
+| LOGER | Table LOGER | Clés composées | (0,n)-(0,n) | Table d'association |
+| PARTICIPER | Table PARTICIPER | Clés composées | (0,n)-(0,n) | Table d'association avec attributs |
+| REALISER | Table REALISER | Clés composées | (1,n)-(1,n) | Table d'association |
+| ENCADRER | Table ENCADRER | Clés composées | (1,n)-(1,n) | Table d'association |
+| GENERER | Table GENERER | Clés composées | (1,n)-(0,1) | Table d'association |
+
+---
+
+## CONCLUSION
+
+Cette analyse complète a permis de construire un système cohérent et traçable depuis le MCD jusqu'au MLD :
+
+**✅ Cohérence avec l'énoncé :**
+- Chaque élément du modèle est justifié par un extrait explicite ou implicite
+- Les chemins de navigation dans le MCD reproduisent fidèlement la logique de l'énoncé
+- Les 10 entités identifiées couvrent l'ensemble du périmètre fonctionnel
+
+**✅ Normalisation rigoureuse :**
+- 3FN respectée sur toutes les tables
+- Dépendances fonctionnelles clairement identifiées
+- Données calculées isolées dans des vues
+
+**✅ MOD opérationnel :**
+- Responsabilités CRUD définies pour 7 acteurs
+- Workflow du processus d'hébergement détaillé
+- Règles de sécurité alignées avec le métier
+
+**✅ MLD implémentable :**
+- 15 tables (10 entités + 5 associations)
+- Contraintes d'intégrité complètes
+- Index d'optimisation définis
+- Vues métier pour les données calculées
+
+Le système ainsi conçu est **complet, cohérent et directement implémentable** dans un SGBD relationnel.
+</div>
