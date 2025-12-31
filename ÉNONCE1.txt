@@ -1,0 +1,75 @@
+Réalise un questionnaire d'enquête pour récolter tous les données se trouvant pour un pharmacie 
+
+Car le but était d'abord la récolte des données, l'analyse du domaine, fonctionnement, système existant,.,etc
+
+J'ai dit questionnaire d'enquête :
+Donc des trucs à cocher
+
+Ça doit vraiment être un questionnaire complet, bien réalisé, faut penser à chaque aspect d'un questionnaire authentique et réaliser selon les normes, n'oublie rien, ne néglige rien, tout doit être prise en compte 
+
+
+Enfin après avoir réalisé ce questionnaire :
+
+Réalise un énoncé en supposant des réponses reçues ou récoltées via ce questionnaire 
+
+Voici quelques points clés :
+- C'est une pharmacie avec un seul pharmacien et celui aussi le propriétaire 
+- tous les tâches sont manuels 
+- c'est pour un TP du cours de méthodologie d'analyse informatique/MERISE/Système d'information 
+Et mon sujet personnel était : " Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques "
+Et j'avais choisi comme cas d'études la pharmacie de mon quartier : DIBAPHAR 
+
+Cet énoncé doit avoir pour objectif final : la modélisation de MCC, MCT, MCD, MOT, MOD, MLD..
+*C'EST JUSTE L'OBJECTIF DE L'ÉNONCÉ, JE NE T'AI PAS DEMANDÉ DE RÉALISER TOUT ÇA*
+
+Voici pourquoi il est très primordial de prendre en compte les éléments trop utiles à la réalisation de chacun de ces modèles dans notre énoncé 
+Comme par exemple se poser la question :
+Quels éléments sont nécessaires pour réaliser un MCD ?
+ 
+Dans l'énoncé, n'utilise pas :
+- ou 
+- sinon 
+Car on veut que les choses restent linéaires 
+Mais aussi pour le bien MCC et MCT 
+Car c'est difficile de représenter 2 choses contraires ou identiques à la fois alors que les modèles sont faits pour être lisibles.
+
+Dans l'énoncé, chaque paragraphe= processus et dans un processus on suit le déroulement des opérations qui se succèdent (des étapes), donc on a une opération de début et on a une opération finale.
+
+Un processus= "comment on passe d'un début à un résultat final" par des étapes bien définies. 
+
+Ça doit suivre un enchaînement logique vers un objectif.
+Donc on a un objectif dans chaque processus.
+Début - fin.
+
+Et un processus a toujours plusieurs étapes qui se succèdent.
+
+Concernant les acteurs/ressources humaines :
+- pas besoin de préciser leur nom propre (ex : Mr LIKULA Jean-Louis, SOFICOM, BELTEXCO,...etc...) 
+
+Dans un processus on aura besoin que :
+1. Soit 1 seul acteur : l'acteur interne lui-même qui réalise de traitements internes 
+2. Soit 2 : 1 acteur externe et 1 acteur interne 
+
+NB: Pas plus de 1 acteur externe dans un processus car cela compliquerait la modélisation 
+
+Concernant les flux et les traitements :
+- les actions des acteurs externes ne nous intéressent pas, ce qui se passe en externe ne nous concerne pas 
+- on se focalise uniquement sur ce qui se passe en interne, ou avec interne-externe
+
+
+Il ne faut pas trop modernisé :
+- il ne faut pas envisager des moyens comme :
+Paiement carte bancaire, mobile, chèque,....
+
+On n'est pas un pays développé (CONGO, RDC)
+*CE N'EST PAS À MENTIONNER C'EST JUSTE UNE PETITE PRÉCISON POUR AIDER À LA RÉALISATION DE L'ÉNONCÉ, DONC FALLAIT TENIR COMPTE DE CET ASPECT*
+
+Note :
+-L' énoncé doit être clair, n'utilise pas des termes comme processus, opérations, flux dans l'énoncé, non, ce sont des termes de modélisation uniquement, pas applicable dans l'énoncé.
+
+Voilà 
+
+
+
+
+

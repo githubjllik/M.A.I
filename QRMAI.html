@@ -1,0 +1,1130 @@
+
+<prompt>
+  Réalise un questionnaire d'enquête pour récolter tous les données se trouvant dans cet énoncé 
+
+Car le but était d'abord la récolte des données, l'analyse du domaine, fonctionnement, système existant,.,etc
+Pour ensuite réaliser cet énoncé qui est déjà fait 
+
+Il faut aussi envoyer des réponses vers la fin afin que tout concorde parfaitement 
+
+Voici l'énoncé :
+
+
+### Étude de Cas : Gestion des Stocks dans la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est une petite structure familiale gérée exclusivement par le pharmacien titulaire, un professionnel expérimenté qui s'occupe de l'ensemble des opérations quotidiennes de manière manuelle, sans recours à des systèmes informatisés. Située dans un quartier résidentiel animé, elle propose une gamme variée de médicaments, de produits parapharmaceutiques et d'articles de soins de santé essentiels, comme des antidouleurs, des antibiotiques, des vitamines, des crèmes dermatologiques et des accessoires médicaux tels que des thermomètres ou des bandages. Le pharmacien, souvent appelé affectueusement "PAPA DIBAPHAR" par les habitués, gère seul les achats, les ventes, le contrôle des stocks, les relations avec la clientèle et les fournisseurs, ainsi que les tâches administratives basiques. La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures du soir, avec une pause déjeuner de 13 heures à 14 heures, et reste fermée les dimanches et jours fériés, **sauf en cas d'urgence, situations pour lesquelles il lui arrive d'ouvrir exceptionnellement pour dépanner.**
+
+Les stocks sont maintenus dans un espace de rangement sécurisé à l'arrière de la pharmacie, organisé en étagères étiquetées par catégories de produits : médicaments sur ordonnance, produits en vente libre, articles périssables nécessitant une réfrigération (comme certains vaccins ou insulines), et produits non périssables. Chaque produit est identifié par un code simple que le pharmacien attribue manuellement, composé d'une lettre pour la catégorie (par exemple, "A" pour antidouleurs) suivie d'un numéro séquentiel (comme A001 pour le paracétamol). Pour chaque produit, il note dans un registre dédié les informations essentielles : le nom générique et commercial, le fournisseur d'origine, la date d'achat, la date d'expiration, le prix d'achat unitaire, le prix de vente unitaire, la quantité initiale reçue, et des remarques sur les conditions de stockage (comme "conserver au frais" ou "protéger de la lumière"). Ces registres sont des cahiers à pages numérotées, conservés dans un tiroir verrouillé pour éviter les erreurs ou les pertes.
+
+**Concernant le réapprovisionnement**, tout commence lorsque le pharmacien identifie un besoin, généralement en consultant son registre de stocks le soir après la fermeture ou le matin avant l'ouverture. Il vérifie les niveaux de stock en comptant physiquement les unités restantes sur les étagères et compare avec les entrées notées. Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire. La commande inclut le nom du produit, la quantité désirée (souvent en boîtes ou en lots de 50 à 100 unités), et une demande de facture. Le fournisseur livre les produits directement à la pharmacie, généralement dans les 48 heures, accompagnés d'une facture détaillant le nom du produit, la quantité livrée, le prix unitaire, le montant total, et la date de livraison. Le pharmacien inspecte la livraison pour vérifier la conformité (quantité, état, dates d'expiration), signe la facture comme accusé de réception, et paie comptant ou par chèque sur place. Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue à la ligne correspondante du produit, notant la date de l'entrée, le numéro de la facture, et met à jour le stock total. Si un produit est endommagé ou non conforme, il le retourne immédiatement au fournisseur, qui émet un avoir, et le pharmacien note cette sortie comme une correction dans le registre sans impact sur les ventes.
+
+**L'activité de vente** constitue le cœur du métier et modifie directement les stocks. Un client entre librement dans la pharmacie pendant les heures d'ouverture, parcourt les étagères des produits en vente libre ou demande conseil au pharmacien pour des médicaments sur ordonnance. Pour une vente typique, le client présente une ordonnance médicale si nécessaire (émise par un médecin, avec des détails comme le nom du patient, le nom du médicament, la posologie et la durée du traitement), ou décrit simplement ses symptômes pour des produits en libre-service. Le pharmacien écoute les besoins, vérifie la disponibilité en consultant rapidement son registre ou en regardant les étagères, et conseille sur l'utilisation appropriée, les contre-indications et les alternatives si le produit exact n'est pas en stock. Une fois les produits sélectionnés, le pharmacien les sort des étagères, les place sur le comptoir et calcule manuellement le total en additionnant les prix unitaires, en appliquant éventuellement une petite remise pour les clients fidèles ou pour les achats en gros. Il informe le client du montant dû et accepte le paiement, principalement en espèces, bien qu'il tolère occasionnellement les paiements mobiles pour les habitués. Le pharmacien délivre les produits au client dans un sac, accompagnés d'un reçu manuel écrit à la main sur un bloc-notes carbone, indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé, et son tampon de pharmacie. Une fois le paiement effectué et le reçu remis, la transaction est terminée : le client quitte la pharmacie avec les produits emballés. Immédiatement après, le pharmacien met à jour son registre de stocks en soustrayant la quantité vendue de la ligne du produit concerné, notant la date de sortie, une référence au reçu (comme un numéro séquentiel), et le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs pour respecter la confidentialité). Pour les produits sur ordonnance, il conserve une copie de l'ordonnance dans un dossier séparé pour des fins de traçabilité réglementaire.
+
+Outre les approvisionnements et les ventes, le pharmacien gère les aspects liés à la conservation et à la surveillance des stocks. Tous les matins avant l'ouverture, il effectue un contrôle visuel rapide des étagères pour repérer les produits proches de l'expiration ; ceux qui expirent dans moins d'un mois sont mis de côté pour une vente prioritaire à prix réduit ou, si inutilisables, jetés selon les normes sanitaires, avec une note dans le registre pour ajuster les quantités. Il maintient également un inventaire mensuel complet, où il compte physiquement tous les produits et compare avec les entrées du registre pour détecter d'éventuelles erreurs ou pertes. Pour les médicaments réfrigérés, comme certains vaccins ou insulines, il utilise un petit réfrigérateur et vérifie quotidiennement la température pour éviter la détérioration. En cas de vol ou de perte, rare dans cette petite pharmacie, il note l'incident et ajuste le stock en conséquence.
+
+**Par ailleurs, la pharmacie doit rendre des comptes à divers organismes et autorités de santé** pour des raisons réglementaires qui impactent indirectement le stock. Par exemple, les inspecteurs sanitaires du ministère de la Santé visitent occasionnellement les lieux pour vérifier la conformité des stocks, des dates d'expiration et des conditions de stockage ; le pharmacien leur fournit accès à ses registres et ajuste ses pratiques si des recommandations sont faites, comme le retrait de lots rappelés par les fabricants. De plus, pour certains médicaments contrôlés, il doit rapporter mensuellement les quantités vendues aux autorités compétentes via des formulaires papier, ce qui nécessite de conserver des traces précises des transactions.
+
+En résumé, la gestion des stocks chez DIBAPHAR repose sur la diligence du pharmacien titulaire, qui équilibre manuellement les entrées et sorties pour assurer la disponibilité des produits essentiels tout en minimisant les pertes.
+
+**Travail à faire :** Construire les MCC, MCT, MOT (MOpt), MCD, MOD, MLD et MPD de l'énoncé ci-dessus.
+</prompt>
+
+<prompt>
+  Donne-moi un questionnaire d'enquête pour récolter tous les données se trouvant dans cet énoncé 
+
+Car le but était d'abord la récolte des données, l'analyse du domaine, fonctionnement, système existant,.,etc
+Pour ensuite réaliser cet énoncé qui est déjà fait 
+
+J'ai dit questionnaire d'enquête :
+Donc des trucs à cocher
+
+
+Ça doit vraiment être un questionnaire complet, bien réalisé, faut penser à chaque aspect d'un questionnaire authentique et réaliser selon les normes, n'oublie rien, ne néglige rien, tout doit être prise en compte 
+
+Voici l'énoncé :
+
+
+### Étude de Cas : Gestion des Stocks dans la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est une petite structure familiale gérée exclusivement par le pharmacien titulaire, un professionnel expérimenté qui s'occupe de l'ensemble des opérations quotidiennes de manière manuelle, sans recours à des systèmes informatisés. Située dans un quartier résidentiel animé, elle propose une gamme variée de médicaments, de produits parapharmaceutiques et d'articles de soins de santé essentiels, comme des antidouleurs, des antibiotiques, des vitamines, des crèmes dermatologiques et des accessoires médicaux tels que des thermomètres ou des bandages. Le pharmacien, souvent appelé affectueusement "PAPA DIBAPHAR" par les habitués, gère seul les achats, les ventes, le contrôle des stocks, les relations avec la clientèle et les fournisseurs, ainsi que les tâches administratives basiques. La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures du soir, avec une pause déjeuner de 13 heures à 14 heures, et reste fermée les dimanches et jours fériés, **sauf en cas d'urgence, situations pour lesquelles il lui arrive d'ouvrir exceptionnellement pour dépanner.**
+
+Les stocks sont maintenus dans un espace de rangement sécurisé à l'arrière de la pharmacie, organisé en étagères étiquetées par catégories de produits : médicaments sur ordonnance, produits en vente libre, articles périssables nécessitant une réfrigération (comme certains vaccins ou insulines), et produits non périssables. Chaque produit est identifié par un code simple que le pharmacien attribue manuellement, composé d'une lettre pour la catégorie (par exemple, "A" pour antidouleurs) suivie d'un numéro séquentiel (comme A001 pour le paracétamol). Pour chaque produit, il note dans un registre dédié les informations essentielles : le nom générique et commercial, le fournisseur d'origine, la date d'achat, la date d'expiration, le prix d'achat unitaire, le prix de vente unitaire, la quantité initiale reçue, et des remarques sur les conditions de stockage (comme "conserver au frais" ou "protéger de la lumière"). Ces registres sont des cahiers à pages numérotées, conservés dans un tiroir verrouillé pour éviter les erreurs ou les pertes.
+
+**Concernant le réapprovisionnement**, tout commence lorsque le pharmacien identifie un besoin, généralement en consultant son registre de stocks le soir après la fermeture ou le matin avant l'ouverture. Il vérifie les niveaux de stock en comptant physiquement les unités restantes sur les étagères et compare avec les entrées notées. Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire. La commande inclut le nom du produit, la quantité désirée (souvent en boîtes ou en lots de 50 à 100 unités), et une demande de facture. Le fournisseur livre les produits directement à la pharmacie, généralement dans les 48 heures, accompagnés d'une facture détaillant le nom du produit, la quantité livrée, le prix unitaire, le montant total, et la date de livraison. Le pharmacien inspecte la livraison pour vérifier la conformité (quantité, état, dates d'expiration), signe la facture comme accusé de réception, et paie comptant ou par chèque sur place. Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue à la ligne correspondante du produit, notant la date de l'entrée, le numéro de la facture, et met à jour le stock total. Si un produit est endommagé ou non conforme, il le retourne immédiatement au fournisseur, qui émet un avoir, et le pharmacien note cette sortie comme une correction dans le registre sans impact sur les ventes.
+
+**L'activité de vente** constitue le cœur du métier et modifie directement les stocks. Un client entre librement dans la pharmacie pendant les heures d'ouverture, parcourt les étagères des produits en vente libre ou demande conseil au pharmacien pour des médicaments sur ordonnance. Pour une vente typique, le client présente une ordonnance médicale si nécessaire (émise par un médecin, avec des détails comme le nom du patient, le nom du médicament, la posologie et la durée du traitement), ou décrit simplement ses symptômes pour des produits en libre-service. Le pharmacien écoute les besoins, vérifie la disponibilité en consultant rapidement son registre ou en regardant les étagères, et conseille sur l'utilisation appropriée, les contre-indications et les alternatives si le produit exact n'est pas en stock. Une fois les produits sélectionnés, le pharmacien les sort des étagères, les place sur le comptoir et calcule manuellement le total en additionnant les prix unitaires, en appliquant éventuellement une petite remise pour les clients fidèles ou pour les achats en gros. Il informe le client du montant dû et accepte le paiement, principalement en espèces, bien qu'il tolère occasionnellement les paiements mobiles pour les habitués. Le pharmacien délivre les produits au client dans un sac, accompagnés d'un reçu manuel écrit à la main sur un bloc-notes carbone, indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé, et son tampon de pharmacie. Une fois le paiement effectué et le reçu remis, la transaction est terminée : le client quitte la pharmacie avec les produits emballés. Immédiatement après, le pharmacien met à jour son registre de stocks en soustrayant la quantité vendue de la ligne du produit concerné, notant la date de sortie, une référence au reçu (comme un numéro séquentiel), et le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs pour respecter la confidentialité). Pour les produits sur ordonnance, il conserve une copie de l'ordonnance dans un dossier séparé pour des fins de traçabilité réglementaire.
+
+Outre les approvisionnements et les ventes, le pharmacien gère les aspects liés à la conservation et à la surveillance des stocks. Tous les matins avant l'ouverture, il effectue un contrôle visuel rapide des étagères pour repérer les produits proches de l'expiration ; ceux qui expirent dans moins d'un mois sont mis de côté pour une vente prioritaire à prix réduit ou, si inutilisables, jetés selon les normes sanitaires, avec une note dans le registre pour ajuster les quantités. Il maintient également un inventaire mensuel complet, où il compte physiquement tous les produits et compare avec les entrées du registre pour détecter d'éventuelles erreurs ou pertes. Pour les médicaments réfrigérés, comme certains vaccins ou insulines, il utilise un petit réfrigérateur et vérifie quotidiennement la température pour éviter la détérioration. En cas de vol ou de perte, rare dans cette petite pharmacie, il note l'incident et ajuste le stock en conséquence.
+
+**Par ailleurs, la pharmacie doit rendre des comptes à divers organismes et autorités de santé** pour des raisons réglementaires qui impactent indirectement le stock. Par exemple, les inspecteurs sanitaires du ministère de la Santé visitent occasionnellement les lieux pour vérifier la conformité des stocks, des dates d'expiration et des conditions de stockage ; le pharmacien leur fournit accès à ses registres et ajuste ses pratiques si des recommandations sont faites, comme le retrait de lots rappelés par les fabricants. De plus, pour certains médicaments contrôlés, il doit rapporter mensuellement les quantités vendues aux autorités compétentes via des formulaires papier, ce qui nécessite de conserver des traces précises des transactions.
+
+En résumé, la gestion des stocks chez DIBAPHAR repose sur la diligence du pharmacien titulaire, qui équilibre manuellement les entrées et sorties pour assurer la disponibilité des produits essentiels tout en minimisant les pertes.
+</prompt>
+
+<!-- Q-R TP MAI -->
+<!-- Claude Opus 4.5 -->
+<!-- Jeanlouis07 -->
+<prompt>
+  Donne-moi un questionnaire d'enquête pour récolter tous les données se trouvant dans cet énoncé 
+
+Car le but était d'abord la récolte des données, l'analyse du domaine, fonctionnement, système existant,.,etc
+Pour ensuite réaliser cet énoncé qui est déjà fait 
+
+J'ai dit questionnaire d'enquête :
+Donc des trucs à cocher
+
+
+Ça doit vraiment être un questionnaire complet, bien réalisé, faut penser à chaque aspect d'un questionnaire authentique et réaliser selon les normes, n'oublie rien, ne néglige rien, tout doit être prise en compte 
+
+Voici l'énoncé :
+
+
+### Étude de Cas : Gestion des Stocks dans la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est une petite structure familiale gérée exclusivement par le pharmacien titulaire, un professionnel expérimenté qui s'occupe de l'ensemble des opérations quotidiennes de manière manuelle, sans recours à des systèmes informatisés. Située dans un quartier résidentiel animé, elle propose une gamme variée de médicaments, de produits parapharmaceutiques et d'articles de soins de santé essentiels, comme des antidouleurs, des antibiotiques, des vitamines, des crèmes dermatologiques et des accessoires médicaux tels que des thermomètres ou des bandages. Le pharmacien, souvent appelé affectueusement "PAPA DIBAPHAR" par les habitués, gère seul les achats, les ventes, le contrôle des stocks, les relations avec la clientèle et les fournisseurs, ainsi que les tâches administratives basiques. La pharmacie opère du lundi au samedi de 8 heures du matin à 20 heures du soir, avec une pause déjeuner de 13 heures à 14 heures, et reste fermée les dimanches et jours fériés, **sauf en cas d'urgence, situations pour lesquelles il lui arrive d'ouvrir exceptionnellement pour dépanner.**
+
+Les stocks sont maintenus dans un espace de rangement sécurisé à l'arrière de la pharmacie, organisé en étagères étiquetées par catégories de produits : médicaments sur ordonnance, produits en vente libre, articles périssables nécessitant une réfrigération (comme certains vaccins ou insulines), et produits non périssables. Chaque produit est identifié par un code simple que le pharmacien attribue manuellement, composé d'une lettre pour la catégorie (par exemple, "A" pour antidouleurs) suivie d'un numéro séquentiel (comme A001 pour le paracétamol). Pour chaque produit, il note dans un registre dédié les informations essentielles : le nom générique et commercial, le fournisseur d'origine, la date d'achat, la date d'expiration, le prix d'achat unitaire, le prix de vente unitaire, la quantité initiale reçue, et des remarques sur les conditions de stockage (comme "conserver au frais" ou "protéger de la lumière"). Ces registres sont des cahiers à pages numérotées, conservés dans un tiroir verrouillé pour éviter les erreurs ou les pertes.
+
+**Concernant le réapprovisionnement**, tout commence lorsque le pharmacien identifie un besoin, généralement en consultant son registre de stocks le soir après la fermeture ou le matin avant l'ouverture. Il vérifie les niveaux de stock en comptant physiquement les unités restantes sur les étagères et compare avec les entrées notées. Si un produit approche de la rupture (par exemple, moins de 10 unités pour les articles populaires), il passe une commande verbale ou écrite auprès d'un fournisseur, qui est typiquement un grossiste pharmaceutique local ou un représentant de laboratoire. La commande inclut le nom du produit, la quantité désirée (souvent en boîtes ou en lots de 50 à 100 unités), et une demande de facture. Le fournisseur livre les produits directement à la pharmacie, généralement dans les 48 heures, accompagnés d'une facture détaillant le nom du produit, la quantité livrée, le prix unitaire, le montant total, et la date de livraison. Le pharmacien inspecte la livraison pour vérifier la conformité (quantité, état, dates d'expiration), signe la facture comme accusé de réception, et paie comptant ou par chèque sur place. Il enregistre ensuite l'entrée dans son registre de stocks en ajoutant la quantité reçue à la ligne correspondante du produit, notant la date de l'entrée, le numéro de la facture, et met à jour le stock total. Si un produit est endommagé ou non conforme, il le retourne immédiatement au fournisseur, qui émet un avoir, et le pharmacien note cette sortie comme une correction dans le registre sans impact sur les ventes.
+
+**L'activité de vente** constitue le cœur du métier et modifie directement les stocks. Un client entre librement dans la pharmacie pendant les heures d'ouverture, parcourt les étagères des produits en vente libre ou demande conseil au pharmacien pour des médicaments sur ordonnance. Pour une vente typique, le client présente une ordonnance médicale si nécessaire (émise par un médecin, avec des détails comme le nom du patient, le nom du médicament, la posologie et la durée du traitement), ou décrit simplement ses symptômes pour des produits en libre-service. Le pharmacien écoute les besoins, vérifie la disponibilité en consultant rapidement son registre ou en regardant les étagères, et conseille sur l'utilisation appropriée, les contre-indications et les alternatives si le produit exact n'est pas en stock. Une fois les produits sélectionnés, le pharmacien les sort des étagères, les place sur le comptoir et calcule manuellement le total en additionnant les prix unitaires, en appliquant éventuellement une petite remise pour les clients fidèles ou pour les achats en gros. Il informe le client du montant dû et accepte le paiement, principalement en espèces, bien qu'il tolère occasionnellement les paiements mobiles pour les habitués. Le pharmacien délivre les produits au client dans un sac, accompagnés d'un reçu manuel écrit à la main sur un bloc-notes carbone, indiquant la date, les produits vendus, les quantités, les prix unitaires, le total payé, et son tampon de pharmacie. Une fois le paiement effectué et le reçu remis, la transaction est terminée : le client quitte la pharmacie avec les produits emballés. Immédiatement après, le pharmacien met à jour son registre de stocks en soustrayant la quantité vendue de la ligne du produit concerné, notant la date de sortie, une référence au reçu (comme un numéro séquentiel), et le nom approximatif du client pour les ordonnances (sans détails personnels exhaustifs pour respecter la confidentialité). Pour les produits sur ordonnance, il conserve une copie de l'ordonnance dans un dossier séparé pour des fins de traçabilité réglementaire.
+
+Outre les approvisionnements et les ventes, le pharmacien gère les aspects liés à la conservation et à la surveillance des stocks. Tous les matins avant l'ouverture, il effectue un contrôle visuel rapide des étagères pour repérer les produits proches de l'expiration ; ceux qui expirent dans moins d'un mois sont mis de côté pour une vente prioritaire à prix réduit ou, si inutilisables, jetés selon les normes sanitaires, avec une note dans le registre pour ajuster les quantités. Il maintient également un inventaire mensuel complet, où il compte physiquement tous les produits et compare avec les entrées du registre pour détecter d'éventuelles erreurs ou pertes. Pour les médicaments réfrigérés, comme certains vaccins ou insulines, il utilise un petit réfrigérateur et vérifie quotidiennement la température pour éviter la détérioration. En cas de vol ou de perte, rare dans cette petite pharmacie, il note l'incident et ajuste le stock en conséquence.
+
+**Par ailleurs, la pharmacie doit rendre des comptes à divers organismes et autorités de santé** pour des raisons réglementaires qui impactent indirectement le stock. Par exemple, les inspecteurs sanitaires du ministère de la Santé visitent occasionnellement les lieux pour vérifier la conformité des stocks, des dates d'expiration et des conditions de stockage ; le pharmacien leur fournit accès à ses registres et ajuste ses pratiques si des recommandations sont faites, comme le retrait de lots rappelés par les fabricants. De plus, pour certains médicaments contrôlés, il doit rapporter mensuellement les quantités vendues aux autorités compétentes via des formulaires papier, ce qui nécessite de conserver des traces précises des transactions.
+
+En résumé, la gestion des stocks chez DIBAPHAR repose sur la diligence du pharmacien titulaire, qui équilibre manuellement les entrées et sorties pour assurer la disponibilité des produits essentiels tout en minimisant les pertes.
+</prompt>
+<div>
+  # QUESTIONNAIRE D'ENQUÊTE
+## Étude préalable à la conception d'un système de gestion des stocks pharmaceutiques
+
+---
+
+**INFORMATIONS PRÉLIMINAIRES**
+
+Ce questionnaire s'inscrit dans le cadre d'une étude visant à analyser le fonctionnement actuel de votre officine pharmaceutique en vue de concevoir un système de gestion adapté à vos besoins. Vos réponses resteront strictement confidentielles et seront utilisées uniquement à des fins d'analyse et de conception.
+
+**Date de l'enquête :** ____/____/________
+
+**Numéro du questionnaire :** ____________
+
+**Nom de l'enquêteur :** ____________________________________________
+
+---
+
+## SECTION A : IDENTIFICATION DE L'ÉTABLISSEMENT
+
+**A1. Dénomination de la pharmacie :**
+☐ Pharmacie DIBAPHAR
+☐ Autre (préciser) : ____________________________________________
+
+**A2. Type de structure :**
+☐ Pharmacie indépendante / familiale
+☐ Pharmacie franchisée
+☐ Pharmacie de groupe
+☐ Pharmacie hospitalière
+☐ Autre (préciser) : ____________________________________________
+
+**A3. Localisation géographique :**
+☐ Quartier résidentiel
+☐ Zone commerciale / centre-ville
+☐ Zone rurale
+☐ Proximité d'un centre de santé / hôpital
+☐ Autre (préciser) : ____________________________________________
+
+**A4. Caractéristique de la zone d'implantation :**
+☐ Zone très animée / forte affluence
+☐ Zone moyennement fréquentée
+☐ Zone calme / faible affluence
+
+**A5. Depuis combien d'années la pharmacie est-elle en activité ?**
+☐ Moins de 2 ans
+☐ 2 à 5 ans
+☐ 5 à 10 ans
+☐ 10 à 20 ans
+☐ Plus de 20 ans
+
+---
+
+## SECTION B : RESSOURCES HUMAINES ET ORGANISATION
+
+**B1. Qui assure la gestion principale de la pharmacie ?**
+☐ Pharmacien titulaire uniquement
+☐ Pharmacien titulaire avec assistant(s) pharmacien(s)
+☐ Pharmacien titulaire avec préparateur(s) en pharmacie
+☐ Équipe de plusieurs pharmaciens
+☐ Autre (préciser) : ____________________________________________
+
+**B2. Nombre total de personnes travaillant dans la pharmacie :**
+☐ 1 personne (pharmacien seul)
+☐ 2 à 3 personnes
+☐ 4 à 5 personnes
+☐ 6 à 10 personnes
+☐ Plus de 10 personnes
+
+**B3. Niveau d'expérience du responsable principal :**
+☐ Débutant (moins de 2 ans)
+☐ Expérimenté (2 à 10 ans)
+☐ Très expérimenté (plus de 10 ans)
+
+**B4. Quelles tâches sont effectuées par le responsable principal ? (Plusieurs réponses possibles)**
+☐ Gestion des achats / approvisionnements
+☐ Gestion des ventes
+☐ Contrôle des stocks
+☐ Relations avec la clientèle
+☐ Relations avec les fournisseurs
+☐ Tâches administratives
+☐ Conseils pharmaceutiques
+☐ Comptabilité
+☐ Toutes les tâches ci-dessus
+
+---
+
+## SECTION C : HORAIRES ET FONCTIONNEMENT
+
+**C1. Quels sont les jours d'ouverture habituels ? (Plusieurs réponses possibles)**
+☐ Lundi
+☐ Mardi
+☐ Mercredi
+☐ Jeudi
+☐ Vendredi
+☐ Samedi
+☐ Dimanche
+
+**C2. Quels sont les horaires d'ouverture ?**
+
+| Période | Heure |
+|---------|-------|
+| Ouverture matin | ☐ 7h ☐ 8h ☐ 9h ☐ Autre : _____ |
+| Fermeture soir | ☐ 18h ☐ 19h ☐ 20h ☐ 21h ☐ Autre : _____ |
+
+**C3. Existe-t-il une pause durant la journée ?**
+☐ Oui
+☐ Non
+
+**C4. Si oui, précisez les horaires de la pause :**
+Début : _____ h _____ | Fin : _____ h _____
+
+**C5. La pharmacie ferme-t-elle les jours fériés ?**
+☐ Oui, systématiquement
+☐ Oui, mais avec des exceptions
+☐ Non, ouverte tous les jours fériés
+
+**C6. En cas de fermeture habituelle, existe-t-il des ouvertures exceptionnelles ?**
+☐ Oui, pour les urgences
+☐ Oui, pour les gardes programmées
+☐ Oui, sur demande spécifique
+☐ Non, jamais
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION D : GAMME DE PRODUITS
+
+**D1. Quelles catégories de produits proposez-vous ? (Plusieurs réponses possibles)**
+
+### Médicaments
+☐ Antidouleurs / Analgésiques
+☐ Antibiotiques
+☐ Anti-inflammatoires
+☐ Vitamines et suppléments
+☐ Médicaments cardiovasculaires
+☐ Médicaments pour le diabète (insuline, etc.)
+☐ Vaccins
+☐ Médicaments psychotropes / contrôlés
+☐ Autres médicaments (préciser) : ____________________________________________
+
+### Produits parapharmaceutiques
+☐ Crèmes dermatologiques
+☐ Produits d'hygiène corporelle
+☐ Produits cosmétiques
+☐ Produits pour bébés
+☐ Autres (préciser) : ____________________________________________
+
+### Accessoires et dispositifs médicaux
+☐ Thermomètres
+☐ Tensiomètres
+☐ Bandages et pansements
+☐ Seringues
+☐ Matériel d'injection
+☐ Béquilles / cannes
+☐ Autres (préciser) : ____________________________________________
+
+**D2. Comment classez-vous vos produits selon leur statut de vente ?**
+☐ Médicaments sur ordonnance uniquement
+☐ Produits en vente libre uniquement
+☐ Les deux catégories
+
+**D3. Disposez-vous de produits nécessitant des conditions de conservation particulières ?**
+☐ Oui
+☐ Non
+
+**D4. Si oui, quels types de produits ? (Plusieurs réponses possibles)**
+☐ Produits nécessitant une réfrigération (vaccins, insuline, etc.)
+☐ Produits sensibles à la lumière
+☐ Produits sensibles à l'humidité
+☐ Produits inflammables
+☐ Autres (préciser) : ____________________________________________
+
+---
+
+## SECTION E : ESPACE DE STOCKAGE ET ORGANISATION
+
+**E1. Où sont stockés les produits ?**
+☐ Espace de rangement à l'arrière de la pharmacie
+☐ Réserve séparée dans le même bâtiment
+☐ Entrepôt externe
+☐ Directement sur les étagères de vente
+☐ Plusieurs emplacements (préciser) : ____________________________________________
+
+**E2. L'espace de stockage est-il sécurisé ?**
+☐ Oui, avec serrure / verrou
+☐ Oui, avec système d'alarme
+☐ Oui, avec vidéosurveillance
+☐ Oui, plusieurs mesures de sécurité
+☐ Non, aucune mesure particulière
+
+**E3. Comment les produits sont-ils organisés physiquement ?**
+☐ Étagères étiquetées par catégories
+☐ Armoires par type de produit
+☐ Tiroirs classés par ordre alphabétique
+☐ Aucune organisation particulière
+☐ Autre (préciser) : ____________________________________________
+
+**E4. Quelles catégories d'organisation utilisez-vous ? (Plusieurs réponses possibles)**
+☐ Médicaments sur ordonnance
+☐ Produits en vente libre
+☐ Articles périssables / réfrigérés
+☐ Produits non périssables
+☐ Par laboratoire / fabricant
+☐ Par forme galénique (comprimés, sirops, etc.)
+☐ Autre (préciser) : ____________________________________________
+
+**E5. Disposez-vous d'équipements spéciaux pour la conservation ?**
+☐ Réfrigérateur pharmaceutique
+☐ Congélateur
+☐ Armoire climatisée
+☐ Hygromètre
+☐ Thermomètre de contrôle
+☐ Aucun équipement spécial
+☐ Autre (préciser) : ____________________________________________
+
+**E6. À quelle fréquence vérifiez-vous les conditions de stockage (température, etc.) ?**
+☐ Plusieurs fois par jour
+☐ Une fois par jour
+☐ Plusieurs fois par semaine
+☐ Une fois par semaine
+☐ Occasionnellement
+☐ Jamais
+
+---
+
+## SECTION F : SYSTÈME D'IDENTIFICATION DES PRODUITS
+
+**F1. Comment identifiez-vous vos produits ?**
+☐ Code attribué manuellement
+☐ Code-barres du fabricant
+☐ Numéro de lot uniquement
+☐ Par le nom du produit uniquement
+☐ Système informatisé
+☐ Autre (préciser) : ____________________________________________
+
+**F2. Si vous utilisez un code manuel, comment est-il structuré ?**
+☐ Lettre pour la catégorie + numéro séquentiel (ex : A001)
+☐ Numéro séquentiel simple
+☐ Abréviation du nom + numéro
+☐ Autre structure (préciser) : ____________________________________________
+
+**F3. Quelles informations enregistrez-vous pour chaque produit ? (Plusieurs réponses possibles)**
+☐ Nom générique
+☐ Nom commercial / marque
+☐ Fournisseur d'origine
+☐ Date d'achat / réception
+☐ Date d'expiration
+☐ Prix d'achat unitaire
+☐ Prix de vente unitaire
+☐ Quantité initiale reçue
+☐ Quantité actuelle en stock
+☐ Numéro de lot
+☐ Conditions de stockage particulières
+☐ Dosage / concentration
+☐ Forme galénique
+☐ Autres (préciser) : ____________________________________________
+
+---
+
+## SECTION G : SUPPORTS D'ENREGISTREMENT
+
+**G1. Quel(s) support(s) utilisez-vous pour enregistrer les informations sur les stocks ? (Plusieurs réponses possibles)**
+☐ Registre / cahier papier
+☐ Fiches cartonnées
+☐ Fichier Excel / tableur
+☐ Logiciel de gestion spécialisé
+☐ Application mobile
+☐ Aucun support (mémorisation)
+☐ Autre (préciser) : ____________________________________________
+
+**G2. Si vous utilisez des registres papier, sont-ils :**
+☐ À pages numérotées
+☐ À pages non numérotées
+☐ À feuillets mobiles
+☐ Reliés / cousus
+
+**G3. Comment sont protégés vos registres / supports d'enregistrement ?**
+☐ Dans un tiroir verrouillé
+☐ Dans un coffre-fort
+☐ Dans une armoire fermée à clé
+☐ Sans protection particulière
+☐ Sauvegarde numérique (si informatisé)
+☐ Autre (préciser) : ____________________________________________
+
+**G4. Combien de registres différents utilisez-vous ?**
+☐ Un seul registre pour tout
+☐ 2 à 3 registres distincts
+☐ 4 à 5 registres distincts
+☐ Plus de 5 registres
+
+**G5. Si plusieurs registres, lesquels ? (Plusieurs réponses possibles)**
+☐ Registre des stocks
+☐ Registre des entrées (approvisionnements)
+☐ Registre des sorties (ventes)
+☐ Registre des ordonnances
+☐ Registre des médicaments contrôlés
+☐ Registre des produits périmés / retirés
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION H : PROCESSUS D'APPROVISIONNEMENT
+
+**H1. Comment identifiez-vous un besoin de réapprovisionnement ?**
+☐ Consultation du registre de stocks
+☐ Comptage physique des unités
+☐ Observation visuelle des étagères
+☐ Alerte d'un système informatisé
+☐ Demande client pour un produit manquant
+☐ Autre (préciser) : ____________________________________________
+
+**H2. À quel moment effectuez-vous cette vérification ?**
+☐ Le matin avant l'ouverture
+☐ Le soir après la fermeture
+☐ Pendant les heures creuses
+☐ De manière continue durant la journée
+☐ À intervalles réguliers programmés
+☐ Autre (préciser) : ____________________________________________
+
+**H3. Quel seuil de stock déclenche une commande ? (pour les produits populaires)**
+☐ Moins de 5 unités
+☐ Moins de 10 unités
+☐ Moins de 20 unités
+☐ Moins de 50 unités
+☐ Variable selon le produit
+☐ Autre (préciser) : ____________________________________________
+
+**H4. Comment passez-vous vos commandes aux fournisseurs ?**
+☐ Commande verbale (téléphone)
+☐ Commande écrite (courrier / fax)
+☐ Commande par email
+☐ Commande via plateforme en ligne
+☐ Commande directe au représentant
+☐ Application mobile du fournisseur
+☐ Autre (préciser) : ____________________________________________
+
+**H5. Quelles informations incluez-vous dans une commande ? (Plusieurs réponses possibles)**
+☐ Nom du produit
+☐ Quantité désirée
+☐ Dosage / conditionnement souhaité
+☐ Demande de facture
+☐ Délai de livraison souhaité
+☐ Références du produit
+☐ Autre (préciser) : ____________________________________________
+
+**H6. En quelles unités commandez-vous généralement ?**
+☐ À l'unité
+☐ Par boîte
+☐ Par lot (préciser la taille habituelle) : ____________________________________________
+☐ Par carton
+☐ Variable selon le produit
+
+**H7. Quelle est la taille habituelle des commandes (en unités par produit) ?**
+☐ Moins de 20 unités
+☐ 20 à 50 unités
+☐ 50 à 100 unités
+☐ 100 à 200 unités
+☐ Plus de 200 unités
+☐ Variable selon le produit
+
+---
+
+## SECTION I : FOURNISSEURS
+
+**I1. Quels types de fournisseurs approvisionnent votre pharmacie ? (Plusieurs réponses possibles)**
+☐ Grossistes-répartiteurs pharmaceutiques locaux
+☐ Grossistes-répartiteurs nationaux
+☐ Représentants de laboratoires pharmaceutiques
+☐ Laboratoires directement
+☐ Centrales d'achat
+☐ Autres pharmacies (dépannage)
+☐ Importateurs
+☐ Autre (préciser) : ____________________________________________
+
+**I2. Combien de fournisseurs réguliers avez-vous ?**
+☐ 1 seul fournisseur
+☐ 2 à 3 fournisseurs
+☐ 4 à 5 fournisseurs
+☐ 6 à 10 fournisseurs
+☐ Plus de 10 fournisseurs
+
+**I3. Quelles informations conservez-vous sur vos fournisseurs ? (Plusieurs réponses possibles)**
+☐ Nom / raison sociale
+☐ Adresse
+☐ Numéro de téléphone
+☐ Email
+☐ Nom du contact / représentant
+☐ Conditions de paiement
+☐ Délais de livraison habituels
+☐ Historique des commandes
+☐ Autre (préciser) : ____________________________________________
+
+**I4. Quel est le délai de livraison habituel après commande ?**
+☐ Moins de 24 heures
+☐ 24 à 48 heures
+☐ 48 à 72 heures
+☐ 3 à 7 jours
+☐ Plus d'une semaine
+☐ Variable selon le fournisseur / produit
+
+**I5. Comment les produits sont-ils livrés ?**
+☐ Livraison directe à la pharmacie par le fournisseur
+☐ Livraison par transporteur externe
+☐ Retrait par le pharmacien chez le fournisseur
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION J : RÉCEPTION DES LIVRAISONS
+
+**J1. Quelles vérifications effectuez-vous à la réception ? (Plusieurs réponses possibles)**
+☐ Vérification de la quantité livrée
+☐ Vérification de l'état des produits
+☐ Vérification des dates d'expiration
+☐ Vérification de la conformité avec la commande
+☐ Vérification des numéros de lot
+☐ Vérification des prix facturés
+☐ Autre (préciser) : ____________________________________________
+
+**J2. Quel document accompagne la livraison ?**
+☐ Facture
+☐ Bon de livraison
+☐ Les deux
+☐ Aucun document
+☐ Autre (préciser) : ____________________________________________
+
+**J3. Quelles informations figurent sur ce document ? (Plusieurs réponses possibles)**
+☐ Nom du produit
+☐ Quantité livrée
+☐ Prix unitaire
+☐ Montant total
+☐ Date de livraison
+☐ Numéro de facture / bon
+☐ Numéros de lot
+☐ Dates d'expiration
+☐ Autre (préciser) : ____________________________________________
+
+**J4. Comment accusez-vous réception de la livraison ?**
+☐ Signature de la facture / bon de livraison
+☐ Cachet de la pharmacie
+☐ Les deux (signature + cachet)
+☐ Confirmation verbale
+☐ Confirmation par email / SMS
+☐ Autre (préciser) : ____________________________________________
+
+**J5. Comment effectuez-vous le paiement des fournisseurs ?**
+☐ Paiement comptant (espèces)
+☐ Paiement par chèque
+☐ Virement bancaire
+☐ Paiement mobile
+☐ Paiement à crédit / échéance
+☐ Prélèvement automatique
+☐ Autre (préciser) : ____________________________________________
+
+**J6. À quel moment le paiement est-il effectué ?**
+☐ À la livraison (sur place)
+☐ Dans les 7 jours
+☐ Dans les 30 jours
+☐ Selon conditions négociées
+☐ Autre (préciser) : ____________________________________________
+
+**J7. Comment enregistrez-vous l'entrée en stock après réception ?**
+☐ Ajout de la quantité dans le registre
+☐ Création d'une nouvelle fiche produit
+☐ Saisie dans un logiciel
+☐ Notation sur la facture uniquement
+☐ Autre (préciser) : ____________________________________________
+
+**J8. Quelles informations notez-vous lors de l'entrée en stock ? (Plusieurs réponses possibles)**
+☐ Date d'entrée
+☐ Quantité reçue
+☐ Numéro de facture
+☐ Mise à jour du stock total
+☐ Prix d'achat
+☐ Date d'expiration
+☐ Numéro de lot
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION K : GESTION DES NON-CONFORMITÉS
+
+**K1. Que faites-vous en cas de produit endommagé à la réception ?**
+☐ Retour immédiat au fournisseur
+☐ Refus de la livraison complète
+☐ Acceptation avec réserve et réclamation ultérieure
+☐ Autre (préciser) : ____________________________________________
+
+**K2. Comment le fournisseur traite-t-il les retours ?**
+☐ Émission d'un avoir
+☐ Remplacement du produit
+☐ Remboursement
+☐ Variable selon les cas
+☐ Autre (préciser) : ____________________________________________
+
+**K3. Comment enregistrez-vous les retours / corrections de stock ?**
+☐ Note de correction dans le registre
+☐ Écriture négative dans le registre
+☐ Registre séparé pour les retours
+☐ Pas d'enregistrement particulier
+☐ Autre (préciser) : ____________________________________________
+
+**K4. Les retours impactent-ils vos chiffres de vente ?**
+☐ Oui
+☐ Non, traités séparément
+
+---
+
+## SECTION L : PROCESSUS DE VENTE
+
+**L1. Comment les clients accèdent-ils à la pharmacie ?**
+☐ Entrée libre pendant les heures d'ouverture
+☐ Sur rendez-vous uniquement
+☐ Entrée contrôlée (sonnette, etc.)
+☐ Autre (préciser) : ____________________________________________
+
+**L2. Les clients peuvent-ils parcourir librement les rayons ?**
+☐ Oui, pour les produits en vente libre
+☐ Oui, pour tous les produits
+☐ Non, tout est derrière le comptoir
+☐ Partiellement (préciser) : ____________________________________________
+
+**L3. Comment se déroule une vente typique ? (Ordonnez de 1 à 8)**
+☐ Le client présente une ordonnance ou décrit ses besoins (ordre : ___)
+☐ Le pharmacien écoute et conseille (ordre : ___)
+☐ Le pharmacien vérifie la disponibilité (ordre : ___)
+☐ Le pharmacien propose des alternatives si nécessaire (ordre : ___)
+☐ Le pharmacien prépare les produits (ordre : ___)
+☐ Le pharmacien calcule le total (ordre : ___)
+☐ Le client effectue le paiement (ordre : ___)
+☐ Le pharmacien remet les produits et le reçu (ordre : ___)
+
+**L4. Comment vérifiez-vous la disponibilité d'un produit ?**
+☐ Consultation du registre
+☐ Vérification visuelle des étagères
+☐ Consultation d'un système informatique
+☐ De mémoire
+☐ Autre (préciser) : ____________________________________________
+
+**L5. Proposez-vous des conseils aux clients ?**
+☐ Oui, systématiquement
+☐ Oui, sur demande
+☐ Oui, pour certains produits seulement
+☐ Rarement
+☐ Jamais
+
+**L6. Quels types de conseils proposez-vous ? (Plusieurs réponses possibles)**
+☐ Utilisation appropriée du médicament
+☐ Posologie
+☐ Contre-indications
+☐ Effets secondaires possibles
+☐ Interactions médicamenteuses
+☐ Alternatives disponibles
+☐ Mesures d'hygiène de vie
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION M : ORDONNANCES
+
+**M1. Vendez-vous des médicaments sur ordonnance ?**
+☐ Oui
+☐ Non
+
+**M2. Si oui, quelles informations vérifiez-vous sur l'ordonnance ? (Plusieurs réponses possibles)**
+☐ Nom du patient
+☐ Nom du médecin prescripteur
+☐ Date de l'ordonnance
+☐ Nom du médicament prescrit
+☐ Dosage prescrit
+☐ Posologie
+☐ Durée du traitement
+☐ Signature du médecin
+☐ Cachet du médecin
+☐ Validité de l'ordonnance
+☐ Autre (préciser) : ____________________________________________
+
+**M3. Conservez-vous une copie des ordonnances ?**
+☐ Oui, systématiquement
+☐ Oui, pour certains médicaments seulement
+☐ Non
+
+**M4. Si oui, comment les conservez-vous ?**
+☐ Dossier papier séparé
+☐ Classeur dédié
+☐ Numérisation / scan
+☐ Registre des ordonnances
+☐ Autre (préciser) : ____________________________________________
+
+**M5. Pourquoi conservez-vous ces ordonnances ?**
+☐ Traçabilité réglementaire
+☐ Suivi du patient
+☐ En cas de contrôle
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION N : FACTURATION ET PAIEMENT
+
+**N1. Comment calculez-vous le montant d'une vente ?**
+☐ Addition manuelle des prix
+☐ Calculatrice
+☐ Caisse enregistreuse
+☐ Logiciel de caisse
+☐ Autre (préciser) : ____________________________________________
+
+**N2. Appliquez-vous des remises ?**
+☐ Oui, pour les clients fidèles
+☐ Oui, pour les achats en gros
+☐ Oui, pour les produits proches de l'expiration
+☐ Oui, pour d'autres raisons (préciser) : ____________________________________________
+☐ Non, jamais
+
+**N3. Quels modes de paiement acceptez-vous ? (Plusieurs réponses possibles)**
+☐ Espèces
+☐ Chèque
+☐ Carte bancaire
+☐ Paiement mobile (préciser l'opérateur) : ____________________________________________
+☐ Virement
+☐ Crédit / paiement différé
+☐ Autre (préciser) : ____________________________________________
+
+**N4. Quel est le mode de paiement le plus fréquent ?**
+☐ Espèces
+☐ Paiement mobile
+☐ Carte bancaire
+☐ Chèque
+☐ Autre (préciser) : ____________________________________________
+
+**N5. Délivrez-vous un reçu / ticket de caisse ?**
+☐ Oui, systématiquement
+☐ Oui, sur demande
+☐ Non
+
+**N6. Si oui, comment est-il produit ?**
+☐ Écrit manuellement
+☐ Imprimé (caisse enregistreuse)
+☐ Imprimé (logiciel)
+☐ Autre (préciser) : ____________________________________________
+
+**N7. Quelles informations figurent sur le reçu ? (Plusieurs réponses possibles)**
+☐ Date de la vente
+☐ Numéro du reçu
+☐ Nom des produits vendus
+☐ Quantités
+☐ Prix unitaires
+☐ Total payé
+☐ Mode de paiement
+☐ Tampon / cachet de la pharmacie
+☐ Nom du client
+☐ Autre (préciser) : ____________________________________________
+
+**N8. Utilisez-vous un système de numérotation des reçus ?**
+☐ Oui, numérotation séquentielle
+☐ Oui, autre système (préciser) : ____________________________________________
+☐ Non
+
+---
+
+## SECTION O : MISE À JOUR DES STOCKS APRÈS VENTE
+
+**O1. À quel moment mettez-vous à jour le stock après une vente ?**
+☐ Immédiatement après chaque vente
+☐ En fin de journée
+☐ Périodiquement (préciser la fréquence) : ____________________________________________
+☐ Automatiquement (système informatisé)
+☐ Autre (préciser) : ____________________________________________
+
+**O2. Quelles informations enregistrez-vous lors d'une sortie de stock ? (Plusieurs réponses possibles)**
+☐ Date de la sortie
+☐ Quantité vendue
+☐ Référence du reçu
+☐ Nom du produit
+☐ Stock restant
+☐ Nom du client (pour les ordonnances)
+☐ Autre (préciser) : ____________________________________________
+
+**O3. Enregistrez-vous des informations sur le client ?**
+☐ Oui, nom complet
+☐ Oui, nom approximatif seulement
+☐ Oui, pour les ordonnances uniquement
+☐ Non, aucune information client
+☐ Autre (préciser) : ____________________________________________
+
+**O4. Pourquoi cette approche concernant les données client ?**
+☐ Respect de la confidentialité
+☐ Obligation réglementaire
+☐ Suivi commercial
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION P : CONTRÔLE ET SURVEILLANCE DES STOCKS
+
+**P1. Effectuez-vous des contrôles réguliers de vos stocks ?**
+☐ Oui
+☐ Non
+
+**P2. Si oui, à quelle fréquence ? (Plusieurs réponses possibles)**
+
+| Type de contrôle | Fréquence |
+|-----------------|-----------|
+| Contrôle visuel rapide | ☐ Quotidien ☐ Hebdomadaire ☐ Mensuel ☐ Autre : _____ |
+| Inventaire complet | ☐ Quotidien ☐ Hebdomadaire ☐ Mensuel ☐ Autre : _____ |
+| Vérification des dates d'expiration | ☐ Quotidien ☐ Hebdomadaire ☐ Mensuel ☐ Autre : _____ |
+| Vérification des conditions de stockage | ☐ Quotidien ☐ Hebdomadaire ☐ Mensuel ☐ Autre : _____ |
+
+**P3. À quel moment effectuez-vous le contrôle visuel quotidien ?**
+☐ Le matin avant l'ouverture
+☐ Le soir après la fermeture
+☐ Durant les heures creuses
+☐ Autre (préciser) : ____________________________________________
+
+**P4. En quoi consiste l'inventaire complet ?**
+☐ Comptage physique de tous les produits
+☐ Comparaison avec les entrées du registre
+☐ Les deux
+☐ Autre (préciser) : ____________________________________________
+
+**P5. Quel est l'objectif principal de l'inventaire ? (Plusieurs réponses possibles)**
+☐ Détecter les erreurs
+☐ Détecter les pertes
+☐ Vérifier la cohérence des registres
+☐ Planifier les commandes
+☐ Conformité réglementaire
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION Q : GESTION DES PRODUITS PÉRISSABLES ET PÉRIMÉS
+
+**Q1. Comment identifiez-vous les produits proches de l'expiration ?**
+☐ Contrôle visuel quotidien
+☐ Vérification du registre
+☐ Alerte d'un système informatisé
+☐ Signalétique spéciale sur les étagères
+☐ Autre (préciser) : ____________________________________________
+
+**Q2. À partir de quelle durée avant expiration un produit est-il considéré comme "proche de l'expiration" ?**
+☐ Moins d'une semaine
+☐ Moins d'un mois
+☐ Moins de 3 mois
+☐ Moins de 6 mois
+☐ Variable selon le produit
+
+**Q3. Que faites-vous des produits proches de l'expiration ? (Plusieurs réponses possibles)**
+☐ Mise en vente prioritaire
+☐ Vente à prix réduit
+☐ Retour au fournisseur
+☐ Mise de côté pour évaluation
+☐ Autre (préciser) : ____________________________________________
+
+**Q4. Que faites-vous des produits périmés ou inutilisables ?**
+☐ Élimination selon les normes sanitaires
+☐ Retour au fournisseur
+☐ Destruction certifiée
+☐ Collecte par un organisme spécialisé
+☐ Autre (préciser) : ____________________________________________
+
+**Q5. Comment enregistrez-vous la sortie des produits périmés / détruits ?**
+☐ Note dans le registre de stocks
+☐ Registre séparé des destructions
+☐ Procès-verbal de destruction
+☐ Pas d'enregistrement particulier
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION R : INCIDENTS ET ANOMALIES
+
+**R1. Avez-vous déjà constaté des incidents de stock ? (Plusieurs réponses possibles)**
+☐ Vols
+☐ Pertes inexpliquées
+☐ Erreurs de comptage
+☐ Produits endommagés
+☐ Écarts entre registre et stock réel
+☐ Aucun incident
+☐ Autre (préciser) : ____________________________________________
+
+**R2. Quelle est la fréquence de ces incidents ?**
+☐ Très rare (moins d'une fois par an)
+☐ Rare (1 à 2 fois par an)
+☐ Occasionnel (plusieurs fois par an)
+☐ Fréquent (mensuel ou plus)
+
+**R3. Comment traitez-vous ces incidents ?**
+☐ Notation de l'incident
+☐ Ajustement du stock
+☐ Enquête interne
+☐ Déclaration aux autorités
+☐ Aucune action particulière
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION S : OBLIGATIONS RÉGLEMENTAIRES
+
+**S1. Êtes-vous soumis à des contrôles d'autorités externes ?**
+☐ Oui
+☐ Non
+
+**S2. Si oui, quelles autorités ? (Plusieurs réponses possibles)**
+☐ Inspecteurs sanitaires du ministère de la Santé
+☐ Ordre des pharmaciens
+☐ Direction de la pharmacie et du médicament
+☐ Services fiscaux
+☐ Autre (préciser) : ____________________________________________
+
+**S3. À quelle fréquence ont lieu ces contrôles ?**
+☐ Très rarement (moins d'une fois par an)
+☐ Annuellement
+☐ Plusieurs fois par an
+☐ Régulièrement (préciser) : ____________________________________________
+☐ De manière imprévisible / occasionnelle
+
+**S4. Que vérifient ces inspecteurs ? (Plusieurs réponses possibles)**
+☐ Conformité des stocks
+☐ Dates d'expiration
+☐ Conditions de stockage
+☐ Registres et documents
+☐ Qualifications du personnel
+☐ Respect des prix réglementés
+☐ Autre (préciser) : ____________________________________________
+
+**S5. Quels documents leur fournissez-vous lors des contrôles ? (Plusieurs réponses possibles)**
+☐ Registres de stocks
+☐ Factures d'achat
+☐ Registre des ordonnances
+☐ Registre des médicaments contrôlés
+☐ Diplômes et autorisations
+☐ Autre (préciser) : ____________________________________________
+
+**S6. Avez-vous déjà reçu des recommandations suite à un contrôle ?**
+☐ Oui
+☐ Non
+
+**S7. Si oui, quel type de recommandations ? (Plusieurs réponses possibles)**
+☐ Amélioration des conditions de stockage
+☐ Retrait de lots rappelés
+☐ Mise à jour des registres
+☐ Formation du personnel
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION T : MÉDICAMENTS CONTRÔLÉS
+
+**T1. Vendez-vous des médicaments contrôlés / à déclaration obligatoire ?**
+☐ Oui
+☐ Non
+
+**T2. Si oui, quelles obligations spécifiques s'appliquent ? (Plusieurs réponses possibles)**
+☐ Registre spécial des stupéfiants
+☐ Déclaration mensuelle aux autorités
+☐ Déclaration trimestrielle aux autorités
+☐ Conservation des ordonnances
+☐ Stockage sécurisé séparé
+☐ Autre (préciser) : ____________________________________________
+
+**T3. Comment effectuez-vous ces déclarations ?**
+☐ Formulaires papier
+☐ Déclaration en ligne
+☐ Via un logiciel spécialisé
+☐ Autre (préciser) : ____________________________________________
+
+**T4. Quelles informations devez-vous déclarer ?**
+☐ Quantités vendues
+☐ Quantités en stock
+☐ Identité des patients
+☐ Identité des prescripteurs
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION U : SYSTÈME INFORMATIQUE ACTUEL
+
+**U1. Utilisez-vous actuellement un système informatique pour la gestion ?**
+☐ Oui
+☐ Non
+
+**U2. Si non, pourquoi ?**
+☐ Pas de besoin ressenti
+☐ Coût trop élevé
+☐ Manque de compétences informatiques
+☐ Préférence pour les méthodes manuelles
+☐ Autre (préciser) : ____________________________________________
+
+**U3. Si oui, quel(s) outil(s) utilisez-vous ? (Plusieurs réponses possibles)**
+☐ Tableur (Excel, etc.)
+☐ Logiciel de gestion pharmaceutique (préciser) : ____________________________________________
+☐ Logiciel de comptabilité
+☐ Logiciel de caisse
+☐ Application mobile
+☐ Autre (préciser) : ____________________________________________
+
+**U4. Pour quelles tâches utilisez-vous ces outils ? (Plusieurs réponses possibles)**
+☐ Gestion des stocks
+☐ Facturation
+☐ Comptabilité
+☐ Gestion des clients
+☐ Commandes fournisseurs
+☐ Autre (préciser) : ____________________________________________
+
+**U5. Disposez-vous d'un ordinateur dans la pharmacie ?**
+☐ Oui
+☐ Non
+
+**U6. Disposez-vous d'une connexion Internet ?**
+☐ Oui, connexion fixe (WiFi, fibre, ADSL)
+☐ Oui, connexion mobile uniquement
+☐ Non
+
+---
+
+## SECTION V : DIFFICULTÉS ET BESOINS
+
+**V1. Quelles difficultés rencontrez-vous dans la gestion actuelle ? (Plusieurs réponses possibles)**
+☐ Risque d'erreurs dans les registres
+☐ Temps consacré aux tâches administratives
+☐ Difficulté à suivre les dates d'expiration
+☐ Difficulté à anticiper les ruptures de stock
+☐ Perte d'informations
+☐ Manque de visibilité sur l'historique
+☐ Difficulté à établir des rapports
+☐ Autre (préciser) : ____________________________________________
+☐ Aucune difficulté particulière
+
+**V2. Quels aspects de la gestion aimeriez-vous améliorer ? (Plusieurs réponses possibles)**
+☐ Suivi des stocks en temps réel
+☐ Alertes automatiques (expiration, rupture)
+☐ Automatisation des commandes
+☐ Gestion des clients
+☐ Gestion des fournisseurs
+☐ Édition de rapports
+☐ Comptabilité
+☐ Autre (préciser) : ____________________________________________
+
+**V3. Seriez-vous favorable à l'adoption d'un système informatisé ?**
+☐ Oui, très favorable
+☐ Oui, sous certaines conditions
+☐ Neutre / indécis
+☐ Non, pas intéressé
+☐ Non, fortement opposé
+
+**V4. Si favorable sous conditions, lesquelles ? (Plusieurs réponses possibles)**
+☐ Coût abordable
+☐ Facilité d'utilisation
+☐ Formation incluse
+☐ Support technique disponible
+☐ Compatibilité avec les méthodes actuelles
+☐ Autre (préciser) : ____________________________________________
+
+---
+
+## SECTION W : INFORMATIONS COMPLÉMENTAIRES
+
+**W1. Estimez le nombre de produits différents en stock :**
+☐ Moins de 100 références
+☐ 100 à 300 références
+☐ 300 à 500 références
+☐ 500 à 1000 références
+☐ Plus de 1000 références
+
+**W2. Estimez le nombre de transactions (ventes) par jour :**
+☐ Moins de 10
+☐ 10 à 30
+☐ 30 à 50
+☐ 50 à 100
+☐ Plus de 100
+
+**W3. Estimez le nombre de commandes fournisseurs par mois :**
+☐ Moins de 5
+☐ 5 à 10
+☐ 10 à 20
+☐ 20 à 30
+☐ Plus de 30
+
+**W4. Y a-t-il d'autres aspects de votre fonctionnement que vous souhaitez mentionner ?**
+
+____________________________________________
+____________________________________________
+____________________________________________
+____________________________________________
+
+---
+
+## SECTION X : VALIDATION
+
+**X1. Les informations fournies dans ce questionnaire sont-elles exactes et complètes ?**
+☐ Oui
+☐ Partiellement (préciser les réserves) : ____________________________________________
+
+**X2. Acceptez-vous d'être recontacté pour des clarifications ?**
+☐ Oui
+☐ Non
+
+**X3. Si oui, quel est votre moyen de contact préféré ?**
+☐ Téléphone : ____________________________________________
+☐ Email : ____________________________________________
+☐ Autre : ____________________________________________
+
+---
+
+**SIGNATURE DU RÉPONDANT**
+
+Nom et prénom : ____________________________________________
+
+Fonction : ____________________________________________
+
+Date : ____/____/________
+
+Signature : ____________________________________________
+
+---
+
+**CACHET DE L'ÉTABLISSEMENT (optionnel)**
+
+---
+
+**RÉSERVÉ À L'ENQUÊTEUR**
+
+Observations : ____________________________________________
+____________________________________________
+____________________________________________
+
+Durée de l'entretien : ______ minutes
+
+Signature de l'enquêteur : ____________________________________________
+
+---
+
+*Merci pour votre participation. Les données collectées seront traitées de manière confidentielle et serviront exclusivement à l'élaboration d'une solution de gestion adaptée à vos besoins.*
+</div>
