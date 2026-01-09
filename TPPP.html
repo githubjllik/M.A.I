@@ -1,0 +1,741 @@
+<div>
+  # QUESTIONNAIRE D'ENQUÊTE POUR L'ÉTUDE DU SYSTÈME D'INFORMATION D'UNE PHARMACIE
+
+---
+
+## PRÉAMBULE
+
+**Titre de l'étude :** Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques
+
+**Structure enquêtée :** Pharmacie DIBAPHAR
+
+**Enquêteur :** Étudiant en Méthodologie d'Analyse Informatique
+
+**Date de l'enquête :** ____/____/________
+
+**Durée estimée :** 45 minutes à 1 heure
+
+---
+
+## OBJECTIFS DE L'ENQUÊTE
+
+La présente enquête vise à collecter les informations nécessaires pour comprendre le fonctionnement actuel de la pharmacie, identifier les processus de gestion des stocks, recenser les données manipulées et analyser les besoins en vue de concevoir un système d'information adapté.
+
+---
+
+## INSTRUCTIONS AU RÉPONDANT
+
+- Veuillez cocher la ou les cases correspondant à votre situation
+- Pour les questions à choix unique, cochez une seule case
+- Pour les questions à choix multiples, cochez toutes les cases pertinentes
+- Vos réponses resteront confidentielles et seront utilisées uniquement à des fins académiques
+
+---
+
+## SECTION 1 : IDENTIFICATION DE LA STRUCTURE
+
+### 1.1. Type d'établissement
+
+☐ Pharmacie indépendante  
+☐ Pharmacie appartenant à un groupe  
+☐ Pharmacie hospitalière  
+☐ Dépôt pharmaceutique  
+
+### 1.2. Statut juridique
+
+☐ Entreprise individuelle  
+☐ Société à responsabilité limitée (SARL)  
+☐ Société par actions  
+☐ Autre : _______________________
+
+### 1.3. Année de création de la pharmacie
+
+☐ Moins de 5 ans  
+☐ Entre 5 et 10 ans  
+☐ Entre 10 et 20 ans  
+☐ Plus de 20 ans  
+
+### 1.4. Jours d'ouverture
+
+☐ Du lundi au vendredi uniquement  
+☐ Du lundi au samedi  
+☐ Tous les jours de la semaine  
+☐ Uniquement certains jours (préciser) : _______________________
+
+### 1.5. Horaires d'ouverture
+
+☐ Temps partiel (moins de 8 heures par jour)  
+☐ Journée normale (8 à 10 heures par jour)  
+☐ Journée étendue (plus de 10 heures par jour)  
+☐ Service continu 24h/24  
+
+---
+
+## SECTION 2 : RESSOURCES HUMAINES
+
+### 2.1. Nombre total de personnes travaillant dans la pharmacie
+
+☐ 1 personne (le pharmacien uniquement)  
+☐ 2 à 3 personnes  
+☐ 4 à 5 personnes  
+☐ Plus de 5 personnes  
+
+### 2.2. Le propriétaire est-il également le pharmacien titulaire ?
+
+☐ Oui  
+☐ Non  
+
+### 2.3. Fonctions exercées au sein de la pharmacie (cochez toutes les fonctions existantes)
+
+☐ Pharmacien titulaire  
+☐ Pharmacien assistant  
+☐ Préparateur en pharmacie  
+☐ Vendeur/Caissier  
+☐ Gestionnaire de stock  
+☐ Comptable  
+☐ Agent d'entretien  
+☐ Autre : _______________________
+
+### 2.4. Qui est responsable de la gestion des stocks ?
+
+☐ Le pharmacien lui-même  
+☐ Un employé dédié  
+☐ Plusieurs personnes se partagent la tâche  
+☐ Aucune personne spécifiquement désignée  
+
+### 2.5. Qui effectue les commandes auprès des fournisseurs ?
+
+☐ Le pharmacien  
+☐ Un employé désigné  
+☐ Toute personne disponible  
+
+### 2.6. Qui réceptionne les livraisons ?
+
+☐ Le pharmacien  
+☐ Un employé désigné  
+☐ Toute personne présente  
+
+### 2.7. Qui effectue les ventes aux clients ?
+
+☐ Le pharmacien uniquement  
+☐ Le pharmacien et les employés  
+☐ Les employés uniquement  
+
+---
+
+## SECTION 3 : SYSTÈME DE GESTION ACTUEL
+
+### 3.1. Comment sont actuellement gérées les opérations de la pharmacie ?
+
+☐ Entièrement de manière manuelle (registres papier)  
+☐ Partiellement informatisée  
+☐ Entièrement informatisée  
+
+### 3.2. Outils actuellement utilisés pour la gestion (cochez tous ceux applicables)
+
+☐ Registres/cahiers manuscrits  
+☐ Fiches cartonnées  
+☐ Tableur (Excel ou similaire)  
+☐ Logiciel de gestion spécialisé  
+☐ Aucun outil particulier  
+
+### 3.3. Disposez-vous d'un ordinateur dans la pharmacie ?
+
+☐ Oui, utilisé pour la gestion  
+☐ Oui, mais non utilisé pour la gestion  
+☐ Non  
+
+### 3.4. Disposez-vous d'une connexion internet ?
+
+☐ Oui, connexion permanente  
+☐ Oui, connexion occasionnelle  
+☐ Non  
+
+### 3.5. Quels documents physiques utilisez-vous actuellement ? (cochez tous ceux applicables)
+
+☐ Registre des entrées de stock  
+☐ Registre des sorties de stock  
+☐ Registre des ventes  
+☐ Fiches de stock par produit  
+☐ Bons de commande  
+☐ Bons de livraison  
+☐ Factures fournisseurs  
+☐ Factures clients  
+☐ Ordonnances  
+☐ Registre des produits périmés  
+☐ Registre des stupéfiants  
+☐ Autre : _______________________
+
+---
+
+## SECTION 4 : GESTION DES PRODUITS
+
+### 4.1. Nombre approximatif de références (produits différents) en stock
+
+☐ Moins de 100 références  
+☐ Entre 100 et 500 références  
+☐ Entre 500 et 1000 références  
+☐ Plus de 1000 références  
+
+### 4.2. Types de produits commercialisés (cochez tous ceux applicables)
+
+☐ Médicaments sur ordonnance  
+☐ Médicaments sans ordonnance (OTC)  
+☐ Produits génériques  
+☐ Produits de parapharmacie  
+☐ Produits cosmétiques  
+☐ Matériel médical  
+☐ Produits d'hygiène  
+☐ Compléments alimentaires  
+☐ Produits vétérinaires  
+☐ Autre : _______________________
+
+### 4.3. Quelles informations enregistrez-vous pour chaque produit ? (cochez toutes celles applicables)
+
+☐ Nom commercial du produit  
+☐ Dénomination commune internationale (DCI)  
+☐ Forme galénique (comprimé, sirop, injectable, etc.)  
+☐ Dosage  
+☐ Conditionnement  
+☐ Numéro de lot  
+☐ Date de fabrication  
+☐ Date de péremption  
+☐ Prix d'achat  
+☐ Prix de vente  
+☐ Quantité en stock  
+☐ Seuil de réapprovisionnement  
+☐ Emplacement dans la pharmacie  
+☐ Fournisseur  
+☐ Code-barres  
+☐ Catégorie/Famille du produit  
+☐ Autre : _______________________
+
+### 4.4. Comment classez-vous les produits physiquement dans la pharmacie ?
+
+☐ Par ordre alphabétique  
+☐ Par catégorie thérapeutique  
+☐ Par forme galénique  
+☐ Par fournisseur  
+☐ Par date de péremption  
+☐ Sans classement particulier  
+☐ Autre : _______________________
+
+### 4.5. Comment identifiez-vous un produit de manière unique ?
+
+☐ Par son nom uniquement  
+☐ Par un code interne attribué  
+☐ Par le code-barres du fabricant  
+☐ Par le numéro de lot  
+☐ Aucune identification unique  
+
+---
+
+## SECTION 5 : GESTION DES FOURNISSEURS
+
+### 5.1. Nombre de fournisseurs avec lesquels vous travaillez régulièrement
+
+☐ 1 seul fournisseur  
+☐ 2 à 5 fournisseurs  
+☐ 6 à 10 fournisseurs  
+☐ Plus de 10 fournisseurs  
+
+### 5.2. Types de fournisseurs (cochez tous ceux applicables)
+
+☐ Grossistes-répartiteurs  
+☐ Laboratoires pharmaceutiques directement  
+☐ Importateurs  
+☐ Distributeurs locaux  
+☐ Autre : _______________________
+
+### 5.3. Quelles informations conservez-vous sur vos fournisseurs ? (cochez toutes celles applicables)
+
+☐ Nom/Raison sociale  
+☐ Adresse  
+☐ Numéro de téléphone  
+☐ Personne de contact  
+☐ Conditions de paiement  
+☐ Délais de livraison habituels  
+☐ Historique des commandes  
+☐ Produits fournis  
+☐ Numéro d'agrément  
+☐ Autre : _______________________
+
+### 5.4. Comment passez-vous vos commandes aux fournisseurs ?
+
+☐ Par téléphone  
+☐ Par visite du représentant/délégué  
+☐ Par bon de commande écrit  
+☐ Par courrier électronique  
+☐ Via une plateforme en ligne  
+☐ Autre : _______________________
+
+### 5.5. À quelle fréquence effectuez-vous des commandes ?
+
+☐ Quotidiennement  
+☐ Plusieurs fois par semaine  
+☐ Une fois par semaine  
+☐ Plusieurs fois par mois  
+☐ Une fois par mois  
+☐ De manière irrégulière selon les besoins  
+
+### 5.6. Comment déterminez-vous qu'il faut passer une commande ?
+
+☐ Constatation visuelle du stock faible  
+☐ Consultation du registre de stock  
+☐ Demande d'un client pour un produit manquant  
+☐ À dates fixes prédéfinies  
+☐ Alerte d'un système informatique  
+☐ Autre : _______________________
+
+---
+
+## SECTION 6 : RÉCEPTION DES LIVRAISONS
+
+### 6.1. À quelle fréquence recevez-vous des livraisons ?
+
+☐ Quotidiennement  
+☐ Plusieurs fois par semaine  
+☐ Une fois par semaine  
+☐ Plusieurs fois par mois  
+☐ De manière irrégulière  
+
+### 6.2. Quels documents accompagnent généralement une livraison ? (cochez tous ceux applicables)
+
+☐ Bon de livraison  
+☐ Facture  
+☐ Bon de commande original  
+☐ Certificat de conformité  
+☐ Aucun document  
+☐ Autre : _______________________
+
+### 6.3. Quelles vérifications effectuez-vous à la réception ? (cochez toutes celles applicables)
+
+☐ Concordance avec le bon de commande  
+☐ État physique des produits  
+☐ Quantités livrées  
+☐ Dates de péremption  
+☐ Numéros de lot  
+☐ Prix facturés  
+☐ Intégrité des emballages  
+☐ Aucune vérification systématique  
+
+### 6.4. Comment procédez-vous en cas de non-conformité lors de la réception ?
+
+☐ Refus de la livraison  
+☐ Acceptation avec réserve notée  
+☐ Contact immédiat du fournisseur  
+☐ Retour ultérieur des produits non conformes  
+☐ Autre : _______________________
+
+### 6.5. Comment enregistrez-vous les entrées en stock ?
+
+☐ Inscription dans un registre manuscrit  
+☐ Mise à jour de fiches de stock individuelles  
+☐ Saisie dans un fichier informatique  
+☐ Aucun enregistrement systématique  
+☐ Autre : _______________________
+
+---
+
+## SECTION 7 : GESTION DES VENTES
+
+### 7.1. Volume moyen de ventes par jour
+
+☐ Moins de 20 ventes  
+☐ Entre 20 et 50 ventes  
+☐ Entre 50 et 100 ventes  
+☐ Plus de 100 ventes  
+
+### 7.2. Types de clients (cochez tous ceux applicables)
+
+☐ Particuliers avec ordonnance  
+☐ Particuliers sans ordonnance  
+☐ Établissements de santé  
+☐ Autres pharmacies  
+☐ Organisations/Entreprises  
+☐ Autre : _______________________
+
+### 7.3. Modes de paiement acceptés (cochez tous ceux applicables)
+
+☐ Espèces  
+☐ Crédit (paiement différé)  
+☐ Autre : _______________________
+
+### 7.4. Accordez-vous des ventes à crédit ?
+
+☐ Oui, régulièrement  
+☐ Oui, occasionnellement à certains clients  
+☐ Non, jamais  
+
+### 7.5. Si oui, comment gérez-vous les crédits clients ?
+
+☐ Registre des crédits manuscrit  
+☐ Fiches individuelles par client  
+☐ Fichier informatique  
+☐ De mémoire uniquement  
+☐ Non applicable  
+
+### 7.6. Quelles informations enregistrez-vous pour une vente ? (cochez toutes celles applicables)
+
+☐ Date de la vente  
+☐ Produits vendus  
+☐ Quantités  
+☐ Prix unitaire  
+☐ Montant total  
+☐ Identité du client  
+☐ Numéro d'ordonnance  
+☐ Nom du prescripteur  
+☐ Mode de paiement  
+☐ Aucune information enregistrée systématiquement  
+
+### 7.7. Délivrez-vous un document au client après la vente ?
+
+☐ Ticket de caisse  
+☐ Facture  
+☐ Reçu manuscrit  
+☐ Aucun document  
+
+### 7.8. Comment mettez-vous à jour le stock après une vente ?
+
+☐ Déduction immédiate sur fiche de stock  
+☐ Mise à jour en fin de journée  
+☐ Mise à jour périodique (hebdomadaire, mensuelle)  
+☐ Aucune mise à jour systématique  
+
+---
+
+## SECTION 8 : SUIVI DES STOCKS
+
+### 8.1. Effectuez-vous des inventaires physiques ?
+
+☐ Oui, quotidiennement  
+☐ Oui, hebdomadairement  
+☐ Oui, mensuellement  
+☐ Oui, trimestriellement  
+☐ Oui, annuellement  
+☐ Non, jamais  
+
+### 8.2. Comment procédez-vous pour l'inventaire ?
+
+☐ Comptage manuel de tous les produits  
+☐ Comptage par échantillonnage  
+☐ Comparaison avec les registres  
+☐ Utilisation d'un outil informatique  
+☐ Autre : _______________________
+
+### 8.3. Avez-vous défini des seuils minimaux de stock (seuils d'alerte) ?
+
+☐ Oui, pour tous les produits  
+☐ Oui, pour certains produits essentiels  
+☐ Non  
+
+### 8.4. Comment êtes-vous alerté lorsqu'un produit atteint un niveau critique ?
+
+☐ Constatation visuelle lors des ventes  
+☐ Consultation régulière des fiches de stock  
+☐ Lors de l'inventaire  
+☐ Aucun système d'alerte  
+
+### 8.5. Comment gérez-vous les ruptures de stock ?
+
+☐ Commande urgente au fournisseur  
+☐ Proposition d'un produit de substitution au client  
+☐ Orientation du client vers une autre pharmacie  
+☐ Enregistrement pour commande ultérieure  
+☐ Autre : _______________________
+
+---
+
+## SECTION 9 : GESTION DES PÉREMPTIONS
+
+### 9.1. Comment surveillez-vous les dates de péremption ?
+
+☐ Vérification visuelle régulière des rayons  
+☐ Registre des dates de péremption  
+☐ Système de rangement par date (FEFO)  
+☐ Alerte informatique  
+☐ Aucun suivi systématique  
+
+### 9.2. À quelle fréquence vérifiez-vous les dates de péremption ?
+
+☐ Quotidiennement  
+☐ Hebdomadairement  
+☐ Mensuellement  
+☐ Lors des inventaires  
+☐ Rarement ou jamais  
+
+### 9.3. Combien de temps à l'avance identifiez-vous les produits proches de la péremption ?
+
+☐ 1 mois avant  
+☐ 2 à 3 mois avant  
+☐ 6 mois avant  
+☐ Plus de 6 mois avant  
+☐ Aucune anticipation  
+
+### 9.4. Que faites-vous des produits proches de la péremption ? (cochez toutes les actions applicables)
+
+☐ Mise en avant pour vente prioritaire  
+☐ Retour au fournisseur si possible  
+☐ Destruction  
+☐ Don à des structures caritatives  
+☐ Aucune action particulière  
+
+### 9.5. Que faites-vous des produits périmés ?
+
+☐ Retrait immédiat des rayons  
+☐ Enregistrement dans un registre spécifique  
+☐ Destruction selon les normes  
+☐ Retour au fournisseur  
+☐ Stockage en attente de destruction  
+
+### 9.6. Tenez-vous un registre des produits détruits ?
+
+☐ Oui, systématiquement  
+☐ Oui, occasionnellement  
+☐ Non  
+
+---
+
+## SECTION 10 : PROBLÈMES ET DIFFICULTÉS ACTUELS
+
+### 10.1. Quelles difficultés rencontrez-vous dans la gestion des stocks ? (cochez toutes celles applicables)
+
+☐ Ruptures de stock fréquentes  
+☐ Surstockage de certains produits  
+☐ Pertes dues aux péremptions  
+☐ Difficulté à connaître l'état réel du stock  
+☐ Erreurs dans les enregistrements  
+☐ Temps excessif consacré à la gestion manuelle  
+☐ Difficulté à identifier les produits à commander  
+☐ Manque de traçabilité  
+☐ Difficultés lors des inventaires  
+☐ Autre : _______________________
+
+### 10.2. Estimez-vous que le système actuel est satisfaisant ?
+
+☐ Très satisfaisant  
+☐ Plutôt satisfaisant  
+☐ Peu satisfaisant  
+☐ Pas du tout satisfaisant  
+
+### 10.3. Quelles sont vos principales sources de pertes financières liées au stock ? (cochez toutes celles applicables)
+
+☐ Produits périmés  
+☐ Produits détériorés  
+☐ Vols ou pertes inexpliquées  
+☐ Erreurs de commande  
+☐ Ruptures de stock (ventes manquées)  
+☐ Aucune perte significative  
+
+### 10.4. Temps consacré quotidiennement à la gestion des stocks
+
+☐ Moins de 30 minutes  
+☐ 30 minutes à 1 heure  
+☐ 1 à 2 heures  
+☐ Plus de 2 heures  
+
+---
+
+## SECTION 11 : BESOINS ET ATTENTES
+
+### 11.1. Seriez-vous intéressé par un système informatisé de gestion des stocks ?
+
+☐ Très intéressé  
+☐ Plutôt intéressé  
+☐ Peu intéressé  
+☐ Pas du tout intéressé  
+
+### 11.2. Quelles fonctionnalités souhaiteriez-vous dans un système de gestion ? (cochez toutes celles souhaitées)
+
+☐ Enregistrement des produits  
+☐ Suivi des entrées et sorties  
+☐ Alerte de stock minimum  
+☐ Alerte de péremption  
+☐ Génération automatique des commandes  
+☐ Gestion des fournisseurs  
+☐ Historique des ventes  
+☐ Gestion des clients  
+☐ Inventaire automatisé  
+☐ Tableaux de bord et statistiques  
+☐ Gestion des crédits clients  
+☐ Impression de factures  
+☐ Autre : _______________________
+
+### 11.3. Quelles alertes automatiques jugez-vous prioritaires ? (classez de 1 à 5, 1 étant le plus prioritaire)
+
+☐ Alerte stock minimum atteint : rang ____  
+☐ Alerte produit proche de la péremption : rang ____  
+☐ Alerte rupture de stock : rang ____  
+☐ Alerte commande en attente de livraison : rang ____  
+☐ Alerte crédit client élevé : rang ____  
+
+### 11.4. Quel délai d'anticipation souhaitez-vous pour les alertes de péremption ?
+
+☐ 1 mois avant  
+☐ 2 mois avant  
+☐ 3 mois avant  
+☐ 6 mois avant  
+
+### 11.5. Disposez-vous du matériel nécessaire pour un système informatisé ?
+
+☐ Oui, tout le matériel nécessaire  
+☐ Partiellement, certains équipements manquent  
+☐ Non, aucun matériel disponible  
+
+### 11.6. Êtes-vous familier avec l'utilisation d'un ordinateur ?
+
+☐ Très à l'aise  
+☐ Plutôt à l'aise  
+☐ Peu à l'aise  
+☐ Pas du tout à l'aise  
+
+---
+
+## SECTION 12 : RÉGLEMENTATION ET CONFORMITÉ
+
+### 12.1. Êtes-vous soumis à des obligations de traçabilité réglementaire ?
+
+☐ Oui, pour tous les produits  
+☐ Oui, pour certains produits (stupéfiants, etc.)  
+☐ Non  
+☐ Ne sait pas  
+
+### 12.2. Tenez-vous un registre des stupéfiants ?
+
+☐ Oui  
+☐ Non  
+☐ Non applicable  
+
+### 12.3. Êtes-vous soumis à des contrôles des autorités sanitaires ?
+
+☐ Oui, régulièrement  
+☐ Oui, occasionnellement  
+☐ Non  
+
+### 12.4. Quels documents devez-vous produire lors des contrôles ? (cochez tous ceux applicables)
+
+☐ Registre des entrées  
+☐ Registre des sorties  
+☐ Registre des stupéfiants  
+☐ Registre des périmés détruits  
+☐ Factures d'achat  
+☐ Autre : _______________________
+
+---
+
+## SECTION 13 : INFORMATIONS COMPLÉMENTAIRES
+
+### 13.1. Y a-t-il des processus spécifiques à votre pharmacie non abordés dans ce questionnaire ?
+
+☐ Non, tout a été couvert  
+☐ Oui (préciser) : _______________________
+
+### 13.2. Avez-vous des remarques ou suggestions concernant cette étude ?
+
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+
+---
+
+## CERTIFICATION DU RÉPONDANT
+
+Je certifie que les informations fournies dans ce questionnaire sont exactes et reflètent le fonctionnement réel de la pharmacie.
+
+**Fonction du répondant :** ☐ Pharmacien titulaire ☐ Gérant ☐ Autre : ____________
+
+**Signature :** _________________________ **Date :** ____/____/________
+
+---
+
+## RÉSERVÉ À L'ENQUÊTEUR
+
+**Observations de l'enquêteur :**
+_________________________________________________________________________
+_________________________________________________________________________
+
+**Durée effective de l'enquête :** _________ minutes
+
+**Qualité des réponses obtenues :** ☐ Excellente ☐ Bonne ☐ Moyenne ☐ Insuffisante
+
+**Signature de l'enquêteur :** _________________________ **Date :** ____/____/________
+
+---
+---
+---
+
+# ÉNONCÉ DU CAS D'ÉTUDE : PHARMACIE DIBAPHAR
+
+## Description du système existant et des scénarios de fonctionnement
+
+La pharmacie DIBAPHAR est une officine de petite taille ouverte tous les jours de la semaine avec des horaires étendus. Le pharmacien titulaire est également le propriétaire de l'établissement et assure seul l'ensemble des activités quotidiennes. La gestion actuelle repose entièrement sur des procédures manuelles utilisant des registres papier et des fiches cartonnées. La pharmacie commercialise environ 400 références comprenant des médicaments sur ordonnance, des médicaments sans ordonnance, des produits génériques et des produits de parapharmacie. Chaque produit est caractérisé par son nom commercial, sa forme galénique, son dosage, son conditionnement, son numéro de lot, sa date de péremption, son prix d'achat, son prix de vente, sa quantité en stock et sa catégorie. Le pharmacien travaille avec plusieurs fournisseurs grossistes dont il conserve les coordonnées, le numéro de téléphone et les conditions de paiement habituelles.
+
+Lorsqu'un fournisseur envoie son représentant à la pharmacie, le pharmacien consulte ses fiches de stock pour identifier les produits dont la quantité disponible est devenue insuffisante. Le pharmacien examine chaque fiche concernée et note sur un bon de commande les produits à commander avec les quantités souhaitées. Le pharmacien remet ensuite le bon de commande au représentant du fournisseur qui l'emporte pour traitement.
+
+Lorsque le livreur du fournisseur arrive à la pharmacie avec les produits commandés, le pharmacien réceptionne les colis accompagnés du bon de livraison et de la facture. Le pharmacien procède à la vérification en comparant les produits livrés avec le bon de livraison, en contrôlant les quantités, en examinant l'état physique des produits et en vérifiant les dates de péremption inscrites sur chaque article. Le pharmacien signe le bon de livraison pour confirmer la réception conforme. Le pharmacien range ensuite les produits reçus dans les rayonnages selon leur catégorie thérapeutique. Le pharmacien met à jour chaque fiche de stock concernée en inscrivant la nouvelle quantité, le numéro de lot et la date de péremption. Le pharmacien classe la facture dans le dossier du fournisseur correspondant et note la date de règlement prévue selon les conditions de paiement convenues.
+
+Lorsqu'un client se présente au comptoir avec une ordonnance, le pharmacien accueille le client et prend connaissance de l'ordonnance. Le pharmacien vérifie la validité de l'ordonnance en examinant la date, le nom du prescripteur et les médicaments prescrits. Le pharmacien recherche chaque médicament prescrit dans les rayonnages en sélectionnant prioritairement les produits dont la date de péremption est la plus proche. Le pharmacien vérifie que les quantités disponibles permettent de satisfaire la demande. Le pharmacien calcule le montant total de la vente en additionnant les prix des produits délivrés. Le client remet le montant en espèces au pharmacien. Le pharmacien encaisse le paiement et remet les médicaments au client accompagnés des conseils d'utilisation. Le pharmacien inscrit la vente dans le registre des ventes en notant la date, les produits vendus, les quantités et le montant. Le pharmacien met à jour les fiches de stock des produits vendus en diminuant les quantités correspondantes.
+
+Lorsqu'un client régulier connu du pharmacien demande à régler ultérieurement, le pharmacien accepte la vente à crédit après avoir délivré les produits. Le pharmacien inscrit la vente dans le registre des ventes avec la mention crédit. Le pharmacien ouvre une fiche au nom du client dans le registre des crédits en y inscrivant la date, le détail des produits et le montant dû. Le pharmacien met à jour les fiches de stock des produits vendus.
+
+Lorsqu'un client revient régler sa dette, le pharmacien consulte la fiche du client dans le registre des crédits. Le client remet le montant dû en espèces. Le pharmacien encaisse le paiement et inscrit la date de règlement sur la fiche du client. Le pharmacien clôture la fiche de crédit du client.
+
+Chaque mois, le pharmacien effectue une vérification des dates de péremption en parcourant les rayonnages. Le pharmacien examine la date de péremption inscrite sur chaque produit. Le pharmacien identifie les produits dont la date de péremption approche dans les trois mois à venir et les place en avant des rayons pour une vente prioritaire. Le pharmacien retire des rayons les produits dont la date de péremption est dépassée. Le pharmacien inscrit chaque produit périmé dans le registre des produits périmés en notant le nom du produit, la quantité, le numéro de lot, la date de péremption et la date du retrait. Le pharmacien stocke les produits périmés dans un espace dédié en attente de destruction.
+
+Chaque trimestre, le pharmacien réalise un inventaire physique complet du stock. Le pharmacien parcourt systématiquement tous les rayonnages et compte les quantités de chaque produit présent. Le pharmacien compare les quantités comptées avec les quantités inscrites sur les fiches de stock. Le pharmacien identifie les écarts entre le stock physique et le stock théorique. Le pharmacien corrige les fiches de stock pour refléter les quantités réelles constatées. Le pharmacien établit un état récapitulatif de l'inventaire mentionnant la valeur totale du stock et les écarts identifiés.
+
+---
+
+**Fin de l'énoncé**
+</div>
+
+
+<div>
+  # ÉTUDE DE CAS : Gestion des stocks de la Pharmacie DIBAPHAR
+
+La pharmacie DIBAPHAR est un établissement pharmaceutique de petite taille situé dans un quartier résidentiel. Elle appartient à M. Dibaphar, communément appelé Papa Dibaphar par les habitants du quartier, qui en assure seul la gestion quotidienne. La pharmacie est ouverte tous les jours de 07h00 à 21h00. Papa Dibaphar s'occupe personnellement de toutes les opérations liées au fonctionnement de son officine, depuis l'approvisionnement jusqu'à la vente aux clients, en passant par la tenue des registres et le suivi des stocks. L'ensemble de la gestion est effectué manuellement à l'aide de registres papier et de fiches cartonnées.
+
+## Des produits pharmaceutiques
+
+Les produits vendus à la pharmacie DIBAPHAR sont répartis en plusieurs catégories : les médicaments sur ordonnance, les médicaments en vente libre, les produits cosmétiques et d'hygiène, les dispositifs médicaux et les produits de parapharmacie. Chaque produit est enregistré dans un registre appelé « Registre des produits » où Papa Dibaphar consigne les informations suivantes : la référence du produit attribuée par la pharmacie, la désignation du produit, le nom du fabricant, la forme pharmaceutique (comprimé, sirop, pommade, injection, etc.), le dosage, la catégorie à laquelle appartient le produit, le prix d'achat unitaire, le prix de vente unitaire, le seuil d'alerte représentant la quantité minimale à partir de laquelle il faut passer une nouvelle commande, et la quantité actuelle en stock. Les produits sont rangés dans des rayonnages numérotés et des armoires réfrigérées pour ceux nécessitant une conservation au froid. Chaque emplacement de stockage est identifié par un code d'emplacement que Papa Dibaphar note également sur la fiche du produit pour faciliter la recherche.
+
+## De l'approvisionnement
+
+Papa Dibaphar travaille avec plusieurs fournisseurs grossistes-répartiteurs agréés pour l'approvisionnement de sa pharmacie. Chaque fournisseur est enregistré dans un carnet appelé « Carnet des fournisseurs » où sont consignés : le code fournisseur, la raison sociale, l'adresse du siège, le numéro de téléphone, l'adresse email, le nom du représentant commercial, le numéro d'agrément et les conditions de paiement accordées (délai de paiement, remises éventuelles).
+
+Lorsque Papa Dibaphar constate qu'un produit atteint son seuil d'alerte en consultant son registre des produits, il procède à une commande de réapprovisionnement. Il rédige un bon de commande en trois exemplaires numérotés séquentiellement sur lequel il inscrit : le numéro de la commande, la date de la commande, le code et la raison sociale du fournisseur destinataire, et pour chaque produit commandé : la référence du produit, la désignation, la quantité commandée et le prix unitaire convenu. Le premier exemplaire du bon de commande est transmis au fournisseur par téléphone suivi d'une confirmation par message ou par remise directe au représentant commercial lors de son passage. Le deuxième exemplaire est classé dans un classeur intitulé « Commandes en cours ». Le troisième exemplaire est conservé dans une souche pour archivage.
+
+Le fournisseur traite la commande et organise la livraison des produits à la pharmacie. Lors de la livraison, le livreur du fournisseur remet à Papa Dibaphar les produits accompagnés d'un bordereau de livraison et d'une facture. Papa Dibaphar procède à la réception des produits en vérifiant la conformité des produits livrés par rapport au bon de commande et au bordereau de livraison. Il contrôle pour chaque produit : la référence, la désignation, la quantité livrée, l'état des emballages, les numéros de lot et les dates de péremption. Après vérification, Papa Dibaphar signe le bordereau de livraison dont il conserve un exemplaire. Il enregistre ensuite la réception dans un registre appelé « Registre des entrées en stock » où il note : le numéro d'entrée attribué séquentiellement, la date de réception, le numéro de la commande correspondante, le code et la raison sociale du fournisseur, et pour chaque produit reçu : la référence du produit, la désignation, la quantité reçue, le numéro de lot, la date de péremption et le prix d'achat unitaire. Il met ensuite à jour la quantité en stock dans le registre des produits en ajoutant la quantité reçue à la quantité existante. Il range les produits dans leurs emplacements respectifs en veillant à appliquer la règle du « premier périmé, premier sorti », c'est-à-dire en plaçant les produits ayant la date de péremption la plus proche devant les autres. Le bon de commande correspondant est retiré du classeur « Commandes en cours » et archivé avec le bordereau de livraison et la facture dans un classeur « Livraisons effectuées ».
+
+Concernant le règlement des factures fournisseurs, Papa Dibaphar procède au paiement selon les conditions convenues avec chaque fournisseur. Il consigne chaque règlement dans un registre appelé « Registre des règlements fournisseurs » où il note : le numéro du règlement, la date du règlement, le code fournisseur, le numéro de la facture réglée, le montant payé et le mode de paiement utilisé (espèces, chèque ou virement bancaire). Il conserve les preuves de paiement avec les factures correspondantes.
+
+## De la vente aux clients
+
+Les clients se présentent à la pharmacie pour l'achat de produits pharmaceutiques. Certains clients viennent avec une ordonnance médicale délivrée par un médecin, tandis que d'autres demandent directement des produits en vente libre. Lorsqu'un client entre dans la pharmacie, Papa Dibaphar l'accueille et prend connaissance de sa demande. Si le client présente une ordonnance, Papa Dibaphar en prend connaissance, vérifie la validité de l'ordonnance (date de prescription, identification du médecin prescripteur, lisibilité des médicaments prescrits) et identifie les produits à délivrer. Si le client demande un produit en vente libre, Papa Dibaphar écoute sa demande et identifie le produit correspondant.
+
+Papa Dibaphar vérifie la disponibilité des produits demandés en consultant son registre des produits. Il se rend ensuite dans les rayonnages ou armoires appropriés pour récupérer les produits. Il vérifie la date de péremption de chaque produit avant de le remettre au client, en s'assurant que le produit n'est pas périmé et dispose d'une durée de validité suffisante. Il calcule le montant total de la vente en additionnant les prix de vente unitaires des produits multipliés par les quantités demandées. Il communique le montant au client qui effectue le paiement en espèces. Papa Dibaphar encaisse le montant, rend la monnaie au client et lui remet les produits.
+
+Papa Dibaphar établit alors un ticket de caisse en deux exemplaires sur lequel figurent : le numéro du ticket attribué séquentiellement, la date et l'heure de la vente, le détail des produits vendus (référence, désignation, quantité, prix unitaire, montant par ligne), le montant total de la vente et le montant reçu du client. Le premier exemplaire du ticket est remis au client, le second est conservé pour la comptabilité journalière. Si le client a présenté une ordonnance, Papa Dibaphar appose son cachet et sa signature sur l'ordonnance, inscrit la date de délivrance et conserve une copie de l'ordonnance qu'il classe dans un classeur « Ordonnances exécutées ».
+
+Après chaque vente, Papa Dibaphar enregistre l'opération dans un registre appelé « Registre des sorties de stock » où il consigne : le numéro de sortie attribué séquentiellement, la date de la sortie, le numéro du ticket de caisse correspondant, et pour chaque produit vendu : la référence du produit, la désignation, la quantité vendue et le prix de vente unitaire. Il met ensuite à jour la quantité en stock dans le registre des produits en soustrayant la quantité vendue de la quantité existante.
+
+## De la gestion des ventes journalières
+
+À la fin de chaque journée de travail, après la fermeture de la pharmacie à 21h00, Papa Dibaphar effectue la clôture de caisse. Il compte le montant total des espèces présentes dans la caisse. Il additionne les montants de tous les tickets de caisse émis pendant la journée pour obtenir le chiffre d'affaires journalier. Il vérifie que le montant en caisse correspond au chiffre d'affaires journalier ajouté au fonds de caisse initial. Il consigne ces informations dans un registre appelé « Registre de caisse » où il note : la date, le fonds de caisse initial, le total des ventes de la journée, le montant en caisse à la clôture et les éventuels écarts constatés. Les tickets de caisse de la journée sont regroupés et conservés avec la feuille de clôture de caisse correspondante.
+
+## Du suivi des stocks et des alertes
+
+Papa Dibaphar effectue régulièrement un contrôle de son stock pour identifier les produits nécessitant un réapprovisionnement et les produits approchant de leur date de péremption. Chaque semaine, il parcourt son registre des produits et compare la quantité en stock de chaque produit avec son seuil d'alerte. Lorsqu'un produit a une quantité en stock inférieure ou égale à son seuil d'alerte, Papa Dibaphar inscrit ce produit sur une liste appelée « Liste des produits à commander » où il note la référence du produit, la désignation, la quantité actuelle en stock, le seuil d'alerte et la quantité à commander. Cette liste lui sert de base pour préparer ses prochaines commandes auprès des fournisseurs.
+
+Concernant la surveillance des dates de péremption, Papa Dibaphar tient un registre appelé « Registre de suivi des péremptions » où il consigne pour chaque lot de produit en stock : la référence du produit, la désignation, le numéro de lot, la date de péremption et la quantité restante. Chaque mois, il parcourt ce registre et identifie les produits dont la date de péremption approche (dans les trois mois à venir). Ces produits sont placés en avant dans les rayonnages pour être vendus en priorité. Les produits dont la date de péremption est dépassée sont retirés des rayonnages. Papa Dibaphar enregistre ces retraits dans un registre appelé « Registre des produits périmés » où il note : la date du retrait, la référence du produit, la désignation, le numéro de lot, la date de péremption et la quantité retirée. Les produits périmés sont stockés séparément en attendant leur destruction selon les normes en vigueur.
+
+## De l'inventaire périodique
+
+Chaque mois, Papa Dibaphar réalise un inventaire physique de son stock. Il compte physiquement les quantités de chaque produit présent dans la pharmacie et compare ces quantités avec celles inscrites dans le registre des produits. Il consigne les résultats de l'inventaire dans un document appelé « Fiche d'inventaire » où il note pour chaque produit : la référence, la désignation, la quantité théorique (inscrite dans le registre), la quantité physique (comptée) et l'écart éventuel. En cas d'écart, Papa Dibaphar recherche l'origine de la différence (erreur d'enregistrement, casse, vol, etc.) et procède à la régularisation en mettant à jour le registre des produits avec la quantité physique réelle. Les écarts significatifs sont notés dans un registre appelé « Registre des anomalies de stock » où il consigne la date, la référence du produit concerné, la nature de l'anomalie et les mesures correctives prises.
+
+## Des informations manipulées
+
+Les informations manipulées dans le cadre de la gestion des stocks de la pharmacie DIBAPHAR comprennent : référence produit, désignation produit, nom fabricant, forme pharmaceutique, dosage produit, catégorie produit, prix achat unitaire, prix vente unitaire, seuil alerte, quantité stock, code emplacement, code fournisseur, raison sociale fournisseur, adresse fournisseur, téléphone fournisseur, email fournisseur, nom représentant, numéro agrément fournisseur, conditions paiement, numéro commande, date commande, quantité commandée, numéro entrée, date réception, numéro lot, date péremption, numéro ticket, date vente, heure vente, quantité vendue, montant vente, numéro sortie, date sortie, numéro règlement, date règlement, montant règlement, mode paiement, date inventaire, quantité théorique, quantité physique, écart inventaire, date retrait périmé, quantité retirée.
+
+**Travail à faire :** Construire les MCC, MCT, MOT, MCD, MOD, MLD et MPD de l'énoncé ci-dessus.
+</div>

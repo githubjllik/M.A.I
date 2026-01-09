@@ -1,0 +1,102 @@
+# Description Textuelle du Cas d'Étude : Pharmacie DIBAPHAR
+
+## Introduction
+
+Dans le cadre de notre étude portant sur la conception d'un système de gestion des stocks pour une pharmacie avec alertes automatiques, nous avons mené une enquête auprès de la pharmacie DIBAPHAR, un établissement pharmaceutique de quartier. Cette pharmacie, de taille modeste, est détenue et gérée par un pharmacien unique qui assure l'ensemble des opérations quotidiennes. L'établissement est ouvert tous les jours de 07h à 21h et fonctionne selon des procédures entièrement manuelles.
+
+Notre enquête s'est déroulée sur plusieurs jours d'observation et d'entretiens avec le pharmacien. Nous avons pu identifier les différents processus métier, les acteurs impliqués, les données manipulées ainsi que les flux d'information circulant au sein de cet établissement. L'objectif est de comprendre le fonctionnement actuel afin de proposer une solution informatique adaptée permettant d'optimiser la gestion des stocks et d'intégrer des mécanismes d'alertes automatiques pour prévenir les ruptures de stock et surveiller les dates de péremption des produits pharmaceutiques.
+
+Les résultats de notre enquête sont présentés ci-dessous à travers la description des différents scénarios de fonctionnement observés.
+
+---
+
+## Scénario 1 : Approvisionnement auprès du Fournisseur
+
+Le pharmacien constate un besoin de réapprovisionnement suite à l'épuisement progressif de certains produits. Il consulte son registre d'inventaire dans lequel sont consignés tous les produits pharmaceutiques disponibles en stock. Pour chaque produit, le registre contient la référence du produit, sa désignation, la forme pharmaceutique, le dosage, la quantité en stock, le seuil minimum de stock, le prix d'achat unitaire et le prix de vente unitaire. Le pharmacien identifie les produits dont la quantité en stock a atteint le seuil minimum défini.
+
+Le pharmacien rédige alors un bon de commande destiné au fournisseur. Sur ce bon de commande, il inscrit la date de commande, un numéro de commande séquentiel, ainsi que la liste des produits à commander. Pour chaque produit commandé, il note la référence du produit, la désignation, la quantité commandée et le prix d'achat unitaire convenu. Le bon de commande mentionne également les informations du fournisseur concerné, à savoir sa raison sociale, son adresse et son contact.
+
+Le pharmacien transmet le bon de commande au fournisseur. Le fournisseur réceptionne la commande et prépare la livraison. **Il se présente ensuite à la pharmacie avec les produits commandés**, accompagnés d'un bon de livraison et de la facture correspondante. Le pharmacien vérifie la conformité des produits livrés par rapport au bon de commande. Il contrôle pour chaque produit la référence, la désignation, la quantité livrée, le numéro de lot et la date de péremption.
+
+Une fois la vérification effectuée, le fournisseur présente la facture globale de la commande. Le pharmacien procède au règlement immédiat du montant total indiqué sur la facture. Le fournisseur encaisse le paiement et remet une quittance attestant du règlement.
+
+Le pharmacien signe le bon de livraison pour attester de la réception. Il procède ensuite à la mise à jour de son registre d'inventaire. Pour chaque produit reçu, il ajoute la quantité livrée à la quantité existante en stock. Il enregistre également dans son registre des entrées de stock les informations suivantes : la date d'entrée, la référence du produit, la désignation, la quantité entrée, le numéro de lot, la date de péremption et la référence du bon de livraison.
+
+Le pharmacien range les produits dans les rayonnages de la pharmacie en respectant l'ordre de péremption, les produits ayant la date de péremption la plus proche étant placés devant. Le pharmacien conserve le bon de livraison, la facture acquittée et le bon de commande correspondant dans son classeur des approvisionnements.
+
+---
+
+## Scénario 2 : Vente de Produits au Client
+
+Un client se présente au comptoir de la pharmacie avec une ordonnance médicale. Le pharmacien réceptionne l'ordonnance et procède à sa lecture. L'ordonnance contient le nom du patient, la date de prescription, le nom du médecin prescripteur ainsi que la liste des médicaments prescrits avec leur posologie.
+
+Le pharmacien recherche dans ses rayonnages les produits correspondant à la prescription. Pour chaque produit, il vérifie la disponibilité en stock en consultant son registre d'inventaire. Le pharmacien sélectionne les produits en privilégiant ceux dont la date de péremption est la plus proche tout en restant valide.
+
+Le pharmacien prépare les produits et les présente au client. Il informe le client du prix total de la vente. Le client effectue le paiement du montant indiqué. Le pharmacien reçoit le paiement et remet les produits au client accompagnés d'un ticket de vente.
+
+Sur le ticket de vente, le pharmacien inscrit la date de vente, un numéro de vente séquentiel, la liste des produits vendus avec pour chacun la désignation, la quantité vendue, le prix unitaire et le montant correspondant. Le ticket mentionne également le montant total de la vente.
+
+Le pharmacien procède à la mise à jour de son registre d'inventaire. Pour chaque produit vendu, il soustrait la quantité vendue de la quantité en stock. Il enregistre dans son registre des sorties de stock les informations suivantes : la date de sortie, la référence du produit, la désignation, la quantité sortie, le motif de sortie qui est la vente, et la référence du ticket de vente.
+
+Le pharmacien conserve une copie du ticket de vente dans son registre des ventes quotidiennes.
+
+---
+
+## Scénario 3 : Contrôle des Dates de Péremption
+
+Chaque début de semaine, le pharmacien effectue un contrôle périodique de son stock. Il parcourt son registre d'inventaire et identifie les produits dont la date de péremption approche. Le pharmacien définit un délai d'alerte de trois mois avant la date de péremption.
+
+Pour chaque produit identifié comme proche de la péremption, le pharmacien consulte le numéro de lot correspondant et la quantité restante en stock. Le pharmacien inscrit ces produits dans son registre des alertes de péremption. Il note la date du contrôle, la référence du produit, la désignation, le numéro de lot, la date de péremption, la quantité concernée et le nombre de jours restants avant péremption.
+
+Le pharmacien place les produits concernés en avant dans les rayonnages afin de favoriser leur vente prioritaire. Le pharmacien identifie également les produits dont la date de péremption est dépassée. Pour ces produits périmés, le pharmacien procède à leur retrait des rayonnages.
+
+Le pharmacien enregistre dans son registre des sorties de stock les informations relatives aux produits retirés : la date de sortie, la référence du produit, la désignation, la quantité retirée, le numéro de lot, la date de péremption et le motif de sortie qui est la péremption. Le pharmacien met à jour son registre d'inventaire en soustrayant les quantités retirées.
+
+Les produits périmés sont isolés dans un espace dédié en attente de destruction. Le pharmacien prépare un procès-verbal de destruction mentionnant la liste des produits à détruire avec leurs références, désignations, quantités, numéros de lot et dates de péremption.
+
+---
+
+## Scénario 4 : Inspection Sanitaire
+
+Un inspecteur sanitaire des autorités compétentes se présente à la pharmacie pour effectuer un contrôle réglementaire. Le pharmacien accueille l'inspecteur et lui présente les documents requis.
+
+L'inspecteur demande à consulter le registre d'inventaire afin de vérifier la traçabilité des produits. Le pharmacien met à disposition son registre contenant pour chaque produit la référence, la désignation, la forme pharmaceutique, le dosage, la quantité en stock, le numéro de lot, la date de péremption, le nom du fournisseur et la date d'entrée en stock.
+
+L'inspecteur procède à une vérification physique des stocks. Il contrôle la conformité entre les quantités inscrites dans le registre et les quantités réellement présentes dans les rayonnages. L'inspecteur vérifie les conditions de stockage des produits, notamment la température et l'hygiène des locaux.
+
+L'inspecteur contrôle l'absence de produits périmés dans les rayonnages de vente. Il consulte le registre des alertes de péremption et le registre des sorties de stock pour vérifier la bonne gestion des produits proches de la péremption et des produits périmés retirés.
+
+L'inspecteur consulte les procès-verbaux de destruction des produits périmés. Il vérifie la cohérence entre les quantités retirées du stock et les quantités mentionnées dans les procès-verbaux.
+
+À l'issue du contrôle, l'inspecteur rédige un rapport d'inspection. Ce rapport contient la date de l'inspection, l'identification de la pharmacie, le nom de l'inspecteur, les observations effectuées et les conclusions du contrôle. L'inspecteur remet une copie du rapport d'inspection au pharmacien. Le pharmacien enregistre la visite dans son registre des inspections en notant la date de l'inspection, le nom de l'inspecteur et la référence du rapport.
+
+---
+
+## Scénario 5 : Inventaire Physique du Stock
+
+À la fin de chaque mois, le pharmacien procède à un inventaire physique complet de son stock. Il prépare une feuille d'inventaire sur laquelle sont listés tous les produits référencés dans son registre d'inventaire avec pour chacun la référence, la désignation et la quantité théorique en stock.
+
+Le pharmacien parcourt méthodiquement l'ensemble des rayonnages de la pharmacie. Pour chaque produit, il compte la quantité physiquement présente et l'inscrit sur la feuille d'inventaire dans la colonne quantité réelle. Le pharmacien note également pour chaque produit le numéro de lot et la date de péremption visibles sur les emballages.
+
+Une fois le comptage terminé, le pharmacien compare pour chaque produit la quantité théorique issue du registre d'inventaire et la quantité réelle comptée. Le pharmacien identifie les écarts entre les deux quantités.
+
+Pour chaque écart constaté, le pharmacien enregistre dans son registre des écarts d'inventaire les informations suivantes : la date de l'inventaire, la référence du produit, la désignation, la quantité théorique, la quantité réelle, l'écart constaté en plus ou en moins.
+
+Le pharmacien procède à la régularisation de son registre d'inventaire. Il ajuste les quantités en stock pour refléter les quantités réellement comptées. Le pharmacien date et signe la feuille d'inventaire complétée et la classe dans son dossier des inventaires.
+
+---
+
+## Synthèse des Données Collectées
+
+Au terme de notre enquête, nous avons identifié les éléments suivants nécessaires à la modélisation du système d'information :
+
+**Acteurs identifiés** : Le pharmacien constitue l'acteur interne principal assurant l'ensemble des opérations. Les acteurs externes sont le client qui achète les produits pharmaceutiques, le fournisseur qui approvisionne la pharmacie en produits, et l'inspecteur sanitaire qui effectue les contrôles réglementaires.
+
+**Données manipulées** : Les produits pharmaceutiques sont caractérisés par une référence, une désignation, une forme pharmaceutique, un dosage, un prix d'achat, un prix de vente et un seuil minimum de stock. Le stock est suivi par produit avec la quantité disponible, le numéro de lot et la date de péremption. Les mouvements de stock sont enregistrés avec la date, le type de mouvement (entrée ou sortie), la quantité, le motif et la référence du document associé. Les fournisseurs sont identifiés par leur raison sociale, adresse et contact. Les commandes sont référencées avec leur date et le détail des produits commandés. Les règlements fournisseurs sont enregistrés avec la date, le montant et la référence de la facture. Les ventes sont enregistrées avec leur date et le détail des produits vendus. Les alertes concernent les ruptures de stock et les dates de péremption proches. Les inspections sont consignées avec leur date et leurs observations.
+
+**Flux d'information identifiés** : Les bons de commande circulent du pharmacien vers le fournisseur. Les bons de livraison et les factures circulent du fournisseur vers le pharmacien. Les tickets de vente sont remis au client. Les rapports d'inspection circulent de l'inspecteur vers le pharmacien.
+
+Cette description textuelle servira de base pour l'élaboration des différents modèles MERISE permettant de concevoir le système d'information de gestion des stocks avec alertes automatiques pour la pharmacie DIBAPHAR.
+
+---
+

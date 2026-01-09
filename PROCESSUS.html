@@ -1,0 +1,592 @@
+### Processus 1 : Gestion de l'Approvisionnement
+
+**Opération 1 : Identification des besoins**
+*   **ED :** Épuisement progressif des produits
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Besoins identifiés
+*   **Actions :**
+    - Observer les niveaux de stock actuels
+    - Repérer les produits en voie d'épuisement
+    - Lister les produits nécessitant un réapprovisionnement
+
+**Opération 2 : Consultation du registre**
+*   **ED :** Besoins identifiés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Registre consulté
+*   **Actions :**
+    - Ouvrir le registre d'inventaire
+    - Comparer les quantités en stock aux seuils minimums
+    - Marquer les produits atteignant le seuil minimum
+
+**Opération 3 : Établissement de la commande**
+*   **ED :** Registre consulté
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Commande établie
+*   **Actions :**
+    - Attribuer un numéro de commande séquentiel
+    - Inscrire la date de commande
+    - Lister les produits avec références, désignations et quantités
+    - Mentionner les informations du fournisseur
+
+**Opération 4 : Transmission de la commande**
+*   **ED :** Commande établie
+*   **EC :** Présence Pharmacien, Présence Fournisseur
+*   **RE :** Toujours
+*   **ER :** Commande transmise
+*   **Actions :**
+    - Contacter le fournisseur
+    - Envoyer le bon de commande
+    - Confirmer la réception de la commande
+
+**Opération 5 : Préparation de la livraison**
+*   **ED :** Commande transmise
+*   **EC :** Présence Fournisseur
+*   **RE :** Toujours
+*   **ER :** Colis préparé
+*   **Actions :**
+    - Rassembler les produits commandés
+    - Préparer le bon de livraison
+    - Établir la facture correspondante
+
+**Opération 6 : Réception de la livraison**
+*   **ED :** Colis préparé
+*   **EC :** Présence Pharmacien, Présence Fournisseur
+*   **RE :** Toujours
+*   **ER :** Colis réceptionné
+*   **Actions :**
+    - Accueillir le fournisseur
+    - Réceptionner les colis
+    - Récupérer le bon de livraison
+
+**Opération 7 : Vérification de la conformité**
+*   **ED :** Colis réceptionné
+*   **EC :** Présence Pharmacien
+*   **RE :** RE1 : Non conforme | RE2 : Conforme
+*   **ER :** ER1 : Colis retourné | ER2 : Colis validé
+*   **Actions :**
+    - Comparer les produits livrés au bon de commande
+    - Contrôler les références, quantités et désignations
+    - Vérifier les numéros de lot et dates de péremption
+    - Valider ou signaler les anomalies
+
+**Opération 8 : Présentation de la facture**
+*   **ED :** Colis validé
+*   **EC :** Présence Fournisseur
+*   **RE :** Toujours
+*   **ER :** Facture soumise
+*   **Actions :**
+    - Remettre la facture globale au pharmacien
+    - Détailler le montant total dû
+
+**Opération 9 : Règlement de la facture**
+*   **ED :** Facture soumise
+*   **EC :** Présence Pharmacien, Présence Fournisseur
+*   **RE :** Toujours
+*   **ER :** Paiement effectué
+*   **Actions :**
+    - Vérifier le montant de la facture
+    - Effectuer le paiement immédiat
+    - Obtenir confirmation du règlement
+
+**Opération 10 : Remise de la quittance**
+*   **ED :** Paiement effectué
+*   **EC :** Présence Fournisseur
+*   **RE :** Toujours
+*   **ER :** Quittance délivrée
+*   **Actions :**
+    - Encaisser le paiement
+    - Établir la quittance
+    - Remettre la quittance au pharmacien
+
+**Opération 11 : Validation de la réception (Signature BL)**
+*   **ED :** Quittance délivrée
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** BL signé
+*   **Actions :**
+    - Apposer la signature sur le bon de livraison
+    - Dater le bon de livraison
+    - Remettre un exemplaire au fournisseur
+
+**Opération 12 : Mise à jour du stock (Entrée)**
+*   **ED :** BL signé
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Stock actualisé (ajout)
+*   **Actions :**
+    - Ouvrir le registre d'inventaire
+    - Ajouter les quantités livrées aux quantités existantes
+    - Mettre à jour les informations de lot et péremption
+
+**Opération 13 : Enregistrement des entrées**
+*   **ED :** Stock actualisé (ajout)
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Entrée notée
+*   **Actions :**
+    - Ouvrir le registre des entrées de stock
+    - Inscrire la date, référence, quantité et numéro de lot
+    - Noter la référence du bon de livraison
+
+**Opération 14 : Rangement des produits**
+*   **ED :** Entrée notée
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Produits rangés
+*   **Actions :**
+    - Placer les produits dans les rayonnages appropriés
+    - Respecter l'ordre de péremption (FEFO)
+    - Positionner les produits à péremption proche devant
+
+**Opération 15 : Archivage des documents**
+*   **ED :** Produits rangés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Dossier classé
+*   **Actions :**
+    - Rassembler bon de commande, bon de livraison et facture
+    - Classer les documents dans le dossier approvisionnements
+    - Ranger le dossier dans le classeur
+
+---
+
+### Processus 2 : Gestion des Ventes
+
+**Opération 1 : Réception de l'ordonnance**
+*   **ED :** Arrivée du client
+*   **EC :** Présence Pharmacien, Présence Client
+*   **RE :** Toujours
+*   **ER :** Ordonnance reçue
+*   **Actions :**
+    - Accueillir le client
+    - Recevoir l'ordonnance médicale
+    - Vérifier la présence des éléments obligatoires
+
+**Opération 2 : Lecture de l'ordonnance**
+*   **ED :** Ordonnance réceptionnée
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Prescription lue
+*   **Actions :**
+    - Identifier le nom du patient et du médecin
+    - Lire la liste des médicaments prescrits
+    - Noter les posologies indiquées
+
+**Opération 3 : Recherche des produits**
+*   **ED :** Prescription lue
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Produits localisés
+*   **Actions :**
+    - Parcourir les rayonnages
+    - Identifier l'emplacement de chaque produit prescrit
+    - Repérer les produits correspondants
+
+**Opération 4 : Vérification de la disponibilité**
+*   **ED :** Produits localisés
+*   **EC :** Présence Pharmacien
+*   **RE :** RE1 : Indisponible | RE2 : Disponible
+*   **ER :** ER1 : Vente annulée | ER2 : Stock confirmé
+*   **Actions :**
+    - Consulter le registre d'inventaire
+    - Vérifier les quantités en stock pour chaque produit
+    - Confirmer ou infirmer la disponibilité
+
+**Opération 5 : Sélection des produits (Péremption proche)**
+*   **ED :** Stock confirmé
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Produits sélectionnés
+*   **Actions :**
+    - Prélever les produits à péremption la plus proche
+    - Vérifier que les dates restent valides
+    - Rassembler les produits pour la vente
+
+**Opération 6 : Annonce du prix**
+*   **ED :** Produits sélectionnés
+*   **EC :** Présence Pharmacien, Présence Client
+*   **RE :** Toujours
+*   **ER :** Prix total annoncé
+*   **Actions :**
+    - Présenter les produits au client
+    - Calculer le montant total
+    - Annoncer le prix à payer
+
+**Opération 7 : Paiement client**
+*   **ED :** Prix total annoncé
+*   **EC :** Présence Client
+*   **RE :** Toujours
+*   **ER :** Montant versé
+*   **Actions :**
+    - Recevoir le moyen de paiement
+    - Vérifier le montant remis
+    - Préparer la monnaie si nécessaire
+
+**Opération 8 : Encaissement du paiement**
+*   **ED :** Montant versé
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Paiement encaissé
+*   **Actions :**
+    - Placer l'argent en caisse
+    - Rendre la monnaie éventuelle
+    - Valider la transaction
+
+**Opération 9 : Établissement du ticket de vente**
+- **ED :** Paiement encaissé
+- **EC :** Présence Pharmacien
+- **RE :** Toujours
+- **ER :** Ticket établi
+- **Actions :**
+    - Attribuer un numéro de vente séquentiel
+    - Inscrire la date de vente
+    - Lister les produits vendus 
+    - Calculer le montant total
+    - préparer le ticket
+
+**Opération 10 : Remise des produits**
+- **ED :** Ticket établi
+- **EC :** Présence Pharmacien, Présence Client
+- **RE :** Toujours
+- **ER :** Produits remis 
+- **Actions :**
+    - Emballer les produits
+    - Joindre le ticket de vente aux produits
+    - Remettre l'ensemble au client
+    - Donner les conseils d'utilisation
+
+**Opération 11 : Mise à jour du stock (Sortie)**
+*   **ED :** Produits remis 
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Stock déduit
+*   **Actions :**
+    - Ouvrir le registre d'inventaire
+    - Soustraire les quantités vendues
+    - Actualiser le stock disponible
+
+**Opération 12 : Enregistrement de la sortie**
+*   **ED :** Stock déduit
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Sortie consignée
+*   **Actions :**
+    - Ouvrir le registre des sorties de stock
+    - Inscrire la date, référence et quantité sortie
+    - Noter le motif (vente) et la référence du ticket
+
+**Opération 13 : Archivage de la vente**
+*   **ED :** Sortie consignée
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Ticket archivé
+*   **Actions :**
+    - Conserver une copie du ticket de vente
+    - Classer dans le registre des ventes quotidiennes
+    - Ranger le registre
+
+---
+
+### Processus 3 : Contrôle des Péremptions
+
+**Opération 1 : Parcours du registre d'inventaire**
+*   **ED :** Début de semaine
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Registre parcouru
+*   **Actions :**
+    - Ouvrir le registre d'inventaire
+    - Parcourir la liste complète des produits
+    - Relever les dates de péremption de chaque produit
+
+**Opération 2 : Identification produits proches péremption**
+*   **ED :** Registre parcouru
+*   **EC :** Présence Pharmacien
+*   **RE :** RE1 : Aucune alerte | RE2 : Alerte détectée (< 3 mois)
+*   **ER :** ER1 : Fin de contrôle | ER2 : Produits à risque identifiés
+*   **Actions :**
+    - Appliquer le délai d'alerte de 3 mois
+    - Identifier les produits dans la zone d'alerte
+    - Lister les produits concernés avec leurs lots
+
+**Opération 3 : Enregistrement des alertes**
+*   **ED :** Produits à risque identifiés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Alertes consignées
+*   **Actions :**
+    - Ouvrir le registre des alertes de péremption
+    - Inscrire la date, référence, lot et date de péremption
+    - Calculer et noter le nombre de jours restants
+
+**Opération 4 : Réorganisation du rayon**
+*   **ED :** Alertes consignées
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Rayon réorganisé
+*   **Actions :**
+    - Localiser les produits en alerte dans les rayons
+    - Déplacer ces produits vers l'avant
+    - Faciliter leur visibilité pour la vente prioritaire
+
+**Opération 5 : Identification produits périmés**
+*   **ED :** Rayon réorganisé
+*   **EC :** Présence Pharmacien
+*   **RE :** RE1 : Non périmé | RE2 : Périmé
+*   **ER :** ER1 : Produit conservé | ER2 : Produit périmé repéré
+*   **Actions :**
+    - Comparer les dates de péremption à la date actuelle
+    - Identifier les produits dont la date est dépassée
+    - Marquer les produits périmés
+
+**Opération 6 : Retrait des produits**
+*   **ED :** Produit périmé repéré
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Produits retirés
+*   **Actions :**
+    - Retirer les produits périmés des rayons
+    - Vérifier l'absence de tout produit périmé restant
+    - Nettoyer l'espace libéré
+
+**Opération 7 : Enregistrement sortie (Péremption)**
+*   **ED :** Produits retirés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Sortie notée
+*   **Actions :**
+    - Ouvrir le registre des sorties de stock
+    - Inscrire la date, référence, quantité et lot
+    - Noter le motif (péremption)
+
+**Opération 8 : Mise à jour inventaire**
+*   **ED :** Sortie notée
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Inventaire ajusté
+*   **Actions :**
+    - Ouvrir le registre d'inventaire
+    - Soustraire les quantités retirées
+    - Actualiser le stock théorique
+
+**Opération 9 : Isolement des produits**
+*   **ED :** Inventaire ajusté
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Produits isolés
+*   **Actions :**
+    - Transférer les produits vers l'espace dédié
+    - Séparer des produits valides
+    - Sécuriser la zone d'attente destruction
+
+**Opération 10 : Établissement PV destruction**
+*   **ED :** Produits isolés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** PV rédigé
+*   **Actions :**
+    - Lister les produits à détruire avec leurs références
+    - Mentionner les quantités, lots et dates de péremption
+    - Dater et signer le procès-verbal
+
+---
+
+### Processus 4 : Inspection Sanitaire
+
+**Opération 1 : Accueil de l'inspecteur**
+*   **ED :** Arrivée inspecteur sanitaire
+*   **EC :** Présence Pharmacien, Présence Inspecteur
+*   **RE :** Toujours
+*   **ER :** Contact établi
+*   **Actions :**
+    - Recevoir l'inspecteur à l'entrée
+    - Vérifier son identité et sa mission
+    - Présenter les documents réglementaires requis
+    - Faciliter son accès aux locaux
+
+**Opération 2 : Demande de consultation du registre**
+*   **ED :** Contact établi
+*   **EC :** Présence Inspecteur
+*   **RE :** Toujours
+*   **ER :** Demande formulée
+*   **Actions :**
+    - Identifier le registre à consulter
+    - Formuler la demande de consultation
+    - Préciser les informations recherchées
+
+**Opération 3 : Mise à disposition du registre**
+*   **ED :** Demande formulée
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Registre accessible
+*   **Actions :**
+    - Ouvrir le registre d'inventaire
+    - Le remettre à l'inspecteur
+    - Assister la consultation
+
+**Opération 4 : Vérification physique des stocks**
+*   **ED :** Registre accessible
+*   **EC :** Présence Inspecteur
+*   **RE :** RE1 : Non conforme | RE2 : Conforme
+*   **ER :** ER1 : Écart stock noté | ER2 : Stock validé
+*   **Actions :**
+    - Parcourir les rayonnages
+    - Comparer les quantités physiques au registre
+    - Relever les écarts éventuels
+
+**Opération 5 : Contrôle conditions stockage**
+*   **ED :** Stock validé (ou Écart stock noté)
+*   **EC :** Présence Inspecteur
+*   **RE :** RE1 : Non conforme | RE2 : Conforme
+*   **ER :** ER1 : Conditions inadéquates | ER2 : Conditions validées
+*   **Actions :**
+    - Vérifier la température des espaces de stockage
+    - Contrôler l'hygiène des locaux
+    - Évaluer les conditions de conservation
+
+**Opération 6 : Contrôle des périmés en rayon**
+*   **ED :** Conditions validées (ou inadéquates)
+*   **EC :** Présence Inspecteur
+*   **RE :** RE1 : Présence périmés | RE2 : Absence périmés
+*   **ER :** ER1 : Infraction notée | ER2 : Rayons validés
+*   **Actions :**
+    - Inspecter les produits exposés
+    - Vérifier les dates de péremption visibles
+    - Détecter la présence éventuelle de périmés
+
+**Opération 7 : Vérification des PV destruction**
+*   **ED :** Rayons validés (ou Infraction notée)
+*   **EC :** Présence Inspecteur
+*   **RE :** RE1 : Incohérent | RE2 : Cohérent
+*   **ER :** ER1 : Écart destruction noté | ER2 : Traçabilité validée
+*   **Actions :**
+    - Consulter les procès-verbaux de destruction
+    - Comparer avec le registre des sorties
+    - Vérifier la cohérence des quantités
+
+**Opération 8 : Rédaction du rapport**
+*   **ED :** Traçabilité validée (ou Écart noté)
+*   **EC :** Présence Inspecteur
+*   **RE :** Toujours
+*   **ER :** Rapport rédigé
+*   **Actions :**
+    - Synthétiser les observations effectuées
+    - Noter les conformités et non-conformités
+    - Formuler les conclusions du contrôle
+
+**Opération 9 : Remise du rapport**
+*   **ED :** Rapport rédigé
+*   **EC :** Présence Inspecteur, Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Rapport transmis
+*   **Actions :**
+    - Finaliser le rapport d'inspection
+    - Remettre une copie au pharmacien
+    - Expliquer les points relevés
+
+**Opération 10 : Enregistrement de l'inspection**
+*   **ED :** Rapport transmis
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Visite consignée
+*   **Actions :**
+    - Ouvrir le registre des inspections
+    - Inscrire la date, le nom de l'inspecteur et la référence
+    - Archiver le rapport reçu
+
+---
+
+### Processus 5 : Inventaire Physique
+
+**Opération 1 : Préparation feuille inventaire**
+*   **ED :** Fin du mois
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Feuille prête
+*   **Actions :**
+    - Créer la feuille d'inventaire
+    - Lister tous les produits référencés
+    - Indiquer les quantités théoriques pour chaque produit
+
+**Opération 2 : Comptage physique**
+*   **ED :** Feuille prête
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Comptage effectué
+*   **Actions :**
+    - Parcourir méthodiquement les rayonnages
+    - Compter physiquement chaque produit
+    - Inscrire les quantités réelles sur la feuille
+
+**Opération 3 : Relevé des lots/dates**
+*   **ED :** Comptage effectué
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Lots relevés
+*   **Actions :**
+    - Relever les numéros de lot sur les emballages
+    - Noter les dates de péremption visibles
+    - Compléter la feuille d'inventaire
+
+**Opération 4 : Comparaison des stocks**
+*   **ED :** Lots relevés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Stocks comparés
+*   **Actions :**
+    - Comparer quantité théorique et quantité réelle
+    - Calculer la différence pour chaque produit
+    - Identifier les écarts positifs ou négatifs
+
+**Opération 5 : Identification des écarts**
+*   **ED :** Stocks comparés
+*   **EC :** Présence Pharmacien
+*   **RE :** RE1 : Écart constaté | RE2 : Aucun écart
+*   **ER :** ER1 : Écarts identifiés | ER2 : Stock exact
+*   **Actions :**
+    - Analyser les écarts détectés
+    - Distinguer les surplus des manquants
+    - Lister les produits présentant une anomalie
+
+**Opération 6 : Enregistrement des écarts**
+*   **ED :** Écarts identifiés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Écarts consignés
+*   **Actions :**
+    - Ouvrir le registre des écarts d'inventaire
+    - Inscrire la date, référence et écart constaté
+    - Documenter chaque anomalie
+
+**Opération 7 : Régularisation du stock**
+*   **ED :** Écarts consignés
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Stock corrigé
+*   **Actions :**
+    - Ouvrir le registre d'inventaire
+    - Ajuster les quantités selon le comptage réel
+    - Aligner stock théorique et stock physique
+
+**Opération 8 : Validation de l'inventaire (Signature)**
+*   **ED :** Stock corrigé
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Inventaire signé
+*   **Actions :**
+    - Dater la feuille d'inventaire
+    - Apposer la signature
+    - Confirmer l'exactitude du comptage
+
+**Opération 9 : Archivage de l'inventaire**
+*   **ED :** Inventaire signé
+*   **EC :** Présence Pharmacien
+*   **RE :** Toujours
+*   **ER :** Dossier classé
+*   **Actions :**
+    - Rassembler la feuille d'inventaire complétée
+    - Classer dans le dossier des inventaires
+    - Ranger le dossier dans le classeur approprié

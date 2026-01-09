@@ -10,11 +10,18 @@ Donc des trucs à cocher
 
 Enfin après avoir réalisé ce questionnaire :
 
-Réalise un énoncé en supposant des réponses reçues ou récoltées via ce questionnaire 
+Réalise un énoncé ( en supposant des réponses reçues ou récoltées via ce questionnaire 
+
+Énoncé = scénarios 
+
+N'oublie pas cet détail :
+
+Énoncé = scénarios 
 
 Voici quelques points clés :
 - C'est une pharmacie avec un seul pharmacien et celui aussi le propriétaire 
 - tous les tâches sont manuels 
+- ouvert tous les jours
 - c'est pour un TP du cours de méthodologie d'analyse informatique/MERISE/Système d'information 
 Et mon sujet personnel était : " Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques "
 Et j'avais choisi comme cas d'études la pharmacie de mon quartier : DIBAPHAR 
@@ -33,9 +40,11 @@ Car on veut que les choses restent linéaires
 Mais aussi pour le bien MCC et MCT 
 Car c'est difficile de représenter 2 choses contraires ou identiques à la fois alors que les modèles sont faits pour être lisibles.
 
-Dans l'énoncé, chaque paragraphe= processus et dans un processus on suit le déroulement des opérations qui se succèdent (des étapes), donc on a une opération de début et on a une opération finale.
+Dans l'énoncé, chaque saut de ligne = un nouveau processus et dans un processus on suit le déroulement des opérations qui se succèdent (des étapes, son scénario), donc on a une opération de début et on a une opération finale.
 
 Un processus= "comment on passe d'un début à un résultat final" par des étapes bien définies. 
+
+autrement dit processus = description de chaque scénarios
 
 Ça doit suivre un enchaînement logique vers un objectif.
 Donc on a un objectif dans chaque processus.
@@ -43,8 +52,19 @@ Début - fin.
 
 Et un processus a toujours plusieurs étapes qui se succèdent.
 
+Voilà pourquoi il ne faut pas parler de :
+- ou
+- sinon
+- Dans le cas contraire 
+
+On ne doit considérer qu'une seule possibilité qui nous mènera vers la fin du processus. 
+
 Concernant les acteurs/ressources humaines :
 - pas besoin de préciser leur nom propre (ex : Mr LIKULA Jean-Louis, SOFICOM, BELTEXCO,...etc...) 
+
+Et concernant les lieux :
+- pas besoin de préciser les localisations, les noms, ... etc 
+C'est une étude sur la gestion de stocks, et c'est uniquement ça qui nous intéresse 
 
 Dans un processus on aura besoin que :
 1. Soit 1 seul acteur : l'acteur interne lui-même qui réalise de traitements internes 
@@ -67,9 +87,20 @@ On n'est pas un pays développé (CONGO, RDC)
 Note :
 -L' énoncé doit être clair, n'utilise pas des termes comme processus, opérations, flux dans l'énoncé, non, ce sont des termes de modélisation uniquement, pas applicable dans l'énoncé.
 
+Pour l'instant faisons comme si on avait déjà mener l'enquête, récolter des données pour élaborer l'énoncé 
+Utilise donc des informations venant du questionnaire, faisons comme si on avait déjà toutes les réponses à ce questionnaire
+
+Voici les éléments dont il faut tenir compte :
+- Premièrement faut correctement réaliser le questionnaire d'enquête, ça doit dégager vraiment du sérieux 
+ 
+- l'énoncé doit être en texte continu, et les saut de ligne sont de processus 
+
+C'est comme raconter quelque chose, décrire comment les choses se passent, représenter chaque scène point à point 
+
+- n'oublie pas l'objectif de l'énoncé: ça s'appelle énoncé car il y'a aussi un travail demandé dans tout ça, je dois représenter, modéliser chaque modèle MCC, MCT, MCD, MOD, MOT, MLD ....
+
+- Tout doit être clair, tout doit montrer que l'enquête a été efficacement bien réalisé 
+
 Voilà 
 
-
-
-
-
+Donne-toi à fond, au maximum 

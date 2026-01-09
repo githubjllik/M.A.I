@@ -1,0 +1,2670 @@
+<!-- likulajeanlouis23 -->
+<!-- Claude-opus-4.5 -->
+<prompt>
+  Donne-moi un questionnaire d'enquête pour récolter tous les données se trouvant dans cette description textuelle 
+
+Car le but était d'abord la récolte des données, l'analyse du domaine, fonctionnement, système existant,.,etc
+Pour ensuite réaliser cette description textuelle qui est déjà fait 
+
+J'ai dit questionnaire d'enquête :
+Donc des trucs à cocher
+
+Ça doit vraiment être un questionnaire complet, bien réalisé, faut penser à chaque aspect d'un questionnaire authentique et réaliser selon les normes, les principes clés, les consignes , n'oublie rien, ne néglige rien, tout doit être prise en compte 
+
+C'est un TP du cours de : méthodologie d'analyse informatique 1(M.A.I)
+Mon sujet choisit était : Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques 
+
+Voici la description textuelle :
+
+# Description Textuelle du Cas d'Étude : Pharmacie DIBAPHAR
+
+## Introduction
+
+Dans le cadre de notre étude portant sur la conception d'un système de gestion des stocks pour une pharmacie avec alertes automatiques, nous avons mené une enquête auprès de la pharmacie DIBAPHAR, un établissement pharmaceutique de quartier. Cette pharmacie, de taille modeste, est détenue et gérée par un pharmacien unique qui assure l'ensemble des opérations quotidiennes. L'établissement est ouvert tous les jours de 07h à 21h et fonctionne selon des procédures entièrement manuelles.
+
+Notre enquête s'est déroulée sur plusieurs jours d'observation et d'entretiens avec le pharmacien. Nous avons pu identifier les différents processus métier, les acteurs impliqués, les données manipulées ainsi que les flux d'information circulant au sein de cet établissement. L'objectif est de comprendre le fonctionnement actuel afin de proposer une solution informatique adaptée permettant d'optimiser la gestion des stocks et d'intégrer des mécanismes d'alertes automatiques pour prévenir les ruptures de stock et surveiller les dates de péremption des produits pharmaceutiques.
+
+Les résultats de notre enquête sont présentés ci-dessous à travers la description des différents scénarios de fonctionnement observés.
+
+---
+
+## Scénario 1 : Approvisionnement auprès du Fournisseur
+
+Le pharmacien constate un besoin de réapprovisionnement suite à l'épuisement progressif de certains produits. Il consulte son registre d'inventaire dans lequel sont consignés tous les produits pharmaceutiques disponibles en stock. Pour chaque produit, le registre contient la référence du produit, sa désignation, la forme pharmaceutique, le dosage, la quantité en stock, le seuil minimum de stock, le prix d'achat unitaire et le prix de vente unitaire. Le pharmacien identifie les produits dont la quantité en stock a atteint le seuil minimum défini.
+
+Le pharmacien rédige alors un bon de commande destiné au fournisseur. Sur ce bon de commande, il inscrit la date de commande, un numéro de commande séquentiel, ainsi que la liste des produits à commander. Pour chaque produit commandé, il note la référence du produit, la désignation, la quantité commandée et le prix d'achat unitaire convenu. Le bon de commande mentionne également les informations du fournisseur concerné, à savoir sa raison sociale, son adresse et son contact.
+
+Le pharmacien transmet le bon de commande au fournisseur. Le fournisseur réceptionne la commande et prépare la livraison. **Il se présente ensuite à la pharmacie avec les produits commandés**, accompagnés d'un bon de livraison et de la facture correspondante. Le pharmacien vérifie la conformité des produits livrés par rapport au bon de commande. Il contrôle pour chaque produit la référence, la désignation, la quantité livrée, le numéro de lot et la date de péremption.
+
+Une fois la vérification effectuée, le fournisseur présente la facture globale de la commande. Le pharmacien procède au règlement immédiat du montant total indiqué sur la facture. Le fournisseur encaisse le paiement et remet une quittance attestant du règlement.
+
+Le pharmacien signe le bon de livraison pour attester de la réception. Il procède ensuite à la mise à jour de son registre d'inventaire. Pour chaque produit reçu, il ajoute la quantité livrée à la quantité existante en stock. Il enregistre également dans son registre des entrées de stock les informations suivantes : la date d'entrée, la référence du produit, la désignation, la quantité entrée, le numéro de lot, la date de péremption et la référence du bon de livraison.
+
+Le pharmacien range les produits dans les rayonnages de la pharmacie en respectant l'ordre de péremption, les produits ayant la date de péremption la plus proche étant placés devant. Le pharmacien conserve le bon de livraison, la facture acquittée et le bon de commande correspondant dans son classeur des approvisionnements.
+
+---
+
+## Scénario 2 : Vente de Produits au Client
+
+Un client se présente au comptoir de la pharmacie avec une ordonnance médicale. Le pharmacien réceptionne l'ordonnance et procède à sa lecture. L'ordonnance contient le nom du patient, la date de prescription, le nom du médecin prescripteur ainsi que la liste des médicaments prescrits avec leur posologie.
+
+Le pharmacien recherche dans ses rayonnages les produits correspondant à la prescription. Pour chaque produit, il vérifie la disponibilité en stock en consultant son registre d'inventaire. Le pharmacien sélectionne les produits en privilégiant ceux dont la date de péremption est la plus proche tout en restant valide.
+
+Le pharmacien prépare les produits et les présente au client. Il informe le client du prix total de la vente. Le client effectue le paiement du montant indiqué. Le pharmacien reçoit le paiement et remet les produits au client accompagnés d'un ticket de vente.
+
+Sur le ticket de vente, le pharmacien inscrit la date de vente, un numéro de vente séquentiel, la liste des produits vendus avec pour chacun la désignation, la quantité vendue, le prix unitaire et le montant correspondant. Le ticket mentionne également le montant total de la vente.
+
+Le pharmacien procède à la mise à jour de son registre d'inventaire. Pour chaque produit vendu, il soustrait la quantité vendue de la quantité en stock. Il enregistre dans son registre des sorties de stock les informations suivantes : la date de sortie, la référence du produit, la désignation, la quantité sortie, le motif de sortie qui est la vente, et la référence du ticket de vente.
+
+Le pharmacien conserve une copie du ticket de vente dans son registre des ventes quotidiennes.
+
+---
+
+## Scénario 3 : Contrôle des Dates de Péremption
+
+Chaque début de semaine, le pharmacien effectue un contrôle périodique de son stock. Il parcourt son registre d'inventaire et identifie les produits dont la date de péremption approche. Le pharmacien définit un délai d'alerte de trois mois avant la date de péremption.
+
+Pour chaque produit identifié comme proche de la péremption, le pharmacien consulte le numéro de lot correspondant et la quantité restante en stock. Le pharmacien inscrit ces produits dans son registre des alertes de péremption. Il note la date du contrôle, la référence du produit, la désignation, le numéro de lot, la date de péremption, la quantité concernée et le nombre de jours restants avant péremption.
+
+Le pharmacien place les produits concernés en avant dans les rayonnages afin de favoriser leur vente prioritaire. Le pharmacien identifie également les produits dont la date de péremption est dépassée. Pour ces produits périmés, le pharmacien procède à leur retrait des rayonnages.
+
+Le pharmacien enregistre dans son registre des sorties de stock les informations relatives aux produits retirés : la date de sortie, la référence du produit, la désignation, la quantité retirée, le numéro de lot, la date de péremption et le motif de sortie qui est la péremption. Le pharmacien met à jour son registre d'inventaire en soustrayant les quantités retirées.
+
+Les produits périmés sont isolés dans un espace dédié en attente de destruction. Le pharmacien prépare un procès-verbal de destruction mentionnant la liste des produits à détruire avec leurs références, désignations, quantités, numéros de lot et dates de péremption.
+
+---
+
+## Scénario 4 : Inspection Sanitaire
+
+Un inspecteur sanitaire des autorités compétentes se présente à la pharmacie pour effectuer un contrôle réglementaire. Le pharmacien accueille l'inspecteur et lui présente les documents requis.
+
+L'inspecteur demande à consulter le registre d'inventaire afin de vérifier la traçabilité des produits. Le pharmacien met à disposition son registre contenant pour chaque produit la référence, la désignation, la forme pharmaceutique, le dosage, la quantité en stock, le numéro de lot, la date de péremption, le nom du fournisseur et la date d'entrée en stock.
+
+L'inspecteur procède à une vérification physique des stocks. Il contrôle la conformité entre les quantités inscrites dans le registre et les quantités réellement présentes dans les rayonnages. L'inspecteur vérifie les conditions de stockage des produits, notamment la température et l'hygiène des locaux.
+
+L'inspecteur contrôle l'absence de produits périmés dans les rayonnages de vente. Il consulte le registre des alertes de péremption et le registre des sorties de stock pour vérifier la bonne gestion des produits proches de la péremption et des produits périmés retirés.
+
+L'inspecteur consulte les procès-verbaux de destruction des produits périmés. Il vérifie la cohérence entre les quantités retirées du stock et les quantités mentionnées dans les procès-verbaux.
+
+À l'issue du contrôle, l'inspecteur rédige un rapport d'inspection. Ce rapport contient la date de l'inspection, l'identification de la pharmacie, le nom de l'inspecteur, les observations effectuées et les conclusions du contrôle. L'inspecteur remet une copie du rapport d'inspection au pharmacien. Le pharmacien enregistre la visite dans son registre des inspections en notant la date de l'inspection, le nom de l'inspecteur et la référence du rapport.
+
+---
+
+## Scénario 5 : Inventaire Physique du Stock
+
+À la fin de chaque mois, le pharmacien procède à un inventaire physique complet de son stock. Il prépare une feuille d'inventaire sur laquelle sont listés tous les produits référencés dans son registre d'inventaire avec pour chacun la référence, la désignation et la quantité théorique en stock.
+
+Le pharmacien parcourt méthodiquement l'ensemble des rayonnages de la pharmacie. Pour chaque produit, il compte la quantité physiquement présente et l'inscrit sur la feuille d'inventaire dans la colonne quantité réelle. Le pharmacien note également pour chaque produit le numéro de lot et la date de péremption visibles sur les emballages.
+
+Une fois le comptage terminé, le pharmacien compare pour chaque produit la quantité théorique issue du registre d'inventaire et la quantité réelle comptée. Le pharmacien identifie les écarts entre les deux quantités.
+
+Pour chaque écart constaté, le pharmacien enregistre dans son registre des écarts d'inventaire les informations suivantes : la date de l'inventaire, la référence du produit, la désignation, la quantité théorique, la quantité réelle, l'écart constaté en plus ou en moins.
+
+Le pharmacien procède à la régularisation de son registre d'inventaire. Il ajuste les quantités en stock pour refléter les quantités réellement comptées. Le pharmacien date et signe la feuille d'inventaire complétée et la classe dans son dossier des inventaires.
+
+---
+
+## Synthèse des Données Collectées
+
+Au terme de notre enquête, nous avons identifié les éléments suivants nécessaires à la modélisation du système d'information :
+
+**Acteurs identifiés** : Le pharmacien constitue l'acteur interne principal assurant l'ensemble des opérations. Les acteurs externes sont le client qui achète les produits pharmaceutiques, le fournisseur qui approvisionne la pharmacie en produits, et l'inspecteur sanitaire qui effectue les contrôles réglementaires.
+
+**Données manipulées** : Les produits pharmaceutiques sont caractérisés par une référence, une désignation, une forme pharmaceutique, un dosage, un prix d'achat, un prix de vente et un seuil minimum de stock. Le stock est suivi par produit avec la quantité disponible, le numéro de lot et la date de péremption. Les mouvements de stock sont enregistrés avec la date, le type de mouvement (entrée ou sortie), la quantité, le motif et la référence du document associé. Les fournisseurs sont identifiés par leur raison sociale, adresse et contact. Les commandes sont référencées avec leur date et le détail des produits commandés. Les règlements fournisseurs sont enregistrés avec la date, le montant et la référence de la facture. Les ventes sont enregistrées avec leur date et le détail des produits vendus. Les alertes concernent les ruptures de stock et les dates de péremption proches. Les inspections sont consignées avec leur date et leurs observations.
+
+**Flux d'information identifiés** : Les bons de commande circulent du pharmacien vers le fournisseur. Les bons de livraison et les factures circulent du fournisseur vers le pharmacien. Les tickets de vente sont remis au client. Les rapports d'inspection circulent de l'inspecteur vers le pharmacien.
+
+Cette description textuelle servira de base pour l'élaboration des différents modèles MERISE permettant de concevoir le système d'information de gestion des stocks avec alertes automatiques pour la pharmacie DIBAPHAR.
+
+---
+
+
+# Conclusion Générale du Travail Pratique
+
+L'étude menée sur la pharmacie DIBAPHAR nous a permis d'appréhender de manière concrète le fonctionnement d'un établissement pharmaceutique de proximité et d'identifier les besoins en matière de gestion des stocks. L'analyse des différents scénarios de fonctionnement a mis en évidence les processus clés que sont l'approvisionnement, la vente, le contrôle des péremptions, l'inspection sanitaire et l'inventaire physique.
+
+La modélisation selon la méthode MERISE nous a conduits à élaborer successivement le Modèle Conceptuel de Communication pour identifier les acteurs et les flux d'information, le Modèle Conceptuel des Données pour structurer les informations manipulées, le Modèle Conceptuel des Traitements pour décrire les opérations réalisées, puis leurs déclinaisons organisationnelles et logiques.
+
+Cette démarche méthodique nous a permis de passer d'une situation existante entièrement manuelle à une conception rigoureuse d'un système d'information automatisé. Le futur logiciel de gestion des stocks intégrera des fonctionnalités d'alertes automatiques permettant de prévenir les ruptures de stock lorsque les quantités atteignent les seuils minimums définis, et de signaler les produits dont la date de péremption approche afin de faciliter leur gestion prioritaire.
+
+Ce travail pratique illustre l'importance de la phase d'analyse dans tout projet informatique. La compréhension approfondie du domaine métier et la modélisation structurée constituent les fondements indispensables à la conception d'une solution logicielle pertinente et adaptée aux besoins réels des utilisateurs. La méthode MERISE, par son approche progressive du conceptuel vers le logique puis le physique, offre un cadre rigoureux garantissant la cohérence et la qualité du système d'information à développer.
+</prompt>
+<div>
+  # QUESTIONNAIRE D'ENQUÊTE
+
+## Étude et Conception d'un Logiciel de Gestion des Stocks d'une Pharmacie avec Alertes Automatiques
+
+---
+
+**IDENTIFICATION DU QUESTIONNAIRE**
+
+| Élément | Information |
+|---------|-------------|
+| Référence du questionnaire | ENQ-PHARMA-2026-001 |
+| Date d'élaboration | Janvier 2026 |
+| Cours | Méthodologie d'Analyse Informatique 1 (M.A.I) |
+| Établissement enquêté | |
+| Date de l'enquête | |
+| Nom de l'enquêteur | |
+
+---
+
+**INSTRUCTIONS POUR LE RÉPONDANT**
+
+- Veuillez cocher la ou les cases correspondant à votre situation
+- Pour les questions à choix unique, cochez une seule réponse
+- Pour les questions à choix multiples, vous pouvez cocher plusieurs réponses
+- Les questions marquées d'un astérisque (*) sont obligatoires
+- N'hésitez pas à compléter les espaces "Autre" si nécessaire
+
+---
+
+## PARTIE A : IDENTIFICATION DE L'ÉTABLISSEMENT
+
+### A.1. Informations générales sur la pharmacie *
+
+**A.1.1. Quelle est la nature juridique de votre établissement ?**
+
+☐ Pharmacie individuelle (propriétaire unique)
+☐ Pharmacie en société (SARL, SNC, etc.)
+☐ Pharmacie mutualiste
+☐ Pharmacie hospitalière
+☐ Autre : ______________________
+
+**A.1.2. Quelle est la taille de votre pharmacie ?**
+
+☐ Petite (moins de 50 m²)
+☐ Modeste (50 à 100 m²)
+☐ Moyenne (100 à 200 m²)
+☐ Grande (plus de 200 m²)
+
+**A.1.3. Depuis combien d'années votre pharmacie est-elle en activité ?**
+
+☐ Moins d'un an
+☐ 1 à 5 ans
+☐ 6 à 10 ans
+☐ 11 à 20 ans
+☐ Plus de 20 ans
+
+**A.1.4. Dans quel type de zone est située votre pharmacie ?**
+
+☐ Zone urbaine (centre-ville)
+☐ Zone périurbaine
+☐ Quartier résidentiel
+☐ Zone rurale
+☐ Proximité d'un hôpital ou centre de santé
+☐ Zone commerciale
+
+---
+
+### A.2. Horaires de fonctionnement *
+
+**A.2.1. Quels sont vos jours d'ouverture ?**
+
+☐ Du lundi au vendredi uniquement
+☐ Du lundi au samedi
+☐ Du lundi au dimanche (tous les jours)
+☐ Avec service de garde (nuits et jours fériés)
+☐ Autre : ______________________
+
+**A.2.2. Quelles sont vos plages horaires d'ouverture ?**
+
+| Horaire d'ouverture | Horaire de fermeture |
+|---------------------|----------------------|
+| ☐ 06h00 | ☐ 18h00 |
+| ☐ 07h00 | ☐ 19h00 |
+| ☐ 08h00 | ☐ 20h00 |
+| ☐ 09h00 | ☐ 21h00 |
+| ☐ Autre : _____ | ☐ 22h00 |
+| | ☐ Autre : _____ |
+
+**A.2.3. Pratiquez-vous des horaires continus ?**
+
+☐ Oui, sans interruption
+☐ Non, avec une pause déjeuner
+☐ Variable selon les jours
+
+---
+
+### A.3. Ressources humaines *
+
+**A.3.1. Combien de personnes travaillent dans votre pharmacie ?**
+
+☐ 1 personne (pharmacien seul)
+☐ 2 à 3 personnes
+☐ 4 à 5 personnes
+☐ 6 à 10 personnes
+☐ Plus de 10 personnes
+
+**A.3.2. Quels types de postes existent dans votre pharmacie ?** *(Plusieurs réponses possibles)*
+
+☐ Pharmacien titulaire (propriétaire)
+☐ Pharmacien assistant
+☐ Préparateur en pharmacie
+☐ Vendeur/Caissier
+☐ Magasinier
+☐ Agent d'entretien
+☐ Comptable
+☐ Secrétaire/Administratif
+☐ Autre : ______________________
+
+**A.3.3. Qui effectue principalement les tâches de gestion des stocks ?** *(Plusieurs réponses possibles)*
+
+☐ Le pharmacien titulaire
+☐ Le pharmacien assistant
+☐ Le préparateur en pharmacie
+☐ Un responsable de stock dédié
+☐ Tout le personnel
+☐ Autre : ______________________
+
+---
+
+## PARTIE B : SYSTÈME DE GESTION EXISTANT
+
+### B.1. Mode de gestion actuel *
+
+**B.1.1. Quel est le mode de gestion actuel de votre pharmacie ?**
+
+☐ Entièrement manuel (registres papier)
+☐ Semi-informatisé (tableurs Excel/Calc)
+☐ Partiellement informatisé (logiciel basique)
+☐ Entièrement informatisé (logiciel complet)
+
+**B.1.2. Si vous utilisez un système informatique, lequel ?**
+
+☐ Non applicable (gestion manuelle)
+☐ Microsoft Excel / LibreOffice Calc
+☐ Logiciel de gestion commercial généraliste
+☐ Logiciel spécialisé pharmacie : ______________________
+☐ Application développée sur mesure
+☐ Autre : ______________________
+
+**B.1.3. Depuis combien de temps utilisez-vous ce système ?**
+
+☐ Moins d'un an
+☐ 1 à 3 ans
+☐ 4 à 5 ans
+☐ Plus de 5 ans
+☐ Depuis la création de la pharmacie
+
+---
+
+### B.2. Supports et registres utilisés *
+
+**B.2.1. Quels registres ou supports utilisez-vous actuellement ?** *(Plusieurs réponses possibles)*
+
+☐ Registre d'inventaire (cahier des stocks)
+☐ Registre des entrées de stock
+☐ Registre des sorties de stock
+☐ Registre des ventes quotidiennes
+☐ Registre des alertes de péremption
+☐ Registre des écarts d'inventaire
+☐ Registre des inspections
+☐ Classeur des approvisionnements (bons de commande, factures)
+☐ Fiches de stock individuelles par produit
+☐ Fichier informatique (tableur)
+☐ Autre : ______________________
+
+**B.2.2. Ces registres sont-ils tenus de manière :**
+
+☐ Quotidienne
+☐ Hebdomadaire
+☐ Mensuelle
+☐ Occasionnelle (quand nécessaire)
+☐ Variable selon le type de registre
+
+---
+
+### B.3. Difficultés rencontrées avec le système actuel *
+
+**B.3.1. Quelles difficultés rencontrez-vous avec votre système actuel ?** *(Plusieurs réponses possibles)*
+
+☐ Perte de temps dans la recherche d'informations
+☐ Erreurs de saisie ou de calcul
+☐ Difficultés de suivi des stocks en temps réel
+☐ Oubli de commandes de réapprovisionnement
+☐ Produits périmés non détectés à temps
+☐ Ruptures de stock fréquentes
+☐ Difficultés lors des inventaires
+☐ Difficultés lors des inspections sanitaires
+☐ Perte ou détérioration des documents papier
+☐ Manque de traçabilité des opérations
+☐ Difficultés à obtenir des statistiques
+☐ Aucune difficulté particulière
+☐ Autre : ______________________
+
+**B.3.2. Comment évaluez-vous la fiabilité de votre système actuel ?**
+
+☐ Très fiable
+☐ Plutôt fiable
+☐ Moyennement fiable
+☐ Peu fiable
+☐ Pas du tout fiable
+
+---
+
+## PARTIE C : GESTION DES PRODUITS PHARMACEUTIQUES
+
+### C.1. Caractéristiques des produits *
+
+**C.1.1. Quelles informations enregistrez-vous pour chaque produit ?** *(Plusieurs réponses possibles)*
+
+☐ Référence / Code du produit
+☐ Désignation / Nom commercial
+☐ Dénomination Commune Internationale (DCI)
+☐ Forme pharmaceutique (comprimé, sirop, etc.)
+☐ Dosage / Concentration
+☐ Conditionnement (boîte de 10, flacon 250ml, etc.)
+☐ Prix d'achat unitaire
+☐ Prix de vente unitaire
+☐ Marge bénéficiaire
+☐ Classe thérapeutique
+☐ Conditions de conservation
+☐ Voie d'administration
+☐ Fabricant / Laboratoire
+☐ Pays d'origine
+☐ Numéro d'autorisation de mise sur le marché (AMM)
+☐ Autre : ______________________
+
+**C.1.2. Combien de références de produits gérez-vous approximativement ?**
+
+☐ Moins de 500 références
+☐ 500 à 1000 références
+☐ 1001 à 2000 références
+☐ 2001 à 5000 références
+☐ Plus de 5000 références
+
+**C.1.3. Quelles catégories de produits proposez-vous ?** *(Plusieurs réponses possibles)*
+
+☐ Médicaments sur ordonnance
+☐ Médicaments sans ordonnance (OTC)
+☐ Produits de parapharmacie
+☐ Produits cosmétiques
+☐ Dispositifs médicaux
+☐ Produits d'hygiène
+☐ Compléments alimentaires
+☐ Produits vétérinaires
+☐ Matériel médical
+☐ Autre : ______________________
+
+---
+
+### C.2. Suivi des stocks *
+
+**C.2.1. Quelles informations de stock enregistrez-vous pour chaque produit ?** *(Plusieurs réponses possibles)*
+
+☐ Quantité en stock
+☐ Seuil minimum de stock (stock de sécurité)
+☐ Seuil maximum de stock
+☐ Numéro de lot
+☐ Date de péremption
+☐ Date d'entrée en stock
+☐ Emplacement dans les rayonnages
+☐ Quantité optimale de commande
+☐ Délai de réapprovisionnement
+☐ Autre : ______________________
+
+**C.2.2. Comment définissez-vous le seuil minimum de stock ?**
+
+☐ Seuil fixe identique pour tous les produits
+☐ Seuil variable selon la rotation du produit
+☐ Seuil calculé sur base historique des ventes
+☐ Pas de seuil minimum défini
+☐ Autre méthode : ______________________
+
+**C.2.3. Gérez-vous plusieurs numéros de lots pour un même produit ?**
+
+☐ Oui, systématiquement
+☐ Oui, parfois
+☐ Non, un seul lot par produit
+☐ Non, nous ne gérons pas les lots
+
+---
+
+## PARTIE D : PROCESSUS D'APPROVISIONNEMENT
+
+### D.1. Fournisseurs *
+
+**D.1.1. Combien de fournisseurs approvisionnent votre pharmacie ?**
+
+☐ 1 seul fournisseur
+☐ 2 à 3 fournisseurs
+☐ 4 à 5 fournisseurs
+☐ 6 à 10 fournisseurs
+☐ Plus de 10 fournisseurs
+
+**D.1.2. Quels types de fournisseurs utilisez-vous ?** *(Plusieurs réponses possibles)*
+
+☐ Grossistes-répartiteurs
+☐ Laboratoires pharmaceutiques (en direct)
+☐ Centrales d'achat
+☐ Dépositaires
+☐ Importateurs agréés
+☐ Autre : ______________________
+
+**D.1.3. Quelles informations conservez-vous sur vos fournisseurs ?** *(Plusieurs réponses possibles)*
+
+☐ Raison sociale / Nom de l'entreprise
+☐ Adresse complète
+☐ Numéro de téléphone
+☐ Adresse email
+☐ Numéro de registre de commerce
+☐ Numéro d'identification fiscale
+☐ Nom du contact / Représentant
+☐ Conditions de paiement accordées
+☐ Délais de livraison habituels
+☐ Historique des commandes
+☐ Autre : ______________________
+
+---
+
+### D.2. Processus de commande *
+
+**D.2.1. Comment identifiez-vous le besoin de réapprovisionnement ?** *(Plusieurs réponses possibles)*
+
+☐ Consultation régulière du registre d'inventaire
+☐ Constatation visuelle de l'épuisement des produits
+☐ Atteinte du seuil minimum de stock
+☐ Demande de produit non disponible par un client
+☐ Alerte automatique du logiciel (si informatisé)
+☐ Planification périodique des commandes
+☐ Autre : ______________________
+
+**D.2.2. À quelle fréquence passez-vous des commandes ?**
+
+☐ Quotidiennement
+☐ Plusieurs fois par semaine
+☐ Une fois par semaine
+☐ Toutes les deux semaines
+☐ Une fois par mois
+☐ Variable selon les besoins
+
+**D.2.3. Comment transmettez-vous vos commandes aux fournisseurs ?** *(Plusieurs réponses possibles)*
+
+☐ Bon de commande papier remis en main propre
+☐ Bon de commande envoyé par fax
+☐ Commande téléphonique
+☐ Commande par email
+☐ Plateforme de commande en ligne du fournisseur
+☐ Application mobile du fournisseur
+☐ Passage du représentant commercial
+☐ Autre : ______________________
+
+**D.2.4. Quelles informations figurent sur vos bons de commande ?** *(Plusieurs réponses possibles)*
+
+☐ Date de commande
+☐ Numéro de commande séquentiel
+☐ Identification de la pharmacie
+☐ Identification du fournisseur
+☐ Référence du produit
+☐ Désignation du produit
+☐ Quantité commandée
+☐ Prix d'achat unitaire
+☐ Montant total estimé
+☐ Délai de livraison souhaité
+☐ Observations / Remarques
+☐ Autre : ______________________
+
+---
+
+### D.3. Réception des livraisons *
+
+**D.3.1. Comment s'effectue la livraison des produits ?**
+
+☐ Le fournisseur livre directement à la pharmacie
+☐ Enlèvement par la pharmacie chez le fournisseur
+☐ Livraison par transporteur tiers
+☐ Les deux (livraison et enlèvement)
+☐ Autre : ______________________
+
+**D.3.2. Quels documents accompagnent les livraisons ?** *(Plusieurs réponses possibles)*
+
+☐ Bon de livraison
+☐ Facture
+☐ Bon de commande (copie)
+☐ Certificat de conformité
+☐ Certificat d'analyse du lot
+☐ Aucun document
+☐ Autre : ______________________
+
+**D.3.3. Quels contrôles effectuez-vous à la réception ?** *(Plusieurs réponses possibles)*
+
+☐ Vérification de la conformité avec le bon de commande
+☐ Contrôle des références des produits
+☐ Contrôle des désignations
+☐ Comptage des quantités livrées
+☐ Vérification des numéros de lot
+☐ Vérification des dates de péremption
+☐ Contrôle de l'état des emballages
+☐ Vérification des conditions de transport (température)
+☐ Autre : ______________________
+
+**D.3.4. Que faites-vous en cas de non-conformité à la réception ?** *(Plusieurs réponses possibles)*
+
+☐ Refus de la livraison
+☐ Acceptation avec réserves notées sur le bon
+☐ Retour immédiat des produits non conformes
+☐ Réclamation ultérieure auprès du fournisseur
+☐ Établissement d'un avoir
+☐ Autre : ______________________
+
+---
+
+### D.4. Règlement des fournisseurs *
+
+**D.4.1. Quels modes de paiement utilisez-vous pour régler vos fournisseurs ?** *(Plusieurs réponses possibles)*
+
+☐ Espèces
+☐ Chèque
+☐ Virement bancaire
+☐ Effet de commerce (traite)
+☐ Mobile money
+☐ Carte bancaire
+☐ Autre : ______________________
+
+**D.4.2. Quand effectuez-vous le règlement des fournisseurs ?**
+
+☐ Paiement immédiat à la livraison
+☐ Paiement à réception de facture
+☐ Paiement à 30 jours
+☐ Paiement à 60 jours
+☐ Paiement à 90 jours
+☐ Paiement échelonné
+☐ Variable selon le fournisseur
+
+**D.4.3. Quel document atteste du règlement ?**
+
+☐ Quittance remise par le fournisseur
+☐ Facture acquittée (avec mention "Payé")
+☐ Reçu de paiement
+☐ Relevé bancaire
+☐ Aucun document spécifique
+☐ Autre : ______________________
+
+---
+
+### D.5. Mise à jour des stocks après réception *
+
+**D.5.1. Quand mettez-vous à jour vos registres après réception ?**
+
+☐ Immédiatement après le contrôle de réception
+☐ Dans la journée
+☐ Le lendemain
+☐ En fin de semaine
+☐ Autre : ______________________
+
+**D.5.2. Quelles informations enregistrez-vous pour les entrées de stock ?** *(Plusieurs réponses possibles)*
+
+☐ Date d'entrée
+☐ Référence du produit
+☐ Désignation du produit
+☐ Quantité entrée
+☐ Numéro de lot
+☐ Date de péremption
+☐ Prix d'achat unitaire
+☐ Référence du bon de livraison
+☐ Référence de la facture
+☐ Nom du fournisseur
+☐ Autre : ______________________
+
+**D.5.3. Comment organisez-vous le rangement des produits ?**
+
+☐ Par ordre alphabétique
+☐ Par catégorie thérapeutique
+☐ Par forme pharmaceutique
+☐ Par ordre de péremption (FEFO - First Expired, First Out)
+☐ Par ordre d'arrivée (FIFO - First In, First Out)
+☐ Par fréquence de rotation
+☐ Sans organisation particulière
+☐ Autre : ______________________
+
+---
+
+## PARTIE E : PROCESSUS DE VENTE
+
+### E.1. Types de ventes *
+
+**E.1.1. Quels types de ventes effectuez-vous ?** *(Plusieurs réponses possibles)*
+
+☐ Vente sur ordonnance médicale
+☐ Vente libre (sans ordonnance)
+☐ Vente en gros à d'autres structures de santé
+☐ Vente à des organismes (assurances, mutuelles)
+☐ Vente à crédit aux clients réguliers
+☐ Autre : ______________________
+
+**E.1.2. Quel est le mode de vente principal ?**
+
+☐ Principalement sur ordonnance
+☐ Principalement en vente libre
+☐ Équilibré entre les deux
+
+---
+
+### E.2. Processus de vente *
+
+**E.2.1. Lors d'une vente sur ordonnance, quelles informations vérifiez-vous sur l'ordonnance ?** *(Plusieurs réponses possibles)*
+
+☐ Nom du patient
+☐ Date de prescription
+☐ Nom du médecin prescripteur
+☐ Numéro d'ordre / Cachet du médecin
+☐ Liste des médicaments prescrits
+☐ Posologie indiquée
+☐ Durée du traitement
+☐ Validité de l'ordonnance
+☐ Autre : ______________________
+
+**E.2.2. Comment vérifiez-vous la disponibilité des produits ?** *(Plusieurs réponses possibles)*
+
+☐ Consultation du registre d'inventaire
+☐ Vérification visuelle dans les rayonnages
+☐ Connaissance personnelle du stock
+☐ Consultation du logiciel informatique
+☐ Autre : ______________________
+
+**E.2.3. Quel critère appliquez-vous pour sélectionner les produits à délivrer ?**
+
+☐ Produit avec la date de péremption la plus proche (FEFO)
+☐ Produit arrivé en premier (FIFO)
+☐ Produit le plus accessible
+☐ Aucun critère particulier
+☐ Autre : ______________________
+
+---
+
+### E.3. Encaissement et documentation *
+
+**E.3.1. Quels modes de paiement acceptez-vous des clients ?** *(Plusieurs réponses possibles)*
+
+☐ Espèces
+☐ Chèque
+☐ Carte bancaire
+☐ Mobile money
+☐ Paiement par mutuelle / Assurance
+☐ Crédit / Paiement différé
+☐ Autre : ______________________
+
+**E.3.2. Délivrez-vous un document au client après la vente ?**
+
+☐ Oui, systématiquement
+☐ Oui, sur demande du client
+☐ Non
+
+**E.3.3. Si oui, quel type de document ?** *(Plusieurs réponses possibles)*
+
+☐ Ticket de caisse
+☐ Facture
+☐ Reçu simple
+☐ Ticket de vente détaillé
+☐ Ordonnance tamponnée
+☐ Autre : ______________________
+
+**E.3.4. Quelles informations figurent sur le ticket/reçu de vente ?** *(Plusieurs réponses possibles)*
+
+☐ Date de vente
+☐ Numéro de vente séquentiel
+☐ Identification de la pharmacie
+☐ Désignation des produits vendus
+☐ Quantité vendue par produit
+☐ Prix unitaire par produit
+☐ Montant par ligne de produit
+☐ Montant total de la vente
+☐ Mode de paiement
+☐ Nom du client
+☐ Autre : ______________________
+
+---
+
+### E.4. Mise à jour des stocks après vente *
+
+**E.4.1. Quand mettez-vous à jour vos registres après une vente ?**
+
+☐ Immédiatement après chaque vente
+☐ En fin de journée
+☐ En fin de semaine
+☐ Lors de l'inventaire périodique
+☐ Autre : ______________________
+
+**E.4.2. Quelles informations enregistrez-vous pour les sorties de stock (vente) ?** *(Plusieurs réponses possibles)*
+
+☐ Date de sortie
+☐ Référence du produit
+☐ Désignation du produit
+☐ Quantité sortie
+☐ Motif de sortie (vente)
+☐ Référence du ticket de vente
+☐ Prix de vente unitaire
+☐ Nom du client
+☐ Autre : ______________________
+
+---
+
+## PARTIE F : GESTION DES DATES DE PÉREMPTION
+
+### F.1. Contrôle des péremptions *
+
+**F.1.1. À quelle fréquence effectuez-vous un contrôle des dates de péremption ?**
+
+☐ Quotidiennement
+☐ Chaque début de semaine
+☐ Toutes les deux semaines
+☐ Mensuellement
+☐ Occasionnellement
+☐ Jamais de contrôle systématique
+
+**F.1.2. Quel délai d'alerte avant péremption utilisez-vous ?**
+
+☐ 1 mois avant la date de péremption
+☐ 2 mois avant la date de péremption
+☐ 3 mois avant la date de péremption
+☐ 6 mois avant la date de péremption
+☐ Délai variable selon le type de produit
+☐ Aucun délai défini
+
+**F.1.3. Quelles informations enregistrez-vous pour les produits proches de la péremption ?** *(Plusieurs réponses possibles)*
+
+☐ Date du contrôle
+☐ Référence du produit
+☐ Désignation du produit
+☐ Numéro de lot
+☐ Date de péremption
+☐ Quantité concernée
+☐ Nombre de jours restants avant péremption
+☐ Actions prises
+☐ Autre : ______________________
+
+---
+
+### F.2. Gestion des produits proches de péremption *
+
+**F.2.1. Quelles actions prenez-vous pour les produits proches de péremption ?** *(Plusieurs réponses possibles)*
+
+☐ Placement en avant dans les rayonnages
+☐ Vente prioritaire
+☐ Promotion / Réduction de prix
+☐ Retour au fournisseur
+☐ Don à des structures caritatives
+☐ Signalement visuel (étiquette spéciale)
+☐ Aucune action particulière
+☐ Autre : ______________________
+
+---
+
+### F.3. Gestion des produits périmés *
+
+**F.3.1. Que faites-vous des produits dont la date de péremption est dépassée ?** *(Plusieurs réponses possibles)*
+
+☐ Retrait immédiat des rayonnages
+☐ Isolement dans un espace dédié
+☐ Enregistrement de la sortie de stock
+☐ Destruction sur place
+☐ Remise à un organisme agréé pour destruction
+☐ Retour au fournisseur
+☐ Établissement d'un procès-verbal de destruction
+☐ Autre : ______________________
+
+**F.3.2. Quelles informations figurent sur le procès-verbal de destruction ?** *(Plusieurs réponses possibles)*
+
+☐ Date de destruction
+☐ Référence du produit
+☐ Désignation du produit
+☐ Quantité détruite
+☐ Numéro de lot
+☐ Date de péremption
+☐ Motif de destruction
+☐ Signature du pharmacien
+☐ Signature d'un témoin
+☐ Autre : ______________________
+
+**F.3.3. Qui effectue ou supervise la destruction des produits périmés ?**
+
+☐ Le pharmacien seul
+☐ Le pharmacien avec un témoin interne
+☐ Un organisme externe agréé
+☐ Les autorités sanitaires
+☐ Le fournisseur (reprise des produits)
+☐ Autre : ______________________
+
+---
+
+## PARTIE G : INVENTAIRE PHYSIQUE
+
+### G.1. Fréquence et organisation de l'inventaire *
+
+**G.1.1. À quelle fréquence effectuez-vous un inventaire physique complet ?**
+
+☐ Hebdomadaire
+☐ Mensuel
+☐ Trimestriel
+☐ Semestriel
+☐ Annuel
+☐ Jamais d'inventaire complet
+☐ Autre : ______________________
+
+**G.1.2. Effectuez-vous des inventaires partiels ou tournants ?**
+
+☐ Oui, régulièrement
+☐ Oui, occasionnellement
+☐ Non
+
+**G.1.3. Qui participe à l'inventaire physique ?** *(Plusieurs réponses possibles)*
+
+☐ Le pharmacien seul
+☐ Tout le personnel de la pharmacie
+☐ Personnel dédié à l'inventaire
+☐ Prestataire externe
+☐ Autre : ______________________
+
+---
+
+### G.2. Procédure d'inventaire *
+
+**G.2.1. Comment préparez-vous l'inventaire ?** *(Plusieurs réponses possibles)*
+
+☐ Préparation d'une feuille d'inventaire listant tous les produits
+☐ Impression de la liste des produits depuis le registre
+☐ Utilisation de fiches de comptage vierges
+☐ Aucune préparation particulière
+☐ Autre : ______________________
+
+**G.2.2. Quelles informations figurent sur la feuille d'inventaire ?** *(Plusieurs réponses possibles)*
+
+☐ Référence du produit
+☐ Désignation du produit
+☐ Quantité théorique (selon registre)
+☐ Quantité réelle comptée
+☐ Numéro de lot
+☐ Date de péremption
+☐ Écart constaté
+☐ Observations
+☐ Autre : ______________________
+
+**G.2.3. Fermez-vous la pharmacie pendant l'inventaire ?**
+
+☐ Oui, fermeture complète
+☐ Non, inventaire pendant les heures creuses
+☐ Non, inventaire en dehors des heures d'ouverture
+☐ Inventaire en plusieurs sessions
+
+---
+
+### G.3. Gestion des écarts d'inventaire *
+
+**G.3.1. Constatez-vous fréquemment des écarts d'inventaire ?**
+
+☐ Jamais ou très rarement
+☐ Occasionnellement
+☐ Régulièrement
+☐ Fréquemment
+
+**G.3.2. Quels types d'écarts constatez-vous généralement ?**
+
+☐ Principalement des manquants (quantité réelle < théorique)
+☐ Principalement des excédents (quantité réelle > théorique)
+☐ Les deux types équitablement
+☐ Pas d'écarts significatifs
+
+**G.3.3. Quelles informations enregistrez-vous pour les écarts d'inventaire ?** *(Plusieurs réponses possibles)*
+
+☐ Date de l'inventaire
+☐ Référence du produit
+☐ Désignation du produit
+☐ Quantité théorique
+☐ Quantité réelle
+☐ Écart (en plus ou en moins)
+☐ Cause supposée de l'écart
+☐ Action corrective
+☐ Autre : ______________________
+
+**G.3.4. Que faites-vous suite à la constatation d'écarts ?**
+
+☐ Régularisation du registre d'inventaire
+☐ Recherche des causes de l'écart
+☐ Mise en place de mesures correctives
+☐ Signalement aux autorités (si vol suspecté)
+☐ Aucune action particulière
+☐ Autre : ______________________
+
+---
+
+## PARTIE H : INSPECTIONS SANITAIRES
+
+### H.1. Fréquence et nature des inspections *
+
+**H.1.1. À quelle fréquence recevez-vous des inspections sanitaires ?**
+
+☐ Plusieurs fois par an
+☐ Une fois par an
+☐ Une fois tous les deux ans
+☐ Moins fréquemment
+☐ Jamais eu d'inspection
+☐ Ne sait pas
+
+**H.1.2. Quelle autorité effectue les inspections ?** *(Plusieurs réponses possibles)*
+
+☐ Ministère de la Santé
+☐ Direction de la pharmacie
+☐ Ordre des pharmaciens
+☐ Services d'hygiène
+☐ Autre : ______________________
+
+---
+
+### H.2. Documents demandés lors des inspections *
+
+**H.2.1. Quels documents sont généralement demandés lors des inspections ?** *(Plusieurs réponses possibles)*
+
+☐ Registre d'inventaire
+☐ Registre des entrées de stock
+☐ Registre des sorties de stock
+☐ Registre des alertes de péremption
+☐ Procès-verbaux de destruction des périmés
+☐ Factures d'achat
+☐ Bons de livraison
+☐ Ordonnances (pour certains médicaments)
+☐ Registre des stupéfiants
+☐ Diplômes et autorisations d'exercer
+☐ Conditions de stockage (relevés de température)
+☐ Autre : ______________________
+
+**H.2.2. Quelles vérifications physiques sont effectuées lors des inspections ?** *(Plusieurs réponses possibles)*
+
+☐ Contrôle de la conformité des quantités (registre vs réalité)
+☐ Vérification de l'absence de produits périmés en rayon
+☐ Contrôle des conditions de stockage (température)
+☐ Contrôle de l'hygiène des locaux
+☐ Vérification de la traçabilité des produits
+☐ Contrôle des produits stupéfiants
+☐ Autre : ______________________
+
+---
+
+### H.3. Documentation des inspections *
+
+**H.3.1. Comment documentez-vous les visites d'inspection ?** *(Plusieurs réponses possibles)*
+
+☐ Registre des inspections
+☐ Conservation du rapport d'inspection
+☐ Aucune documentation particulière
+☐ Autre : ______________________
+
+**H.3.2. Quelles informations enregistrez-vous pour chaque inspection ?** *(Plusieurs réponses possibles)*
+
+☐ Date de l'inspection
+☐ Nom de l'inspecteur
+☐ Organisme de l'inspecteur
+☐ Référence du rapport d'inspection
+☐ Observations principales
+☐ Non-conformités relevées
+☐ Actions correctives demandées
+☐ Délai de mise en conformité
+☐ Autre : ______________________
+
+---
+
+## PARTIE I : BESOINS EN ALERTES AUTOMATIQUES
+
+### I.1. Alertes de stock *
+
+**I.1.1. Souhaiteriez-vous recevoir des alertes automatiques concernant le stock ?**
+
+☐ Oui, absolument
+☐ Oui, probablement utile
+☐ Peut-être
+☐ Non, pas nécessaire
+
+**I.1.2. Quels types d'alertes de stock souhaiteriez-vous ?** *(Plusieurs réponses possibles)*
+
+☐ Atteinte du seuil minimum de stock (risque de rupture)
+☐ Rupture de stock effective (quantité = 0)
+☐ Surstock (quantité supérieure au seuil maximum)
+☐ Produit sans mouvement depuis longtemps
+☐ Écart anormal de stock
+☐ Autre : ______________________
+
+**I.1.3. Comment souhaiteriez-vous recevoir ces alertes ?** *(Plusieurs réponses possibles)*
+
+☐ Affichage à l'écran lors de la connexion au logiciel
+☐ Notification pop-up en temps réel
+☐ Liste récapitulative consultable
+☐ Email automatique
+☐ SMS
+☐ Impression automatique d'un rapport
+☐ Autre : ______________________
+
+---
+
+### I.2. Alertes de péremption *
+
+**I.2.1. Souhaiteriez-vous recevoir des alertes automatiques concernant les péremptions ?**
+
+☐ Oui, absolument
+☐ Oui, probablement utile
+☐ Peut-être
+☐ Non, pas nécessaire
+
+**I.2.2. Quels types d'alertes de péremption souhaiteriez-vous ?** *(Plusieurs réponses possibles)*
+
+☐ Produits arrivant à péremption dans 3 mois
+☐ Produits arrivant à péremption dans 1 mois
+☐ Produits périmés (date dépassée)
+☐ Rappel de contrôle périodique des péremptions
+☐ Alerte personnalisable selon le délai souhaité
+☐ Autre : ______________________
+
+**I.2.3. À quelle fréquence souhaiteriez-vous recevoir un récapitulatif des alertes péremption ?**
+
+☐ Quotidiennement
+☐ Hebdomadairement
+☐ Mensuellement
+☐ Sur demande uniquement
+☐ En temps réel (dès qu'un produit entre dans la zone d'alerte)
+
+---
+
+### I.3. Autres alertes souhaitées *
+
+**I.3.1. Quelles autres alertes vous seraient utiles ?** *(Plusieurs réponses possibles)*
+
+☐ Rappel d'inventaire périodique
+☐ Échéance de paiement fournisseur
+☐ Commande en attente de livraison
+☐ Produit non livré depuis la commande
+☐ Rappel de lot (alerte sanitaire)
+☐ Produits à forte rotation en baisse de stock
+☐ Autre : ______________________
+
+---
+
+## PARTIE J : STATISTIQUES ET RAPPORTS
+
+### J.1. Besoins en statistiques *
+
+**J.1.1. Quelles statistiques vous seraient utiles ?** *(Plusieurs réponses possibles)*
+
+☐ Ventes par période (jour, semaine, mois)
+☐ Produits les plus vendus
+☐ Produits les moins vendus
+☐ Chiffre d'affaires par période
+☐ Valeur totale du stock
+☐ Rotation des produits
+☐ Taux de rupture de stock
+☐ Montant des pertes (péremption)
+☐ Historique des achats par fournisseur
+☐ Évolution du stock dans le temps
+☐ Autre : ______________________
+
+---
+
+### J.2. Besoins en rapports *
+
+**J.2.1. Quels rapports souhaiteriez-vous pouvoir générer ?** *(Plusieurs réponses possibles)*
+
+☐ État du stock à un instant donné
+☐ Liste des produits sous le seuil minimum
+☐ Liste des produits proches de péremption
+☐ Historique des mouvements de stock
+☐ Rapport d'inventaire
+☐ Rapport des ventes quotidiennes
+☐ Rapport mensuel d'activité
+☐ Rapport pour inspection sanitaire
+☐ Liste des commandes fournisseurs
+☐ Autre : ______________________
+
+**J.2.2. Sous quel format souhaiteriez-vous obtenir ces rapports ?** *(Plusieurs réponses possibles)*
+
+☐ Affichage à l'écran
+☐ Impression papier
+☐ Export PDF
+☐ Export Excel
+☐ Autre : ______________________
+
+---
+
+## PARTIE K : ATTENTES CONCERNANT LE FUTUR LOGICIEL
+
+### K.1. Fonctionnalités prioritaires *
+
+**K.1.1. Quelles fonctionnalités vous semblent les plus importantes ?** *(Classez de 1 à 10, 1 étant la plus importante)*
+
+| Fonctionnalité | Rang |
+|----------------|------|
+| Gestion des entrées de stock | ☐ |
+| Gestion des sorties de stock (ventes) | ☐ |
+| Alertes automatiques de rupture de stock | ☐ |
+| Alertes automatiques de péremption | ☐ |
+| Gestion des fournisseurs et commandes | ☐ |
+| Gestion des inventaires | ☐ |
+| Statistiques et tableaux de bord | ☐ |
+| Génération de rapports | ☐ |
+| Traçabilité des lots | ☐ |
+| Gestion documentaire (factures, bons) | ☐ |
+
+---
+
+### K.2. Facilité d'utilisation *
+
+**K.2.1. Quel est votre niveau de maîtrise de l'outil informatique ?**
+
+☐ Débutant (peu familier avec l'informatique)
+☐ Intermédiaire (utilisation basique : bureautique, internet)
+☐ Avancé (à l'aise avec les logiciels spécialisés)
+☐ Expert (très bonne maîtrise technique)
+
+**K.2.2. Quelles caractéristiques d'interface vous semblent importantes ?** *(Plusieurs réponses possibles)*
+
+☐ Interface simple et intuitive
+☐ Navigation facile avec peu de clics
+☐ Aide en ligne intégrée
+☐ Possibilité de personnaliser l'affichage
+☐ Raccourcis clavier
+☐ Interface en français
+☐ Taille des caractères adaptable
+☐ Autre : ______________________
+
+---
+
+### K.3. Contraintes techniques *
+
+**K.3.1. De quel équipement informatique disposez-vous actuellement ?** *(Plusieurs réponses possibles)*
+
+☐ Ordinateur de bureau
+☐ Ordinateur portable
+☐ Tablette
+☐ Smartphone
+☐ Imprimante
+☐ Scanner / Lecteur de code-barres
+☐ Connexion internet
+☐ Aucun équipement informatique
+☐ Autre : ______________________
+
+**K.3.2. Sur quel type d'appareil souhaiteriez-vous utiliser le logiciel ?** *(Plusieurs réponses possibles)*
+
+☐ Ordinateur de bureau uniquement
+☐ Ordinateur portable
+☐ Tablette
+☐ Smartphone
+☐ Tous les appareils (solution multiplateforme)
+
+**K.3.3. Préférez-vous une solution :**
+
+☐ Installée localement sur votre ordinateur
+☐ Accessible en ligne (cloud / web)
+☐ Les deux possibilités
+☐ Sans préférence
+
+---
+
+### K.4. Sécurité et confidentialité *
+
+**K.4.1. Quelles fonctionnalités de sécurité vous semblent importantes ?** *(Plusieurs réponses possibles)*
+
+☐ Accès par mot de passe
+☐ Gestion des droits d'accès par utilisateur
+☐ Historique des connexions
+☐ Traçabilité des modifications
+☐ Sauvegarde automatique des données
+☐ Chiffrement des données sensibles
+☐ Autre : ______________________
+
+---
+
+## PARTIE L : INFORMATIONS COMPLÉMENTAIRES
+
+### L.1. Contraintes particulières
+
+**L.1.1. Existe-t-il des contraintes particulières dont nous devrions tenir compte ?** *(Plusieurs réponses possibles)*
+
+☐ Contraintes réglementaires spécifiques
+☐ Contraintes budgétaires importantes
+☐ Contraintes de temps pour la mise en place
+☐ Nécessité de formation du personnel
+☐ Besoin de continuité d'activité pendant la transition
+☐ Autre : ______________________
+
+---
+
+### L.2. Remarques et suggestions
+
+**L.2.1. Avez-vous d'autres remarques, besoins ou suggestions à nous communiquer ?**
+
+_______________________________________________________________________________
+
+_______________________________________________________________________________
+
+_______________________________________________________________________________
+
+_______________________________________________________________________________
+
+_______________________________________________________________________________
+
+---
+
+## ATTESTATION ET SIGNATURE
+
+Je soussigné(e), _________________________________________________, 
+
+atteste avoir répondu sincèrement aux questions de ce questionnaire dans le cadre de l'étude menée sur la gestion des stocks pharmaceutiques.
+
+**Fonction** : ☐ Pharmacien titulaire ☐ Pharmacien assistant ☐ Préparateur ☐ Autre : ____________
+
+**Date** : ____/____/________
+
+**Signature** : 
+
+---
+
+**REMERCIEMENTS**
+
+Nous vous remercions sincèrement pour le temps consacré à répondre à ce questionnaire. Vos réponses sont essentielles pour la conception d'une solution logicielle adaptée à vos besoins réels.
+
+Les informations collectées seront utilisées uniquement dans le cadre de cette étude académique et traitées de manière confidentielle.
+
+---
+
+*Questionnaire élaboré dans le cadre du cours de Méthodologie d'Analyse Informatique 1 (M.A.I)*
+
+*Sujet : Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques*
+</div>
+
+<span>
+  *Thinking...*
+
+> **Framing the Objective**
+> 
+> I'm currently focused on defining the core goal: crafting an observation grid for a survey annex. Understanding the user's need for a checklist within their school project context is the priority. I'm breaking down the request's elements to pinpoint the precise features needed.
+> 
+> 
+> **Structuring the Analysis**
+> 
+> I'm now delving into the core of the questionnaire. My focus is on creating a robust framework. I'm extracting key areas and identifying specific aspects for the observation grid. The goal is a detailed breakdown of the user's needs.
+> 
+> 
+> **Constructing the Sections**
+> 
+> I'm presently building out the grid sections, focusing on the physical environment first. I'm adding critical items like internet access, power backup, and ergonomics. Refining these initial categories with sub-items is crucial to capturing the nuances of the pharmacy's setup. The goal is to capture physical realities.
+> 
+> 
+> **Finalizing the Sections**
+> 
+> I'm presently building out the grid sections, focusing on the workflows, documenting, and processes. I'm adding crucial elements such as sales process analysis and document verifications. Refining these categories to include the speed and efficiency of the existing processes are crucial to capturing the nuances of the pharmacy's functionality. The goal is to capture the workflow realities.
+> 
+> 
+> **Revising for Completeness**
+> 
+> I'm now integrating the final checks, ensuring that all aspects of the user's need, specifically their pharmacy, are addressed. I'm focusing on the software side, so I'm looking for visual aids, like notes, to prove the need for digital alerts. Ensuring the language is professional and refined for the user's project is a must.
+> 
+> 
+> **Evaluating the Details**
+> 
+> I'm now deep-diving into the user's requirements again. Focusing on the need for pharmacy-specific details. My priority is to connect the observation grid to the actual workflow, especially how sales processes impact inventory and stock levels. I'm now honing the layout of the grid, ensuring it gives the right kind of details to help the software project's design.
+> 
+> 
+C'est une excellente initiative. Ton questionnaire est très complet (il couvre bien les aspects juridiques, les processus et les besoins futurs).
+
+Cependant, **le questionnaire recueille ce que les gens *disent* faire (déclaratif), alors que la grille d'observation recueille ce qu'ils *font réellement* (factuel).**
+
+Pour ton projet de conception de logiciel (M.A.I), la grille d'observation est cruciale pour identifier les contraintes techniques (ex: pas de place pour une souris, électricité instable) et les problèmes d'organisation que le logiciel devra résoudre.
+
+Voici une proposition de grille d'observation structurée et professionnelle, spécialement adaptée à ton sujet (Logiciel de gestion de stock + Alertes).
+
+---
+
+## ANNEXE : GRILLE D'OBSERVATION DIRECTE
+*(À remplir par l'enquêteur sur le site)*
+
+**Date de l'observation :** ____/____/________  
+**Heure de début :** ______  **Heure de fin :** ______  
+**Zone observée :** ☐ Comptoir ☐ Arrière-boutique (Stock) ☐ Bureau administratif
+
+### A. ENVIRONNEMENT TECHNIQUE ET INFRASTRUCTURE
+*Objectif : Vérifier si la pharmacie est prête à accueillir le logiciel.*
+
+| Élément observé | Présent / Oui | Absent / Non | État / Commentaires (Vétuste, Neuf, En panne...) |
+| :--- | :---: | :---: | :--- |
+| **Alimentation électrique** | | | |
+| Présence d'un onduleur (UPS) ou stabilisateur | [ ] | [ ] | *Crucial pour éviter la corruption des données* |
+| Prises électriques disponibles près du comptoir | [ ] | [ ] | |
+| **Matériel informatique** | | | |
+| Ordinateur au comptoir de vente | [ ] | [ ] | |
+| Ordinateur dans le stock/arrière-boutique | [ ] | [ ] | |
+| Lecteur de code-barres (Douchette) | [ ] | [ ] | |
+| Imprimante (Ticket ou A4) | [ ] | [ ] | |
+| Connexion Internet fonctionnelle | [ ] | [ ] | *Type : Wifi / Câble / Modem 4G* |
+| **Ergonomie** | | | |
+| Espace suffisant pour poser un écran/clavier | [ ] | [ ] | |
+| L'écran est-il visible par le client ? | [ ] | [ ] | |
+
+### B. ORGANISATION PHYSIQUE DES STOCKS
+*Objectif : Voir si le stock physique est bien rangé (condition sine qua non pour un stock informatique juste).*
+
+| Élément observé | Oui | Non | Observations (Rangement, Propreté, Logique) |
+| :--- | :---: | :---: | :--- |
+| **Rayonnages** | | | |
+| Les produits sont étiquetés (prix/code) | [ ] | [ ] | |
+| Les étagères sont numérotées ou identifiées | [ ] | [ ] | *Important pour la localisation dans le logiciel* |
+| Séparation claire des formes (sirops, comprimés...) | [ ] | [ ] | |
+| **Zones spécifiques** | | | |
+| Réfrigérateur avec thermomètre visible | [ ] | [ ] | |
+| Armoire sécurisée (clés) pour les stupéfiants | [ ] | [ ] | |
+| Zone "Quarantaine" (produits périmés/à détruire) | [ ] | [ ] | *Est-elle physiquement séparée du stock sain ?* |
+| Zone de réception des commandes (dégagée ?) | [ ] | [ ] | |
+| **Gestion des dates (FEFO)** | | | |
+| Les produits anciens sont mis devant les nouveaux | [ ] | [ ] | *Vérifier 2-3 produits au hasard* |
+| Présence de poussière sur les boîtes (stock dormant) | [ ] | [ ] | |
+
+### C. OBSERVATION DES FLUX DE TRAVAIL (PROCESSUS)
+*Objectif : Comprendre comment ils travaillent pour adapter l'interface du logiciel.*
+
+| Action observée | Procédure Manuelle | Procédure Informatisée | Commentaires sur la fluidité / Temps pris |
+| :--- | :---: | :---: | :--- |
+| **Lors d'une vente** | | | |
+| Recherche du prix du produit | [ ] Mémoire/Étiquette | [ ] Scan/Recherche PC | |
+| Calcul du total à payer | [ ] Calculatrice | [ ] Logiciel | |
+| Vérification du stock avant vente | [ ] Visuel rayon | [ ] Écran | |
+| Rédaction du reçu/ticket | [ ] Manuscrit | [ ] Imprimé | |
+| **Lors d'une réception** | | | |
+| Contrôle de la livraison | [ ] Pointage papier | [ ] Scan | |
+| Mise en rayon | [ ] Immédiate | [ ] Différée | |
+| **Gestion des alertes** | | | |
+| Utilisation de "Post-it" ou cahier pour noter les manquants | [ ] Oui | [ ] Non | *Preuve du besoin d'alertes automatiques* |
+
+### D. DOCUMENTS CONSULTÉS SUR PLACE
+*Objectif : Récupérer des modèles pour concevoir la base de données.*
+
+| Document | Vu | Copie/Photo prise ? | Remarques sur le contenu |
+| :--- | :---: | :---: | :--- |
+| Registre des entrées/sorties (Cahier) | [ ] | [ ] | *Noter les colonnes utilisées* |
+| Modèle de facture fournisseur | [ ] | [ ] | |
+| Modèle d'ordonnancier | [ ] | [ ] | |
+| Fiche de stock (si existante) | [ ] | [ ] | |
+| PV de destruction de périmés | [ ] | [ ] | |
+
+---
+
+### Conseils pour bien utiliser cette grille :
+
+1.  **Ne demande pas, regarde :** Contrairement au questionnaire, ici tu ne poses pas de questions. Tu utilises tes yeux. Si tu vois un ordinateur éteint sous une couche de poussière, tu coches "Présent" mais tu notes en commentaire "Non utilisé/Vétuste".
+2.  **Prends des photos (avec autorisation) :** Pour ton rapport de mémoire, une photo d'un registre papier raturé ou d'une étagère mal rangée est une preuve visuelle très forte de la nécessité de ton logiciel.
+3.  **Cherche les "Post-it" :** C'est le détail qui tue. Si tu vois des bouts de papier collés près de la caisse avec écrit "Commander Doliprane" ou "Attention Péremption", c'est la preuve absolue que ton système d'alertes automatiques est nécessaire. Note-le dans la partie C.
+4.  **La cohérence :** Vérifie si ce que tu vois correspond à ce qu'ils ont répondu dans le questionnaire. S'ils ont coché "Gestion FEFO respectée" dans le questionnaire, mais que tu vois des boîtes neuves devant des boîtes anciennes sur l'étagère, il y a un écart à analyser dans ton mémoire.
+</span>
+
+
+<!-- likulajeanlouis23 -->
+<!-- Claude-opus-4.5 -->
+<prompt>
+  Donne-moi un questionnaire d'enquête pour récolter tous les données se trouvant dans cette description textuelle 
+
+Car le but était d'abord la récolte des données, l'analyse du domaine, fonctionnement, système existant,.,etc
+Pour ensuite réaliser cette description textuelle qui est déjà fait 
+
+J'ai dit questionnaire d'enquête :
+Donc des trucs à cocher
+
+Ça doit vraiment être un questionnaire complet, bien réalisé, faut penser à chaque aspect d'un questionnaire authentique et réaliser selon les normes, les principes clés, les consignes , n'oublie rien, ne néglige rien, tout doit être prise en compte 
+
+C'est un TP du cours de : méthodologie d'analyse informatique 1(M.A.I)
+Mon sujet choisit était : Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques 
+
+Voici la description textuelle :
+
+# Description Textuelle du Cas d'Étude : Pharmacie DIBAPHAR
+
+## Introduction
+
+Dans le cadre de notre étude portant sur la conception d'un système de gestion des stocks pour une pharmacie avec alertes automatiques, nous avons mené une enquête auprès de la pharmacie DIBAPHAR, un établissement pharmaceutique de quartier. Cette pharmacie, de taille modeste, est détenue et gérée par un pharmacien unique qui assure l'ensemble des opérations quotidiennes. L'établissement est ouvert tous les jours de 07h à 21h et fonctionne selon des procédures entièrement manuelles.
+
+Notre enquête s'est déroulée sur plusieurs jours d'observation et d'entretiens avec le pharmacien. Nous avons pu identifier les différents processus métier, les acteurs impliqués, les données manipulées ainsi que les flux d'information circulant au sein de cet établissement. L'objectif est de comprendre le fonctionnement actuel afin de proposer une solution informatique adaptée permettant d'optimiser la gestion des stocks et d'intégrer des mécanismes d'alertes automatiques pour prévenir les ruptures de stock et surveiller les dates de péremption des produits pharmaceutiques.
+
+Les résultats de notre enquête sont présentés ci-dessous à travers la description des différents scénarios de fonctionnement observés.
+
+---
+
+## Scénario 1 : Approvisionnement auprès du Fournisseur
+
+Le pharmacien constate un besoin de réapprovisionnement suite à l'épuisement progressif de certains produits. Il consulte son registre d'inventaire dans lequel sont consignés tous les produits pharmaceutiques disponibles en stock. Pour chaque produit, le registre contient la référence du produit, sa désignation, la forme pharmaceutique, le dosage, la quantité en stock, le seuil minimum de stock, le prix d'achat unitaire et le prix de vente unitaire. Le pharmacien identifie les produits dont la quantité en stock a atteint le seuil minimum défini.
+
+Le pharmacien rédige alors un bon de commande destiné au fournisseur. Sur ce bon de commande, il inscrit la date de commande, un numéro de commande séquentiel, ainsi que la liste des produits à commander. Pour chaque produit commandé, il note la référence du produit, la désignation, la quantité commandée et le prix d'achat unitaire convenu. Le bon de commande mentionne également les informations du fournisseur concerné, à savoir sa raison sociale, son adresse et son contact.
+
+Le pharmacien transmet le bon de commande au fournisseur. Le fournisseur réceptionne la commande et prépare la livraison. **Il se présente ensuite à la pharmacie avec les produits commandés**, accompagnés d'un bon de livraison et de la facture correspondante. Le pharmacien vérifie la conformité des produits livrés par rapport au bon de commande. Il contrôle pour chaque produit la référence, la désignation, la quantité livrée, le numéro de lot et la date de péremption.
+
+Une fois la vérification effectuée, le fournisseur présente la facture globale de la commande. Le pharmacien procède au règlement immédiat du montant total indiqué sur la facture. Le fournisseur encaisse le paiement et remet une quittance attestant du règlement.
+
+Le pharmacien signe le bon de livraison pour attester de la réception. Il procède ensuite à la mise à jour de son registre d'inventaire. Pour chaque produit reçu, il ajoute la quantité livrée à la quantité existante en stock. Il enregistre également dans son registre des entrées de stock les informations suivantes : la date d'entrée, la référence du produit, la désignation, la quantité entrée, le numéro de lot, la date de péremption et la référence du bon de livraison.
+
+Le pharmacien range les produits dans les rayonnages de la pharmacie en respectant l'ordre de péremption, les produits ayant la date de péremption la plus proche étant placés devant. Le pharmacien conserve le bon de livraison, la facture acquittée et le bon de commande correspondant dans son classeur des approvisionnements.
+
+---
+
+## Scénario 2 : Vente de Produits au Client
+
+Un client se présente au comptoir de la pharmacie avec une ordonnance médicale. Le pharmacien réceptionne l'ordonnance et procède à sa lecture. L'ordonnance contient le nom du patient, la date de prescription, le nom du médecin prescripteur ainsi que la liste des médicaments prescrits avec leur posologie.
+
+Le pharmacien recherche dans ses rayonnages les produits correspondant à la prescription. Pour chaque produit, il vérifie la disponibilité en stock en consultant son registre d'inventaire. Le pharmacien sélectionne les produits en privilégiant ceux dont la date de péremption est la plus proche tout en restant valide.
+
+Le pharmacien prépare les produits et les présente au client. Il informe le client du prix total de la vente. Le client effectue le paiement du montant indiqué. Le pharmacien reçoit le paiement et remet les produits au client accompagnés d'un ticket de vente.
+
+Sur le ticket de vente, le pharmacien inscrit la date de vente, un numéro de vente séquentiel, la liste des produits vendus avec pour chacun la désignation, la quantité vendue, le prix unitaire et le montant correspondant. Le ticket mentionne également le montant total de la vente.
+
+Le pharmacien procède à la mise à jour de son registre d'inventaire. Pour chaque produit vendu, il soustrait la quantité vendue de la quantité en stock. Il enregistre dans son registre des sorties de stock les informations suivantes : la date de sortie, la référence du produit, la désignation, la quantité sortie, le motif de sortie qui est la vente, et la référence du ticket de vente.
+
+Le pharmacien conserve une copie du ticket de vente dans son registre des ventes quotidiennes.
+
+---
+
+## Scénario 3 : Contrôle des Dates de Péremption
+
+Chaque début de semaine, le pharmacien effectue un contrôle périodique de son stock. Il parcourt son registre d'inventaire et identifie les produits dont la date de péremption approche. Le pharmacien définit un délai d'alerte de trois mois avant la date de péremption.
+
+Pour chaque produit identifié comme proche de la péremption, le pharmacien consulte le numéro de lot correspondant et la quantité restante en stock. Le pharmacien inscrit ces produits dans son registre des alertes de péremption. Il note la date du contrôle, la référence du produit, la désignation, le numéro de lot, la date de péremption, la quantité concernée et le nombre de jours restants avant péremption.
+
+Le pharmacien place les produits concernés en avant dans les rayonnages afin de favoriser leur vente prioritaire. Le pharmacien identifie également les produits dont la date de péremption est dépassée. Pour ces produits périmés, le pharmacien procède à leur retrait des rayonnages.
+
+Le pharmacien enregistre dans son registre des sorties de stock les informations relatives aux produits retirés : la date de sortie, la référence du produit, la désignation, la quantité retirée, le numéro de lot, la date de péremption et le motif de sortie qui est la péremption. Le pharmacien met à jour son registre d'inventaire en soustrayant les quantités retirées.
+
+Les produits périmés sont isolés dans un espace dédié en attente de destruction. Le pharmacien prépare un procès-verbal de destruction mentionnant la liste des produits à détruire avec leurs références, désignations, quantités, numéros de lot et dates de péremption.
+
+---
+
+## Scénario 4 : Inspection Sanitaire
+
+Un inspecteur sanitaire des autorités compétentes se présente à la pharmacie pour effectuer un contrôle réglementaire. Le pharmacien accueille l'inspecteur et lui présente les documents requis.
+
+L'inspecteur demande à consulter le registre d'inventaire afin de vérifier la traçabilité des produits. Le pharmacien met à disposition son registre contenant pour chaque produit la référence, la désignation, la forme pharmaceutique, le dosage, la quantité en stock, le numéro de lot, la date de péremption, le nom du fournisseur et la date d'entrée en stock.
+
+L'inspecteur procède à une vérification physique des stocks. Il contrôle la conformité entre les quantités inscrites dans le registre et les quantités réellement présentes dans les rayonnages. L'inspecteur vérifie les conditions de stockage des produits, notamment la température et l'hygiène des locaux.
+
+L'inspecteur contrôle l'absence de produits périmés dans les rayonnages de vente. Il consulte le registre des alertes de péremption et le registre des sorties de stock pour vérifier la bonne gestion des produits proches de la péremption et des produits périmés retirés.
+
+L'inspecteur consulte les procès-verbaux de destruction des produits périmés. Il vérifie la cohérence entre les quantités retirées du stock et les quantités mentionnées dans les procès-verbaux.
+
+À l'issue du contrôle, l'inspecteur rédige un rapport d'inspection. Ce rapport contient la date de l'inspection, l'identification de la pharmacie, le nom de l'inspecteur, les observations effectuées et les conclusions du contrôle. L'inspecteur remet une copie du rapport d'inspection au pharmacien. Le pharmacien enregistre la visite dans son registre des inspections en notant la date de l'inspection, le nom de l'inspecteur et la référence du rapport.
+
+---
+
+## Scénario 5 : Inventaire Physique du Stock
+
+À la fin de chaque mois, le pharmacien procède à un inventaire physique complet de son stock. Il prépare une feuille d'inventaire sur laquelle sont listés tous les produits référencés dans son registre d'inventaire avec pour chacun la référence, la désignation et la quantité théorique en stock.
+
+Le pharmacien parcourt méthodiquement l'ensemble des rayonnages de la pharmacie. Pour chaque produit, il compte la quantité physiquement présente et l'inscrit sur la feuille d'inventaire dans la colonne quantité réelle. Le pharmacien note également pour chaque produit le numéro de lot et la date de péremption visibles sur les emballages.
+
+Une fois le comptage terminé, le pharmacien compare pour chaque produit la quantité théorique issue du registre d'inventaire et la quantité réelle comptée. Le pharmacien identifie les écarts entre les deux quantités.
+
+Pour chaque écart constaté, le pharmacien enregistre dans son registre des écarts d'inventaire les informations suivantes : la date de l'inventaire, la référence du produit, la désignation, la quantité théorique, la quantité réelle, l'écart constaté en plus ou en moins.
+
+Le pharmacien procède à la régularisation de son registre d'inventaire. Il ajuste les quantités en stock pour refléter les quantités réellement comptées. Le pharmacien date et signe la feuille d'inventaire complétée et la classe dans son dossier des inventaires.
+
+---
+
+## Synthèse des Données Collectées
+
+Au terme de notre enquête, nous avons identifié les éléments suivants nécessaires à la modélisation du système d'information :
+
+**Acteurs identifiés** : Le pharmacien constitue l'acteur interne principal assurant l'ensemble des opérations. Les acteurs externes sont le client qui achète les produits pharmaceutiques, le fournisseur qui approvisionne la pharmacie en produits, et l'inspecteur sanitaire qui effectue les contrôles réglementaires.
+
+**Données manipulées** : Les produits pharmaceutiques sont caractérisés par une référence, une désignation, une forme pharmaceutique, un dosage, un prix d'achat, un prix de vente et un seuil minimum de stock. Le stock est suivi par produit avec la quantité disponible, le numéro de lot et la date de péremption. Les mouvements de stock sont enregistrés avec la date, le type de mouvement (entrée ou sortie), la quantité, le motif et la référence du document associé. Les fournisseurs sont identifiés par leur raison sociale, adresse et contact. Les commandes sont référencées avec leur date et le détail des produits commandés. Les règlements fournisseurs sont enregistrés avec la date, le montant et la référence de la facture. Les ventes sont enregistrées avec leur date et le détail des produits vendus. Les alertes concernent les ruptures de stock et les dates de péremption proches. Les inspections sont consignées avec leur date et leurs observations.
+
+**Flux d'information identifiés** : Les bons de commande circulent du pharmacien vers le fournisseur. Les bons de livraison et les factures circulent du fournisseur vers le pharmacien. Les tickets de vente sont remis au client. Les rapports d'inspection circulent de l'inspecteur vers le pharmacien.
+
+Cette description textuelle servira de base pour l'élaboration des différents modèles MERISE permettant de concevoir le système d'information de gestion des stocks avec alertes automatiques pour la pharmacie DIBAPHAR.
+
+---
+
+
+# Conclusion Générale du Travail Pratique
+
+L'étude menée sur la pharmacie DIBAPHAR nous a permis d'appréhender de manière concrète le fonctionnement d'un établissement pharmaceutique de proximité et d'identifier les besoins en matière de gestion des stocks. L'analyse des différents scénarios de fonctionnement a mis en évidence les processus clés que sont l'approvisionnement, la vente, le contrôle des péremptions, l'inspection sanitaire et l'inventaire physique.
+
+La modélisation selon la méthode MERISE nous a conduits à élaborer successivement le Modèle Conceptuel de Communication pour identifier les acteurs et les flux d'information, le Modèle Conceptuel des Données pour structurer les informations manipulées, le Modèle Conceptuel des Traitements pour décrire les opérations réalisées, puis leurs déclinaisons organisationnelles et logiques.
+
+Cette démarche méthodique nous a permis de passer d'une situation existante entièrement manuelle à une conception rigoureuse d'un système d'information automatisé. Le futur logiciel de gestion des stocks intégrera des fonctionnalités d'alertes automatiques permettant de prévenir les ruptures de stock lorsque les quantités atteignent les seuils minimums définis, et de signaler les produits dont la date de péremption approche afin de faciliter leur gestion prioritaire.
+
+Ce travail pratique illustre l'importance de la phase d'analyse dans tout projet informatique. La compréhension approfondie du domaine métier et la modélisation structurée constituent les fondements indispensables à la conception d'une solution logicielle pertinente et adaptée aux besoins réels des utilisateurs. La méthode MERISE, par son approche progressive du conceptuel vers le logique puis le physique, offre un cadre rigoureux garantissant la cohérence et la qualité du système d'information à développer.
+</prompt>
+<div>
+  # QUESTIONNAIRE D'ENQUÊTE
+
+## Étude et Conception d'un Logiciel de Gestion des Stocks d'une Pharmacie avec Alertes Automatiques
+
+---
+
+### INFORMATIONS PRÉLIMINAIRES
+
+**Référence du questionnaire :** ____________________
+
+**Date de l'enquête :** ____/____/________
+
+**Nom de l'enquêteur :** ____________________
+
+**Établissement enquêté :** ____________________
+
+**Nom et fonction du répondant :** ____________________
+
+---
+
+## SECTION 1 : IDENTIFICATION DE L'ÉTABLISSEMENT
+
+### 1.1 Informations générales
+
+**Q1. Quel est le type de votre établissement pharmaceutique ?**
+- [ ] Pharmacie de quartier
+- [ ] Pharmacie de centre-ville
+- [ ] Pharmacie hospitalière
+- [ ] Pharmacie rurale
+- [ ] Dépôt pharmaceutique
+- [ ] Autre : ____________________
+
+**Q2. Quel est le statut juridique de votre établissement ?**
+- [ ] Entreprise individuelle
+- [ ] SARL
+- [ ] SA
+- [ ] SNC
+- [ ] Autre : ____________________
+
+**Q3. Quelle est la taille de votre établissement ?**
+- [ ] Petite (surface < 50 m²)
+- [ ] Moyenne (surface entre 50 et 150 m²)
+- [ ] Grande (surface > 150 m²)
+
+**Q4. Depuis combien d'années votre établissement est-il en activité ?**
+- [ ] Moins d'un an
+- [ ] Entre 1 et 5 ans
+- [ ] Entre 5 et 10 ans
+- [ ] Entre 10 et 20 ans
+- [ ] Plus de 20 ans
+
+---
+
+### 1.2 Horaires de fonctionnement
+
+**Q5. Quels sont les jours d'ouverture de votre établissement ?**
+- [ ] Lundi
+- [ ] Mardi
+- [ ] Mercredi
+- [ ] Jeudi
+- [ ] Vendredi
+- [ ] Samedi
+- [ ] Dimanche
+- [ ] Jours fériés
+
+**Q6. Quelles sont vos plages horaires d'ouverture ?**
+
+| Jour | Heure d'ouverture | Heure de fermeture |
+|------|-------------------|-------------------|
+| Lundi | ____:____ | ____:____ |
+| Mardi | ____:____ | ____:____ |
+| Mercredi | ____:____ | ____:____ |
+| Jeudi | ____:____ | ____:____ |
+| Vendredi | ____:____ | ____:____ |
+| Samedi | ____:____ | ____:____ |
+| Dimanche | ____:____ | ____:____ |
+
+**Q7. Assurez-vous des gardes ou permanences ?**
+- [ ] Oui, de nuit
+- [ ] Oui, le week-end
+- [ ] Oui, les jours fériés
+- [ ] Non
+
+---
+
+## SECTION 2 : RESSOURCES HUMAINES ET ACTEURS
+
+### 2.1 Personnel de l'établissement
+
+**Q8. Combien de personnes travaillent dans votre établissement ?**
+- [ ] 1 personne (pharmacien seul)
+- [ ] 2 à 3 personnes
+- [ ] 4 à 5 personnes
+- [ ] 6 à 10 personnes
+- [ ] Plus de 10 personnes
+
+**Q9. Quelle est la composition de votre personnel ?** *(Cochez toutes les cases applicables et indiquez le nombre)*
+
+| Fonction | Présent | Nombre |
+|----------|---------|--------|
+| Pharmacien titulaire | [ ] | ____ |
+| Pharmacien assistant | [ ] | ____ |
+| Préparateur en pharmacie | [ ] | ____ |
+| Vendeur/Caissier | [ ] | ____ |
+| Magasinier/Gestionnaire de stock | [ ] | ____ |
+| Agent d'entretien | [ ] | ____ |
+| Livreur | [ ] | ____ |
+| Autre : ______________ | [ ] | ____ |
+
+**Q10. Qui est responsable de la gestion des stocks ?** *(Plusieurs réponses possibles)*
+- [ ] Le pharmacien titulaire uniquement
+- [ ] Le pharmacien assistant
+- [ ] Un préparateur désigné
+- [ ] Un gestionnaire de stock dédié
+- [ ] Tous les membres du personnel
+- [ ] Autre : ____________________
+
+---
+
+### 2.2 Acteurs externes
+
+**Q11. Quels sont les acteurs externes avec lesquels vous interagissez ?** *(Cochez toutes les cases applicables)*
+- [ ] Clients particuliers
+- [ ] Fournisseurs/Grossistes
+- [ ] Laboratoires pharmaceutiques
+- [ ] Médecins prescripteurs
+- [ ] Hôpitaux/Cliniques
+- [ ] Inspecteurs sanitaires
+- [ ] Organismes d'assurance maladie
+- [ ] Mutuelles de santé
+- [ ] Autre : ____________________
+
+**Q12. Combien de fournisseurs approvisionnent régulièrement votre établissement ?**
+- [ ] 1 seul fournisseur
+- [ ] 2 à 3 fournisseurs
+- [ ] 4 à 5 fournisseurs
+- [ ] 6 à 10 fournisseurs
+- [ ] Plus de 10 fournisseurs
+
+**Q13. Quelle est la fréquence moyenne des visites de clients par jour ?**
+- [ ] Moins de 20 clients
+- [ ] Entre 20 et 50 clients
+- [ ] Entre 50 et 100 clients
+- [ ] Entre 100 et 200 clients
+- [ ] Plus de 200 clients
+
+---
+
+## SECTION 3 : SYSTÈME DE GESTION ACTUEL
+
+### 3.1 Mode de gestion
+
+**Q14. Quel est le mode de gestion actuel de votre stock ?**
+- [ ] Entièrement manuel (registres papier)
+- [ ] Partiellement informatisé (tableurs Excel, etc.)
+- [ ] Logiciel de gestion dédié
+- [ ] Système intégré (ERP)
+- [ ] Autre : ____________________
+
+**Q15. Si vous utilisez un système manuel, quels supports utilisez-vous ?** *(Plusieurs réponses possibles)*
+- [ ] Registre d'inventaire
+- [ ] Fiches de stock
+- [ ] Cahier des entrées
+- [ ] Cahier des sorties
+- [ ] Bon de commande manuscrit
+- [ ] Bon de livraison
+- [ ] Facturier
+- [ ] Classeur de documents
+- [ ] Autre : ____________________
+
+**Q16. Êtes-vous satisfait de votre système de gestion actuel ?**
+- [ ] Très satisfait
+- [ ] Satisfait
+- [ ] Moyennement satisfait
+- [ ] Insatisfait
+- [ ] Très insatisfait
+
+**Q17. Quels problèmes rencontrez-vous avec votre système actuel ?** *(Plusieurs réponses possibles)*
+- [ ] Perte de temps dans la recherche d'informations
+- [ ] Erreurs de calcul fréquentes
+- [ ] Difficultés de traçabilité des produits
+- [ ] Ruptures de stock imprévues
+- [ ] Produits périmés non détectés à temps
+- [ ] Difficultés lors des inventaires
+- [ ] Difficultés lors des inspections sanitaires
+- [ ] Manque de visibilité sur l'état du stock
+- [ ] Difficultés de suivi des commandes
+- [ ] Perte de documents
+- [ ] Autre : ____________________
+
+---
+
+### 3.2 Équipement informatique existant
+
+**Q18. Disposez-vous d'un équipement informatique ?**
+- [ ] Oui
+- [ ] Non *(passez à la section 4)*
+
+**Q19. Si oui, quel équipement possédez-vous ?** *(Plusieurs réponses possibles)*
+- [ ] Ordinateur de bureau
+- [ ] Ordinateur portable
+- [ ] Tablette
+- [ ] Smartphone professionnel
+- [ ] Imprimante
+- [ ] Scanner
+- [ ] Lecteur de codes-barres
+- [ ] Caisse enregistreuse électronique
+- [ ] Autre : ____________________
+
+**Q20. Disposez-vous d'une connexion internet ?**
+- [ ] Oui, connexion permanente (fibre, ADSL)
+- [ ] Oui, connexion mobile (3G/4G/5G)
+- [ ] Oui, connexion intermittente
+- [ ] Non
+
+**Q21. Quel est le niveau de compétence informatique du personnel ?**
+- [ ] Aucune compétence
+- [ ] Niveau débutant (utilisation basique)
+- [ ] Niveau intermédiaire (bureautique courante)
+- [ ] Niveau avancé (utilisation de logiciels spécialisés)
+
+---
+
+## SECTION 4 : GESTION DES PRODUITS PHARMACEUTIQUES
+
+### 4.1 Catalogue de produits
+
+**Q22. Combien de références de produits gérez-vous approximativement ?**
+- [ ] Moins de 500 références
+- [ ] Entre 500 et 1 000 références
+- [ ] Entre 1 000 et 2 000 références
+- [ ] Entre 2 000 et 5 000 références
+- [ ] Plus de 5 000 références
+
+**Q23. Quelles catégories de produits commercialisez-vous ?** *(Plusieurs réponses possibles)*
+- [ ] Médicaments sur ordonnance
+- [ ] Médicaments sans ordonnance (OTC)
+- [ ] Produits génériques
+- [ ] Produits de parapharmacie
+- [ ] Produits cosmétiques
+- [ ] Produits d'hygiène
+- [ ] Matériel médical
+- [ ] Produits vétérinaires
+- [ ] Produits diététiques/Compléments alimentaires
+- [ ] Autre : ____________________
+
+**Q24. Quelles informations enregistrez-vous pour chaque produit ?** *(Cochez toutes les cases applicables)*
+
+| Information | Enregistrée | Non enregistrée |
+|-------------|-------------|-----------------|
+| Référence/Code du produit | [ ] | [ ] |
+| Désignation/Nom du produit | [ ] | [ ] |
+| Forme pharmaceutique (comprimé, sirop, etc.) | [ ] | [ ] |
+| Dosage | [ ] | [ ] |
+| Conditionnement | [ ] | [ ] |
+| Prix d'achat | [ ] | [ ] |
+| Prix de vente | [ ] | [ ] |
+| Taux de TVA | [ ] | [ ] |
+| Quantité en stock | [ ] | [ ] |
+| Seuil minimum de stock | [ ] | [ ] |
+| Numéro de lot | [ ] | [ ] |
+| Date de péremption | [ ] | [ ] |
+| Emplacement dans le stockage | [ ] | [ ] |
+| Fournisseur principal | [ ] | [ ] |
+| Classe thérapeutique | [ ] | [ ] |
+| Code-barres | [ ] | [ ] |
+| Autre : ______________ | [ ] | [ ] |
+
+---
+
+### 4.2 Formes pharmaceutiques gérées
+
+**Q25. Quelles formes pharmaceutiques sont présentes dans votre stock ?** *(Plusieurs réponses possibles)*
+- [ ] Comprimés
+- [ ] Gélules
+- [ ] Sirops
+- [ ] Solutions buvables
+- [ ] Solutions injectables
+- [ ] Pommades/Crèmes
+- [ ] Gels
+- [ ] Suppositoires
+- [ ] Collyres
+- [ ] Aérosols/Sprays
+- [ ] Patchs
+- [ ] Sachets/Poudres
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 5 : PROCESSUS D'APPROVISIONNEMENT
+
+### 5.1 Déclenchement des commandes
+
+**Q26. Comment identifiez-vous le besoin de réapprovisionnement ?** *(Plusieurs réponses possibles)*
+- [ ] Constat visuel de l'épuisement du stock
+- [ ] Consultation du registre d'inventaire
+- [ ] Seuil minimum de stock prédéfini
+- [ ] Demande d'un produit en rupture par un client
+- [ ] Vérification périodique planifiée
+- [ ] Alerte d'un logiciel
+- [ ] Autre : ____________________
+
+**Q27. Définissez-vous un seuil minimum de stock pour chaque produit ?**
+- [ ] Oui, pour tous les produits
+- [ ] Oui, uniquement pour les produits à forte rotation
+- [ ] Oui, uniquement pour les médicaments essentiels
+- [ ] Non
+
+**Q28. Si oui, comment est déterminé ce seuil minimum ?**
+- [ ] Basé sur l'expérience/l'historique des ventes
+- [ ] Calculé selon la consommation moyenne journalière
+- [ ] Fixé par le fournisseur
+- [ ] Fixé arbitrairement
+- [ ] Autre : ____________________
+
+**Q29. Quelle est la fréquence de vos commandes aux fournisseurs ?**
+- [ ] Quotidienne
+- [ ] Plusieurs fois par semaine
+- [ ] Hebdomadaire
+- [ ] Bimensuelle
+- [ ] Mensuelle
+- [ ] Selon les besoins (irrégulière)
+
+---
+
+### 5.2 Processus de commande
+
+**Q30. Comment passez-vous vos commandes auprès des fournisseurs ?** *(Plusieurs réponses possibles)*
+- [ ] Bon de commande manuscrit
+- [ ] Appel téléphonique
+- [ ] SMS
+- [ ] Email
+- [ ] Plateforme en ligne du fournisseur
+- [ ] Application mobile
+- [ ] Visite du représentant commercial
+- [ ] Autre : ____________________
+
+**Q31. Quelles informations figurent sur votre bon de commande ?** *(Cochez toutes les cases applicables)*
+- [ ] Date de la commande
+- [ ] Numéro de commande
+- [ ] Identification du fournisseur
+- [ ] Identification de la pharmacie
+- [ ] Liste des produits commandés
+- [ ] Référence de chaque produit
+- [ ] Désignation de chaque produit
+- [ ] Quantité commandée
+- [ ] Prix unitaire
+- [ ] Montant total estimé
+- [ ] Délai de livraison souhaité
+- [ ] Conditions de paiement
+- [ ] Signature
+- [ ] Autre : ____________________
+
+**Q32. Conservez-vous une copie des bons de commande ?**
+- [ ] Oui, systématiquement
+- [ ] Oui, parfois
+- [ ] Non
+
+---
+
+### 5.3 Réception des livraisons
+
+**Q33. Comment les livraisons sont-elles effectuées ?**
+- [ ] Le fournisseur livre directement à la pharmacie
+- [ ] La pharmacie se déplace pour récupérer les produits
+- [ ] Livraison par un transporteur tiers
+- [ ] Autre : ____________________
+
+**Q34. Quels documents accompagnent les livraisons ?** *(Plusieurs réponses possibles)*
+- [ ] Bon de livraison
+- [ ] Facture
+- [ ] Bon de commande validé
+- [ ] Certificat d'analyse
+- [ ] Aucun document
+- [ ] Autre : ____________________
+
+**Q35. Quelles vérifications effectuez-vous à la réception ?** *(Plusieurs réponses possibles)*
+- [ ] Conformité des produits par rapport à la commande
+- [ ] Vérification des références
+- [ ] Vérification des quantités livrées
+- [ ] Vérification des numéros de lot
+- [ ] Vérification des dates de péremption
+- [ ] État des emballages
+- [ ] Respect de la chaîne du froid (si applicable)
+- [ ] Aucune vérification particulière
+- [ ] Autre : ____________________
+
+**Q36. Que faites-vous en cas de non-conformité de la livraison ?**
+- [ ] Refus total de la livraison
+- [ ] Refus partiel (produits non conformes)
+- [ ] Acceptation avec réserves
+- [ ] Acceptation sans réserves
+- [ ] Réclamation ultérieure auprès du fournisseur
+
+**Q37. Comment attestez-vous de la réception des produits ?**
+- [ ] Signature du bon de livraison
+- [ ] Bon de réception interne
+- [ ] Enregistrement dans un registre
+- [ ] Aucune attestation formelle
+- [ ] Autre : ____________________
+
+---
+
+### 5.4 Règlement des fournisseurs
+
+**Q38. Quel est le mode de règlement des fournisseurs ?** *(Plusieurs réponses possibles)*
+- [ ] Paiement comptant à la livraison
+- [ ] Paiement par chèque
+- [ ] Virement bancaire
+- [ ] Paiement à crédit (délai de paiement)
+- [ ] Paiement mobile (mobile money)
+- [ ] Autre : ____________________
+
+**Q39. Si paiement à crédit, quel est le délai accordé ?**
+- [ ] 7 jours
+- [ ] 15 jours
+- [ ] 30 jours
+- [ ] 60 jours
+- [ ] 90 jours
+- [ ] Autre : ____________________
+
+**Q40. Quel document atteste du règlement effectué ?**
+- [ ] Quittance/Reçu de paiement
+- [ ] Facture acquittée (cachet "PAYÉ")
+- [ ] Relevé bancaire
+- [ ] Aucun document
+- [ ] Autre : ____________________
+
+---
+
+### 5.5 Informations sur les fournisseurs
+
+**Q41. Quelles informations enregistrez-vous sur vos fournisseurs ?** *(Cochez toutes les cases applicables)*
+- [ ] Raison sociale
+- [ ] Adresse complète
+- [ ] Numéro de téléphone
+- [ ] Adresse email
+- [ ] Numéro de registre de commerce
+- [ ] Numéro d'identification fiscale
+- [ ] Nom du contact/représentant
+- [ ] Conditions commerciales
+- [ ] Historique des commandes
+- [ ] Délais de livraison habituels
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 6 : GESTION DU STOCK
+
+### 6.1 Enregistrement des mouvements de stock
+
+**Q42. Enregistrez-vous les entrées de stock ?**
+- [ ] Oui, systématiquement
+- [ ] Oui, partiellement
+- [ ] Non
+
+**Q43. Si oui, quelles informations enregistrez-vous pour les entrées ?** *(Cochez toutes les cases applicables)*
+- [ ] Date d'entrée
+- [ ] Référence du produit
+- [ ] Désignation du produit
+- [ ] Quantité entrée
+- [ ] Numéro de lot
+- [ ] Date de péremption
+- [ ] Prix d'achat
+- [ ] Référence du bon de livraison
+- [ ] Nom du fournisseur
+- [ ] Autre : ____________________
+
+**Q44. Enregistrez-vous les sorties de stock ?**
+- [ ] Oui, systématiquement
+- [ ] Oui, partiellement
+- [ ] Non
+
+**Q45. Si oui, quelles informations enregistrez-vous pour les sorties ?** *(Cochez toutes les cases applicables)*
+- [ ] Date de sortie
+- [ ] Référence du produit
+- [ ] Désignation du produit
+- [ ] Quantité sortie
+- [ ] Motif de sortie (vente, péremption, casse, etc.)
+- [ ] Référence du document associé (ticket, PV, etc.)
+- [ ] Numéro de lot
+- [ ] Autre : ____________________
+
+**Q46. Quels sont les différents motifs de sortie de stock que vous gérez ?** *(Plusieurs réponses possibles)*
+- [ ] Vente au client
+- [ ] Péremption
+- [ ] Casse/Détérioration
+- [ ] Vol/Perte
+- [ ] Retour fournisseur
+- [ ] Don/Échantillon
+- [ ] Usage interne
+- [ ] Autre : ____________________
+
+---
+
+### 6.2 Rangement et organisation du stock
+
+**Q47. Comment organisez-vous le rangement des produits ?** *(Plusieurs réponses possibles)*
+- [ ] Par ordre alphabétique
+- [ ] Par classe thérapeutique
+- [ ] Par forme pharmaceutique
+- [ ] Par fournisseur
+- [ ] Par date de péremption (FEFO)
+- [ ] Par ordre d'arrivée (FIFO)
+- [ ] Par fréquence de vente
+- [ ] Aucune organisation particulière
+- [ ] Autre : ____________________
+
+**Q48. Respectez-vous la règle FEFO (First Expired, First Out) ?**
+- [ ] Oui, systématiquement
+- [ ] Oui, partiellement
+- [ ] Non
+- [ ] Je ne connais pas cette règle
+
+**Q49. Disposez-vous d'espaces de stockage différenciés ?** *(Plusieurs réponses possibles)*
+- [ ] Rayonnages de vente (accès public)
+- [ ] Réserve/Arrière-boutique
+- [ ] Réfrigérateur pour produits thermosensibles
+- [ ] Armoire sécurisée pour stupéfiants
+- [ ] Espace pour produits à péremption proche
+- [ ] Espace pour produits périmés en attente de destruction
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 7 : PROCESSUS DE VENTE
+
+### 7.1 Types de ventes
+
+**Q50. Quels types de ventes effectuez-vous ?** *(Plusieurs réponses possibles)*
+- [ ] Vente sur ordonnance médicale
+- [ ] Vente libre (sans ordonnance)
+- [ ] Vente en gros
+- [ ] Vente avec prise en charge (assurance/mutuelle)
+- [ ] Vente à crédit
+- [ ] Autre : ____________________
+
+**Q51. Quelle est la proportion approximative des ventes sur ordonnance ?**
+- [ ] Moins de 25%
+- [ ] Entre 25% et 50%
+- [ ] Entre 50% et 75%
+- [ ] Plus de 75%
+
+---
+
+### 7.2 Processus de vente sur ordonnance
+
+**Q52. Quelles informations relevez-vous sur les ordonnances ?** *(Cochez toutes les cases applicables)*
+- [ ] Nom du patient
+- [ ] Date de naissance du patient
+- [ ] Date de prescription
+- [ ] Nom du médecin prescripteur
+- [ ] Spécialité du médecin
+- [ ] Liste des médicaments prescrits
+- [ ] Posologie
+- [ ] Durée du traitement
+- [ ] Numéro de l'ordonnance
+- [ ] Cachet/Signature du médecin
+- [ ] Aucune information relevée
+- [ ] Autre : ____________________
+
+**Q53. Conservez-vous les ordonnances ?**
+- [ ] Oui, toutes les ordonnances
+- [ ] Oui, uniquement pour certains médicaments (stupéfiants, etc.)
+- [ ] Non
+
+---
+
+### 7.3 Encaissement et documentation
+
+**Q54. Quels modes de paiement acceptez-vous ?** *(Plusieurs réponses possibles)*
+- [ ] Espèces
+- [ ] Chèque
+- [ ] Carte bancaire
+- [ ] Paiement mobile (mobile money)
+- [ ] Virement
+- [ ] Prise en charge assurance/mutuelle
+- [ ] Crédit client
+- [ ] Autre : ____________________
+
+**Q55. Émettez-vous un document de vente au client ?**
+- [ ] Oui, systématiquement
+- [ ] Oui, sur demande du client
+- [ ] Non
+
+**Q56. Si oui, quel type de document ?**
+- [ ] Ticket de caisse
+- [ ] Facture
+- [ ] Reçu manuscrit
+- [ ] Autre : ____________________
+
+**Q57. Quelles informations figurent sur le document de vente ?** *(Cochez toutes les cases applicables)*
+- [ ] Date de la vente
+- [ ] Numéro de vente/facture
+- [ ] Identification de la pharmacie
+- [ ] Nom du client
+- [ ] Liste des produits vendus
+- [ ] Désignation de chaque produit
+- [ ] Quantité vendue
+- [ ] Prix unitaire
+- [ ] Montant par produit
+- [ ] Montant total
+- [ ] Mode de paiement
+- [ ] Numéro de lot
+- [ ] TVA
+- [ ] Autre : ____________________
+
+**Q58. Conservez-vous un double des documents de vente ?**
+- [ ] Oui, systématiquement
+- [ ] Oui, partiellement
+- [ ] Non
+
+---
+
+## SECTION 8 : GESTION DES DATES DE PÉREMPTION
+
+### 8.1 Surveillance des péremptions
+
+**Q59. Effectuez-vous un contrôle régulier des dates de péremption ?**
+- [ ] Oui
+- [ ] Non *(passez à la question Q65)*
+
+**Q60. Si oui, à quelle fréquence ?**
+- [ ] Quotidiennement
+- [ ] Hebdomadairement
+- [ ] Bimensuellement
+- [ ] Mensuellement
+- [ ] Trimestriellement
+- [ ] Occasionnellement
+- [ ] Autre : ____________________
+
+**Q61. Comment effectuez-vous ce contrôle ?**
+- [ ] Vérification physique des produits
+- [ ] Consultation du registre d'inventaire
+- [ ] Les deux méthodes
+- [ ] Autre : ____________________
+
+**Q62. Quel délai d'alerte utilisez-vous avant la date de péremption ?**
+- [ ] 1 mois avant
+- [ ] 2 mois avant
+- [ ] 3 mois avant
+- [ ] 6 mois avant
+- [ ] Autre : ____________________
+- [ ] Aucun délai défini
+
+**Q63. Tenez-vous un registre des alertes de péremption ?**
+- [ ] Oui
+- [ ] Non
+
+**Q64. Si oui, quelles informations y consignez-vous ?** *(Cochez toutes les cases applicables)*
+- [ ] Date du contrôle
+- [ ] Référence du produit
+- [ ] Désignation du produit
+- [ ] Numéro de lot
+- [ ] Date de péremption
+- [ ] Quantité concernée
+- [ ] Nombre de jours restants
+- [ ] Actions entreprises
+- [ ] Autre : ____________________
+
+---
+
+### 8.2 Gestion des produits proches de la péremption
+
+**Q65. Que faites-vous des produits proches de la péremption ?** *(Plusieurs réponses possibles)*
+- [ ] Placement en avant dans les rayonnages
+- [ ] Promotion/Remise commerciale
+- [ ] Retour au fournisseur
+- [ ] Don à des structures de santé
+- [ ] Rien de particulier
+- [ ] Autre : ____________________
+
+---
+
+### 8.3 Gestion des produits périmés
+
+**Q66. Comment gérez-vous les produits périmés ?** *(Plusieurs réponses possibles)*
+- [ ] Retrait immédiat des rayonnages
+- [ ] Isolement dans un espace dédié
+- [ ] Enregistrement dans le registre des sorties
+- [ ] Destruction selon procédure réglementaire
+- [ ] Retour au fournisseur
+- [ ] Autre : ____________________
+
+**Q67. Établissez-vous un procès-verbal de destruction ?**
+- [ ] Oui, systématiquement
+- [ ] Oui, parfois
+- [ ] Non
+
+**Q68. Si oui, quelles informations y figurent ?** *(Cochez toutes les cases applicables)*
+- [ ] Date du PV
+- [ ] Numéro du PV
+- [ ] Liste des produits à détruire
+- [ ] Référence de chaque produit
+- [ ] Désignation de chaque produit
+- [ ] Quantité
+- [ ] Numéro de lot
+- [ ] Date de péremption
+- [ ] Valeur des produits
+- [ ] Motif de destruction
+- [ ] Mode de destruction
+- [ ] Signature du responsable
+- [ ] Signature d'un témoin
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 9 : INVENTAIRE PHYSIQUE
+
+### 9.1 Pratiques d'inventaire
+
+**Q69. Effectuez-vous des inventaires physiques de votre stock ?**
+- [ ] Oui
+- [ ] Non *(passez à la section 10)*
+
+**Q70. Si oui, à quelle fréquence ?**
+- [ ] Quotidiennement (pour certains produits)
+- [ ] Hebdomadairement
+- [ ] Mensuellement
+- [ ] Trimestriellement
+- [ ] Semestriellement
+- [ ] Annuellement
+- [ ] Autre : ____________________
+
+**Q71. Quel type d'inventaire pratiquez-vous ?**
+- [ ] Inventaire complet (tous les produits)
+- [ ] Inventaire tournant (par catégorie/rayon)
+- [ ] Inventaire permanent
+- [ ] Les deux (complet et tournant)
+- [ ] Autre : ____________________
+
+**Q72. Comment effectuez-vous l'inventaire ?**
+- [ ] Comptage manuel avec feuille d'inventaire papier
+- [ ] Comptage avec saisie sur tableur (Excel, etc.)
+- [ ] Comptage avec lecteur de codes-barres
+- [ ] Comptage avec application mobile
+- [ ] Autre : ____________________
+
+---
+
+### 9.2 Documents et informations d'inventaire
+
+**Q73. Quelles informations figurent sur votre feuille d'inventaire ?** *(Cochez toutes les cases applicables)*
+- [ ] Date de l'inventaire
+- [ ] Référence du produit
+- [ ] Désignation du produit
+- [ ] Quantité théorique (selon registre)
+- [ ] Quantité réelle (comptée)
+- [ ] Écart
+- [ ] Numéro de lot
+- [ ] Date de péremption
+- [ ] Emplacement
+- [ ] Observations
+- [ ] Signature du responsable
+- [ ] Autre : ____________________
+
+**Q74. Que faites-vous en cas d'écart d'inventaire ?** *(Plusieurs réponses possibles)*
+- [ ] Recomptage pour vérification
+- [ ] Recherche de la cause de l'écart
+- [ ] Enregistrement dans un registre des écarts
+- [ ] Régularisation du stock
+- [ ] Signalement à la direction
+- [ ] Aucune action particulière
+- [ ] Autre : ____________________
+
+**Q75. Tenez-vous un registre des écarts d'inventaire ?**
+- [ ] Oui
+- [ ] Non
+
+**Q76. Si oui, quelles informations y consignez-vous ?** *(Cochez toutes les cases applicables)*
+- [ ] Date de l'inventaire
+- [ ] Référence du produit
+- [ ] Désignation du produit
+- [ ] Quantité théorique
+- [ ] Quantité réelle
+- [ ] Écart (+ ou -)
+- [ ] Cause identifiée
+- [ ] Action corrective
+- [ ] Autre : ____________________
+
+**Q77. Conservez-vous les feuilles d'inventaire ?**
+- [ ] Oui, dans un dossier dédié
+- [ ] Oui, mais sans classement particulier
+- [ ] Non
+
+---
+
+## SECTION 10 : INSPECTIONS ET CONFORMITÉ RÉGLEMENTAIRE
+
+### 10.1 Inspections sanitaires
+
+**Q78. Faites-vous l'objet d'inspections sanitaires ?**
+- [ ] Oui
+- [ ] Non *(passez à la question Q84)*
+
+**Q79. Si oui, à quelle fréquence en moyenne ?**
+- [ ] Plusieurs fois par an
+- [ ] Une fois par an
+- [ ] Tous les 2 ans
+- [ ] Moins fréquemment
+- [ ] Irrégulièrement
+
+**Q80. Qui effectue ces inspections ?** *(Plusieurs réponses possibles)*
+- [ ] Inspection de la santé publique
+- [ ] Direction de la pharmacie
+- [ ] Ordre des pharmaciens
+- [ ] Autre : ____________________
+
+**Q81. Quels documents vous sont demandés lors des inspections ?** *(Cochez toutes les cases applicables)*
+- [ ] Registre d'inventaire
+- [ ] Registre des entrées de stock
+- [ ] Registre des sorties de stock
+- [ ] Bons de commande
+- [ ] Bons de livraison
+- [ ] Factures fournisseurs
+- [ ] Registre des ventes
+- [ ] Ordonnances (certains médicaments)
+- [ ] Registre des stupéfiants
+- [ ] Registre des alertes de péremption
+- [ ] Procès-verbaux de destruction
+- [ ] Feuilles d'inventaire
+- [ ] Registre des inspections précédentes
+- [ ] Diplômes et autorisations
+- [ ] Autre : ____________________
+
+**Q82. Quels éléments sont contrôlés lors des inspections ?** *(Cochez toutes les cases applicables)*
+- [ ] Conformité des quantités (registre vs physique)
+- [ ] Conditions de stockage
+- [ ] Température de conservation
+- [ ] Hygiène des locaux
+- [ ] Absence de produits périmés en rayon
+- [ ] Traçabilité des produits
+- [ ] Gestion des stupéfiants
+- [ ] Qualifications du personnel
+- [ ] Autre : ____________________
+
+**Q83. Tenez-vous un registre des inspections ?**
+- [ ] Oui
+- [ ] Non
+
+**Q84. Si oui, quelles informations y consignez-vous ?** *(Cochez toutes les cases applicables)*
+- [ ] Date de l'inspection
+- [ ] Nom de l'inspecteur
+- [ ] Organisme de l'inspecteur
+- [ ] Référence du rapport d'inspection
+- [ ] Observations principales
+- [ ] Conclusions
+- [ ] Actions correctives demandées
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 11 : BESOINS EN ALERTES AUTOMATIQUES
+
+### 11.1 Alertes de stock
+
+**Q85. Souhaiteriez-vous être alerté automatiquement en cas de stock bas ?**
+- [ ] Oui, absolument
+- [ ] Oui, ce serait utile
+- [ ] Peu importe
+- [ ] Non, pas nécessaire
+
+**Q86. Comment souhaiteriez-vous recevoir ces alertes ?** *(Plusieurs réponses possibles)*
+- [ ] Notification dans le logiciel
+- [ ] Alerte visuelle (couleur, icône)
+- [ ] Alerte sonore
+- [ ] Email
+- [ ] SMS
+- [ ] Notification push sur mobile
+- [ ] Rapport périodique
+- [ ] Autre : ____________________
+
+**Q87. À quel moment souhaiteriez-vous être alerté ?**
+- [ ] Dès que le seuil minimum est atteint
+- [ ] Quelques jours avant d'atteindre le seuil minimum
+- [ ] En temps réel à chaque vente impactant le stock
+- [ ] Lors d'une consultation périodique (rapport)
+- [ ] Autre : ____________________
+
+---
+
+### 11.2 Alertes de péremption
+
+**Q88. Souhaiteriez-vous être alerté automatiquement pour les dates de péremption proches ?**
+- [ ] Oui, absolument
+- [ ] Oui, ce serait utile
+- [ ] Peu importe
+- [ ] Non, pas nécessaire
+
+**Q89. Quel délai d'alerte avant péremption souhaiteriez-vous ?** *(Plusieurs réponses possibles)*
+- [ ] 1 mois avant
+- [ ] 2 mois avant
+- [ ] 3 mois avant
+- [ ] 6 mois avant
+- [ ] Délai personnalisable par produit
+- [ ] Autre : ____________________
+
+**Q90. Souhaiteriez-vous des niveaux d'alerte différenciés ?**
+- [ ] Oui (ex : jaune = 3 mois, orange = 1 mois, rouge = périmé)
+- [ ] Non, un seul niveau suffit
+
+---
+
+### 11.3 Autres alertes
+
+**Q91. Quelles autres alertes jugeriez-vous utiles ?** *(Cochez toutes les cases applicables)*
+- [ ] Alerte pour les écarts d'inventaire significatifs
+- [ ] Alerte pour les produits sans mouvement depuis longtemps
+- [ ] Rappel pour les inventaires périodiques
+- [ ] Rappel pour les commandes récurrentes
+- [ ] Alerte pour les factures impayées
+- [ ] Rappel pour les inspections à venir
+- [ ] Alerte pour les produits retirés du marché (rappels de lots)
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 12 : RAPPORTS ET STATISTIQUES
+
+### 12.1 Besoins en rapports
+
+**Q92. Quels rapports souhaiteriez-vous pouvoir générer ?** *(Cochez toutes les cases applicables)*
+- [ ] État du stock actuel
+- [ ] Liste des produits en rupture ou en stock bas
+- [ ] Liste des produits à péremption proche
+- [ ] Historique des mouvements de stock
+- [ ] Historique des commandes fournisseurs
+- [ ] Historique des ventes
+- [ ] Statistiques de ventes par produit
+- [ ] Statistiques de ventes par période
+- [ ] Valorisation du stock
+- [ ] Taux de rotation des produits
+- [ ] Liste des écarts d'inventaire
+- [ ] Rapport des destructions
+- [ ] Bilan des inspections
+- [ ] Chiffre d'affaires
+- [ ] Marge bénéficiaire
+- [ ] Autre : ____________________
+
+**Q93. À quelle fréquence consulteriez-vous ces rapports ?**
+- [ ] Quotidiennement
+- [ ] Hebdomadairement
+- [ ] Mensuellement
+- [ ] Trimestriellement
+- [ ] Occasionnellement
+- [ ] Autre : ____________________
+
+**Q94. Sous quel format souhaiteriez-vous ces rapports ?** *(Plusieurs réponses possibles)*
+- [ ] Affichage à l'écran
+- [ ] Impression papier
+- [ ] Export PDF
+- [ ] Export Excel
+- [ ] Envoi par email
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 13 : ATTENTES VIS-À-VIS DU LOGICIEL
+
+### 13.1 Fonctionnalités souhaitées
+
+**Q95. Quelles fonctionnalités jugez-vous essentielles pour le logiciel ?** *(Notez de 1 à 5 : 1 = peu important, 5 = indispensable)*
+
+| Fonctionnalité | 1 | 2 | 3 | 4 | 5 |
+|----------------|---|---|---|---|---|
+| Gestion du catalogue produits | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Gestion des fournisseurs | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Gestion des commandes | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Réception des livraisons | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Suivi des entrées de stock | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Suivi des sorties de stock | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Gestion des ventes | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Alertes de stock bas | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Alertes de péremption | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Gestion des inventaires | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Gestion des écarts d'inventaire | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Suivi des destructions | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Gestion des inspections | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Génération de rapports | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Statistiques et tableaux de bord | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Gestion des utilisateurs | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Sauvegarde des données | [ ] | [ ] | [ ] | [ ] | [ ] |
+
+---
+
+### 13.2 Caractéristiques techniques
+
+**Q96. Quelles caractéristiques techniques sont importantes pour vous ?** *(Cochez toutes les cases applicables)*
+- [ ] Interface simple et intuitive
+- [ ] Rapidité d'exécution
+- [ ] Fiabilité (sans bugs)
+- [ ] Sécurité des données
+- [ ] Accès multi-utilisateurs
+- [ ] Fonctionnement hors connexion
+- [ ] Accès depuis mobile/tablette
+- [ ] Mise à jour automatique
+- [ ] Support technique disponible
+- [ ] Formation à l'utilisation
+- [ ] Personnalisation possible
+- [ ] Autre : ____________________
+
+**Q97. Sur quel type d'appareil souhaiteriez-vous utiliser le logiciel ?** *(Plusieurs réponses possibles)*
+- [ ] Ordinateur de bureau
+- [ ] Ordinateur portable
+- [ ] Tablette
+- [ ] Smartphone
+- [ ] Tous les appareils
+
+**Q98. Préférez-vous un logiciel installé localement ou accessible en ligne ?**
+- [ ] Logiciel installé sur l'ordinateur (hors ligne)
+- [ ] Application web (en ligne)
+- [ ] Application mobile
+- [ ] Combinaison (local + synchronisation en ligne)
+- [ ] Pas de préférence
+
+---
+
+### 13.3 Formation et accompagnement
+
+**Q99. Auriez-vous besoin d'une formation pour utiliser le logiciel ?**
+- [ ] Oui, absolument
+- [ ] Oui, probablement
+- [ ] Non, si l'interface est intuitive
+- [ ] Non, je me débrouillerai seul
+
+**Q100. Quel type de support souhaiteriez-vous ?** *(Plusieurs réponses possibles)*
+- [ ] Manuel d'utilisation
+- [ ] Tutoriels vidéo
+- [ ] Formation en personne
+- [ ] Assistance téléphonique
+- [ ] Assistance par email
+- [ ] Chat en ligne
+- [ ] Autre : ____________________
+
+---
+
+## SECTION 14 : OBSERVATIONS ET SUGGESTIONS
+
+**Q101. Avez-vous des difficultés particulières non mentionnées dans ce questionnaire ?**
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+**Q102. Avez-vous des attentes spécifiques concernant le futur logiciel ?**
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+**Q103. Avez-vous des suggestions ou remarques complémentaires ?**
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+---
+
+## SECTION 15 : DISPONIBILITÉ POUR SUIVI
+
+**Q104. Accepteriez-vous d'être recontacté pour des précisions ou une démonstration du logiciel ?**
+- [ ] Oui
+- [ ] Non
+
+**Q105. Si oui, quel est votre moyen de contact préféré ?**
+- [ ] Téléphone : ____________________
+- [ ] Email : ____________________
+- [ ] Visite sur place
+- [ ] Autre : ____________________
+
+---
+
+## VALIDATION DU QUESTIONNAIRE
+
+**Signature du répondant :** ____________________
+
+**Date :** ____/____/________
+
+**Signature de l'enquêteur :** ____________________
+
+**Observations de l'enquêteur :**
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+___________________________________________________________________________
+
+---
+
+### FIN DU QUESTIONNAIRE
+
+*Nous vous remercions pour votre précieuse collaboration. Les informations recueillies seront traitées de manière confidentielle et serviront exclusivement à la conception du logiciel de gestion des stocks.*
+
+---
+
+## ANNEXE : GRILLE D'OBSERVATION (À compléter par l'enquêteur)
+
+### A. Observation des locaux
+
+| Élément observé | Oui | Non | Observations |
+|-----------------|-----|-----|--------------|
+| Rayonnages de vente organisés | [ ] | [ ] | |
+| Réserve/Arrière-boutique présente | [ ] | [ ] | |
+| Réfrigérateur pour produits thermosensibles | [ ] | [ ] | |
+| Armoire sécurisée (stupéfiants) | [ ] | [ ] | |
+| Espace de réception des livraisons | [ ] | [ ] | |
+| Poste de travail informatique | [ ] | [ ] | |
+| Classeurs/Archives visibles | [ ] | [ ] | |
+| Espace pour produits périmés | [ ] | [ ] | |
+
+### B. Observation des pratiques
+
+| Pratique observée | Oui | Non | Observations |
+|-------------------|-----|-----|--------------|
+| Utilisation de registres papier | [ ] | [ ] | |
+| Utilisation d'outils informatiques | [ ] | [ ] | |
+| Vérification des péremptions lors des ventes | [ ] | [ ] | |
+| Organisation FEFO respectée | [ ] | [ ] | |
+| Émission de tickets de vente | [ ] | [ ] | |
+| Archivage des documents | [ ] | [ ] | |
+
+### C. Documents collectés
+
+| Document | Collecté | Non collecté | Observations |
+|----------|----------|--------------|--------------|
+| Exemple de registre d'inventaire | [ ] | [ ] | |
+| Exemple de bon de commande | [ ] | [ ] | |
+| Exemple de bon de livraison | [ ] | [ ] | |
+| Exemple de facture fournisseur | [ ] | [ ] | |
+| Exemple de ticket de vente | [ ] | [ ] | |
+| Exemple de feuille d'inventaire | [ ] | [ ] | |
+| Exemple de PV de destruction | [ ] | [ ] | |
+
+---
+
+*Ce questionnaire a été élaboré dans le cadre du cours de Méthodologie d'Analyse Informatique 1 (M.A.I) pour le sujet : "Étude et conception d'un logiciel permettant de gérer les stocks d'une pharmacie avec alertes automatiques".*
+</div>
